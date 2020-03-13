@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'gmapsApiKey' => env('GMAPS_SERVER_API_KEY'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

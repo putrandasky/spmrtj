@@ -11,5 +11,34 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+// mix.js('resources/js/app.js', 'public/js')
+//    .sass('resources/sass/app.scss', 'public/css');
+
+
+   mix.webpackConfig({
+    resolve: {
+      extensions: ['.js', '.vue', '.json'],
+      alias: {
+        '@': path.resolve(__dirname, 'resources/js/')
+      },
+    },
+  });
+  mix
+  .js('resources/js/survey/app.js', 'public/js/survey/app.js')
+//   .js('resources/js/admin2/main.js', 'public/js/admin-area2.js')
+  .js('resources/js/gmaps/app.js', 'public/js/gmaps/app.js')
+
+
+
+  if (mix.inProduction()) {
+    mix.version();
+    mix.options({
+      terser: {
+        terserOptions: {
+          compress: {
+            drop_console: true
+          }
+        }
+      }
+    });
+  }
