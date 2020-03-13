@@ -13,11 +13,11 @@
                 </template>
 
                 <template slot="bottom">
-             <div class="w-100 text-left">
-                    <small>
-                        nb: Boleh memilih lebih dari satu jawaban
-                    </small>
-                </div>
+                    <div class="w-100 text-left">
+                        <small>
+                            nb: Boleh memilih lebih dari satu jawaban
+                        </small>
+                    </div>
                     <b-form-checkbox-group
                         slot="bottom"
                         id="reason_using_transport"
@@ -106,11 +106,11 @@
                     yang ada saat ini?
                 </template>
                 <template slot="bottom">
-              <div class="w-100 text-left">
-                    <small>
-                        nb: Boleh memilih lebih dari satu jawaban
-                    </small>
-                </div>
+                    <div class="w-100 text-left">
+                        <small>
+                            nb: Boleh memilih lebih dari satu jawaban
+                        </small>
+                    </div>
                     <b-form-checkbox-group
                         slot="bottom"
                         id="reason_using_transport"
@@ -283,7 +283,22 @@ export default {
         this.getData();
     },
     methods: {
-        submit() {},
+        handleNext(token, routeName) {
+            // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
+            this.$router.replace({
+                name: routeName
+                // query: {
+                //     token: token
+                // }
+            });
+        },
+        submit() {
+            this.$store.dispatch("isLoading", true);
+            setTimeout(() => {
+                this.$store.dispatch("isLoading", false);
+                this.handleNext("fsfsdf", "Completed");
+            }, 1000);
+        },
         getData() {
             axios
                 .get(`respondent/survey/additional-data`)
