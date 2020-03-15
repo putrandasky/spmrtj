@@ -106,10 +106,10 @@ export default {
         handleNext() {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
             this.$router.replace({
-                name: 'AdditionalData'
-                // query: {
-                //     token: token
-                // }
+                name: 'AdditionalData',
+                query: {
+                    token: this.$route.query.token
+                }
             });
         },
     }

@@ -23,14 +23,9 @@ export const AuthRespondent = {
                     this.handleRoute(response.data.token, response.data.step)
               }
             } else {
-              console.log('new');
+              console.log('new1');
             //   localStorage.token_respondent = response.data.token
-              this.$router.replace({
-                name: 'SocialData',
-                query: {
-                  token: response.data.token
-                }
-              })
+            this.handleRoute(response.data.token, 'Welcome')
               this.isChecking = false
             }
           })
@@ -46,18 +41,16 @@ export const AuthRespondent = {
               if (response.data.status == "exist") {
                 console.log('exist');
                 this.$store.dispatch('storeToken', response.data)
-                self.status = response.data.status
-                this.handleRoute(response.data.token, response.data.step)
+                if (this.$route.name !== response.data.step) {
+                    this.handleRoute(response.data.token, response.data.step)
+              }
               } else {
                 // localStorage.token_respondent = response.data.token
-                console.log('new');
-                self.status = response.data.status
-                this.$router.replace({
-                  name: 'SocialData',
-                  query: {
-                    token: response.data.token
-                  }
-                })
+                if (this.$route.name !== 'SocialData'  ) {
+                    if (this.$route.name !== 'Welcome'  ) {
+                        this.handleRoute(response.data.token, 'Welcome')
+                    }
+                }
                 this.isChecking = false
 
               }
@@ -71,8 +64,11 @@ export const AuthRespondent = {
               console.log('new');
               console.log(response.data)
             //   localStorage.token_respondent = response.data.token
-              self.status = response.data.status
-              this.handleRoute(response.data.token, 'Welcome')
+            if (this.$route.name !== 'SocialData'  ) {
+                if (this.$route.name !== 'Welcome'  ) {
+                    this.handleRoute(response.data.token, 'Welcome')
+                }
+            }
               this.isChecking = false
             })
             .catch((error) => {

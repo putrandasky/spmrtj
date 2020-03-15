@@ -84,9 +84,9 @@ export default {
         handleStart() {
             this.$router.replace({
                 name: "SocialData",
-                // query: {
-                //     token: this.$route.query.token
-                // }
+                query: {
+                    token: this.$route.query.token
+                }
             });
         },
         handleNext() {
