@@ -154,7 +154,7 @@ class SurveyController extends Controller
         $respondent->step_id = 5;
         $respondent->save();
 
-        return response()->json(['message' => 'Informasi tambahan berhasil disimpan'], 200);
+        return response()->json(['message' => 'Informasi tambahan berhasil disimpan','token' => $respondent->token,], 200);
 
     }
     public function findRespondent($token)
