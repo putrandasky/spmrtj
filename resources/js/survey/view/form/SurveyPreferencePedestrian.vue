@@ -196,12 +196,33 @@ export default {
     },
     methods: {
         submit() {
+            let self = this
             this.$store.dispatch("isLoading", true);
-            setTimeout(() => {
-                this.$store.dispatch("isLoading", false);
+            // setTimeout(() => {
+            //     this.$store.dispatch("isLoading", false);
 
-                this.$emit('finish',1)
-            }, 1000);
+            //     this.$emit("finish", 1);
+            // }, 1000);
+            axios
+                .post(
+                    `respondent/survey/preference/pedestrian?token=${this.$route.query.token}`,
+                    self.input
+                )
+                .then(response => {
+                    console.log(response.data);
+                    // this.$store.dispatch('storeToken', response.data)
+                    this.$store.dispatch("isLoading", false);
+                    this.$bvToast.toast(response.data.message, {
+                        title: `SUCCESS`,
+                        variant: "success",
+                        autoHideDelay: 1000,
+                        solid: true
+                    });
+                    this.$emit("finish", 1);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         },
         getData() {
             this.isLoading = true;

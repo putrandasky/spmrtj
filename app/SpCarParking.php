@@ -12,11 +12,11 @@ class SpCarParking extends Model
     {
         return $this->belongsTo('App\Respondent');
     }
-    public function cost()
+    public function cost_preference()
     {
         return $this->belongsTo('App\CostPreference');
     }
-    public function time()
+    public function time_preference()
     {
         return $this->belongsTo('App\TimePreference');
     }

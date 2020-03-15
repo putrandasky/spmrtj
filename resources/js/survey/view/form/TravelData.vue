@@ -104,13 +104,13 @@
             </b-card>
             <b-form-radio-group
                 slot="bottom"
-                id="trip_combination"
+                id="travel_model"
                 stacked
                 button-variant="outline-primary"
-                v-model="input.trip_combination"
-                :options="options.trip_combination"
+                v-model="input.travel_model"
+                :options="options.travel_model"
                 buttons
-                name="trip_combination"
+                name="travel_model"
                 class="btn-block"
             ></b-form-radio-group>
             <b-button
@@ -119,7 +119,7 @@
                 variant="success"
                 class="mx-auto px-5"
                 @click="step = 5"
-                v-if="input.trip_combination !== null"
+                v-if="input.travel_model !== null"
                 >Lanjut</b-button
             >
         </div>
@@ -147,7 +147,7 @@
             </question-slot>
             <question-slot
                 class="border-top pt-3 mt-3"
-                v-if="[0, 2].includes(input.trip_combination)"
+                v-if="[0, 2].includes(input.travel_model)"
             >
                 <hr />
                 <template slot="above">
@@ -172,7 +172,7 @@
             </question-slot>
             <question-slot
                 class="border-top pt-3 mt-3"
-                v-if="[0, 2].includes(input.trip_combination)"
+                v-if="[0, 2].includes(input.travel_model)"
             >
                 <hr />
                 <template slot="above">
@@ -194,7 +194,7 @@
 
             <question-slot
                 class="border-top pt-3 mt-3"
-                v-if="[0, 2].includes(input.trip_combination)"
+                v-if="[0, 2].includes(input.travel_model)"
             >
                 <hr />
                 <template slot="above">
@@ -222,7 +222,7 @@
                 class="mx-auto px-5 mt-3"
                 @click="step = 6"
                 v-if="
-                    [0, 2].includes(input.trip_combination)
+                    [0, 2].includes(input.travel_model)
                         ? input.trip_frequency > 0 &&
                           input.parking_cost > 0 &&
                           parking_guarantors !== null &&
@@ -278,14 +278,14 @@
                 </b-card>
                 <b-form-select
                     plain
-                    id="travel_mode"
+                    id="transportation_mode"
                     class="form-control-lg shadow-sm"
                     :options="
-                        [0].includes(input.trip_combination)
-                            ? options.travel_modes.slice(2, 6)
-                            : options.travel_modes
+                        [0].includes(input.travel_model)
+                            ? options.transportation_modes.slice(2, 6)
+                            : options.transportation_modes
                     "
-                    v-model="v.travel_mode"
+                    v-model="v.transportation_mode"
                     :disabled="submitting"
                 >
                     <template slot="first">
@@ -295,10 +295,12 @@
                     </template>
                 </b-form-select>
                 <hr />
-                <div class="w-100 mt-3" v-if="v.travel_mode">
+                <div class="w-100 mt-3" v-if="v.transportation_mode">
                     <div
                         v-if="
-                            notRequiredWaitingTime.indexOf(v.travel_mode) == -1
+                            notRequiredWaitingTime.indexOf(
+                                v.transportation_mode
+                            ) == -1
                         "
                     >
                         <b-card class="mb-3 shadow-sm py-1" no-body>
@@ -344,7 +346,11 @@
                         ></range-slider>
                     </div>
                     <hr />
-                    <div v-if="notRequiredCost.indexOf(v.travel_mode) == -1">
+                    <div
+                        v-if="
+                            notRequiredCost.indexOf(v.transportation_mode) == -1
+                        "
+                    >
                         <b-card class="mb-3 shadow-sm py-1" no-body>
                             <h5 class="mb-0 font-weight-bold text-primary">
                                 Biaya perjalanan
@@ -374,14 +380,17 @@
                     :disabled="submitting"
                     v-if="
                         !(
-                            v.travel_mode > 0 &&
-                            (notRequiredWaitingTime.indexOf(v.travel_mode) == -1
+                            v.transportation_mode > 0 &&
+                            (notRequiredWaitingTime.indexOf(
+                                v.transportation_mode
+                            ) == -1
                                 ? input.travel_detail[i].waiting_duration > 0
                                     ? true
                                     : false
                                 : true) &&
                             v.travel_duration > 0 &&
-                            (notRequiredCost.indexOf(v.travel_mode) == -1
+                            (notRequiredCost.indexOf(v.transportation_mode) ==
+                            -1
                                 ? input.travel_detail[i].travel_cost > 0
                                     ? true
                                     : false
@@ -393,14 +402,17 @@
                 <div
                     class="w-100 text-center mt-2"
                     v-if="
-                        v.travel_mode > 0 &&
-                            (notRequiredWaitingTime.indexOf(v.travel_mode) == -1
+                        v.transportation_mode > 0 &&
+                            (notRequiredWaitingTime.indexOf(
+                                v.transportation_mode
+                            ) == -1
                                 ? input.travel_detail[i].waiting_duration > 0
                                     ? true
                                     : false
                                 : true) &&
                             v.travel_duration > 0 &&
-                            (notRequiredCost.indexOf(v.travel_mode) == -1
+                            (notRequiredCost.indexOf(v.transportation_mode) ==
+                            -1
                                 ? input.travel_detail[i].travel_cost > 0
                                     ? true
                                     : false
@@ -411,13 +423,14 @@
                         variant="secondary"
                         @click="back(i)"
                         :disabled="submitting"
-                        v-if="i > 0"
+                        v-if="i > 0 || input.travel_model > 0"
                         >Kembali</b-button
                     >
                     <b-button
                         variant="light"
                         @click="addTravelDetail"
                         :disabled="submitting"
+                        v-if="input.travel_model > 0"
                         >Moda berikutnya</b-button
                     >
                     <b-button
@@ -425,7 +438,7 @@
                         @click="showConfirmDialog"
                         :disabled="submitting"
                     >
-                        atau selesai
+                        Selesai
                         <b-spinner
                             small
                             type="grow"
@@ -442,9 +455,11 @@ import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 import AutoCompletePlace from "@/survey/components/AutoCompletePlace.vue";
 import GoogleMap from "@/survey/components/google/GoogleMaps.vue";
 import { EventBus } from "@/survey/event.js";
+import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
 
 export default {
     name: "TravelData",
+    mixins: [AuthRespondent],
     components: {
         AutoCompletePlace,
         GoogleMap,
@@ -462,7 +477,7 @@ export default {
                 travel_origin: null,
                 travel_destination: null,
                 travel_purpose: null,
-                trip_combination: null,
+                travel_model: null,
                 trip_frequency: 0,
                 parking_guarantor: null,
                 parking_cost: 0,
@@ -471,7 +486,7 @@ export default {
                 area_destination: null,
                 travel_detail: [
                     {
-                        travel_mode: null,
+                        transportation_mode: null,
                         waiting_duration: 0,
                         travel_duration: 0,
                         travel_cost: 0
@@ -480,10 +495,10 @@ export default {
             },
             options: {
                 travel_purposes: {},
-                travel_modes: {},
+                transportation_modes: {},
                 parking_guarantors: {},
                 parking_types: {},
-                trip_combination: [
+                travel_model: [
                     {
                         text: "Mobil/Motor (pengemudi/penumpang)",
                         value: 0
@@ -516,18 +531,33 @@ export default {
         handleNext(token, routeName) {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
             this.$router.replace({
-                name: routeName
-                // query: {
-                //     token: token
-                // }
+                name: routeName,
+                query: {
+                    token: token
+                }
             });
         },
         submit() {
+            // setTimeout(() => {
+            //     this.$store.dispatch("isLoading", false);
+            //     this.handleNext("fsfsdf", "TravelData");
+            // }, 1000);
             this.$store.dispatch("isLoading", true);
-            setTimeout(() => {
-                this.$store.dispatch("isLoading", false);
-                this.handleNext("fsfsdf", "SurveyPreference");
-            }, 1000);
+
+            axios
+                .post(
+                    `respondent/survey/travel-data?token=${this.$route.query.token}`,
+                    this.input
+                )
+                .then(response => {
+                    console.log(response.data);
+                    this.$store.dispatch("storeToken", response.data);
+                    this.$store.dispatch("isLoading", false);
+                    this.handleNext(response.data.token, 'SurveyPreference');
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         },
         showConfirmDialog() {
             let self = this;
@@ -554,13 +584,16 @@ export default {
                             travel_origin: null,
                             travel_destination: null,
                             travel_purpose: null,
-                            trip_combination: null,
-                            trip_frequency: 1,
+                            travel_model: null,
+                            trip_frequency: 0,
                             parking_guarantor: null,
                             parking_cost: 0,
+                            parking_type: null,
+                            area_origin: null,
+                            area_destination: null,
                             travel_detail: [
                                 {
-                                    travel_mode: null,
+                                    transportation_mode: null,
                                     waiting_duration: 0,
                                     travel_duration: 0,
                                     travel_cost: 0
@@ -580,7 +613,7 @@ export default {
         },
         addTravelDetail() {
             this.input.travel_detail.push({
-                travel_mode: null,
+                transportation_mode: null,
                 waiting_duration: 0,
                 travel_duration: 0,
                 travel_cost: 0
@@ -593,7 +626,7 @@ export default {
                 this.step = 2;
             }
             // if (step == 7) {
-            //     this.input.trip_combination == 0
+            //     this.input.travel_model == 0
             //         ? this.showConfirmDialog()
             //         : (this.step = 7);
             // }
@@ -618,8 +651,8 @@ export default {
                     this.options.travel_purposes = this.mutateKey(
                         response.data.travel_purposes
                     );
-                    this.options.travel_modes = this.mutateKey(
-                        response.data.travel_modes
+                    this.options.transportation_modes = this.mutateKey(
+                        response.data.transportation_modes
                     );
                     this.options.parking_guarantors = this.mutateKey(
                         response.data.parking_guarantors

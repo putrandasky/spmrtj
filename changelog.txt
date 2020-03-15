@@ -1,0 +1,7 @@
+16 Mar 2020
+### ADDED
+- Writing backend code to recording database
+- UI Feeder Park
+- connect auth respondent mixin in front end
+### FIXED
+- Padding Bottom Button on welcome page

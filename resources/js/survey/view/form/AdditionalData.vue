@@ -256,8 +256,11 @@
 </template>
 <script>
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
+import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
+
 export default {
     name: "AdditionalData",
+    mixins: [AuthRespondent],
     components: { QuestionSlot },
     data: function() {
         return {
@@ -286,19 +289,33 @@ export default {
         handleNext(token, routeName) {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
             this.$router.replace({
-                name: routeName
-                // query: {
-                //     token: token
-                // }
+                name: routeName,
+                query: {
+                    token: token
+                }
             });
         },
         submit() {
             this.$store.dispatch("isLoading", true);
-            setTimeout(() => {
-                this.$store.dispatch("isLoading", false);
-                this.handleNext("fsfsdf", "Completed");
-            }, 1000);
+            // setTimeout(() => {
+            //     this.$store.dispatch("isLoading", false);
+            //     this.handleNext("fsfsdf", "Completed");
+            // }, 1000);
+            axios
+                .post(
+                    `respondent/survey/additional-data?token=${this.$route.query.token}`,
+                    this.input
+                )
+                .then(response => {
+                    console.log(response.data);
+                    this.$store.dispatch("isLoading", false);
+                    this.handleNext(response.data.token, "Completed");
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         },
+
         getData() {
             axios
                 .get(`respondent/survey/additional-data`)

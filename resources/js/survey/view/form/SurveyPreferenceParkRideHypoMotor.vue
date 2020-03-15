@@ -2,7 +2,8 @@
     <div>
         <b-card class="w-100 mb-3" no-body>
             <h5 class="mb-0 font-weight-bold py-1 text-primary">
-                Preferensi Layanan Park & Ride Pengguna Motor Pribadi (Hypotethical)
+                Preferensi Layanan Park & Ride Pengguna Motor Pribadi
+                (Hypotethical)
             </h5>
         </b-card>
         <question-slot>
@@ -30,7 +31,8 @@
                             dengan tarif
                             <b-badge variant="primary">
                                 <h6 class="mb-0 font-weight-bold">
-                                    Rp {{ currentData.questionState.feeder_cost }}
+                                    Rp
+                                    {{ currentData.questionState.feeder_cost }}
                                 </h6>
                             </b-badge>
                         </span>
@@ -141,16 +143,37 @@ export default {
                 question_id: questionId,
                 respond: respond
             });
-            self.questionIndex++
+            self.questionIndex++;
             console.table(this.stateDataCollection.data);
         },
         submitStateCollection() {
+            let self = this;
             this.$store.dispatch("isLoading", true);
-            setTimeout(() => {
-                this.$store.dispatch("isLoading", false);
+            // setTimeout(() => {
+            //     this.$store.dispatch("isLoading", false);
 
-                this.$emit('finish',1)
-            }, 1000);
+            //     this.$emit("finish", 1);
+            // }, 1000);
+            axios
+                .post(
+                    `respondent/survey/preference/park-ride-hypo-motor?token=${this.$route.query.token}`,
+                    self.stateDataCollection
+                )
+                .then(response => {
+                    console.log(response.data);
+                    // this.$store.dispatch('storeToken', response.data)
+                    this.$store.dispatch("isLoading", false);
+                    this.$bvToast.toast(response.data.message, {
+                        title: `SUCCESS`,
+                        variant: "success",
+                        autoHideDelay: 1000,
+                        solid: true
+                    });
+                    this.$emit("finish", 1);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 };

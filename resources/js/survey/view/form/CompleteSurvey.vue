@@ -29,10 +29,10 @@
 <script>
 // import animationData from "@/survey/assets/checked_done_blue.js";
 // import Datepicker from "vuejs-datepicker";
-// import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
+import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
 export default {
   name: "CompleteSurvey",
-//   mixins: [AuthRespondent],
+  mixins: [AuthRespondent],
   components: {
     // Datepicker
   },

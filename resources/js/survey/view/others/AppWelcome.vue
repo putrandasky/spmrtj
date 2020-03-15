@@ -1,5 +1,5 @@
 <template>
-    <b-row class="app d-flex justify-content-center align-items-start mx-0">
+    <b-row class="app d-flex justify-content-center align-items-start mx-0 pb-3">
             <b-col lg="4" class="pl-0">
                 <b-img src="/img/ripped-with-logo-fixed.svg" class="img-fluid" />
             </b-col>

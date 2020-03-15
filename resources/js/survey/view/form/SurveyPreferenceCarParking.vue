@@ -91,11 +91,31 @@ export default {
     methods: {
         submitStateCollection() {
             this.$store.dispatch("isLoading", true);
-            setTimeout(() => {
-                this.$store.dispatch("isLoading", false);
+            // setTimeout(() => {
+            //     this.$store.dispatch("isLoading", false);
 
-                this.$emit("finish", 1);
-            }, 1000);
+            //     this.$emit("finish", 1);
+            // }, 1000);
+
+                    let self = this
+        // this.stateDataCollection.respondent_id = this.$store.state.respondent.id
+        // this.$store.dispatch('isLoading', true)
+        axios.post(`respondent/survey/preference/park-car?token=${this.$route.query.token}`, self.stateDataCollection)
+          .then((response) => {
+            console.log(response.data)
+            // this.$store.dispatch('storeToken', response.data)
+            this.$store.dispatch('isLoading', false)
+            this.$bvToast.toast(response.data.message, {
+              title: `SUCCESS`,
+              variant: 'success',
+              autoHideDelay: 1000,
+              solid: true
+            })
+            this.$emit("finish", 1);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
         },
         submit(respond) {
             let self = this;

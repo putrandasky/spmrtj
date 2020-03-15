@@ -11,9 +11,12 @@
     </div>
 </template>
 <script>
+import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
+
 import CarParking from "@/survey/view/form/SurveyPreferenceCarParking.vue";
 import Feeder from "@/survey/view/form/SurveyPreferenceFeeder.vue";
 import FeederPremium from "@/survey/view/form/SurveyPreferenceFeederPremium.vue";
+import FeederPark from "@/survey/view/form/SurveyPreferenceFeederPark.vue";
 import Pedestrian from "@/survey/view/form/SurveyPreferencePedestrian.vue";
 import Cycle from "@/survey/view/form/SurveyPreferenceCycle.vue";
 import ParkRideCommon from "@/survey/view/form/SurveyPreferenceParkRideCommon.vue";
@@ -24,6 +27,7 @@ import ParkRideHypoMotor from "@/survey/view/form/SurveyPreferenceParkRideHypoMo
 import MotorParking from "@/survey/view/form/SurveyPreferenceMotorParking.vue";
 export default {
     name: "SurveyPreference",
+    mixins: [AuthRespondent],
     components: {
         CarParking,
         Pedestrian,
@@ -36,6 +40,7 @@ export default {
         ParkRideMotor,
         ParkRideHypoCar,
         ParkRideHypoMotor,
+        FeederPark
     },
     data: function() {
         return {
@@ -45,6 +50,8 @@ export default {
     },
     mounted() {
         this.step = 1;
+        // console.log(this.$route.name);
+
     },
     computed: {},
     watch: {
@@ -68,21 +75,24 @@ export default {
                 this.component = "FeederPremium"
             }
             if (newVal == 7) {
-                this.component = "ParkRideCommon"
+                this.component = "FeederPark"
             }
             if (newVal == 8) {
-                this.component = "ParkRideCar"
+                this.component = "ParkRideCommon"
             }
             if (newVal == 9) {
-                this.component = "ParkRideMotor"
+                this.component = "ParkRideCar"
             }
             if (newVal == 10) {
-                this.component = "ParkRideHypoCar"
+                this.component = "ParkRideMotor"
             }
             if (newVal == 11) {
-                this.component = "ParkRideHypoMotor"
+                this.component = "ParkRideHypoCar"
             }
             if (newVal == 12) {
+                this.component = "ParkRideHypoMotor"
+            }
+            if (newVal == 13) {
                 this.handleNext()
             }
         }

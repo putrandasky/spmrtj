@@ -18,10 +18,11 @@ export const store = new Vuex.Store({
     respondent: {
       id: null,
       token: null,
-      category:"",
+      area_origins:[],
+      area_destinations:[],
       saving_time:null,
-      sp_type:null,
-      transportation_mode_id:null,
+      travel_model:null,
+      transportation_modes:[],
       step:{
         id:null,
         name:""
@@ -33,8 +34,10 @@ export const store = new Vuex.Store({
     [RESPONDENT](state, n) {
       state.respondent.id = n.id;
       state.respondent.token = n.token;
-      state.respondent.category = n.category;
-      state.respondent.sp_type = n.sp_type;
+      state.respondent.area_origins = n.area_origins;
+      state.respondent.area_destinations = n.area_destinations;
+      state.respondent.travel_model = n.travel_model;
+      state.respondent.transportation_modes = n.transportation_modes;
       state.respondent.saving_time = n.saving_time;
       state.respondent.step = n.step;
       state.respondent.transportation_mode_id = n.transportation_mode_id;
@@ -72,11 +75,12 @@ export const store = new Vuex.Store({
       let respondent_data ={
         token : creds.token,
         id : creds.respondent_id,
-        category: creds.category,
-        sp_type: creds.sp_type,
-        saving_time: creds.saving_time,
+        area_origins: creds.area_origins,
+        area_destinations: creds.area_destinations,
+        transportation_modes: creds.transportation_modes,
+        travel_model: creds.travel_model,
         step: creds.step,
-        transportation_mode_id: creds.transportation_mode_id,
+        // transportation_mode_id: creds.transportation_mode_id,
       }
       console.log(creds);
       commit(RESPONDENT, respondent_data);
