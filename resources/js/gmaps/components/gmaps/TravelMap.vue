@@ -267,11 +267,11 @@ export default {
                 .get(`map-data`)
                 .then(response => {
                     // console.log(response.data);
-                    this.outterDataArea1 = response.data.area[0].coverages;
-                    this.outterDataArea2 = response.data.area[1].coverages;
-                    this.outterDataArea3 = response.data.area[2].coverages;
-                    this.outterDataArea4 = response.data.area[3].coverages;
-                    this.outterDataArea5 = response.data.area[4].coverages;
+                         this.outterDataArea1 = this.parseFloatLatLng(response.data.area[0].coverages);
+                    this.outterDataArea2 = this.parseFloatLatLng(response.data.area[1].coverages);
+                    this.outterDataArea3 = this.parseFloatLatLng(response.data.area[2].coverages);
+                    this.outterDataArea4 = this.parseFloatLatLng(response.data.area[3].coverages);
+                    this.outterDataArea5 = this.parseFloatLatLng(response.data.area[4].coverages);
 
                     let coverage = {
                         parkir: this.outterDataArea1,

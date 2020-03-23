@@ -1,6 +1,12 @@
+24 Mar 2020
+### FIXED
+- Lat Lng number value
+- Logic for get preference kriteria
+
 23 Mar 2020
 ### ADDED
 - Aplikasi simulasi perjalanan
+
 
 16 Mar 2020
 ### ADDED

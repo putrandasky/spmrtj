@@ -167,6 +167,9 @@
                         <div v-show="hasParkRide">
                             Preferensi Layanan Park & Ride
                         </div>
+                        <div v-show="hasParkRideHypotetical">
+                            Preferensi Layanan Park & Ride (Hypotetical)
+                        </div>
                         <div v-show="hasPedestrian">
                             Preferensi Kebijakan Jalur Pedestrian
                         </div>
@@ -317,23 +320,45 @@ export default {
         //         return "SP Parkir";
         //     }
         // },
+
+
         hasParking() {
-            return this.destination.area.includes(1) ? true : false;
+            return this.hasPedestrian?false:
+            this.hasCycle?false:
+            this.destination.area.includes(1) ? true : false;
         },
         hasFeederReguler() {
-            return this.origin.area.includes(5) ? true : false;
+            return this.hasPedestrian?false:
+            this.hasCycle?false:
+            this.hasParking ?
+            this.origin.area.includes(5)?true:false
+            :
+            this.origin.area.includes(5)?true:false
+            ;
         },
         hasFeederPremium() {
-            return this.origin.area.includes(5) ? true : false;
+            return this.hasFeederReguler ? true : false;
         },
         hasFeederPark() {
-            return this.destination.area.includes(1) &&
-                this.origin.area.includes(5)
+            return
+            this.hasPedestrian?false:
+            this.hasCycle?false:
+                this.hasFeederReguler
                 ? true
                 : false;
         },
         hasParkRide() {
-            return this.origin.area.includes(4) ? true : false;
+            return this.hasPedestrian?false:
+            this.hasCycle?false:
+            this.hasFeederReguler ? false :
+            this.origin.area.includes(4)?true:false
+            ;
+        },
+        hasParkRideHypotetical() {
+            return this.hasPedestrian?false:
+            this.hasCycle?false:
+            this.hasFeederReguler ? false :
+            this.origin.area.includes(4)?false:true;
         },
         hasPedestrian() {
             return this.origin.area.includes(3) &&
@@ -342,13 +367,27 @@ export default {
                 : false;
         },
         hasCycle() {
-            return this.origin.area.includes(2) &&
+            return this.hasPedestrian? false:
+            this.origin.area.includes(2) &&
                 this.destination.area.includes(2)
                 ? true
                 : false;
         }
     },
     methods: {
+        convertSpIdToText(id) {
+            return id == 1
+                ? "Parkir"
+                : id == 2
+                ? "Sepeda"
+                : id == 3
+                ? "Pedestrian"
+                : id == 4
+                ? "Park and Ride"
+                : id == 5
+                ? "Feeder"
+                : null;
+        },
         submit() {
             // this.isLoading = true;
             this.$refs.travelmap.getRoutes();
@@ -371,19 +410,6 @@ export default {
                 this.destination.area = data.area;
                 return;
             }
-        },
-        convertSpIdToText(id) {
-            return id == 1
-                ? "Parkir"
-                : id == 2
-                ? "Sepeda"
-                : id == 3
-                ? "Pedestrian"
-                : id == 4
-                ? "Park and Ride"
-                : id == 5
-                ? "Feeder"
-                : null;
         },
 
         submit() {
