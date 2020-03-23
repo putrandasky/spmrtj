@@ -310,11 +310,11 @@ export default {
             axios
                 .get(`area`)
                 .then(response => {
-                    this.outterDataArea1 = response.data[0].coverages;
-                    this.outterDataArea2 = response.data[1].coverages;
-                    this.outterDataArea3 = response.data[2].coverages;
-                    this.outterDataArea4 = response.data[3].coverages;
-                    this.outterDataArea5 = response.data[4].coverages;
+                    this.outterDataArea1 = this.parseFloatLatLng(response.data[0].coverages);
+                    this.outterDataArea2 = this.parseFloatLatLng(response.data[1].coverages);
+                    this.outterDataArea3 = this.parseFloatLatLng(response.data[2].coverages);
+                    this.outterDataArea4 = this.parseFloatLatLng(response.data[3].coverages);
+                    this.outterDataArea5 = this.parseFloatLatLng(response.data[4].coverages);
                     // self.$store.dispatch(
                     //     "addCoverageArea",
                     //     response.data[0].coverages
