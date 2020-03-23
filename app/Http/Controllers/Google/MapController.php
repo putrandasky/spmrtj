@@ -15,8 +15,8 @@ class MapController extends Controller
     use RouteHelper;
     private $apiKey;
     private $base_uri = ['base_uri' => 'https://maps.googleapis.com/maps/api/'];
-    private $mrtVelocity = 70;
-    private $feederVelocity = 30;
+    private $mrtVelocity = 35;
+    private $feederVelocity = 28;
 
     public function mapData()
     {
@@ -428,8 +428,8 @@ class MapController extends Controller
     {
         $data['distance'] = $googleData['rows'][0]['elements'][0]['distance']['text'];
         $data['distance_value'] = $googleData['rows'][0]['elements'][0]['distance']['value'];
-        $data['duration'] = $googleData['rows'][0]['elements'][0]['duration']['text'];
-        $data['duration_seconds'] = $googleData['rows'][0]['elements'][0]['duration']['value'];
+        $data['duration'] = $googleData['rows'][0]['elements'][0]['duration_in_traffic']['text'];
+        $data['duration_seconds'] = $googleData['rows'][0]['elements'][0]['duration_in_traffic']['value'];
         return $data;
     }
     public function nearestStationData($id, $stationData, $googledata)
@@ -440,8 +440,8 @@ class MapController extends Controller
         $data['position']['lng'] = (float) $stationData['lng'];
         $data['distance'] = $googledata['rows'][0]['elements'][0]['distance']['text'];
         $data['distance_value'] = $googledata['rows'][0]['elements'][0]['distance']['value'];
-        $data['duration'] = $googledata['rows'][0]['elements'][0]['duration']['text'];
-        $data['duration_seconds'] = $googledata['rows'][0]['elements'][0]['duration']['value'];
+        $data['duration'] = $googledata['rows'][0]['elements'][0]['duration_in_traffic']['text'];
+        $data['duration_seconds'] = $googledata['rows'][0]['elements'][0]['duration_in_traffic']['value'];
         return $data;
     }
 }

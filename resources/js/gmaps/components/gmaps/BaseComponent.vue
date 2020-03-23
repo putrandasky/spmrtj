@@ -85,61 +85,72 @@
                         </b-card>
                     </b-col>
                     <b-col lg="6">
-<div v-show="markerOrigin.position.lat" class="pb-3">
-                    <b-card title="Asal Perjalanan" class="shadow">
-                        <hr />
-                        <strong class="font-weight-bold">Alamat</strong>
-                        <div>
-                            {{ origin.address }}
+                        <div v-show="markerOrigin.position.lat" class="pb-3">
+                            <b-card title="Asal Perjalanan" class="shadow">
+                                <hr />
+                                <strong class="font-weight-bold">Alamat</strong>
+                                <div>
+                                    {{ origin.address }}
+                                </div>
+                                <div>
+                                    <strong>Lat: </strong
+                                    ><span>{{
+                                        markerOrigin.position.lat
+                                    }}</span>
+                                    <strong>Lng: </strong
+                                    ><span>{{
+                                        markerOrigin.position.lng
+                                    }}</span>
+                                </div>
+                                <strong>
+                                    Area
+                                </strong>
+                                <ul>
+                                    <li v-for="(v, i) in origin.area" :key="i">
+                                        {{ convertSpIdToText(v) }}
+                                    </li>
+                                </ul>
+                            </b-card>
                         </div>
-                        <div>
-                            <strong>Lat: </strong
-                            ><span>{{ markerOrigin.position.lat }}</span>
-                            <strong>Lng: </strong
-                            ><span>{{ markerOrigin.position.lng }}</span>
-                        </div>
-                        <strong>
-                            Area
-                        </strong>
-                        <ul>
-                            <li v-for="(v, i) in origin.area" :key="i">
-                                {{ convertSpIdToText(v) }}
-                            </li>
-                        </ul>
-                    </b-card>
-                </div>
                     </b-col>
                     <b-col lg="6">
-<div v-show="markerDestination.position.lat" class="pb-3">
-                    <b-card title="Tujuan Perjalanan" class="shadow">
-                        <hr />
-                        <strong class="font-weight-bold">Alamat</strong>
-                        <div>
-                            {{ destination.address }}
+                        <div
+                            v-show="markerDestination.position.lat"
+                            class="pb-3"
+                        >
+                            <b-card title="Tujuan Perjalanan" class="shadow">
+                                <hr />
+                                <strong class="font-weight-bold">Alamat</strong>
+                                <div>
+                                    {{ destination.address }}
+                                </div>
+                                <div>
+                                    <strong>Lat: </strong>
+                                    <span>{{
+                                        markerDestination.position.lat
+                                    }}</span>
+                                    <strong>Lng: </strong>
+                                    <span>{{
+                                        markerDestination.position.lng
+                                    }}</span>
+                                </div>
+                                <strong>
+                                    Area
+                                </strong>
+                                <ul>
+                                    <li
+                                        v-for="(v, i) in destination.area"
+                                        :key="i"
+                                    >
+                                        {{ convertSpIdToText(v) }}
+                                    </li>
+                                </ul>
+                            </b-card>
                         </div>
-                        <div>
-                            <strong>Lat: </strong>
-                            <span>{{ markerDestination.position.lat }}</span>
-                            <strong>Lng: </strong>
-                            <span>{{ markerDestination.position.lng }}</span>
-                        </div>
-                        <strong>
-                            Area
-                        </strong>
-                        <ul>
-                            <li v-for="(v, i) in destination.area" :key="i">
-                                {{ convertSpIdToText(v) }}
-                            </li>
-                        </ul>
-                    </b-card>
-                </div>
                     </b-col>
                 </b-row>
             </b-col>
             <b-col md="6">
-
-
-
                 <div
                     class="pb-3"
                     v-show="
@@ -196,7 +207,12 @@
                                         {{ v.name }}
                                     </b-badge>
                                 </div>
-                                <div v-if="routes.feeder.path.length == 0">
+                                <div
+                                    v-if="
+                                        routes.mrt.path.length !== 0 &&
+                                            routes.feeder.path.length == 0
+                                    "
+                                >
                                     <strong>
                                         Total durasi dari posisi anda - MRT -
                                         tujuan anda :
@@ -223,17 +239,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div v-if="routes.feeder.path.length !== 0">
-                                <strong>
-                                    Total durasi dari posisi anda - Feeder -
-                                    tujuan anda :
-                                </strong>
-                                <div>
-                                    {{ routes.summary.duration_with_feeder }}
-                                </div>
-                            </div>
 
                             <hr />
+                        </div>
+                        <div
+                            v-if="
+                                routes.mrt.path.length == 0 &&
+                                    routes.feeder.path.length !== 0
+                            "
+                        >
+                            <strong>
+                                Total durasi dari posisi anda - Feeder - tujuan
+                                anda :
+                            </strong>
+                            <div>
+                                {{ routes.summary.duration_with_feeder }}
+                            </div>
                         </div>
                         <h5>
                             Menggunakan Transportasi Biasa (versi Google)
@@ -321,44 +342,62 @@ export default {
         //     }
         // },
 
-
         hasParking() {
-            return this.hasPedestrian?false:
-            this.hasCycle?false:
-            this.destination.area.includes(1) ? true : false;
+            return this.hasPedestrian
+                ? false
+                : this.hasCycle
+                ? false
+                : this.destination.area.includes(1)
+                ? true
+                : false;
         },
         hasFeederReguler() {
-            return this.hasPedestrian?false:
-            this.hasCycle?false:
-            this.hasParking ?
-            this.origin.area.includes(5)?true:false
-            :
-            this.origin.area.includes(5)?true:false
-            ;
+            return this.hasPedestrian
+                ? false
+                : this.hasCycle
+                ? false
+                : this.hasParking
+                ? this.origin.area.includes(5)
+                    ? true
+                    : false
+                : this.origin.area.includes(5)
+                ? true
+                : false;
         },
         hasFeederPremium() {
             return this.hasFeederReguler ? true : false;
         },
         hasFeederPark() {
-            return
-            this.hasPedestrian?false:
-            this.hasCycle?false:
-                this.hasFeederReguler
+            return;
+            this.hasPedestrian
+                ? false
+                : this.hasCycle
+                ? false
+                : this.hasFeederReguler
                 ? true
                 : false;
         },
         hasParkRide() {
-            return this.hasPedestrian?false:
-            this.hasCycle?false:
-            this.hasFeederReguler ? false :
-            this.origin.area.includes(4)?true:false
-            ;
+            return this.hasPedestrian
+                ? false
+                : this.hasCycle
+                ? false
+                : this.hasFeederReguler
+                ? false
+                : this.origin.area.includes(4)
+                ? true
+                : false;
         },
         hasParkRideHypotetical() {
-            return this.hasPedestrian?false:
-            this.hasCycle?false:
-            this.hasFeederReguler ? false :
-            this.origin.area.includes(4)?false:true;
+            return this.hasPedestrian
+                ? false
+                : this.hasCycle
+                ? false
+                : this.hasFeederReguler
+                ? false
+                : this.origin.area.includes(4)
+                ? false
+                : true;
         },
         hasPedestrian() {
             return this.origin.area.includes(3) &&
@@ -367,9 +406,10 @@ export default {
                 : false;
         },
         hasCycle() {
-            return this.hasPedestrian? false:
-            this.origin.area.includes(2) &&
-                this.destination.area.includes(2)
+            return this.hasPedestrian
+                ? false
+                : this.origin.area.includes(2) &&
+                  this.destination.area.includes(2)
                 ? true
                 : false;
         }
