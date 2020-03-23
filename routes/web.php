@@ -47,3 +47,10 @@ Route::get('respondent/survey/additional-data', 'Respondent\SurveyController@get
 Route::post('respondent/survey/additional-data', 'Respondent\SurveyController@storeAdditionalData');
 Route::get('geocoding', 'Google\GoogleController@geocoding');
 Route::get('area', 'Google\GoogleController@area');
+Route::get('line', 'Google\MapController@waypoint');
+Route::get('station', 'Google\MapController@station');
+Route::get('map-data', 'Google\MapController@mapData');
+
+Route::post('route', 'Google\MapController@routePathWithFeeder');
+
+

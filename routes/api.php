@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('respondent/survey/travel-data', 'Respondent\SurveyController@storeTravelData');
+
+Route::post('route', 'Google\MapController@routePathWithFeeder');

@@ -1,0 +1,142 @@
+[
+    {
+      "id": "1",
+      "lat": "106.822987",
+      "lng": "-6.193994902",
+      "name": "Stasiun MRT - Bunderan HI",
+      "object": "station"
+    },
+    {
+      "id": "2",
+      "lat": "106.82282",
+      "lng": "-6.200831902",
+      "name": "Stasiun MRT - Dukuh Atas",
+      "object": "station"
+    },
+    {
+      "id": "3",
+      "lat": "106.821345",
+      "lng": "-6.208975902",
+      "name": "Stasiun MRT - Setiabudi",
+      "object": "station"
+    },
+    {
+      "id": "4",
+      "lat": "106.818405",
+      "lng": "-6.214057902",
+      "name": "Stasiun MRT - Bendungan Hilir",
+      "object": "station"
+    },
+    {
+      "id": "5",
+      "lat": "106.805778",
+      "lng": "-6.223837902",
+      "name": "Stasiun MRT - Gelora Bung Karno",
+      "object": "station"
+    },
+    {
+      "id": "6",
+      "lat": "106.798026",
+      "lng": "-6.228477902",
+      "name": "Stasiun MRT - Senayan",
+      "object": "station"
+    },
+    {
+      "id": "7",
+      "lat": "106.79868",
+      "lng": "-6.236641902",
+      "name": "Stasiun MRT - Sisingamangaraja",
+      "object": "station"
+    },
+    {
+      "id": "8",
+      "lat": "106.797903",
+      "lng": "-6.244901902",
+      "name": "Stasiun MRT - Blok M",
+      "object": "station"
+    },
+    {
+      "id": "9",
+      "lat": "106.796983",
+      "lng": "-6.256273902",
+      "name": "Stasiun MRT - Pasar Blok A",
+      "object": "station"
+    },
+    {
+      "id": "10",
+      "lat": "106.796894",
+      "lng": "-6.263427902",
+      "name": "Stasiun MRT - Haji Nawi",
+      "object": "station"
+    },
+    {
+      "id": "11",
+      "lat": "106.797578",
+      "lng": "-6.277072902",
+      "name": "Stasiun MRT - Cipete Raya",
+      "object": "station"
+    },
+    {
+      "id": "12",
+      "lat": "106.7944659",
+      "lng": "-6.292685502",
+      "name": "curve 5",
+      "object": "curve"
+    },
+    {
+      "id": "13",
+      "lat": "106.7952265",
+      "lng": "-6.291640802",
+      "name": "curve 6",
+      "object": "curve"
+    },
+    {
+      "id": "14",
+      "lat": "106.7962262",
+      "lng": "-6.282045502",
+      "name": "Curve 7",
+      "object": "curve"
+    },
+    {
+      "id": "15",
+      "lat": "106.7925251",
+      "lng": "-6.292352802",
+      "name": "Stasiun Fatmawati",
+      "object": "station"
+    },
+    {
+      "id": "16",
+      "lat": "106.7767187",
+      "lng": "-6.289567902",
+      "name": "curve 1",
+      "object": "curve"
+    },
+    {
+      "id": "17",
+      "lat": "106.7780449",
+      "lng": "-6.288925502",
+      "name": "curve 2",
+      "object": "curve"
+    },
+    {
+      "id": "18",
+      "lat": "106.7791952",
+      "lng": "-6.290114702",
+      "name": "curve 3",
+      "object": "curve"
+    },
+    {
+      "id": "19",
+      "lat": "106.7855729",
+      "lng": "-6.292365202",
+      "name": "Curve 4",
+      "object": "curve"
+    },
+    {
+      "id": "20",
+      "lat": "106.7749371",
+      "lng": "-6.289235202",
+      "name": "Stasiun Lebak Bulus",
+      "object": "station"
+    }
+  ]

@@ -1,3 +1,7 @@
+23 Mar 2020
+### ADDED
+- Aplikasi simulasi perjalanan
+
 16 Mar 2020
 ### ADDED
 - Writing backend code to recording database

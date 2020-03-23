@@ -66,7 +66,7 @@
           strokeColor: this.lineColor || "RGB(0,162,232)",
           zIndex: this.zIndexLine || 1,
           strokeOpacity: this.icons? 0 :1,
-          strokeWeight: this.icons? 0 :9,
+          strokeWeight: this.icons? 0 :3,
           ...LINE_PATH_CONFIG,
           icons: [{
             icon: this.icons||null,

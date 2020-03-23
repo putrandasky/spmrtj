@@ -1,0 +1,3033 @@
+[
+    {
+      "id": "25",
+      "lat": "-6.2974653",
+      "lng": "106.7128904",
+      "name": "Ciputat - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "26",
+      "lat": "-6.2983715",
+      "lng": "106.7137804",
+      "name": "Ciputat - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "27",
+      "lat": "-6.2996299",
+      "lng": "106.7148211",
+      "name": "Ciputat - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "28",
+      "lat": "-6.3009096",
+      "lng": "106.7149391",
+      "name": "Ciputat - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "29",
+      "lat": "-6.302008",
+      "lng": "106.7149069",
+      "name": "Ciputat - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "30",
+      "lat": "-6.3031064",
+      "lng": "106.7150572",
+      "name": "Ciputat - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "31",
+      "lat": "-6.3030957",
+      "lng": "106.7166129",
+      "name": "Ciputat - 7",
+      "object": "feeder"
+    },
+    {
+      "id": "32",
+      "lat": "-6.3030744",
+      "lng": "106.7175677",
+      "name": "Ciputat - 8",
+      "object": "feeder"
+    },
+    {
+      "id": "33",
+      "lat": "-6.3046634",
+      "lng": "106.718544",
+      "name": "Ciputat - 9",
+      "object": "feeder"
+    },
+    {
+      "id": "34",
+      "lat": "-6.3060069",
+      "lng": "106.7186191",
+      "name": "Ciputat - 10",
+      "object": "feeder"
+    },
+    {
+      "id": "35",
+      "lat": "-6.3071267",
+      "lng": "106.7186728",
+      "name": "Ciputat - 11",
+      "object": "feeder"
+    },
+    {
+      "id": "36",
+      "lat": "-6.3083851",
+      "lng": "106.7190698",
+      "name": "Ciputat - 12",
+      "object": "feeder"
+    },
+    {
+      "id": "37",
+      "lat": "-6.3093235",
+      "lng": "106.7192843",
+      "name": "Ciputat - 13",
+      "object": "feeder"
+    },
+    {
+      "id": "38",
+      "lat": "-6.3101339",
+      "lng": "106.7202606",
+      "name": "Ciputat - 14",
+      "object": "feeder"
+    },
+    {
+      "id": "39",
+      "lat": "-6.3106458",
+      "lng": "106.7213657",
+      "name": "Ciputat - 15",
+      "object": "feeder"
+    },
+    {
+      "id": "40",
+      "lat": "-6.311083",
+      "lng": "106.722342",
+      "name": "Ciputat - 16",
+      "object": "feeder"
+    },
+    {
+      "id": "41",
+      "lat": "-6.3111576",
+      "lng": "106.7233506",
+      "name": "Ciputat - 17",
+      "object": "feeder"
+    },
+    {
+      "id": "42",
+      "lat": "-6.3108804",
+      "lng": "106.7245843",
+      "name": "Ciputat - 18",
+      "object": "feeder"
+    },
+    {
+      "id": "43",
+      "lat": "-6.3109783",
+      "lng": "106.7252944",
+      "name": "Ciputat - 19",
+      "object": "feeder"
+    },
+    {
+      "id": "44",
+      "lat": "-6.3109996",
+      "lng": "106.7258952",
+      "name": "Ciputat - 20",
+      "object": "feeder"
+    },
+    {
+      "id": "45",
+      "lat": "-6.3111169",
+      "lng": "106.72626",
+      "name": "Ciputat - 21",
+      "object": "feeder"
+    },
+    {
+      "id": "46",
+      "lat": "-6.3112129",
+      "lng": "106.7268716",
+      "name": "Ciputat - 22",
+      "object": "feeder"
+    },
+    {
+      "id": "47",
+      "lat": "-6.3116181",
+      "lng": "106.7272256",
+      "name": "Ciputat - 23",
+      "object": "feeder"
+    },
+    {
+      "id": "48",
+      "lat": "-6.3123753",
+      "lng": "106.7275797",
+      "name": "Ciputat - 24",
+      "object": "feeder"
+    },
+    {
+      "id": "49",
+      "lat": "-6.3127058",
+      "lng": "106.7278371",
+      "name": "Ciputat - 25",
+      "object": "feeder"
+    },
+    {
+      "id": "50",
+      "lat": "-6.3126952",
+      "lng": "106.7281697",
+      "name": "Ciputat - 26",
+      "object": "feeder"
+    },
+    {
+      "id": "51",
+      "lat": "-6.3127378",
+      "lng": "106.7285345",
+      "name": "Ciputat - 27",
+      "object": "feeder"
+    },
+    {
+      "id": "52",
+      "lat": "-6.3127165",
+      "lng": "106.7288135",
+      "name": "Ciputat - 28",
+      "object": "feeder"
+    },
+    {
+      "id": "53",
+      "lat": "-6.3127591",
+      "lng": "106.7291246",
+      "name": "Ciputat - 29",
+      "object": "feeder"
+    },
+    {
+      "id": "54",
+      "lat": "-6.3128125",
+      "lng": "106.7294894",
+      "name": "Ciputat - 30",
+      "object": "feeder"
+    },
+    {
+      "id": "55",
+      "lat": "-6.3129404",
+      "lng": "106.7298005",
+      "name": "Ciputat - 31",
+      "object": "feeder"
+    },
+    {
+      "id": "56",
+      "lat": "-6.3131111",
+      "lng": "106.7301653",
+      "name": "Ciputat - 32",
+      "object": "feeder"
+    },
+    {
+      "id": "57",
+      "lat": "-6.3131111",
+      "lng": "106.7305515",
+      "name": "Ciputat - 33",
+      "object": "feeder"
+    },
+    {
+      "id": "58",
+      "lat": "-6.3130471",
+      "lng": "106.731603",
+      "name": "Ciputat - 34",
+      "object": "feeder"
+    },
+    {
+      "id": "59",
+      "lat": "-6.3129618",
+      "lng": "106.7321394",
+      "name": "Ciputat - 35",
+      "object": "feeder"
+    },
+    {
+      "id": "60",
+      "lat": "-6.3130791",
+      "lng": "106.7327295",
+      "name": "Ciputat - 36",
+      "object": "feeder"
+    },
+    {
+      "id": "61",
+      "lat": "-6.313463",
+      "lng": "106.7331157",
+      "name": "Ciputat - 37",
+      "object": "feeder"
+    },
+    {
+      "id": "62",
+      "lat": "-6.3136442",
+      "lng": "106.733384",
+      "name": "Ciputat - 38",
+      "object": "feeder"
+    },
+    {
+      "id": "63",
+      "lat": "-6.3141241",
+      "lng": "106.7340921",
+      "name": "Ciputat - 39",
+      "object": "feeder"
+    },
+    {
+      "id": "64",
+      "lat": "-6.3144867",
+      "lng": "106.7344032",
+      "name": "Ciputat - 40",
+      "object": "feeder"
+    },
+    {
+      "id": "65",
+      "lat": "-6.3153581",
+      "lng": "106.7347143",
+      "name": "Ciputat - 41",
+      "object": "feeder"
+    },
+    {
+      "id": "66",
+      "lat": "-6.3158913",
+      "lng": "106.7349289",
+      "name": "Ciputat - 42",
+      "object": "feeder"
+    },
+    {
+      "id": "67",
+      "lat": "-6.3161046",
+      "lng": "106.7351328",
+      "name": "Ciputat - 43",
+      "object": "feeder"
+    },
+    {
+      "id": "68",
+      "lat": "-6.3164885",
+      "lng": "106.7355834",
+      "name": "Ciputat - 44",
+      "object": "feeder"
+    },
+    {
+      "id": "69",
+      "lat": "-6.3165845",
+      "lng": "106.7357765",
+      "name": "Ciputat - 45",
+      "object": "feeder"
+    },
+    {
+      "id": "70",
+      "lat": "-6.3167444",
+      "lng": "106.7360461",
+      "name": "Ciputat - 46",
+      "object": "feeder"
+    },
+    {
+      "id": "71",
+      "lat": "-6.3172989",
+      "lng": "106.7364109",
+      "name": "Ciputat - 47",
+      "object": "feeder"
+    },
+    {
+      "id": "72",
+      "lat": "-6.3175442",
+      "lng": "106.7370975",
+      "name": "Ciputat - 48",
+      "object": "feeder"
+    },
+    {
+      "id": "73",
+      "lat": "-6.3177681",
+      "lng": "106.7376661",
+      "name": "Ciputat - 49",
+      "object": "feeder"
+    },
+    {
+      "id": "74",
+      "lat": "-6.3175229",
+      "lng": "106.7380309",
+      "name": "Ciputat - 50",
+      "object": "feeder"
+    },
+    {
+      "id": "75",
+      "lat": "-6.3169897",
+      "lng": "106.7387068",
+      "name": "Ciputat - 51",
+      "object": "feeder"
+    },
+    {
+      "id": "76",
+      "lat": "-6.3168404",
+      "lng": "106.7389643",
+      "name": "Ciputat - 52",
+      "object": "feeder"
+    },
+    {
+      "id": "77",
+      "lat": "-6.3165951",
+      "lng": "106.7399728",
+      "name": "Ciputat - 53",
+      "object": "feeder"
+    },
+    {
+      "id": "78",
+      "lat": "-6.3164565",
+      "lng": "106.7403162",
+      "name": "Ciputat - 54",
+      "object": "feeder"
+    },
+    {
+      "id": "79",
+      "lat": "-6.3164138",
+      "lng": "106.7407453",
+      "name": "Ciputat - 55",
+      "object": "feeder"
+    },
+    {
+      "id": "80",
+      "lat": "-6.3164885",
+      "lng": "106.7412174",
+      "name": "Ciputat - 56",
+      "object": "feeder"
+    },
+    {
+      "id": "81",
+      "lat": "-6.3164885",
+      "lng": "106.741668",
+      "name": "Ciputat - 57",
+      "object": "feeder"
+    },
+    {
+      "id": "82",
+      "lat": "-6.3165418",
+      "lng": "106.7421401",
+      "name": "Ciputat - 58",
+      "object": "feeder"
+    },
+    {
+      "id": "83",
+      "lat": "-6.3165738",
+      "lng": "106.7426551",
+      "name": "Ciputat - 59",
+      "object": "feeder"
+    },
+    {
+      "id": "84",
+      "lat": "-6.3162161",
+      "lng": "106.742784",
+      "name": "Ciputat - 60",
+      "object": "feeder"
+    },
+    {
+      "id": "85",
+      "lat": "-6.3154269",
+      "lng": "106.7429556",
+      "name": "Ciputat - 61",
+      "object": "feeder"
+    },
+    {
+      "id": "86",
+      "lat": "-6.3149577",
+      "lng": "106.7430522",
+      "name": "Ciputat - 62",
+      "object": "feeder"
+    },
+    {
+      "id": "87",
+      "lat": "-6.3143499",
+      "lng": "106.7432239",
+      "name": "Ciputat - 63",
+      "object": "feeder"
+    },
+    {
+      "id": "88",
+      "lat": "-6.3138274",
+      "lng": "106.7433955",
+      "name": "Ciputat - 64",
+      "object": "feeder"
+    },
+    {
+      "id": "89",
+      "lat": "-6.3136994",
+      "lng": "106.7436208",
+      "name": "Ciputat - 65",
+      "object": "feeder"
+    },
+    {
+      "id": "90",
+      "lat": "-6.3136674",
+      "lng": "106.7441358",
+      "name": "Ciputat - 66",
+      "object": "feeder"
+    },
+    {
+      "id": "91",
+      "lat": "-6.3137101",
+      "lng": "106.7449405",
+      "name": "Ciputat - 67",
+      "object": "feeder"
+    },
+    {
+      "id": "92",
+      "lat": "-6.3137527",
+      "lng": "106.7454555",
+      "name": "Ciputat - 68",
+      "object": "feeder"
+    },
+    {
+      "id": "93",
+      "lat": "-6.3421834",
+      "lng": "106.7250245",
+      "name": "Pamulang - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "94",
+      "lat": "-6.3418866",
+      "lng": "106.7270022",
+      "name": "Pamulang - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "95",
+      "lat": "-6.3422705",
+      "lng": "106.7281824",
+      "name": "Pamulang - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "96",
+      "lat": "-6.3429743",
+      "lng": "106.7301779",
+      "name": "Pamulang - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "97",
+      "lat": "-6.3432728",
+      "lng": "106.7317229",
+      "name": "Pamulang - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "98",
+      "lat": "-6.3434861",
+      "lng": "106.732946",
+      "name": "Pamulang - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "99",
+      "lat": "-6.3437847",
+      "lng": "106.7343836",
+      "name": "Pamulang - 7",
+      "object": "feeder"
+    },
+    {
+      "id": "100",
+      "lat": "-6.3441259",
+      "lng": "106.7359286",
+      "name": "Pamulang - 8",
+      "object": "feeder"
+    },
+    {
+      "id": "101",
+      "lat": "-6.3440406",
+      "lng": "106.7365079",
+      "name": "Pamulang - 9",
+      "object": "feeder"
+    },
+    {
+      "id": "102",
+      "lat": "-6.3421212",
+      "lng": "106.7375379",
+      "name": "Pamulang - 10",
+      "object": "feeder"
+    },
+    {
+      "id": "103",
+      "lat": "-6.3409328",
+      "lng": "106.7380666",
+      "name": "Pamulang - 11",
+      "object": "feeder"
+    },
+    {
+      "id": "104",
+      "lat": "-6.339376",
+      "lng": "106.7385602",
+      "name": "Pamulang - 12",
+      "object": "feeder"
+    },
+    {
+      "id": "105",
+      "lat": "-6.3378618",
+      "lng": "106.7390752",
+      "name": "Pamulang - 13",
+      "object": "feeder"
+    },
+    {
+      "id": "106",
+      "lat": "-6.3370087",
+      "lng": "106.7392897",
+      "name": "Pamulang - 14",
+      "object": "feeder"
+    },
+    {
+      "id": "107",
+      "lat": "-6.3352851",
+      "lng": "106.7398516",
+      "name": "Pamulang - 15",
+      "object": "feeder"
+    },
+    {
+      "id": "108",
+      "lat": "-6.3333657",
+      "lng": "106.7404309",
+      "name": "Pamulang - 16",
+      "object": "feeder"
+    },
+    {
+      "id": "109",
+      "lat": "-6.3317022",
+      "lng": "106.7402378",
+      "name": "Pamulang - 17",
+      "object": "feeder"
+    },
+    {
+      "id": "110",
+      "lat": "-6.3301443",
+      "lng": "106.7400673",
+      "name": "Pamulang - 18",
+      "object": "feeder"
+    },
+    {
+      "id": "111",
+      "lat": "-6.3262415",
+      "lng": "106.740432",
+      "name": "Pamulang - 19",
+      "object": "feeder"
+    },
+    {
+      "id": "112",
+      "lat": "-6.3255163",
+      "lng": "106.741977",
+      "name": "Pamulang - 20",
+      "object": "feeder"
+    },
+    {
+      "id": "113",
+      "lat": "-6.3250898",
+      "lng": "106.743243",
+      "name": "Pamulang - 21",
+      "object": "feeder"
+    },
+    {
+      "id": "114",
+      "lat": "-6.3588",
+      "lng": "106.75335",
+      "name": "Pondok Cabe - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "115",
+      "lat": "-6.35856",
+      "lng": "106.75295",
+      "name": "Pondok Cabe - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "116",
+      "lat": "-6.35817",
+      "lng": "106.7524",
+      "name": "Pondok Cabe - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "117",
+      "lat": "-6.35773",
+      "lng": "106.75175",
+      "name": "Pondok Cabe - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "118",
+      "lat": "-6.35719",
+      "lng": "106.75101",
+      "name": "Pondok Cabe - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "119",
+      "lat": "-6.35641",
+      "lng": "106.75045",
+      "name": "Pondok Cabe - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "120",
+      "lat": "-6.35631",
+      "lng": "106.74961",
+      "name": "Pondok Cabe - 7",
+      "object": "feeder"
+    },
+    {
+      "id": "121",
+      "lat": "-6.3561137",
+      "lng": "106.7486999",
+      "name": "Pondok Cabe - 8",
+      "object": "feeder"
+    },
+    {
+      "id": "122",
+      "lat": "-6.355458",
+      "lng": "106.7488823",
+      "name": "Pondok Cabe - 9",
+      "object": "feeder"
+    },
+    {
+      "id": "123",
+      "lat": "-6.3544216",
+      "lng": "106.749173",
+      "name": "Pondok Cabe - 10",
+      "object": "feeder"
+    },
+    {
+      "id": "124",
+      "lat": "-6.3541177",
+      "lng": "106.7492589",
+      "name": "Pondok Cabe - 11",
+      "object": "feeder"
+    },
+    {
+      "id": "125",
+      "lat": "-6.3532886",
+      "lng": "106.7494655",
+      "name": "Pondok Cabe - 12",
+      "object": "feeder"
+    },
+    {
+      "id": "126",
+      "lat": "-6.3520996",
+      "lng": "106.7496379",
+      "name": "Pondok Cabe - 13",
+      "object": "feeder"
+    },
+    {
+      "id": "127",
+      "lat": "-6.35106",
+      "lng": "106.7496272",
+      "name": "Pondok Cabe - 14",
+      "object": "feeder"
+    },
+    {
+      "id": "128",
+      "lat": "-6.350463",
+      "lng": "106.7496249",
+      "name": "Pondok Cabe - 15",
+      "object": "feeder"
+    },
+    {
+      "id": "129",
+      "lat": "-6.3497859",
+      "lng": "106.7496195",
+      "name": "Pondok Cabe - 16",
+      "object": "feeder"
+    },
+    {
+      "id": "130",
+      "lat": "-6.3486663",
+      "lng": "106.7496463",
+      "name": "Pondok Cabe - 17",
+      "object": "feeder"
+    },
+    {
+      "id": "131",
+      "lat": "-6.3477551",
+      "lng": "106.7496732",
+      "name": "Pondok Cabe - 18",
+      "object": "feeder"
+    },
+    {
+      "id": "132",
+      "lat": "-6.346966",
+      "lng": "106.7496732",
+      "name": "Pondok Cabe - 19",
+      "object": "feeder"
+    },
+    {
+      "id": "133",
+      "lat": "-6.3462942",
+      "lng": "106.7496678",
+      "name": "Pondok Cabe - 20",
+      "object": "feeder"
+    },
+    {
+      "id": "134",
+      "lat": "-6.3457824",
+      "lng": "106.7496678",
+      "name": "Pondok Cabe - 21",
+      "object": "feeder"
+    },
+    {
+      "id": "135",
+      "lat": "-6.3448174",
+      "lng": "106.7496892",
+      "name": "Pondok Cabe - 22",
+      "object": "feeder"
+    },
+    {
+      "id": "136",
+      "lat": "-6.3434312",
+      "lng": "106.7497",
+      "name": "Pondok Cabe - 23",
+      "object": "feeder"
+    },
+    {
+      "id": "137",
+      "lat": "-6.3424288",
+      "lng": "106.7497214",
+      "name": "Pondok Cabe - 24",
+      "object": "feeder"
+    },
+    {
+      "id": "138",
+      "lat": "-6.3414318",
+      "lng": "106.7497322",
+      "name": "Pondok Cabe - 25",
+      "object": "feeder"
+    },
+    {
+      "id": "139",
+      "lat": "-6.3401309",
+      "lng": "106.7497161",
+      "name": "Pondok Cabe - 26",
+      "object": "feeder"
+    },
+    {
+      "id": "140",
+      "lat": "-6.338782",
+      "lng": "106.7496356",
+      "name": "Pondok Cabe - 27",
+      "object": "feeder"
+    },
+    {
+      "id": "141",
+      "lat": "-6.3380676",
+      "lng": "106.7495498",
+      "name": "Pondok Cabe - 28",
+      "object": "feeder"
+    },
+    {
+      "id": "142",
+      "lat": "-6.3371214",
+      "lng": "106.7493674",
+      "name": "Pondok Cabe - 29",
+      "object": "feeder"
+    },
+    {
+      "id": "143",
+      "lat": "-6.336167",
+      "lng": "106.749185",
+      "name": "Pondok Cabe - 30",
+      "object": "feeder"
+    },
+    {
+      "id": "144",
+      "lat": "-6.3356552",
+      "lng": "106.7491161",
+      "name": "Pondok Cabe - 31",
+      "object": "feeder"
+    },
+    {
+      "id": "145",
+      "lat": "-6.3344822",
+      "lng": "106.7489337",
+      "name": "Pondok Cabe - 32",
+      "object": "feeder"
+    },
+    {
+      "id": "146",
+      "lat": "-6.3339064",
+      "lng": "106.7488586",
+      "name": "Pondok Cabe - 33",
+      "object": "feeder"
+    },
+    {
+      "id": "147",
+      "lat": "-6.3335476",
+      "lng": "106.7488157",
+      "name": "Pondok Cabe - 34",
+      "object": "feeder"
+    },
+    {
+      "id": "148",
+      "lat": "-6.3329398",
+      "lng": "106.7487459",
+      "name": "Pondok Cabe - 35",
+      "object": "feeder"
+    },
+    {
+      "id": "149",
+      "lat": "-6.3324591",
+      "lng": "106.7486923",
+      "name": "Pondok Cabe - 36",
+      "object": "feeder"
+    },
+    {
+      "id": "150",
+      "lat": "-6.3319099",
+      "lng": "106.7486172",
+      "name": "Pondok Cabe - 37",
+      "object": "feeder"
+    },
+    {
+      "id": "151",
+      "lat": "-6.3312808",
+      "lng": "106.7485314",
+      "name": "Pondok Cabe - 38",
+      "object": "feeder"
+    },
+    {
+      "id": "152",
+      "lat": "-6.3306668",
+      "lng": "106.7484389",
+      "name": "Pondok Cabe - 39",
+      "object": "feeder"
+    },
+    {
+      "id": "153",
+      "lat": "-6.329874",
+      "lng": "106.7479791",
+      "name": "Pondok Cabe - 40",
+      "object": "feeder"
+    },
+    {
+      "id": "154",
+      "lat": "-6.3293408",
+      "lng": "106.7476465",
+      "name": "Pondok Cabe - 41",
+      "object": "feeder"
+    },
+    {
+      "id": "155",
+      "lat": "-6.3284611",
+      "lng": "106.7473246",
+      "name": "Pondok Cabe - 42",
+      "object": "feeder"
+    },
+    {
+      "id": "156",
+      "lat": "-6.3273041",
+      "lng": "106.7471208",
+      "name": "Pondok Cabe - 43",
+      "object": "feeder"
+    },
+    {
+      "id": "157",
+      "lat": "-6.3261844",
+      "lng": "106.746933",
+      "name": "Pondok Cabe - 44",
+      "object": "feeder"
+    },
+    {
+      "id": "158",
+      "lat": "-6.3250754",
+      "lng": "106.7467506",
+      "name": "Pondok Cabe - 45",
+      "object": "feeder"
+    },
+    {
+      "id": "159",
+      "lat": "-6.3248994",
+      "lng": "106.7463966",
+      "name": "Pondok Cabe - 46",
+      "object": "feeder"
+    },
+    {
+      "id": "160",
+      "lat": "-6.3249208",
+      "lng": "106.7457368",
+      "name": "Pondok Cabe - 47",
+      "object": "feeder"
+    },
+    {
+      "id": "161",
+      "lat": "-6.3249421",
+      "lng": "106.7449482",
+      "name": "Pondok Cabe - 48",
+      "object": "feeder"
+    },
+    {
+      "id": "162",
+      "lat": "-6.3249208",
+      "lng": "106.7445673",
+      "name": "Pondok Cabe - 49",
+      "object": "feeder"
+    },
+    {
+      "id": "163",
+      "lat": "-6.3247608",
+      "lng": "106.7441918",
+      "name": "Pondok Cabe - Pamulang - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "164",
+      "lat": "-6.3243876",
+      "lng": "106.7450662",
+      "name": "Pondok Cabe - Pamulang - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "165",
+      "lat": "-6.3236891",
+      "lng": "106.7452379",
+      "name": "Pondok Cabe - Pamulang - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "166",
+      "lat": "-6.32298",
+      "lng": "106.7453022",
+      "name": "Pondok Cabe - Pamulang - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "167",
+      "lat": "-6.3217057",
+      "lng": "106.74549",
+      "name": "Pondok Cabe - Pamulang - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "168",
+      "lat": "-6.3210369",
+      "lng": "106.7456134",
+      "name": "Pondok Cabe - Pamulang - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "169",
+      "lat": "-6.3200452",
+      "lng": "106.7459299",
+      "name": "Pondok Cabe - Pamulang - 7",
+      "object": "feeder"
+    },
+    {
+      "id": "170",
+      "lat": "-6.3190321",
+      "lng": "106.7461713",
+      "name": "Pondok Cabe - Pamulang - 8",
+      "object": "feeder"
+    },
+    {
+      "id": "171",
+      "lat": "-6.3183657",
+      "lng": "106.7462893",
+      "name": "Pondok Cabe - Pamulang - 9",
+      "object": "feeder"
+    },
+    {
+      "id": "172",
+      "lat": "-6.3180351",
+      "lng": "106.7463698",
+      "name": "Pondok Cabe - Pamulang - 10",
+      "object": "feeder"
+    },
+    {
+      "id": "173",
+      "lat": "-6.3174326",
+      "lng": "106.746461",
+      "name": "Pondok Cabe - Pamulang - 11",
+      "object": "feeder"
+    },
+    {
+      "id": "174",
+      "lat": "-6.3165102",
+      "lng": "106.7466165",
+      "name": "Pondok Cabe - Pamulang - 12",
+      "object": "feeder"
+    },
+    {
+      "id": "175",
+      "lat": "-6.3161078",
+      "lng": "106.7466916",
+      "name": "Pondok Cabe - Pamulang - 13",
+      "object": "feeder"
+    },
+    {
+      "id": "176",
+      "lat": "-6.3151534",
+      "lng": "106.7467936",
+      "name": "Pondok Cabe - Pamulang - 14",
+      "object": "feeder"
+    },
+    {
+      "id": "177",
+      "lat": "-6.3138098",
+      "lng": "106.7469169",
+      "name": "Pondok Cabe - Pamulang - Ciputat -1",
+      "object": "feeder"
+    },
+    {
+      "id": "178",
+      "lat": "-6.312286",
+      "lng": "106.7470249",
+      "name": "Pondok Cabe - Pamulang - Ciputat -2",
+      "object": "feeder"
+    },
+    {
+      "id": "179",
+      "lat": "-6.3114329",
+      "lng": "106.7476901",
+      "name": "Pondok Cabe - Pamulang - Ciputat -3",
+      "object": "feeder"
+    },
+    {
+      "id": "180",
+      "lat": "-6.3113156",
+      "lng": "106.7481192",
+      "name": "Pondok Cabe - Pamulang - Ciputat -4",
+      "object": "feeder"
+    },
+    {
+      "id": "181",
+      "lat": "-6.3117848",
+      "lng": "106.7492028",
+      "name": "Pondok Cabe - Pamulang - Ciputat -5",
+      "object": "feeder"
+    },
+    {
+      "id": "182",
+      "lat": "-6.3121687",
+      "lng": "106.7504045",
+      "name": "Pondok Cabe - Pamulang - Ciputat -6",
+      "object": "feeder"
+    },
+    {
+      "id": "183",
+      "lat": "-6.3120301",
+      "lng": "106.7513272",
+      "name": "Pondok Cabe - Pamulang - Ciputat -7",
+      "object": "feeder"
+    },
+    {
+      "id": "184",
+      "lat": "-6.3121154",
+      "lng": "106.7524859",
+      "name": "Pondok Cabe - Pamulang - Ciputat -8",
+      "object": "feeder"
+    },
+    {
+      "id": "185",
+      "lat": "-6.3118061",
+      "lng": "106.753548",
+      "name": "Pondok Cabe - Pamulang - Ciputat -9",
+      "object": "feeder"
+    },
+    {
+      "id": "186",
+      "lat": "-6.3111343",
+      "lng": "106.7543511",
+      "name": "Pondok Cabe - Pamulang - Ciputat -10",
+      "object": "feeder"
+    },
+    {
+      "id": "187",
+      "lat": "-6.3100253",
+      "lng": "106.755263",
+      "name": "Pondok Cabe - Pamulang - Ciputat -11",
+      "object": "feeder"
+    },
+    {
+      "id": "188",
+      "lat": "-6.3093321",
+      "lng": "106.7557244",
+      "name": "Pondok Cabe - Pamulang - Ciputat -12",
+      "object": "feeder"
+    },
+    {
+      "id": "189",
+      "lat": "-6.308415",
+      "lng": "106.7558853",
+      "name": "Pondok Cabe - Pamulang - Ciputat -13",
+      "object": "feeder"
+    },
+    {
+      "id": "190",
+      "lat": "-6.3074873",
+      "lng": "106.7560462",
+      "name": "Pondok Cabe - Pamulang - Ciputat -14",
+      "object": "feeder"
+    },
+    {
+      "id": "191",
+      "lat": "-6.3057597",
+      "lng": "106.7573659",
+      "name": "Pondok Cabe - Pamulang - Ciputat -15",
+      "object": "feeder"
+    },
+    {
+      "id": "192",
+      "lat": "-6.3048639",
+      "lng": "106.7581491",
+      "name": "Pondok Cabe - Pamulang - Ciputat -16",
+      "object": "feeder"
+    },
+    {
+      "id": "193",
+      "lat": "-6.3037122",
+      "lng": "106.759222",
+      "name": "Pondok Cabe - Pamulang - Ciputat -17",
+      "object": "feeder"
+    },
+    {
+      "id": "194",
+      "lat": "-6.3029764",
+      "lng": "106.7599623",
+      "name": "Pondok Cabe - Pamulang - Ciputat -18",
+      "object": "feeder"
+    },
+    {
+      "id": "195",
+      "lat": "-6.3024859",
+      "lng": "106.7604129",
+      "name": "Pondok Cabe - Pamulang - Ciputat -19",
+      "object": "feeder"
+    },
+    {
+      "id": "196",
+      "lat": "-6.3016328",
+      "lng": "106.7611414",
+      "name": "Pondok Cabe - Pamulang - Ciputat -20",
+      "object": "feeder"
+    },
+    {
+      "id": "197",
+      "lat": "-6.3011849",
+      "lng": "106.7615491",
+      "name": "Pondok Cabe - Pamulang - Ciputat -21",
+      "object": "feeder"
+    },
+    {
+      "id": "198",
+      "lat": "-6.3006623",
+      "lng": "106.7620211",
+      "name": "Pondok Cabe - Pamulang - Ciputat -22",
+      "object": "feeder"
+    },
+    {
+      "id": "199",
+      "lat": "-6.299372",
+      "lng": "106.7631369",
+      "name": "Pondok Cabe - Pamulang - Ciputat -23",
+      "object": "feeder"
+    },
+    {
+      "id": "200",
+      "lat": "-6.2985189",
+      "lng": "106.7638987",
+      "name": "Pondok Cabe - Pamulang - Ciputat -24",
+      "object": "feeder"
+    },
+    {
+      "id": "201",
+      "lat": "-6.2975215",
+      "lng": "106.7647948",
+      "name": "Pondok Cabe - Pamulang - Ciputat -25",
+      "object": "feeder"
+    },
+    {
+      "id": "202",
+      "lat": "-6.2966099",
+      "lng": "106.7653937",
+      "name": "Pondok Cabe - Pamulang - Ciputat -26",
+      "object": "feeder"
+    },
+    {
+      "id": "203",
+      "lat": "-6.2956821",
+      "lng": "106.7653615",
+      "name": "Pondok Cabe - Pamulang - Ciputat -27",
+      "object": "feeder"
+    },
+    {
+      "id": "204",
+      "lat": "-6.294637",
+      "lng": "106.7650182",
+      "name": "Pondok Cabe - Pamulang - Ciputat -28",
+      "object": "feeder"
+    },
+    {
+      "id": "205",
+      "lat": "-6.2939332",
+      "lng": "106.7650826",
+      "name": "Pondok Cabe - Pamulang - Ciputat -29",
+      "object": "feeder"
+    },
+    {
+      "id": "206",
+      "lat": "-6.2932187",
+      "lng": "106.7652971",
+      "name": "Pondok Cabe - Pamulang - Ciputat -30",
+      "object": "feeder"
+    },
+    {
+      "id": "207",
+      "lat": "-6.2924935",
+      "lng": "106.7655439",
+      "name": "Pondok Cabe - Pamulang - Ciputat -31",
+      "object": "feeder"
+    },
+    {
+      "id": "208",
+      "lat": "-6.2918003",
+      "lng": "106.7658121",
+      "name": "Pondok Cabe - Pamulang - Ciputat -32",
+      "object": "feeder"
+    },
+    {
+      "id": "209",
+      "lat": "-6.2909045",
+      "lng": "106.7663915",
+      "name": "Pondok Cabe - Pamulang - Ciputat -33",
+      "object": "feeder"
+    },
+    {
+      "id": "210",
+      "lat": "-6.2899341",
+      "lng": "106.7676467",
+      "name": "Pondok Cabe - Pamulang - Ciputat -34",
+      "object": "feeder"
+    },
+    {
+      "id": "211",
+      "lat": "-6.2894435",
+      "lng": "106.7686338",
+      "name": "Pondok Cabe - Pamulang - Ciputat -35",
+      "object": "feeder"
+    },
+    {
+      "id": "212",
+      "lat": "-6.2891236",
+      "lng": "106.7697174",
+      "name": "Pondok Cabe - Pamulang - Ciputat -36",
+      "object": "feeder"
+    },
+    {
+      "id": "213",
+      "lat": "-6.2891449",
+      "lng": "106.7707688",
+      "name": "Pondok Cabe - Pamulang - Ciputat -37",
+      "object": "feeder"
+    },
+    {
+      "id": "214",
+      "lat": "-6.289145",
+      "lng": "106.7722065",
+      "name": "Pondok Cabe - Pamulang - Ciputat -38",
+      "object": "feeder"
+    },
+    {
+      "id": "215",
+      "lat": "-6.2892096",
+      "lng": "106.773586",
+      "name": "Pondok Cabe - Pamulang - Ciputat -39",
+      "object": "feeder"
+    },
+    {
+      "id": "216",
+      "lat": "-6.2892202",
+      "lng": "106.7748883",
+      "name": "Pondok Cabe - Pamulang - Ciputat -40",
+      "object": "feeder"
+    },
+    {
+      "id": "217",
+      "lat": "-6.2892721",
+      "lng": "106.7766104",
+      "name": "Pondok Cabe - Pamulang - Ciputat -41",
+      "object": "feeder"
+    },
+    {
+      "id": "218",
+      "lat": "-6.28866",
+      "lng": "106.77789",
+      "name": "Pondok Cabe - Pamulang - Ciputat - Ragunan 1 - Ragunan 2 - kahfi 1 - kahfi 2",
+      "object": "feeder"
+    },
+    {
+      "id": "219",
+      "lat": "-6.2890802",
+      "lng": "106.7782197",
+      "name": "Ragunan 1 - kahfi 1 - kahfi 2 - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "220",
+      "lat": "-6.2907775",
+      "lng": "106.7805468",
+      "name": "Ragunan 1 - kahfi 1 - kahfi 2 - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "221",
+      "lat": "-6.2919292",
+      "lng": "106.7840873",
+      "name": "Ragunan 1 - kahfi 1 - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "222",
+      "lat": "-6.2922278",
+      "lng": "106.7855679",
+      "name": "Ragunan 1 - kahfi 1 - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "223",
+      "lat": "-6.2923771",
+      "lng": "106.7869841",
+      "name": "Ragunan 1 - kahfi 1 - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "224",
+      "lat": "-6.2924411",
+      "lng": "106.7897307",
+      "name": "Ragunan 1 - kahfi 1 - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "225",
+      "lat": "-6.2924487",
+      "lng": "106.7923842",
+      "name": "Ragunan 1 - kahfi 1 - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "226",
+      "lat": "-6.2923264",
+      "lng": "106.7950214",
+      "name": "Ragunan 1 - kahfi 1 - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "227",
+      "lat": "-6.2923691",
+      "lng": "106.7968667",
+      "name": "Ragunan 1 - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "228",
+      "lat": "-6.2924331",
+      "lng": "106.7985619",
+      "name": "Ragunan 1 - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "229",
+      "lat": "-6.2925184",
+      "lng": "106.8018664",
+      "name": "Ragunan 1 - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "230",
+      "lat": "-6.2925611",
+      "lng": "106.8050206",
+      "name": "Ragunan 1 - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "231",
+      "lat": "-6.2923904",
+      "lng": "106.8092693",
+      "name": "Ragunan 1 - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "232",
+      "lat": "-6.2923691",
+      "lng": "106.8126596",
+      "name": "Ragunan 1 - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "233",
+      "lat": "-6.292625",
+      "lng": "106.8165649",
+      "name": "Ragunan 1 2 - 10",
+      "object": "feeder"
+    },
+    {
+      "id": "234",
+      "lat": "-6.2931796",
+      "lng": "106.8197406",
+      "name": "Ragunan 1 2 - 9",
+      "object": "feeder"
+    },
+    {
+      "id": "235",
+      "lat": "-6.294182",
+      "lng": "106.822058",
+      "name": "Ragunan 1 2 - 8",
+      "object": "feeder"
+    },
+    {
+      "id": "236",
+      "lat": "-6.295803",
+      "lng": "106.8215645",
+      "name": "Ragunan 1 2 - 7",
+      "object": "feeder"
+    },
+    {
+      "id": "237",
+      "lat": "-6.2974452",
+      "lng": "106.8210281",
+      "name": "Ragunan 1 2 - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "238",
+      "lat": "-6.2989169",
+      "lng": "106.8209422",
+      "name": "Ragunan 1 2 - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "239",
+      "lat": "-6.3004738",
+      "lng": "106.8211783",
+      "name": "Ragunan 1 2 - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "240",
+      "lat": "-6.3020094",
+      "lng": "106.8211354",
+      "name": "Ragunan 1 2 - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "241",
+      "lat": "-6.3042276",
+      "lng": "106.8208349",
+      "name": "Ragunan 1 2 - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "242",
+      "lat": "-6.305645",
+      "lng": "106.820385",
+      "name": "Ragunan 1 2 - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "243",
+      "lat": "-6.2880482",
+      "lng": "106.7783873",
+      "name": "Ragunan 2 - 92",
+      "object": "feeder"
+    },
+    {
+      "id": "244",
+      "lat": "-6.2874883",
+      "lng": "106.7790417",
+      "name": "Ragunan 2 - 91",
+      "object": "feeder"
+    },
+    {
+      "id": "245",
+      "lat": "-6.2871204",
+      "lng": "106.7795245",
+      "name": "Ragunan 2 - 90",
+      "object": "feeder"
+    },
+    {
+      "id": "246",
+      "lat": "-6.2867418",
+      "lng": "106.7798947",
+      "name": "Ragunan 2 - 89",
+      "object": "feeder"
+    },
+    {
+      "id": "247",
+      "lat": "-6.2861553",
+      "lng": "106.780179",
+      "name": "Ragunan 2 - 88",
+      "object": "feeder"
+    },
+    {
+      "id": "248",
+      "lat": "-6.2856647",
+      "lng": "106.7802273",
+      "name": "Ragunan 2 - 87",
+      "object": "feeder"
+    },
+    {
+      "id": "249",
+      "lat": "-6.2849662",
+      "lng": "106.7801736",
+      "name": "Ragunan 2 - 86",
+      "object": "feeder"
+    },
+    {
+      "id": "250",
+      "lat": "-6.2839491",
+      "lng": "106.78012",
+      "name": "Ragunan 2 - 85",
+      "object": "feeder"
+    },
+    {
+      "id": "251",
+      "lat": "-6.2829733",
+      "lng": "106.78012",
+      "name": "Ragunan 2 - 84",
+      "object": "feeder"
+    },
+    {
+      "id": "252",
+      "lat": "-6.2822268",
+      "lng": "106.7801361",
+      "name": "Ragunan 2 - 83",
+      "object": "feeder"
+    },
+    {
+      "id": "253",
+      "lat": "-6.2810324",
+      "lng": "106.7803507",
+      "name": "Ragunan 2 - 82",
+      "object": "feeder"
+    },
+    {
+      "id": "254",
+      "lat": "-6.2805098",
+      "lng": "106.7805437",
+      "name": "Ragunan 2 - 81",
+      "object": "feeder"
+    },
+    {
+      "id": "255",
+      "lat": "-6.2804245",
+      "lng": "106.7804096",
+      "name": "Ragunan 2 - 80",
+      "object": "feeder"
+    },
+    {
+      "id": "256",
+      "lat": "-6.2801899",
+      "lng": "106.7803345",
+      "name": "Ragunan 2 - 79",
+      "object": "feeder"
+    },
+    {
+      "id": "257",
+      "lat": "-6.2800459",
+      "lng": "106.7804043",
+      "name": "Ragunan 2 - 78",
+      "object": "feeder"
+    },
+    {
+      "id": "258",
+      "lat": "-6.2799233",
+      "lng": "106.7807422",
+      "name": "Ragunan 2 - 77",
+      "object": "feeder"
+    },
+    {
+      "id": "259",
+      "lat": "-6.2802592",
+      "lng": "106.7809461",
+      "name": "Ragunan 2 - 76",
+      "object": "feeder"
+    },
+    {
+      "id": "260",
+      "lat": "-6.2808511",
+      "lng": "106.7827002",
+      "name": "Ragunan 2 - 75",
+      "object": "feeder"
+    },
+    {
+      "id": "261",
+      "lat": "-6.281283",
+      "lng": "106.7839662",
+      "name": "Ragunan 2 - 74",
+      "object": "feeder"
+    },
+    {
+      "id": "262",
+      "lat": "-6.2816562",
+      "lng": "106.7846314",
+      "name": "Ragunan 2 - 73",
+      "object": "feeder"
+    },
+    {
+      "id": "263",
+      "lat": "-6.2828186",
+      "lng": "106.7859779",
+      "name": "Ragunan 2 - 72",
+      "object": "feeder"
+    },
+    {
+      "id": "264",
+      "lat": "-6.2836665",
+      "lng": "106.7866377",
+      "name": "Ragunan 2 - 71",
+      "object": "feeder"
+    },
+    {
+      "id": "265",
+      "lat": "-6.2840835",
+      "lng": "106.7869339",
+      "name": "Ragunan 2 - 70",
+      "object": "feeder"
+    },
+    {
+      "id": "266",
+      "lat": "-6.2842552",
+      "lng": "106.787397",
+      "name": "Ragunan 2 - 69",
+      "object": "feeder"
+    },
+    {
+      "id": "267",
+      "lat": "-6.2846391",
+      "lng": "106.7877886",
+      "name": "Ragunan 2 - 68",
+      "object": "feeder"
+    },
+    {
+      "id": "268",
+      "lat": "-6.2847404",
+      "lng": "106.7883036",
+      "name": "Ragunan 2 - 67",
+      "object": "feeder"
+    },
+    {
+      "id": "269",
+      "lat": "-6.2840686",
+      "lng": "106.7892654",
+      "name": "Ragunan 2 - 66",
+      "object": "feeder"
+    },
+    {
+      "id": "270",
+      "lat": "-6.2836473",
+      "lng": "106.789877",
+      "name": "Ragunan 2 - 65",
+      "object": "feeder"
+    },
+    {
+      "id": "271",
+      "lat": "-6.2832901",
+      "lng": "106.7905421",
+      "name": "Ragunan 2 - 64",
+      "object": "feeder"
+    },
+    {
+      "id": "272",
+      "lat": "-6.2830181",
+      "lng": "106.7912181",
+      "name": "Ragunan 2 - 63",
+      "object": "feeder"
+    },
+    {
+      "id": "273",
+      "lat": "-6.2826822",
+      "lng": "106.7914595",
+      "name": "Ragunan 2 - 62",
+      "object": "feeder"
+    },
+    {
+      "id": "274",
+      "lat": "-6.2823036",
+      "lng": "106.7916848",
+      "name": "Ragunan 2 - 61",
+      "object": "feeder"
+    },
+    {
+      "id": "275",
+      "lat": "-6.2825649",
+      "lng": "106.7921032",
+      "name": "Ragunan 2 - 60",
+      "object": "feeder"
+    },
+    {
+      "id": "276",
+      "lat": "-6.2822083",
+      "lng": "106.7930681",
+      "name": "Ragunan 2 - 59",
+      "object": "feeder"
+    },
+    {
+      "id": "277",
+      "lat": "-6.2820484",
+      "lng": "106.7935026",
+      "name": "Ragunan 2 - 58",
+      "object": "feeder"
+    },
+    {
+      "id": "278",
+      "lat": "-6.2816698",
+      "lng": "106.7943126",
+      "name": "Ragunan 2 - 57",
+      "object": "feeder"
+    },
+    {
+      "id": "279",
+      "lat": "-6.2812592",
+      "lng": "106.7946613",
+      "name": "Ragunan 2 - 56",
+      "object": "feeder"
+    },
+    {
+      "id": "280",
+      "lat": "-6.2801874",
+      "lng": "106.7948705",
+      "name": "Ragunan 2 - 55",
+      "object": "feeder"
+    },
+    {
+      "id": "281",
+      "lat": "-6.2798942",
+      "lng": "106.7951924",
+      "name": "Ragunan 2 - 54",
+      "object": "feeder"
+    },
+    {
+      "id": "282",
+      "lat": "-6.2799208",
+      "lng": "106.7955411",
+      "name": "Ragunan 2 - 53",
+      "object": "feeder"
+    },
+    {
+      "id": "283",
+      "lat": "-6.2799635",
+      "lng": "106.7958361",
+      "name": "Ragunan 2 - 52",
+      "object": "feeder"
+    },
+    {
+      "id": "284",
+      "lat": "-6.2798728",
+      "lng": "106.7962492",
+      "name": "Ragunan 2 - 51",
+      "object": "feeder"
+    },
+    {
+      "id": "285",
+      "lat": "-6.2797371",
+      "lng": "106.7968096",
+      "name": "Ragunan 2 - 50",
+      "object": "feeder"
+    },
+    {
+      "id": "286",
+      "lat": "-6.2793745",
+      "lng": "106.7969705",
+      "name": "Ragunan 2 - 49",
+      "object": "feeder"
+    },
+    {
+      "id": "287",
+      "lat": "-6.2784147",
+      "lng": "106.7972334",
+      "name": "Ragunan 2 - 48",
+      "object": "feeder"
+    },
+    {
+      "id": "288",
+      "lat": "-6.2777855",
+      "lng": "106.797405",
+      "name": "Ragunan 2 - 47",
+      "object": "feeder"
+    },
+    {
+      "id": "289",
+      "lat": "-6.2770603",
+      "lng": "106.7975767",
+      "name": "Ragunan 2 - 46",
+      "object": "feeder"
+    },
+    {
+      "id": "290",
+      "lat": "-6.2774229",
+      "lng": "106.7988427",
+      "name": "Ragunan 2 - 45",
+      "object": "feeder"
+    },
+    {
+      "id": "291",
+      "lat": "-6.2775869",
+      "lng": "106.7993816",
+      "name": "Ragunan 2 - 44",
+      "object": "feeder"
+    },
+    {
+      "id": "292",
+      "lat": "-6.2776456",
+      "lng": "106.7997142",
+      "name": "Ragunan 2 - 43",
+      "object": "feeder"
+    },
+    {
+      "id": "293",
+      "lat": "-6.2776616",
+      "lng": "106.8002721",
+      "name": "Ragunan 2 - 42",
+      "object": "feeder"
+    },
+    {
+      "id": "294",
+      "lat": "-6.2776936",
+      "lng": "106.8006262",
+      "name": "Ragunan 2 - 41",
+      "object": "feeder"
+    },
+    {
+      "id": "295",
+      "lat": "-6.2777469",
+      "lng": "106.8015596",
+      "name": "Ragunan 2 - 40",
+      "object": "feeder"
+    },
+    {
+      "id": "296",
+      "lat": "-6.2777682",
+      "lng": "106.8019565",
+      "name": "Ragunan 2 - 39",
+      "object": "feeder"
+    },
+    {
+      "id": "297",
+      "lat": "-6.2778162",
+      "lng": "106.8026271",
+      "name": "Ragunan 2 - 38",
+      "object": "feeder"
+    },
+    {
+      "id": "298",
+      "lat": "-6.2778322",
+      "lng": "106.8032936",
+      "name": "Ragunan 2 - 37",
+      "object": "feeder"
+    },
+    {
+      "id": "299",
+      "lat": "-6.2779122",
+      "lng": "106.8040714",
+      "name": "Ragunan 2 - 36",
+      "object": "feeder"
+    },
+    {
+      "id": "300",
+      "lat": "-6.2779763",
+      "lng": "106.8049676",
+      "name": "Ragunan 2 - 35",
+      "object": "feeder"
+    },
+    {
+      "id": "301",
+      "lat": "-6.2781096",
+      "lng": "106.8067164",
+      "name": "Ragunan 2 - 34",
+      "object": "feeder"
+    },
+    {
+      "id": "302",
+      "lat": "-6.2781256",
+      "lng": "106.8080575",
+      "name": "Ragunan 2 - 33",
+      "object": "feeder"
+    },
+    {
+      "id": "303",
+      "lat": "-6.2771818",
+      "lng": "106.8082667",
+      "name": "Ragunan 2 - 32",
+      "object": "feeder"
+    },
+    {
+      "id": "304",
+      "lat": "-6.2765899",
+      "lng": "106.8083687",
+      "name": "Ragunan 2 - 31",
+      "object": "feeder"
+    },
+    {
+      "id": "305",
+      "lat": "-6.2747289",
+      "lng": "106.8085296",
+      "name": "Ragunan 2 - 30",
+      "object": "feeder"
+    },
+    {
+      "id": "306",
+      "lat": "-6.2728233",
+      "lng": "106.8086513",
+      "name": "Ragunan 2 - 29",
+      "object": "feeder"
+    },
+    {
+      "id": "307",
+      "lat": "-6.2728127",
+      "lng": "106.8093701",
+      "name": "Ragunan 2 - 28",
+      "object": "feeder"
+    },
+    {
+      "id": "308",
+      "lat": "-6.2732819",
+      "lng": "106.8093809",
+      "name": "Ragunan 2 - 27",
+      "object": "feeder"
+    },
+    {
+      "id": "309",
+      "lat": "-6.2736285",
+      "lng": "106.8094023",
+      "name": "Ragunan 2 - 26",
+      "object": "feeder"
+    },
+    {
+      "id": "310",
+      "lat": "-6.2735805",
+      "lng": "106.8087693",
+      "name": "Ragunan 2 - 25",
+      "object": "feeder"
+    },
+    {
+      "id": "311",
+      "lat": "-6.2748283",
+      "lng": "106.8086996",
+      "name": "Ragunan 2 - 24",
+      "object": "feeder"
+    },
+    {
+      "id": "312",
+      "lat": "-6.2757827",
+      "lng": "106.8085708",
+      "name": "Ragunan 2 - 23",
+      "object": "feeder"
+    },
+    {
+      "id": "313",
+      "lat": "-6.2767106",
+      "lng": "106.8084796",
+      "name": "Ragunan 2 - 22",
+      "object": "feeder"
+    },
+    {
+      "id": "314",
+      "lat": "-6.277371",
+      "lng": "106.8084052",
+      "name": "Ragunan 2 - 21",
+      "object": "feeder"
+    },
+    {
+      "id": "315",
+      "lat": "-6.2781442",
+      "lng": "106.808196",
+      "name": "Ragunan 2 - 20",
+      "object": "feeder"
+    },
+    {
+      "id": "316",
+      "lat": "-6.2781975",
+      "lng": "106.8088826",
+      "name": "Ragunan 2 - 19",
+      "object": "feeder"
+    },
+    {
+      "id": "317",
+      "lat": "-6.2783041",
+      "lng": "106.8102023",
+      "name": "Ragunan 2 - 18",
+      "object": "feeder"
+    },
+    {
+      "id": "318",
+      "lat": "-6.2784446",
+      "lng": "106.8111786",
+      "name": "Ragunan 2 - 17",
+      "object": "feeder"
+    },
+    {
+      "id": "319",
+      "lat": "-6.2786472",
+      "lng": "106.8121442",
+      "name": "Ragunan 2 - 16",
+      "object": "feeder"
+    },
+    {
+      "id": "320",
+      "lat": "-6.2788973",
+      "lng": "106.813489",
+      "name": "Ragunan 2 - 15",
+      "object": "feeder"
+    },
+    {
+      "id": "321",
+      "lat": "-6.2791603",
+      "lng": "106.8153272",
+      "name": "Ragunan 2 - 14",
+      "object": "feeder"
+    },
+    {
+      "id": "322",
+      "lat": "-6.2795656",
+      "lng": "106.815177",
+      "name": "Ragunan 2 - 13",
+      "object": "feeder"
+    },
+    {
+      "id": "323",
+      "lat": "-6.2797789",
+      "lng": "106.8167112",
+      "name": "Ragunan 2 - 12",
+      "object": "feeder"
+    },
+    {
+      "id": "324",
+      "lat": "-6.2798109",
+      "lng": "106.8183313",
+      "name": "Ragunan 2 - 11",
+      "object": "feeder"
+    },
+    {
+      "id": "325",
+      "lat": "-6.2798962",
+      "lng": "106.8198118",
+      "name": "Ragunan 2 - 10",
+      "object": "feeder"
+    },
+    {
+      "id": "326",
+      "lat": "-6.2810693",
+      "lng": "106.8195973",
+      "name": "Ragunan 2 - 9",
+      "object": "feeder"
+    },
+    {
+      "id": "327",
+      "lat": "-6.2816665",
+      "lng": "106.8194578",
+      "name": "Ragunan 2 - 8",
+      "object": "feeder"
+    },
+    {
+      "id": "328",
+      "lat": "-6.2836444",
+      "lng": "106.8190583",
+      "name": "Ragunan 2 - 7",
+      "object": "feeder"
+    },
+    {
+      "id": "329",
+      "lat": "-6.2849455",
+      "lng": "106.8188545",
+      "name": "Ragunan 2 - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "330",
+      "lat": "-6.2860226",
+      "lng": "106.8187043",
+      "name": "Ragunan 2 - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "331",
+      "lat": "-6.2873876",
+      "lng": "106.8184897",
+      "name": "Ragunan 2 - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "332",
+      "lat": "-6.2887019",
+      "lng": "106.8181209",
+      "name": "Ragunan 2 - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "333",
+      "lat": "-6.2900029",
+      "lng": "106.8176059",
+      "name": "Ragunan 2 - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "334",
+      "lat": "-6.2912613",
+      "lng": "106.8169621",
+      "name": "Ragunan 2 - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "335",
+      "lat": "-6.2925098",
+      "lng": "106.7800623",
+      "name": "kahfi 1 - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "336",
+      "lat": "-6.2936828",
+      "lng": "106.7798155",
+      "name": "kahfi 1 - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "337",
+      "lat": "-6.2946213",
+      "lng": "106.7794937",
+      "name": "kahfi 1 - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "338",
+      "lat": "-6.2957449",
+      "lng": "106.7789012",
+      "name": "kahfi 1 - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "339",
+      "lat": "-6.2965554",
+      "lng": "106.7776567",
+      "name": "kahfi 1 - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "340",
+      "lat": "-6.2974939",
+      "lng": "106.7763477",
+      "name": "kahfi 1 - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "341",
+      "lat": "-6.2980057",
+      "lng": "106.7749959",
+      "name": "kahfi 1 - 7",
+      "object": "feeder"
+    },
+    {
+      "id": "342",
+      "lat": "-6.2984323",
+      "lng": "106.77432",
+      "name": "kahfi 1 - 8",
+      "object": "feeder"
+    },
+    {
+      "id": "343",
+      "lat": "-6.2994241",
+      "lng": "106.7748242",
+      "name": "kahfi 1 - 9",
+      "object": "feeder"
+    },
+    {
+      "id": "344",
+      "lat": "-6.3003625",
+      "lng": "106.7760044",
+      "name": "kahfi 1 - 10",
+      "object": "feeder"
+    },
+    {
+      "id": "345",
+      "lat": "-6.2998826",
+      "lng": "106.7770129",
+      "name": "kahfi 1 - 11",
+      "object": "feeder"
+    },
+    {
+      "id": "346",
+      "lat": "-6.2993523",
+      "lng": "106.7783535",
+      "name": "kahfi 1 - 12",
+      "object": "feeder"
+    },
+    {
+      "id": "347",
+      "lat": "-6.2999389",
+      "lng": "106.7790509",
+      "name": "kahfi 1 - 13",
+      "object": "feeder"
+    },
+    {
+      "id": "348",
+      "lat": "-6.3009199",
+      "lng": "106.7802955",
+      "name": "kahfi 1 - 14",
+      "object": "feeder"
+    },
+    {
+      "id": "349",
+      "lat": "-6.3017731",
+      "lng": "106.7810787",
+      "name": "kahfi 1 - 15",
+      "object": "feeder"
+    },
+    {
+      "id": "350",
+      "lat": "-6.3029354",
+      "lng": "106.7813576",
+      "name": "kahfi 1 - 16",
+      "object": "feeder"
+    },
+    {
+      "id": "351",
+      "lat": "-6.3041484",
+      "lng": "106.7815974",
+      "name": "kahfi 1 - 17",
+      "object": "feeder"
+    },
+    {
+      "id": "352",
+      "lat": "-6.3053535",
+      "lng": "106.7818227",
+      "name": "kahfi 1 - 18",
+      "object": "feeder"
+    },
+    {
+      "id": "353",
+      "lat": "-6.3062599",
+      "lng": "106.7818442",
+      "name": "kahfi 1 - 19",
+      "object": "feeder"
+    },
+    {
+      "id": "354",
+      "lat": "-6.3073903",
+      "lng": "106.7814365",
+      "name": "kahfi 1 - 20",
+      "object": "feeder"
+    },
+    {
+      "id": "355",
+      "lat": "-6.3088848",
+      "lng": "106.7810104",
+      "name": "kahfi 1 - 21",
+      "object": "feeder"
+    },
+    {
+      "id": "356",
+      "lat": "-6.3102071",
+      "lng": "106.7809353",
+      "name": "kahfi 1 - 22",
+      "object": "feeder"
+    },
+    {
+      "id": "357",
+      "lat": "-6.3112201",
+      "lng": "106.7811177",
+      "name": "kahfi 1 - 23",
+      "object": "feeder"
+    },
+    {
+      "id": "358",
+      "lat": "-6.3121799",
+      "lng": "106.7812893",
+      "name": "kahfi 1 - 24",
+      "object": "feeder"
+    },
+    {
+      "id": "359",
+      "lat": "-6.3138328",
+      "lng": "106.7816434",
+      "name": "kahfi 1 - 25",
+      "object": "feeder"
+    },
+    {
+      "id": "360",
+      "lat": "-6.3148138",
+      "lng": "106.7820082",
+      "name": "kahfi 1 - 26",
+      "object": "feeder"
+    },
+    {
+      "id": "361",
+      "lat": "-6.3159335",
+      "lng": "106.7826197",
+      "name": "kahfi 1 - 27",
+      "object": "feeder"
+    },
+    {
+      "id": "362",
+      "lat": "-6.3173982",
+      "lng": "106.7832986",
+      "name": "kahfi 1 - 28",
+      "object": "feeder"
+    },
+    {
+      "id": "363",
+      "lat": "-6.3181767",
+      "lng": "106.7834059",
+      "name": "kahfi 1 - 29",
+      "object": "feeder"
+    },
+    {
+      "id": "364",
+      "lat": "-6.3193604",
+      "lng": "106.7833308",
+      "name": "kahfi 1 - 30",
+      "object": "feeder"
+    },
+    {
+      "id": "365",
+      "lat": "-6.3206293",
+      "lng": "106.7834166",
+      "name": "kahfi 1 - 31",
+      "object": "feeder"
+    },
+    {
+      "id": "366",
+      "lat": "-6.3221676",
+      "lng": "106.7837197",
+      "name": "kahfi 1 - 32",
+      "object": "feeder"
+    },
+    {
+      "id": "367",
+      "lat": "-6.3237138",
+      "lng": "106.7841488",
+      "name": "kahfi 1 - 33",
+      "object": "feeder"
+    },
+    {
+      "id": "368",
+      "lat": "-6.3249934",
+      "lng": "106.7845351",
+      "name": "kahfi 1 - 34",
+      "object": "feeder"
+    },
+    {
+      "id": "369",
+      "lat": "-6.3267209",
+      "lng": "106.7849213",
+      "name": "kahfi 1 - 35",
+      "object": "feeder"
+    },
+    {
+      "id": "370",
+      "lat": "-6.3276273",
+      "lng": "106.7850286",
+      "name": "kahfi 1 - 36",
+      "object": "feeder"
+    },
+    {
+      "id": "371",
+      "lat": "-6.3283912",
+      "lng": "106.7849535",
+      "name": "kahfi 1 - 37",
+      "object": "feeder"
+    },
+    {
+      "id": "372",
+      "lat": "-6.3292656",
+      "lng": "106.7843741",
+      "name": "kahfi 1 - 38",
+      "object": "feeder"
+    },
+    {
+      "id": "373",
+      "lat": "-6.3295429",
+      "lng": "106.7841918",
+      "name": "kahfi 1 - 39",
+      "object": "feeder"
+    },
+    {
+      "id": "374",
+      "lat": "-6.3295429",
+      "lng": "106.7841918",
+      "name": "kahfi 1 - 40",
+      "object": "feeder"
+    },
+    {
+      "id": "375",
+      "lat": "-6.3304493",
+      "lng": "106.7839021",
+      "name": "kahfi 1 - 41",
+      "object": "feeder"
+    },
+    {
+      "id": "376",
+      "lat": "-6.3313877",
+      "lng": "106.783548",
+      "name": "kahfi 1 - 42",
+      "object": "feeder"
+    },
+    {
+      "id": "377",
+      "lat": "-6.3324041",
+      "lng": "106.7831902",
+      "name": "kahfi 1 - 43",
+      "object": "feeder"
+    },
+    {
+      "id": "378",
+      "lat": "-6.3332998",
+      "lng": "106.7828576",
+      "name": "kahfi 1 - 44",
+      "object": "feeder"
+    },
+    {
+      "id": "379",
+      "lat": "-6.333577",
+      "lng": "106.783437",
+      "name": "kahfi 1 - 45",
+      "object": "feeder"
+    },
+    {
+      "id": "380",
+      "lat": "-6.3339183",
+      "lng": "106.7843275",
+      "name": "kahfi 1 - 46",
+      "object": "feeder"
+    },
+    {
+      "id": "381",
+      "lat": "-6.3342168",
+      "lng": "106.7850677",
+      "name": "kahfi 1 - 47",
+      "object": "feeder"
+    },
+    {
+      "id": "382",
+      "lat": "-6.3344195",
+      "lng": "106.7863338",
+      "name": "kahfi 1 - 48",
+      "object": "feeder"
+    },
+    {
+      "id": "383",
+      "lat": "-6.3348029",
+      "lng": "106.7873383",
+      "name": "kahfi 1 - 49",
+      "object": "feeder"
+    },
+    {
+      "id": "384",
+      "lat": "-6.3352935",
+      "lng": "106.7882503",
+      "name": "kahfi 1 - 50",
+      "object": "feeder"
+    },
+    {
+      "id": "385",
+      "lat": "-6.3359898",
+      "lng": "106.789654",
+      "name": "kahfi 1 - 51",
+      "object": "feeder"
+    },
+    {
+      "id": "386",
+      "lat": "-6.3363737",
+      "lng": "106.7903407",
+      "name": "kahfi 1 - 52",
+      "object": "feeder"
+    },
+    {
+      "id": "387",
+      "lat": "-6.3369709",
+      "lng": "106.7913385",
+      "name": "kahfi 1 - 53",
+      "object": "feeder"
+    },
+    {
+      "id": "388",
+      "lat": "-6.337568",
+      "lng": "106.7922611",
+      "name": "kahfi 1 - 54",
+      "object": "feeder"
+    },
+    {
+      "id": "389",
+      "lat": "-6.3381438",
+      "lng": "106.7927332",
+      "name": "kahfi 1 - 55",
+      "object": "feeder"
+    },
+    {
+      "id": "390",
+      "lat": "-6.3389862",
+      "lng": "106.7929585",
+      "name": "kahfi 1 - 56",
+      "object": "feeder"
+    },
+    {
+      "id": "391",
+      "lat": "-6.3398286",
+      "lng": "106.7934842",
+      "name": "kahfi 1 - 57",
+      "object": "feeder"
+    },
+    {
+      "id": "392",
+      "lat": "-6.3402658",
+      "lng": "106.7941709",
+      "name": "kahfi 1 - 58",
+      "object": "feeder"
+    },
+    {
+      "id": "393",
+      "lat": "-6.3404364",
+      "lng": "106.7951794",
+      "name": "kahfi 1 - 59",
+      "object": "feeder"
+    },
+    {
+      "id": "394",
+      "lat": "-6.3404791",
+      "lng": "106.7963166",
+      "name": "kahfi 1 - 60",
+      "object": "feeder"
+    },
+    {
+      "id": "395",
+      "lat": "-6.3408096",
+      "lng": "106.7974217",
+      "name": "kahfi 1 - 61",
+      "object": "feeder"
+    },
+    {
+      "id": "396",
+      "lat": "-6.3417587",
+      "lng": "106.7971535",
+      "name": "kahfi 1 - 62",
+      "object": "feeder"
+    },
+    {
+      "id": "397",
+      "lat": "-6.342471",
+      "lng": "106.7969804",
+      "name": "kahfi 1 - 63",
+      "object": "feeder"
+    },
+    {
+      "id": "398",
+      "lat": "-6.3434093",
+      "lng": "106.7968624",
+      "name": "kahfi 1 - 64",
+      "object": "feeder"
+    },
+    {
+      "id": "399",
+      "lat": "-6.343548",
+      "lng": "106.7973881",
+      "name": "kahfi 1 - 65",
+      "object": "feeder"
+    },
+    {
+      "id": "400",
+      "lat": "-6.3438359",
+      "lng": "106.7986326",
+      "name": "kahfi 1 - 66",
+      "object": "feeder"
+    },
+    {
+      "id": "401",
+      "lat": "-6.3436936",
+      "lng": "106.7993226",
+      "name": "kahfi 1 - 67",
+      "object": "feeder"
+    },
+    {
+      "id": "402",
+      "lat": "-6.3438855",
+      "lng": "106.8000629",
+      "name": "kahfi 1 - 68",
+      "object": "feeder"
+    },
+    {
+      "id": "403",
+      "lat": "-6.3440241",
+      "lng": "106.8009641",
+      "name": "kahfi 1 - 69",
+      "object": "feeder"
+    },
+    {
+      "id": "404",
+      "lat": "-6.3440241",
+      "lng": "106.8009641",
+      "name": "kahfi 1 - 70",
+      "object": "feeder"
+    },
+    {
+      "id": "405",
+      "lat": "-6.3441841",
+      "lng": "106.8021336",
+      "name": "kahfi 1 - 71",
+      "object": "feeder"
+    },
+    {
+      "id": "406",
+      "lat": "-6.3444293",
+      "lng": "106.8039789",
+      "name": "kahfi 1 - 72",
+      "object": "feeder"
+    },
+    {
+      "id": "407",
+      "lat": "-6.3454924",
+      "lng": "106.8036921",
+      "name": "kahfi 1 - 73",
+      "object": "feeder"
+    },
+    {
+      "id": "408",
+      "lat": "-6.3464734",
+      "lng": "106.8027909",
+      "name": "kahfi 1 - 74",
+      "object": "feeder"
+    },
+    {
+      "id": "409",
+      "lat": "-6.3481795",
+      "lng": "106.8019326",
+      "name": "kahfi 1 - 75",
+      "object": "feeder"
+    },
+    {
+      "id": "410",
+      "lat": "-6.3507387",
+      "lng": "106.8014605",
+      "name": "kahfi 1 - 76",
+      "object": "feeder"
+    },
+    {
+      "id": "411",
+      "lat": "-6.3535537",
+      "lng": "106.8013318",
+      "name": "kahfi 1 - 77",
+      "object": "feeder"
+    },
+    {
+      "id": "412",
+      "lat": "-6.3567873",
+      "lng": "106.8009026",
+      "name": "kahfi 1 - 78",
+      "object": "feeder"
+    },
+    {
+      "id": "413",
+      "lat": "-6.359517",
+      "lng": "106.800688",
+      "name": "kahfi 1 - 79",
+      "object": "feeder"
+    },
+    {
+      "id": "414",
+      "lat": "-6.3628011",
+      "lng": "106.8019326",
+      "name": "kahfi 1 - 80",
+      "object": "feeder"
+    },
+    {
+      "id": "415",
+      "lat": "-6.3635688",
+      "lng": "106.8033488",
+      "name": "kahfi 1 - 81",
+      "object": "feeder"
+    },
+    {
+      "id": "416",
+      "lat": "-6.3634835",
+      "lng": "106.8045504",
+      "name": "kahfi 1 - 82",
+      "object": "feeder"
+    },
+    {
+      "id": "417",
+      "lat": "-6.3635262",
+      "lng": "106.8070824",
+      "name": "kahfi 1 - 83",
+      "object": "feeder"
+    },
+    {
+      "id": "418",
+      "lat": "-6.295216",
+      "lng": "106.7950049",
+      "name": "Kahfi 2 - 1",
+      "object": "feeder"
+    },
+    {
+      "id": "419",
+      "lat": "-6.2966239",
+      "lng": "106.7948762",
+      "name": "Kahfi 2 - 2",
+      "object": "feeder"
+    },
+    {
+      "id": "420",
+      "lat": "-6.2983088",
+      "lng": "106.7947045",
+      "name": "Kahfi 2 - 3",
+      "object": "feeder"
+    },
+    {
+      "id": "421",
+      "lat": "-6.3003776",
+      "lng": "106.7947045",
+      "name": "Kahfi 2 - 4",
+      "object": "feeder"
+    },
+    {
+      "id": "422",
+      "lat": "-6.3021265",
+      "lng": "106.7945543",
+      "name": "Kahfi 2 - 5",
+      "object": "feeder"
+    },
+    {
+      "id": "423",
+      "lat": "-6.3038328",
+      "lng": "106.7943827",
+      "name": "Kahfi 2 - 6",
+      "object": "feeder"
+    },
+    {
+      "id": "424",
+      "lat": "-6.3055603",
+      "lng": "106.7941466",
+      "name": "Kahfi 2 - 7",
+      "object": "feeder"
+    },
+    {
+      "id": "425",
+      "lat": "-6.3063494",
+      "lng": "106.7936102",
+      "name": "Kahfi 2 - 8",
+      "object": "feeder"
+    },
+    {
+      "id": "426",
+      "lat": "-6.3077784",
+      "lng": "106.7935887",
+      "name": "Kahfi 2 - 9",
+      "object": "feeder"
+    },
+    {
+      "id": "427",
+      "lat": "-6.309186",
+      "lng": "106.793696",
+      "name": "Kahfi 2 - 10",
+      "object": "feeder"
+    },
+    {
+      "id": "428",
+      "lat": "-6.3109989",
+      "lng": "106.7936102",
+      "name": "Kahfi 2 - 11",
+      "object": "feeder"
+    },
+    {
+      "id": "429",
+      "lat": "-6.311916",
+      "lng": "106.7934385",
+      "name": "Kahfi 2 - 12",
+      "object": "feeder"
+    },
+    {
+      "id": "430",
+      "lat": "-6.3120439",
+      "lng": "106.7946831",
+      "name": "Kahfi 2 - 13",
+      "object": "feeder"
+    },
+    {
+      "id": "431",
+      "lat": "-6.3124492",
+      "lng": "106.7952195",
+      "name": "Kahfi 2 - 14",
+      "object": "feeder"
+    },
+    {
+      "id": "432",
+      "lat": "-6.3124492",
+      "lng": "106.7960564",
+      "name": "Kahfi 2 - 15",
+      "object": "feeder"
+    },
+    {
+      "id": "433",
+      "lat": "-6.3129824",
+      "lng": "106.796464",
+      "name": "Kahfi 2 - 16",
+      "object": "feeder"
+    },
+    {
+      "id": "434",
+      "lat": "-6.3138781",
+      "lng": "106.7956701",
+      "name": "Kahfi 2 - 17",
+      "object": "feeder"
+    },
+    {
+      "id": "435",
+      "lat": "-6.3147312",
+      "lng": "106.7954985",
+      "name": "Kahfi 2 - 18",
+      "object": "feeder"
+    },
+    {
+      "id": "436",
+      "lat": "-6.3157976",
+      "lng": "106.7958203",
+      "name": "Kahfi 2 - 19",
+      "object": "feeder"
+    },
+    {
+      "id": "437",
+      "lat": "-6.3169493",
+      "lng": "106.7958632",
+      "name": "Kahfi 2 - 20",
+      "object": "feeder"
+    },
+    {
+      "id": "438",
+      "lat": "-6.317909",
+      "lng": "106.7956701",
+      "name": "Kahfi 2 - 21",
+      "object": "feeder"
+    },
+    {
+      "id": "439",
+      "lat": "-6.3188474",
+      "lng": "106.7951766",
+      "name": "Kahfi 2 - 22",
+      "object": "feeder"
+    },
+    {
+      "id": "440",
+      "lat": "-6.3197218",
+      "lng": "106.7952195",
+      "name": "Kahfi 2 - 23",
+      "object": "feeder"
+    },
+    {
+      "id": "441",
+      "lat": "-6.3210228",
+      "lng": "106.7953053",
+      "name": "Kahfi 2 - 24",
+      "object": "feeder"
+    },
+    {
+      "id": "442",
+      "lat": "-6.3222384",
+      "lng": "106.7955414",
+      "name": "Kahfi 2 - 25",
+      "object": "feeder"
+    },
+    {
+      "id": "443",
+      "lat": "-6.3231981",
+      "lng": "106.7957345",
+      "name": "Kahfi 2 - 26",
+      "object": "feeder"
+    },
+    {
+      "id": "444",
+      "lat": "-6.3243072",
+      "lng": "106.7953697",
+      "name": "Kahfi 2 - 27",
+      "object": "feeder"
+    },
+    {
+      "id": "445",
+      "lat": "-6.3251176",
+      "lng": "106.7953483",
+      "name": "Kahfi 2 - 28",
+      "object": "feeder"
+    },
+    {
+      "id": "446",
+      "lat": "-6.3259067",
+      "lng": "106.795477",
+      "name": "Kahfi 2 - 29",
+      "object": "feeder"
+    },
+    {
+      "id": "447",
+      "lat": "-6.3268877",
+      "lng": "106.7960134",
+      "name": "Kahfi 2 - 30",
+      "object": "feeder"
+    },
+    {
+      "id": "448",
+      "lat": "-6.3279328",
+      "lng": "106.7966572",
+      "name": "Kahfi 2 - 31",
+      "object": "feeder"
+    },
+    {
+      "id": "449",
+      "lat": "-6.3292337",
+      "lng": "106.7974726",
+      "name": "Kahfi 2 - 32",
+      "object": "feeder"
+    },
+    {
+      "id": "450",
+      "lat": "-6.330364",
+      "lng": "106.7975584",
+      "name": "Kahfi 2 - 33",
+      "object": "feeder"
+    },
+    {
+      "id": "451",
+      "lat": "-6.3313237",
+      "lng": "106.7974726",
+      "name": "Kahfi 2 - 34",
+      "object": "feeder"
+    },
+    {
+      "id": "452",
+      "lat": "-6.3323474",
+      "lng": "106.7970219",
+      "name": "Kahfi 2 - 35",
+      "object": "feeder"
+    },
+    {
+      "id": "453",
+      "lat": "-6.3331792",
+      "lng": "106.796464",
+      "name": "Kahfi 2 - 36",
+      "object": "feeder"
+    },
+    {
+      "id": "454",
+      "lat": "-6.3343308",
+      "lng": "106.7958418",
+      "name": "Kahfi 2 - 37",
+      "object": "feeder"
+    },
+    {
+      "id": "455",
+      "lat": "-6.3355464",
+      "lng": "106.7952624",
+      "name": "Kahfi 2 - 38",
+      "object": "feeder"
+    },
+    {
+      "id": "456",
+      "lat": "-6.3372099",
+      "lng": "106.7946616",
+      "name": "Kahfi 2 - 39",
+      "object": "feeder"
+    },
+    {
+      "id": "457",
+      "lat": "-6.3385535",
+      "lng": "106.7941895",
+      "name": "Kahfi 2 - 40",
+      "object": "feeder"
+    }
+  ]

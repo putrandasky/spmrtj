@@ -17,7 +17,7 @@
         content="Survei Preferensi Kebijakan Parkir, Layanan Feeder, Jalur Sepeda, dan Jalur Pejalan Kaki terhadap Layanan MRT di DKI Jakarta">
     <link type="image/png" href="https://www.jakartamrt.co.id/wp-content/uploads/2019/03/favicon.png" rel="icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito|Roboto:400,700&display=swap" rel="stylesheet">    <!-- CSRF Token -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Roboto:400,700&display=swap" rel="stylesheet">    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Facebook Pixel Code -->

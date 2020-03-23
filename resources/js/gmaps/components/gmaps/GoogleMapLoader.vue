@@ -9,8 +9,10 @@
 
 <script>
 import GoogleMapsApiLoader from "google-maps-api-loader";
-
+import { CheckArea } from "../../components/mixins/CheckArea.js";
+import { EventBus } from "@/gmaps/event.js";
 export default {
+    mixins: [CheckArea],
     props: {
         mapConfig: Object,
         apiKey: String
@@ -25,8 +27,9 @@ export default {
 
     async mounted() {
         const googleMapApi = await GoogleMapsApiLoader({
-            libraries: ["visualization"],
-            apiKey: this.apiKey
+            libraries: ["visualization", "geometry"],
+            apiKey: this.apiKey,
+            language: "id"
         });
         this.google = googleMapApi;
         this.initializeMap();
@@ -34,12 +37,39 @@ export default {
 
     methods: {
         initializeMap() {
+            let self = this
             const mapContainer = this.$refs.googleMap;
             this.map = new this.google.maps.Map(mapContainer, this.mapConfig);
             this.google.maps.event.addListener(this.map, "click", function(
                 event
             ) {
-                console.log(event);
+                 self.$store.dispatch("isLoading", true);
+                console.log(
+                    "addListenersOnMap -> lat",
+                    event.latLng.lat(),
+                    "addListenersOnMap -> lng",
+                    event.latLng.lng()
+                );
+                let latlng = new self.google.maps.LatLng(
+                    event.latLng.lat(),
+                    event.latLng.lng()
+                );
+                axios
+                    .get(
+                        `geocoding?latlng=${event.latLng.lat() +
+                            "," +
+                            event.latLng.lng()}`
+                    )
+                    .then(response => {
+                        self.defineArea({
+                            latlng: event.latLng,
+                            address: response.data[0].formatted_address
+                        });
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
             });
         }
     }

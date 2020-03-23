@@ -8,8 +8,19 @@
 // import 'buefy/dist/buefy.css'
 
 require('./bootstrap');
-
+import BootstrapVue from 'bootstrap-vue'
+import App from './components/gmaps/BaseComponent.vue';
 window.Vue = require('vue');
+import Loading from 'vue-loading-overlay';
+import {
+  store
+} from './store';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
+import './scss/custom.scss';
+Vue.use(BootstrapVue)
+
+Vue.component('loading', Loading);
 // Vue.use(VueRouter)
 // Vue.use(Buefy)
 
@@ -24,7 +35,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('base-gmaps', require('./components/gmaps/BaseComponent.vue').default);
+// Vue.component('base-gmaps', require('./components/gmaps/BaseComponent.vue').default);
 // Vue.component('example-component', require('./components/form/AppForm.vue').default);
 
 /**
@@ -34,5 +45,7 @@ Vue.component('base-gmaps', require('./components/gmaps/BaseComponent.vue').defa
  */
 
 const app = new Vue({
-  el: '#app'
+  el: '#app',
+  store,
+  render: h => h(App),
 });

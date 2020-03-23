@@ -26,7 +26,13 @@ export default {
         lng: null,
       }
     },
-    lrt: {
+    mrt: {
+      lines: [],
+      path:[],
+      stations:[],
+      distance:""
+    },
+    feeder: {
       lines: [],
       path:[],
       stations:[],

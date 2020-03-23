@@ -2,7 +2,7 @@
   import {
     POINT_MARKER_ICON_CONFIG
   } from "../../constants/mapSettings";
-
+import { EventBus } from "@/gmaps/event.js";
   export default {
     props: {
       google: {
@@ -34,7 +34,8 @@
     },
 
     mounted() {
-      this.createMarker()
+        this.createMarker();
+        let self = this;
     },
     watch: {
       markerData(newVal, oldVal) {
