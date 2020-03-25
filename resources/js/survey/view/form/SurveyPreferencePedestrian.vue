@@ -1,60 +1,70 @@
 <template>
     <div>
-        <b-card class="w-100 mb-3" no-body>
+        <!-- <b-card class="w-100 mb-3" no-body>
             <h5 class="mb-0 font-weight-bold py-1 text-primary">
                 Kebijakan Layanan Jalur Pedestrian
             </h5>
-        </b-card>
-        <question-slot class="w-100  " v-if="step == 1">
-            <template slot="above">
-                Apa yang membuat Anda tidak menggunakan jalur pedestrian saat
-                ini?
-            </template>
-            <template slot="bottom">
-                <div class="w-100 text-left">
-                    <small>
-                        nb: Boleh memilih lebih dari satu jawaban
-                    </small>
-                </div>
-                <b-form-checkbox-group
-                    slot="bottom"
-                    id="question_1"
-                    stacked
-                    button-variant="light"
-                    buttons
-                    class="btn-block "
-                    v-model="input.question_1"
-                >
-                    <b-form-checkbox
-                        class="text-primary"
-                        style="text-align:unset"
-                        v-for="(v, i) in options.question_1"
-                        :key="i"
-                        name="question_1"
-                        :value="v.value"
-                        :disabled="
-                            input.question_1.length >= 5 &&
-                                input.question_1.indexOf(v.value) == -1
-                        "
+        </!-->
+        <opening
+            v-if="intro"
+            @onClick="intro = $event"
+            :title="spTitle"
+        ></opening>
+        <div v-if="!intro">
+            <question-slot class="w-100  " v-if="step == 1">
+                <template slot="above">
+                    Apa yang membuat Anda tidak menggunakan jalur pedestrian
+                    saat ini?
+                </template>
+                <template slot="bottom">
+                    <div class="w-100 text-left">
+                        <small>
+                            nb: Boleh memilih lebih dari satu jawaban
+                        </small>
+                    </div>
+                    <b-form-checkbox-group
+                        slot="bottom"
+                        id="question_1"
+                        stacked
+                        button-variant="light"
+                        buttons
+                        class="btn-block "
+                        v-model="input.question_1"
                     >
-                        <b-row>
-                            <b-col cols="2" class="text-center px-0">
-                                <span
-                                    class="rounded px-2 bg-light border border-light text-primary font-weight-bold"
-                                    v-if="
-                                        input.question_1.indexOf(v.value) > -1
-                                    "
-                                >
-                                    {{ input.question_1.indexOf(v.value) + 1 }}
-                                </span>
-                            </b-col>
-                            <b-col cols="10" class="pl-0 text-left">{{
-                                v.text
-                            }}</b-col>
-                        </b-row>
-                    </b-form-checkbox>
-                </b-form-checkbox-group>
-                <!-- <b-form-radio-group
+                        <b-form-checkbox
+                            class="text-primary"
+                            style="text-align:unset"
+                            v-for="(v, i) in options.question_1"
+                            :key="i"
+                            name="question_1"
+                            :value="v.value"
+                            :disabled="
+                                input.question_1.length >= 5 &&
+                                    input.question_1.indexOf(v.value) == -1
+                            "
+                        >
+                            <b-row>
+                                <b-col cols="2" class="text-center px-0">
+                                    <span
+                                        class="rounded px-2 bg-light border border-light text-primary font-weight-bold"
+                                        v-if="
+                                            input.question_1.indexOf(v.value) >
+                                                -1
+                                        "
+                                    >
+                                        {{
+                                            input.question_1.indexOf(v.value) +
+                                                1
+                                        }}
+                                    </span>
+                                </b-col>
+                                <b-col cols="10" class="pl-0 text-left">{{
+                                    v.text
+                                }}</b-col>
+                            </b-row>
+                        </b-form-checkbox>
+                    </b-form-checkbox-group>
+                    <!-- <b-form-radio-group
                 id="travel_purpose"
                 stacked
                 v-model="input.question_1"
@@ -64,65 +74,78 @@
                 name="travel_purpose"
                 class="btn-block"
             ></b-form-radio-group> -->
-                <b-btn
-                    variant="success"
-                    block
-                    @click="step = 2"
-                    v-if="input.question_1.length > 0"
-                    >Lanjut</b-btn
-                >
-            </template>
-        </question-slot>
-        <question-slot class="w-100  " v-if="step == 2">
-            <template slot="above">
-                Fasilitas pejalan kaki apa saja yang Anda inginkan tersedia pada
-                jalur pedestrian?
-            </template>
-            <template slot="bottom">
-                                <div class="w-100 text-left">
-                    <small>
-                        nb: Boleh memilih lebih dari satu jawaban
-                    </small>
-                </div>
-                <b-form-checkbox-group
-                    slot="bottom"
-                    id="question_2"
-                    stacked
-                    button-variant="light"
-                    buttons
-                    class="btn-block"
-                    v-model="input.question_2"
-                >
-                    <b-form-checkbox
-                        class="text-primary"
-                        style="text-align:unset"
-                        v-for="(v, i) in options.question_2"
-                        :key="i"
-                        name="question_2"
-                        :value="v.value"
-                        :disabled="
-                            input.question_2.length >= 5 &&
-                                input.question_2.indexOf(v.value) == -1
-                        "
+                    <b-input
+                        class="mb-3"
+                        v-if="input.question_1.includes(7)"
+                        v-model="input.question_1_other"
+                        placeholder="Masukan jawaban lainnya"
+                    ></b-input>
+                    <b-btn
+                        variant="success"
+                        block
+                        @click="step = 2"
+                        v-if="input.question_1.includes(7)?
+                        input.question_1_other ?true:false
+                        :
+                        input.question_1.length > 0"
+                        >Lanjut</b-btn
                     >
-                        <b-row>
-                            <b-col cols="2" class="text-center px-0">
-                                <span
-                                    class="rounded px-2 bg-light border border-light text-primary font-weight-bold"
-                                    v-if="
-                                        input.question_2.indexOf(v.value) > -1
-                                    "
-                                >
-                                    {{ input.question_2.indexOf(v.value) + 1 }}
-                                </span>
-                            </b-col>
-                            <b-col cols="10" class="pl-0 text-left">{{
-                                v.text
-                            }}</b-col>
-                        </b-row>
-                    </b-form-checkbox>
-                </b-form-checkbox-group>
-                <!-- <b-form-radio-group
+                </template>
+            </question-slot>
+            <question-slot class="w-100  " v-if="step == 2">
+                <template slot="above">
+                    Fasilitas pejalan kaki apa saja yang Anda inginkan tersedia
+                    pada jalur pedestrian?
+                </template>
+                <template slot="bottom">
+                    <div class="w-100 text-left">
+                        <small>
+                            nb: Boleh memilih lebih dari satu jawaban
+                        </small>
+                    </div>
+                    <b-form-checkbox-group
+                        slot="bottom"
+                        id="question_2"
+                        stacked
+                        button-variant="light"
+                        buttons
+                        class="btn-block"
+                        v-model="input.question_2"
+                    >
+                        <b-form-checkbox
+                            class="text-primary"
+                            style="text-align:unset"
+                            v-for="(v, i) in options.question_2"
+                            :key="i"
+                            name="question_2"
+                            :value="v.value"
+                            :disabled="
+                                input.question_2.length >= 5 &&
+                                    input.question_2.indexOf(v.value) == -1
+                            "
+                        >
+                            <b-row>
+                                <b-col cols="2" class="text-center px-0">
+                                    <span
+                                        class="rounded px-2 bg-light border border-light text-primary font-weight-bold"
+                                        v-if="
+                                            input.question_2.indexOf(v.value) >
+                                                -1
+                                        "
+                                    >
+                                        {{
+                                            input.question_2.indexOf(v.value) +
+                                                1
+                                        }}
+                                    </span>
+                                </b-col>
+                                <b-col cols="10" class="pl-0 text-left">{{
+                                    v.text
+                                }}</b-col>
+                            </b-row>
+                        </b-form-checkbox>
+                    </b-form-checkbox-group>
+                    <!-- <b-form-radio-group
                 id="travel_purpose"
                 stacked
                 v-model="input.question_2"
@@ -132,51 +155,55 @@
                 name="travel_purpose"
                 class="btn-block"
             ></b-form-radio-group> -->
-                <b-btn
-                    variant="success"
-                    block
-                    @click="step = 3"
-                    v-if="input.question_2.length > 0"
-                    >Lanjut</b-btn
-                >
-            </template>
-        </question-slot>
-        <question-slot class="w-100  " v-if="step == 3">
-            <template slot="above">
-                Jika jalur pedestrian yang menjadi akses menuju stasiun MRT
-                memiliki fasilitas yang sesuai Anda harapkan, apakah Anda akan
-                berjalan kaki dari dan menuju stasiun untuk menggunakan layanan
-                MRT?
-            </template>
-            <template slot="bottom">
-                <b-form-radio-group
-                    id="travel_purpose"
-                    stacked
-                    v-model="input.question_3"
-                    :options="options.question_3"
-                    button-variant="outline-primary"
-                    buttons
-                    name="travel_purpose"
-                    class="btn-block"
-                ></b-form-radio-group>
-                <b-btn
-                    variant="success"
-                    @click="submit"
-                    block
-                    v-if="input.question_3"
-                    >Kirim</b-btn
-                >
-            </template>
-        </question-slot>
+                    <b-btn
+                        variant="success"
+                        block
+                        @click="step = 3"
+                        v-if="input.question_2.length > 0"
+                        >Lanjut</b-btn
+                    >
+                </template>
+            </question-slot>
+            <question-slot class="w-100  " v-if="step == 3">
+                <template slot="above">
+                    Jika jalur pedestrian yang menjadi akses menuju stasiun MRT
+                    memiliki fasilitas yang sesuai Anda harapkan, apakah Anda
+                    akan berjalan kaki dari dan menuju stasiun untuk menggunakan
+                    layanan MRT?
+                </template>
+                <template slot="bottom">
+                    <b-form-radio-group
+                        id="travel_purpose"
+                        stacked
+                        v-model="input.question_3"
+                        :options="options.question_3"
+                        button-variant="outline-primary"
+                        buttons
+                        name="travel_purpose"
+                        class="btn-block"
+                    ></b-form-radio-group>
+                    <b-btn
+                        variant="success"
+                        @click="submit"
+                        block
+                        v-if="input.question_3"
+                        >Kirim</b-btn
+                    >
+                </template>
+            </question-slot>
+        </div>
     </div>
 </template>
 <script>
+import Opening from "./SurveyPreferenceOpening";
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 export default {
     name: "SurveyPreferencePedestrian",
-    components: { QuestionSlot },
+    props: ["spTitle"],
+    components: { QuestionSlot, Opening },
     data() {
         return {
+            intro: true,
             step: 1,
             options: {
                 question_1: [],
@@ -185,6 +212,7 @@ export default {
             },
             input: {
                 question_1: [],
+                question_1_other: "",
                 question_2: [],
                 question_3: null
             }
@@ -196,7 +224,7 @@ export default {
     },
     methods: {
         submit() {
-            let self = this
+            let self = this;
             this.$store.dispatch("isLoading", true);
             // setTimeout(() => {
             //     this.$store.dispatch("isLoading", false);

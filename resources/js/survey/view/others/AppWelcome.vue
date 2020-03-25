@@ -1,57 +1,123 @@
 <template>
-    <b-row class="app d-flex justify-content-center align-items-start mx-0 pb-3">
-            <b-col lg="4" class="pl-0">
-                <b-img src="/img/ripped-with-logo-fixed.svg" class="img-fluid" />
-            </b-col>
-            <b-col lg="8" class="d-flex justify-content-center align-items-self py-3">
-                <b-img class="img-fluid cover-title" src="/img/cover-title.png" />
-            </b-col>
-        <!-- <div class="w-100 mb-3 d-flex justify-content-between">
-            <div class="">
-                <b-img src="/img/ripped-with-logo-fixed.svg" class="img-fluid" />
-            </div>
-            <div class="  d-flex justify-content-center align-items-center">
-
-                <b-img class="img-fluid cover-title" src="/img/cover-title.png" />
-            </div>
-        </div> -->
-        <div class="w-100 ">
-            <b-container >
-                <b-row class=" d-flex justify-content-center  mx-0">
-                    <transition name="fade" mode="out-in">
-                        <router-view
-                            class="clearfix"
-                            v-on:childinit="onChildInit"
-                        ></router-view>
-                    </transition>
+    <div class="app pt-3 d-flex align-items-start flex-column">
+        <b-container fluid class="mb-auto">
+            <b-row class="h-100">
+                <b-col lg="5" class="pb-3 pb-lg-0">
+                    <b-card class="opacity-90 shadow">
+                        <div class="d-flex justify-content-around py-2">
+                            <b-img src="/img/jaklingko-icon.png"></b-img>
+                            <b-img src="/img/logo-mrtj.png"></b-img>
+                        </div>
+                        <div>
+                            <p class="font-weight-bold text-primary">
+                                Halo Teman MRT !
+                            </p>
+                            <p>
+                                <small>
+                                    Tidak terasa ya sudah hampir satu tahun Mass
+                                    Rapid Transit (MRT) Jakarta beroperasi
+                                    melayani kita semua. Apakah kalian pengguna
+                                    aktif MRT Jakarta ? atau bahkan kalian belum
+                                    pernah menggunakan moda transportasi publik
+                                    yang hits ini? kalau belum, yuk buruan
+                                    cobain naik MRT Jakarta dan rasakan jadi
+                                    warga ibu kota yang bebas dari kemacetan!
+                                    Selain itu yuk ikutan juga survei seru
+                                    terkait kualitas pelayanan MRT Jakarta dalam
+                                    rangka meningkatkan kualitas fasilitas dan
+                                    pelayanan yang diharapkan temen – temen MRT
+                                    semua.
+                                </small>
+                            </p>
+                            <p>
+                                <small>
+                                    Kami berharap temen – temen MRT dapat
+                                    berpartisipasi mengisi kuesioner dengan
+                                    benar dan jujur. Hasil pengolahan data
+                                    survei akan menjadi pertimbangan dan saran
+                                    untuk MRT Jakarta. Seluruh data dan
+                                    informasi yang diberikan akan dijaga
+                                    kerahasiaannya dan akan digunakan sepenuhnya
+                                    untuk keperluan analisa teknis dalam
+                                    perencanaan dan pengembangan kebijakan MRT
+                                    Jakarta.
+                                </small>
+                            </p>
+                            <p class="font-weight-bold text-primary">
+                                Kesempatan emas gak dateng 2x loh!
+                            </p>
+                            <p>
+                                <small>
+                                    Yuk langsung isi surveinya dan menangkan
+                                    e-wallet senilai Rp. 100.000 untuk 100 orang
+                                    beruntung dan hadiah utama hadiah utama
+                                    voucher MAP Rp. 2,5 juta untuk 2 orang! Semoga
+                                    beruntung Teman MRT !
+                                </small>
+                            </p>
+                        </div>
+                    </b-card>
+                </b-col>
+                <b-col lg="3"></b-col>
+                <b-col lg="4" class="d-flex align-items-end pb-3 pb-lg-0">
+                    <b-card class="opacity-90 shadow " >
+                        <small>
+                            Seluruh data dan informasi yang Responden berikan
+                            akan dijaga kerahasiaannya dan akan digunakan
+                            sepenuhnya untuk keperluan analisa teknis dalam
+                            perencanaan dan pengembangan kebijakan transportasi
+                            di masa mendatang.
+                        </small>
+                    </b-card>
+                </b-col>
+            </b-row>
+        </b-container>
+        <div class="w-100 footer-welcome bg-primary text-white text-center py-1">
+            <b-container fluid>
+                <b-row class="d-flex align-items-center">
+                    <b-col md="4">
+                        <div>
+                            <h4>
+                                SURVEI KEBIJAKAN
+                            </h4>
+                        </div>
+                        <div class="text-lg-right">
+                            <h4 class="mb-0">
+                                PELAYANAN PUBLIK
+                            </h4>
+                        </div>
+                    </b-col>
+                    <b-col md="6">
+                        <h1  class="mb-0">
+                            <div class="display-5">
+                                MRT JAKARTA
+                            </div>
+                        </h1>
+                    </b-col>
+                    <b-col md="2">
+                        <b-btn variant="success" block @click="handleStart">
+                            MULAI SURVEI
+                        </b-btn>
+                    </b-col>
                 </b-row>
             </b-container>
         </div>
-
-        <!-- <router-view v-show="!isChecking"></router-view> -->
-        <!-- <div class="w-100 text-center mt-auto mb-2">
-      <img src="img/logo_aecom.gif" alt="" style="max-height:1.5rem" class=" shadow-lg">
-    </div> -->
-    </b-row>
+    </div>
 </template>
 <script>
 import { FadeTransition } from "vue2-transitions";
-// import PersonalData from "./AppFormPersonalData"
-// import TravelMap from "./AppFormTravelMap"
-// import TravelData from "./AppFormTravelData"
+import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
+
 export default {
-    name: "AppIntro",
+    name: "AppWelcome",
+    mixins: [AuthRespondent],
     components: {
-        // PersonalData,
-        // TravelMap,
-        // TravelData
+
     },
     data() {
         return {
             // isChecking: false,
-            title: "",
-            progress: 0,
-            indexForm: 0
+
         };
     },
     watch: {},
@@ -60,86 +126,48 @@ export default {
         // this.$store.dispatch('checkExist')
     },
     methods: {
-        onChildInit(value) {
-            this.title = value.title;
-            this.progress = value.progress;
-        },
-        handleNext(index) {
-            this.indexForm = index;
-        },
-        checkExist() {
-            // console.log(typeof this.$route.query.token === 'undefined');
-            this.isChecking = true;
-            let token =
-                typeof this.$route.query.token === "undefined"
-                    ? false
-                    : this.$route.query.token;
-            if (token) {
-                axios
-                    .get(`survey/form/auth-respondent?token=${token}`)
-                    .then(response => {
-                        console.log(response.data);
-                        if (response.data.status == "exist") {
-                            console.log("exist");
-                            this.$store.dispatch("storeToken", response.data);
-                            this.handleRoute(
-                                response.data.token,
-                                response.data.step.name
-                            );
-                            this.$store.dispatch("isPageLoaded", true);
-                        } else {
-                            console.log("new");
-                            this.$router.replace({
-                                name: "Intro",
-                                query: {
-                                    token: response.data.token
-                                }
-                            });
-                            this.isChecking = false;
-                            this.$store.dispatch("isPageLoaded", true);
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            } else {
-                axios
-                    .get(`survey/form/auth-respondent`)
-                    .then(response => {
-                        console.log("new");
-                        console.log(response.data);
-                        this.handleRoute(response.data.token, "Intro");
-                        this.isChecking = false;
-                        this.$store.dispatch("isPageLoaded", true);
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            }
-        },
-        handleRoute(token, routeName) {
+
+       handleStart() {
             this.$router.replace({
-                name: routeName,
-                query: Object.assign({}, this.$route.query, {
-                    token: token
-                })
+                name: "SocialData",
+                query: {
+                    token: this.$route.query.token
+                }
             });
-            this.isChecking = false;
-        }
+        },
     }
 };
 </script>
 <style lang="css" scoped>
 .app {
+    /* min-height: 100vh;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0056bb; */
+
     min-height: 100vh;
     height: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #0056bb;
+    background-image: url(/img/bg-front-cover.jpg);
+    /* background-image: radial-gradient(
+            circle,
+            rgba(14, 14, 15, 0.9) 50%,
+            rgba(14, 14, 15, 1) 100%
+        ),
+        url(/img/bg-front-cover.jpg); */
+    /* background-image: radial-gradient(
+            circle,
+            rgba(14, 14, 15, 0.9) 0%,
+            rgba(14, 14, 15, 1) 100%
+        ),
+        url(/img/bg-front-cover.jpg); */
 }
-.cover-title{
-    max-height:200px;
+.cover-title {
+    max-height: 200px;
 }
 /* .ripped-top {
     top: -70px;
@@ -150,6 +178,10 @@ export default {
     text-shadow: 1px 1px grey;
 }
 
+.footer-welcome {
+    box-shadow: 0px -10px 13px -2px rgba(0, 0, 0, 0.75);
+    z-index: 100;
+}
 /* .background-welcome { */
 /* height:100%;
     background-position: right;

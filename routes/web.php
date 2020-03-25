@@ -45,6 +45,8 @@ Route::post('respondent/survey/travel-data', 'Respondent\SurveyController@storeT
 Route::get('respondent/survey/travel-data', 'Respondent\SurveyController@getTravelData');
 Route::get('respondent/survey/additional-data', 'Respondent\SurveyController@getAdditionalData');
 Route::post('respondent/survey/additional-data', 'Respondent\SurveyController@storeAdditionalData');
+Route::post('respondent/survey/personal-data', 'Respondent\SurveyController@storePersonalData');
+Route::get('respondent/survey/personal-data', 'Respondent\SurveyController@getPersonalData');
 Route::get('geocoding', 'Google\GoogleController@geocoding');
 Route::get('area', 'Google\GoogleController@area');
 Route::get('line', 'Google\MapController@waypoint');

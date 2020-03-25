@@ -10,9 +10,11 @@ import SocialData from '@/survey/view/form/SocialData.vue'
 import TravelData from '@/survey/view/form/TravelData.vue'
 import SurveyPreference from '@/survey/view/form/SurveyPreference.vue'
 import AdditionalData from '@/survey/view/form/AdditionalData.vue'
-import Completed from '@/survey/view/form/CompleteSurvey.vue'
 import Done from '@/survey/view/others/Done.vue'
 import Errors from '@/survey/view/others/AppErrors.vue'
+import AppGeneral from '@/survey/view/others/AppGeneral.vue'
+import Completed from '@/survey/view/others/Complete.vue'
+
 
 
 Vue.use(Router)
@@ -29,7 +31,6 @@ export default new Router({
       redirect: '/welcome',
       component: AppForm,
         children:[
-
            {
             path:'/social-data',
             name:'SocialData',
@@ -37,7 +38,7 @@ export default new Router({
             props:{
               routerData: {
                 title: 'Data Sosial Ekonomi Responden',
-                progress: 60
+                progress: 0
               }
             },
               meta: {
@@ -51,7 +52,7 @@ export default new Router({
             props: {
               routerData: {
                 title: 'Data Perjalanan Responden',
-                progress: 0
+                progress: 25
               }
             },
               meta: {
@@ -65,7 +66,7 @@ export default new Router({
             props: {
               routerData: {
                 title: 'Survei Preferensi Responden',
-                progress: 90
+                progress: 50
               }
               },
               meta: {
@@ -79,19 +80,8 @@ export default new Router({
             props: {
               routerData: {
                 title: 'Informasi Tambahan',
-                progress: 90
+                progress: 75
               }
-              },
-              meta: {
-                checkStep: true
-              },
-          },
-          {
-            path:'/completed',
-            name: 'Completed',
-            component: Completed,
-            props: {
-
               },
               meta: {
                 checkStep: true
@@ -99,30 +89,29 @@ export default new Router({
           },
 
         ]
-
     },
-    // {
-    //   path:'/completed',
-    //   component:AppDone,
-    //   children:[
-    //       {
-    //         path: '',
-    //         name: 'Completed',
-    //         component: Completed,
-    //         meta: {
-    //           checkStep: true
-    //         },
-    //       },
-    //     {
-    //       path: '/done',
-    //       name: 'Done',
-    //       component: Done,
-    //       meta: {
-    //         checkStep: true
-    //       },
-    //     }
-    //   ]
-    // },
+    {
+      path:'/completed',
+      component:AppGeneral,
+      children:[
+          {
+            path: '',
+            name: 'Completed',
+            component: Completed,
+            meta: {
+              checkStep: true
+            },
+          },
+        // {
+        //   path: '/done',
+        //   name: 'Done',
+        //   component: Done,
+        //   meta: {
+        //     checkStep: true
+        //   },
+        // }
+      ]
+    },
     {
       path:'/welcome',
       component:AppWelcome,

@@ -1,46 +1,54 @@
 <template>
     <div>
-        <div class="w-100 text-center">
+        <!-- <div class="w-100 text-center">
             <b-card class="w-100 text-center mb-3" no-body>
                 <h5 class="mb-0 font-weight-bold py-1 text-primary">
                     Kebijakan Layanan Parkir Mobil
                 </h5>
             </b-card>
-        </div>
-        <div class="w-100 text-primary text-left">
-            Jika tarif parkir yang harus Anda bayarkan untuk menggunakan
-            fasilitas parkir menjadi
-            <b-badge variant="primary">
-                <h6 class="mb-0 font-weight-bold">
-                    Rp {{ currentData.costState.amount }}
-                </h6>
-            </b-badge>
-            untuk setiap jam namun memperoleh penghematan waktu perjalanan
-            sebesar
-            <b-badge variant="primary">
-                <h6 class="mb-0 font-weight-bold">
-                    {{ currentData.timeState.amount }} menit
-                </h6></b-badge
-            >
-            <br />
-            Apakah Anda akan tetap menggunakan mobil untuk melakukan perjalanan
-            rutinitas Anda?
-        </div>
-        <div class="btn-group w-100 mt-5" role="group">
-            <b-btn variant="outline-secondary" @click="submit(0)">
-                Tidak
-            </b-btn>
-            <b-btn variant="outline-primary" @click="submit(1)">
-                Ya
-            </b-btn>
+        </div> -->
+
+        <opening  v-if="intro" @onClick ="intro = $event" :title="spTitle"></opening>
+        <div v-if="!intro">
+            <div class="w-100 text-primary text-left">
+                Jika tarif parkir yang harus Anda bayarkan untuk menggunakan
+                fasilitas parkir menjadi
+                <b-badge variant="primary">
+                    <h6 class="mb-0 font-weight-bold">
+                        Rp {{ currentData.costState.amount }}
+                    </h6>
+                </b-badge>
+                untuk setiap jam namun memperoleh penghematan waktu perjalanan
+                sebesar
+                <b-badge variant="primary">
+                    <h6 class="mb-0 font-weight-bold">
+                        {{ currentData.timeState.amount }} menit
+                    </h6></b-badge
+                >
+                <br />
+                Apakah Anda akan tetap menggunakan mobil untuk melakukan
+                perjalanan rutinitas Anda?
+            </div>
+            <div class="btn-group w-100 mt-5" role="group">
+                <b-btn variant="outline-danger" @click="submit(0)">
+                    Tidak
+                </b-btn>
+                <b-btn variant="outline-success" @click="submit(1)">
+                    Ya
+                </b-btn>
+            </div>
         </div>
     </div>
 </template>
 <script>
+import Opening from './SurveyPreferenceOpening'
 export default {
     name: "SurveyPreferenceCarParking",
+    props:['spTitle'],
+    components:{Opening},
     data: function() {
         return {
+            intro: true,
             costIndex: null,
             timeIndex: null,
             currentData: {
@@ -68,6 +76,9 @@ export default {
     created() {
         this.getData();
     },
+    mounted(){
+
+    },
     watch: {
         timeIndex(newVal, oldVal) {
             let self = this;
@@ -87,7 +98,9 @@ export default {
             }
         }
     },
-    computed: {},
+    computed: {
+
+    },
     methods: {
         submitStateCollection() {
             this.$store.dispatch("isLoading", true);
@@ -97,25 +110,29 @@ export default {
             //     this.$emit("finish", 1);
             // }, 1000);
 
-                    let self = this
-        // this.stateDataCollection.respondent_id = this.$store.state.respondent.id
-        // this.$store.dispatch('isLoading', true)
-        axios.post(`respondent/survey/preference/park-car?token=${this.$route.query.token}`, self.stateDataCollection)
-          .then((response) => {
-            console.log(response.data)
-            // this.$store.dispatch('storeToken', response.data)
-            this.$store.dispatch('isLoading', false)
-            this.$bvToast.toast(response.data.message, {
-              title: `SUCCESS`,
-              variant: 'success',
-              autoHideDelay: 1000,
-              solid: true
-            })
-            this.$emit("finish", 1);
-          })
-          .catch((error) => {
-            console.log(error);
-          })
+            let self = this;
+            // this.stateDataCollection.respondent_id = this.$store.state.respondent.id
+            // this.$store.dispatch('isLoading', true)
+            axios
+                .post(
+                    `respondent/survey/preference/park-car?token=${this.$route.query.token}`,
+                    self.stateDataCollection
+                )
+                .then(response => {
+                    console.log(response.data);
+                    // this.$store.dispatch('storeToken', response.data)
+                    this.$store.dispatch("isLoading", false);
+                    this.$bvToast.toast(response.data.message, {
+                        title: `SUCCESS`,
+                        variant: "success",
+                        autoHideDelay: 1000,
+                        solid: true
+                    });
+                    this.$emit("finish", 1);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         },
         submit(respond) {
             let self = this;

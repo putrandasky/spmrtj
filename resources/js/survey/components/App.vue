@@ -57,13 +57,31 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .title-form {
+        font-size: 3.5rem!important;
+    }
+    /* .sub-title-form {
+        font-size: 1.2rem!important;
+    } */
+}
 @media only screen and (max-width: 576px) {
     /* For mobile phones: */
     .title-form {
-        font-size: 1.5rem;
+        font-size: 3rem!important;
     }
     .sub-title-form {
-        font-size: 1.3rem;
+        font-size: 1.2rem!important;
+    }
+}
+@media only screen and (max-width: 480px) {
+    /* For mobile phones: */
+    .title-form {
+        font-size: 2.5rem!important;
+    }
+    .sub-title-form {
+        font-size: 1rem!important;
     }
 }
 </style>

@@ -1,10 +1,12 @@
 <template>
     <div class="w-100  ">
-        <b-card class="mb-3 shadow-sm">
+        <div class="pb-4 pt-2">
+
             <h5 class="mb-0 font-weight-bold text-primary text-center">
                 <slot name="above"></slot>
             </h5>
-        </b-card>
+
+        </div>
         <div class="w-100">
         <small class="pt-3">
             <slot name="text"></slot>

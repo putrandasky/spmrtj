@@ -1,15 +1,16 @@
 <template>
     <div>
-        <div class="w-100 text-center">
+        <!-- <div class="w-100 text-center">
             <h4 class="mb-4 text-primary font-weight-bold">
                 Bagian IV : Informasi Tambahan
             </h4>
-        </div>
+        </div> -->
+
         <div class="w-100  " v-if="step == 1">
             <question-slot>
                 <template slot="above">
                     Apa alasan Anda menggunakan jenis kendaraan (moda) seperti
-                    yang disebutkan di atas?
+                    yang Anda jawab pada bagian data perjalanan responden?
                 </template>
 
                 <template slot="bottom">
@@ -252,18 +253,122 @@
                 </b-btn>
             </template>
         </question-slot>
+        <b-modal
+            v-model="modalWelcome"
+            :no-close-on-esc="true"
+            :hide-header-close="true"
+            :no-close-on-backdrop="true"
+            :hide-header="false"
+            ok-only
+            hide-footer
+            centered
+        >
+            <template v-slot:modal-header>
+                <div
+                    class="d-flex justify-content-start align-items-center w-100"
+                >
+                    <span>
+                        <lottie
+                            :options="defaultOptions2"
+                            v-on:animCreated="handleAnimation"
+                            :height="30"
+                            :width="30"
+                        />
+                    </span>
+
+                    <h5 class="mb-0 ml-3">
+                        Petunjuk Pengisian Kuesioner
+                    </h5>
+                </div>
+            </template>
+            <p class="mb-3 text-justify">
+                Selamat! teman MRTJ telah menjawab semua pertanyaan preferensi
+                dengan baik
+            </p>
+            <p class="mb-3 text-justify">
+                Pada survei bagian ini, teman MRTJ akan ditanyakan beberapa
+                pertanyaan penunjang untuk melengkapi survei ini.
+            </p>
+            <p class="mb-3 text-justify">
+                Lengkapi survei ini hingga akhir untuk memperoleh kesempatan
+                meraih
+                <strong>
+                    e-wallet senilai Rp. 100.000
+                </strong>
+                untuk
+                <strong>
+                    100 orang beruntung
+                </strong>
+                dan hadiah utama hadiah utama
+                <strong>
+                    voucher MAP Rp. 2,5 juta
+                </strong>
+                untuk
+                <strong>
+                    2 orang
+                </strong>
+                dengan memasukan informasi pribadi di akhir kuisioner ini
+            </p>
+
+            <b-btn
+                variant="primary"
+                class="float-right"
+                @click="modalWelcome = false"
+                >Saya Mengerti</b-btn
+            >
+        </b-modal>
+        <b-modal
+            v-model="modalComplete"
+            :no-close-on-esc="true"
+            :hide-header-close="true"
+            :no-close-on-backdrop="true"
+            :hide-header="true"
+            ok-only
+            hide-footer
+            centered
+        >
+            <lottie
+                :options="defaultOptions"
+                v-on:animCreated="handleAnimation"
+                :height="300"
+            />
+            <h4 class="mb-3">
+                Semua pertanyaan survey sudah berhasil kamu jawab.
+            </h4>
+            <b-btn
+                variant="primary"
+                class="float-right"
+                @click="handleNext($route.query.token, 'Completed')"
+                >Lanjut</b-btn
+            >
+        </b-modal>
     </div>
 </template>
 <script>
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
+import animationData from "@/survey/assets/checklist-blue.js";
+import animationData2 from "@/survey/assets/exclamation-horizontal.js";
 
 export default {
     name: "AdditionalData",
     mixins: [AuthRespondent],
+    props: ["routerData"],
     components: { QuestionSlot },
     data: function() {
         return {
+            modalWelcome: true,
+            defaultOptions: {
+                animationData: animationData,
+                loop: false
+            },
+            defaultOptions2: {
+                animationData: animationData2,
+                loop: true
+            },
+            animationSpeed: 1,
+            modalComplete: false,
+
             step: 1,
             input: {
                 reason_using_transport: [],
@@ -284,8 +389,14 @@ export default {
     },
     created() {
         this.getData();
+        this.$emit("childinit", this.routerData);
+        console.log(this.routerData);
+
     },
     methods: {
+        handleAnimation: function(anim) {
+            this.anim = anim;
+        },
         handleNext(token, routeName) {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
             this.$router.replace({
@@ -297,10 +408,13 @@ export default {
         },
         submit() {
             this.$store.dispatch("isLoading", true);
+
             // setTimeout(() => {
             //     this.$store.dispatch("isLoading", false);
-            //     this.handleNext("fsfsdf", "Completed");
+            //     this.modalComplete = true;
+
             // }, 1000);
+
             axios
                 .post(
                     `respondent/survey/additional-data?token=${this.$route.query.token}`,
@@ -308,8 +422,13 @@ export default {
                 )
                 .then(response => {
                     console.log(response.data);
+                    this.modalComplete = true;
                     this.$store.dispatch("isLoading", false);
-                    this.handleNext(response.data.token, "Completed");
+                     this.$emit('childinit', {
+              progress: 100,
+              title: 'Informasi Tambahan'
+            });
+                                // this.handleNext(response.data.token, "Completed");
                 })
                 .catch(error => {
                     console.log(error);

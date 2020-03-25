@@ -1,13 +1,62 @@
 <template>
     <div>
-        <div class="w-100 text-center">
-            <h4 class="mb-4 text-primary font-weight-bold">
-                Bagian III : Survei Preferensi
-            </h4>
-        </div>
         <transition name="fade" mode="out-in">
-        <component @finish="onFinish" v-bind:is="component"></component>
+            <component
+                @finish="onFinish"
+                v-bind:is="component"
+                :spTitle="sp_title"
+            ></component>
         </transition>
+        <b-modal
+            v-model="modalWelcome"
+            :no-close-on-esc="true"
+            :hide-header-close="true"
+            :no-close-on-backdrop="true"
+            :hide-header="false"
+            ok-only
+            hide-footer
+        >
+            <template v-slot:modal-header>
+                <div
+                    class="d-flex justify-content-start align-items-center w-100"
+                >
+                    <span>
+                        <lottie
+                            :options="defaultOptions"
+                            v-on:animCreated="handleAnimation"
+                            :height="30"
+                            :width="30"
+                        />
+                    </span>
+
+                    <h5 class="mb-0 ml-3">
+                        Petunjuk Pengisian Kuesioner
+                    </h5>
+                </div>
+            </template>
+            <p class="mb-3 text-justify">
+                Terimakasih teman MRTJ sudah mengisi data perjalanan dengan baik
+                dan akan memulai survei preferensi yang merupakan inti dari
+                diadakannya survei ini.
+            </p>
+            <p class="mb-3 text-justify">
+                Pada survei preferensi ini, teman MRTJ akan diberikan beberapa
+                pertanyaan terkait kebijakan pelayanan yang sesuai dengan data
+                perjalanan yang biasa dilakukan oleh teman MRTJ.
+            </p>
+            <p class="mb-3 text-justify">
+                Diharapkan teman MRTJ bisa memberikan jawaban yang sesuai dengan
+                harapan dan pilihan teman MRTJ untuk meningkatkan pelayanan MRT
+                Jakarta.
+            </p>
+
+            <b-btn
+                variant="primary"
+                class="float-right"
+                @click="modalWelcome = false"
+                >Saya Mengerti</b-btn
+            >
+        </b-modal>
     </div>
 </template>
 <script>
@@ -25,8 +74,10 @@ import ParkRideMotor from "@/survey/view/form/SurveyPreferenceParkRideMotor.vue"
 import ParkRideHypoCar from "@/survey/view/form/SurveyPreferenceParkRideHypoCar.vue";
 import ParkRideHypoMotor from "@/survey/view/form/SurveyPreferenceParkRideHypoMotor.vue";
 import MotorParking from "@/survey/view/form/SurveyPreferenceMotorParking.vue";
+import animationData from "@/survey/assets/exclamation-horizontal.js";
 export default {
     name: "SurveyPreference",
+    props: ["routerData"],
     mixins: [AuthRespondent],
     components: {
         CarParking,
@@ -44,74 +95,114 @@ export default {
     },
     data: function() {
         return {
+            defaultOptions: {
+                animationData: animationData,
+                loop: true
+            },
+            animationSpeed: 1,
+            modalWelcome: true,
             step: 0,
-            component: ""
+            component: "",
+            sp_title: ""
         };
     },
     mounted() {
         this.step = 1;
         // console.log(this.$route.name);
 
+        this.$emit("childinit", this.routerData);
     },
     computed: {},
     watch: {
         step(newVal, oldVal) {
             if (newVal == 1) {
-                this.component = "CarParking"
+                this.component = "CarParking";
+                this.sp_title = "Kebijakan Layanan Parkir Mobil";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 2) {
-                this.component = "MotorParking"
+                this.component = "MotorParking";
+                this.sp_title = "Kebijakan Layanan Parkir Motor";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 3) {
-                this.component = "Cycle"
+                this.component = "Cycle";
+                this.sp_title = "Kebijakan Layanan Jalur Sepeda";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 4) {
-                this.component = "Pedestrian"
-                }
+                this.component = "Pedestrian";
+                this.sp_title = "Kebijakan Layanan Jalur Pejalan Kaki";
+                this.$emit("spInit", { sp_title: this.sp_title });
+            }
             if (newVal == 5) {
-                this.component = "Feeder"
+                this.component = "Feeder";
+                this.sp_title = "Kebijakan Layanan Feeder Reguler";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 6) {
-                this.component = "FeederPremium"
+                this.component = "FeederPremium";
+                this.sp_title = "Kebijakan Layanan Feeder Premium";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 7) {
-                this.component = "FeederPark"
+                this.component = "FeederPark";
+                this.sp_title = "Kebijakan Layanan Feeder & Parkir";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 8) {
-                this.component = "ParkRideCommon"
+                this.component = "ParkRideCommon";
+                this.sp_title = "Preferensi Layanan Park & Ride";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 9) {
-                this.component = "ParkRideCar"
+                this.component = "ParkRideCar";
+                this.sp_title =
+                    "Preferensi Layanan Park & Ride Pengguna Mobil Pribadi";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 10) {
-                this.component = "ParkRideMotor"
+                this.component = "ParkRideMotor";
+                this.sp_title =
+                    "Preferensi Layanan Park & Ride Pengguna Motor Pribadi";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 11) {
-                this.component = "ParkRideHypoCar"
+                this.component = "ParkRideHypoCar";
+                this.sp_title =
+                    "Preferensi Layanan Park & Ride Pengguna Mobil Pribadi Hypotethical";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 12) {
-                this.component = "ParkRideHypoMotor"
+                this.component = "ParkRideHypoMotor";
+                this.sp_title =
+                    "Preferensi Layanan Park & Ride Pengguna Motor Pribadi Hypotethical";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 13) {
-                this.handleNext()
+                this.handleNext();
+                this.sp_title = "";
+                this.$emit("spInit", { sp_title: this.sp_title });
             }
         }
     },
     methods: {
+        handleAnimation: function(anim) {
+            this.anim = anim;
+        },
         onFinish(e) {
-            this.step += e
+            this.step += e;
             console.log(this.step);
-
         },
         handleNext() {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
             this.$router.replace({
-                name: 'AdditionalData',
+                name: "AdditionalData",
                 query: {
                     token: this.$route.query.token
                 }
             });
-        },
+        }
     }
 };
 </script>

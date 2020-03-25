@@ -1,10 +1,13 @@
 <template>
     <div class="w-100">
-        <b-card class="w-100 text-center mb-3" no-body>
+        <!-- <b-card class="w-100 text-center mb-3" no-body>
             <h5 class="mb-0 font-weight-bold py-1 text-primary">
                 Kebijakan Layanan Jalur Sepeda
             </h5>
-        </b-card>
+        </b-card> -->
+        <opening  v-if="intro" @onClick ="intro = $event" :title="spTitle"></opening>
+               <div v-if="!intro">
+
         <question-slot class="w-100  " v-if="step == 1">
             <template slot="above">
                 Apa yang membuat Anda tidak menggunakan sepeda untuk
@@ -64,19 +67,28 @@
                 name="travel_purpose"
                 class="btn-block"
             ></b-form-radio-group> -->
+                                <b-input
+                        class="mb-3"
+                        v-if="input.question_1.includes(7)"
+                        v-model="input.question_1_other"
+                        placeholder="Masukan jawaban lainnya"
+                    ></b-input>
                 <b-btn
                     variant="success"
                     block
                     @click="step = 2"
-                    v-if="input.question_1.length > 0"
+                    v-if="input.question_1.includes(7)?
+                        input.question_1_other ?true:false
+                        :
+                        input.question_1.length > 0"
                     >Lanjut</b-btn
                 >
             </template>
         </question-slot>
         <question-slot class="w-100  " v-if="step == 2">
             <template slot="above">
-                Fasilitas pejalan kaki apa saja yang Anda inginkan tersedia pada
-                jalur pedestrian?
+                Fasilitas apa saja yang Anda inginkan tersedia pada
+                jalur sepeda?
             </template>
             <template slot="bottom">
                 <div class="w-100 text-left">
@@ -143,9 +155,9 @@
         </question-slot>
         <question-slot class="w-100  " v-if="step == 3">
             <template slot="above">
-                Jika jalur pedestrian yang menjadi akses menuju stasiun MRT
+                Jika jalur sepeda yang menjadi akses menuju stasiun MRT
                 memiliki fasilitas yang sesuai Anda harapkan, apakah Anda akan
-                berjalan kaki dari dan menuju stasiun untuk menggunakan layanan
+                menggunakan sepeda dari dan menuju stasiun untuk menggunakan layanan
                 MRT?
             </template>
             <template slot="bottom">
@@ -169,14 +181,18 @@
             </template>
         </question-slot>
     </div>
+    </div>
 </template>
 <script>
+import Opening from './SurveyPreferenceOpening'
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 export default {
     name: "SurveyPreferencePedestrian",
-    components: { QuestionSlot },
+    props:['spTitle'],
+    components: { QuestionSlot,Opening },
     data() {
         return {
+            intro: true,
             step: 1,
             options: {
                 question_1: [],
@@ -185,6 +201,7 @@ export default {
             },
             input: {
                 question_1: [],
+                question_1_other: "",
                 question_2: [],
                 question_3: null
             }

@@ -73,7 +73,7 @@
 import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
 export default {
     name: "Intro",
-    mixins: [AuthRespondent],
+    // mixins: [AuthRespondent],
     data: function() {
         return {
             step: 1

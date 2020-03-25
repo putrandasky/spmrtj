@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div class="w-100 text-center">
+        <!-- <div class="w-100 text-center">
             <b-card class="w-100 text-center mb-3" no-body>
                 <h5 class="mb-0 font-weight-bold py-1 text-primary">
                     Kebijakan Layanan Feeder & Parkir
                 </h5>
             </b-card>
-        </div>
+        </div> -->
         <div class="w-100 text-primary text-left">
             Jika terdapat kebijakan tarif parkir sebesar
             <b>Rp. {{ spParking.maxCost | currency }}</b> , dan terdapat layanan
@@ -23,10 +23,10 @@
             melakukan perjalanan rutinitas Anda?
         </div>
         <div class="btn-group w-100 mt-5" role="group">
-            <b-btn variant="outline-primary" @click="submit(0)">
+            <b-btn variant="outline-danger" @click="submit(0)">
                 Saya akan beralih menggunakan moda saya yang sekarang
             </b-btn>
-            <b-btn variant="outline-primary" @click="submit(1)">
+            <b-btn variant="outline-success" @click="submit(1)">
                 Saya tetap menggunakan layanan pengumpan
             </b-btn>
         </div>

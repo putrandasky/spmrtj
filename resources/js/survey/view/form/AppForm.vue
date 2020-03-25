@@ -1,37 +1,78 @@
 <template>
-    <b-row class="app  py-5 mx-0">
-        <b-col
-            order-lg="0"
-            lg="3"
-            cols="6"
-            class="d-flex justify-content-center"
-        >
-            <img src="/img/Mrt-Jkt-White.png" class=" logo-client " alt="" />
-        </b-col>
-        <b-col
-            order-lg="9"
-            lg="3"
-            cols="6"
-            class="d-flex justify-content-center"
-        >
-            <img
-                src="/img/Logo-Jaklingko-white.png"
-                class=" logo-client  "
-                alt=""
-            />
-        </b-col>
-        <b-col order-lg="3" lg="6" cols="12" class=" w-100">
-            <b-card class="shadow-lg text-center">
-                <div class="">
-                    <h2 class="title-form text-success font-weight-bold">
-                        Survei Preferensi Kebijakan MRT Jakarta
-                    </h2>
+    <b-row class="app pb  mx-0 ">
+        <div class="w-100 mb-3">
+            <div
+                class="bg-white d-block"
+                style="height:200px;top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    position: absolute;"
+            ></div>
+            <b-container fluid class="position-relative">
+                <div
+                    class="w-100 mt-3 mt-lg-0 d-flex justify-content-between align-items-center mb-3"
+                >
+                    <img
+                        src="/img/logo-mrtj-small.png"
+                        class="  d-inline d-lg-none"
+                        alt=""
+                    />
+                    <img
+                        src="/img/jaklingko-icon-small.png"
+                        class="   d-inline d-lg-none"
+                        alt=""
+                    />
                 </div>
-                <transition name="fade" mode="out-in">
-                    <router-view></router-view>
-                </transition>
-            </b-card>
-        </b-col>
+                <b-row class="d-flex justify-content-center">
+                    <b-col
+                        order-lg="0"
+                        lg="3"
+                        cols="6"
+                        class="justify-content-center pt-lg-3 d-none d-lg-flex"
+                    >
+                        <img
+                            src="/img/logo-mrtj.png"
+                            class=" logo-client "
+                            alt=""
+                        />
+                    </b-col>
+                    <b-col
+                        order-lg="9"
+                        lg="3"
+                        cols="6"
+                        class="justify-content-center pt-lg-3  d-none d-lg-flex"
+                    >
+                        <img
+                            src="/img/jaklingko-icon.png"
+                            class=" logo-client  "
+                            alt=""
+                        />
+                    </b-col>
+                    <b-col order-lg="3" lg="5" md="8" sm="10" cols="12">
+                        <div class="w-100 text-center">
+
+                            <h3 class="text-success sub-title-form font-weight-bold">
+                                Survei Preferensi Kebijakan MRT Jakarta
+                            </h3>
+                             <div><b-progress :value="progress_new" :max="100" height="10px" class="mb-1"></b-progress></div>
+                            <h4 class="mb-0 text-primary  sub-title-form font-weight-bold py-3">
+                                <!-- Bagian I : Data Sosial Ekonomi -->
+                                {{title}}
+                            </h4>
+                        </div>
+                        <b-card class="shadow-lg text-center">
+                            <h5 v-if="sp_title" slot="header" class="text-primary mb-0  sub-title-form ">
+                                {{sp_title}}
+                            </h5>
+                            <transition name="fade" mode="out-in">
+                                <router-view  v-on:childinit="onChildInit"  v-on:spInit="onSpInit"></router-view>
+                            </transition>
+                        </b-card>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </div>
         <loading
             class="text-center"
             :active.sync="$store.state.isLoading"
@@ -57,15 +98,18 @@
 
 <script>
 // import CarParking from '@'
+import countTo from "vue-count-to";
 export default {
     name: "AppForm",
-    components: {},
+    components: { countTo },
     data() {
         return {
             // isChecking: false,
             title: "",
             progress: 0,
-            indexForm: 0
+            indexForm: 0,
+progress_new:0,
+            sp_title:""
         };
     },
     watch: {},
@@ -75,6 +119,11 @@ export default {
         // this.$store.dispatch('checkExist')
     },
     methods: {
+        onSpInit(value){
+            this.sp_title = value.sp_title
+            // console.log(value);
+
+        },
         onChildInit(value) {
             this.title = value.title;
             this.progress = this.progress_new;
@@ -108,7 +157,6 @@ export default {
                     .then(response => {
                         console.log(response.data);
                         if (response.data.status == "exist") {
-                            console.log("exist");
                             this.$store.dispatch("storeToken", response.data);
                             this.handleRoute(
                                 response.data.token,
@@ -116,7 +164,6 @@ export default {
                             );
                             this.$store.dispatch("isPageLoaded", true);
                         } else {
-                            console.log("new");
                             this.$router.replace({
                                 name: "Intro",
                                 query: {
@@ -134,7 +181,6 @@ export default {
                 axios
                     .get(`survey/form/auth-respondent`)
                     .then(response => {
-                        console.log("new");
                         console.log(response.data);
                         this.handleRoute(response.data.token, "Intro");
                         this.isChecking = false;
@@ -158,12 +204,20 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-.app {
+/* .app {
     min-height: 100vh;
     height: auto;
-    background-color: #0056bb;
-}
 
+} */
+.app {
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: #0056bb;
+    background-size: 100% auto;
+    background-image: url(/img/footer-monumen.png);
+    min-height: 100vh;
+    height: auto;
+}
 .footer-survey {
     /* height:100vh;
   width:100%;

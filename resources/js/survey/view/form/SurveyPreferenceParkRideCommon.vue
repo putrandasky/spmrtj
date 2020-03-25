@@ -1,10 +1,12 @@
 <template>
     <div>
-        <b-card class="w-100 mb-3" no-body>
+        <!-- <b-card class="w-100 mb-3" no-body>
             <h5 class="mb-0 font-weight-bold py-1 text-primary">
                 Preferensi Layanan Park & Ride
             </h5>
-        </b-card>
+        </b-card> -->
+        <opening  v-if="intro" @onClick ="intro = $event" :title="spTitle"></opening>
+        <div v-if="!intro">
         <question-slot v-if="step == 1">
             <template slot="above">
                 Dimanakah lokasi park & ride untuk layanan MRT yang Anda
@@ -41,17 +43,17 @@
                 >
                     <b-badge
                         :variant="input.park_type == 1 ? 'primary' : 'light'"
-                        >Sangat Memilih <br />
-                        Parkir Terbuka</b-badge
+                        >Lebih baik <br />
+                        parkir terbuka</b-badge
                     >
                     <b-badge
                         :variant="input.park_type == 3 ? 'primary' : 'light'"
-                        >Sama Saja</b-badge
+                        >Sama saja</b-badge
                     >
                     <b-badge
                         :variant="input.park_type == 5 ? 'primary' : 'light'"
-                        >Sangat Memilih <br />
-                        Parkir Tertutup</b-badge
+                        >Lebih baik <br />
+                        parkir tertutup</b-badge
                     >
                 </div>
                 <range-slider
@@ -67,11 +69,11 @@
                 >
                     <b-badge
                         :variant="input.park_type == 2 ? 'primary' : 'light'"
-                        >Parkir Terbuka</b-badge
+                        >Parkir terbuka <br> sudah cukup</b-badge
                     >
                     <b-badge
                         :variant="input.park_type == 4 ? 'primary' : 'light'"
-                        >Parkir Tertutup</b-badge
+                        >Parkir tertutup <br>  sudah cukup</b-badge
                     >
                 </div>
                 <b-btn
@@ -175,14 +177,18 @@
             </template>
         </question-slot>
     </div>
+    </div>
 </template>
 <script>
+import Opening from './SurveyPreferenceOpening'
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 export default {
     name: "SurveyPreferenceParkRideCommon",
-    components: { QuestionSlot },
+    props:['spTitle'],
+    components: { QuestionSlot ,Opening},
     data: function() {
         return {
+            intro:true,
             step: 1,
             input: {
                 location: null,
@@ -226,7 +232,7 @@ export default {
                     },
                     {
                         value: "F",
-                        text: "Kanting"
+                        text: "Kantin"
                     }
                 ]
             }

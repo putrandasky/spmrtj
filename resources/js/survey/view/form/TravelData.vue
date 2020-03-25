@@ -1,21 +1,24 @@
 <template>
     <div>
-        <div class="w-100 text-center">
+        <!-- <div class="w-100 text-center">
             <h4 class="mb-4 text-primary font-weight-bold">
                 Bagian II : Data Perjalanan
             </h4>
-        </div>
+        </div> -->
         <b-row v-if="step == 1">
             <question-slot>
                 <template slot="above">Pilih Alamat Asal Perjalanan</template>
+                <template slot="bottom">
+                    <auto-complete-place
+                        class="w-100 pt-0"
+                        placeholder="Ketik untuk cari..."
+                        @hit="addPlace($event, 'origin')"
+                        @onkeyup="input.travel_origin = null"
+                        readonly
+                    ></auto-complete-place>
+                </template>
             </question-slot>
-            <auto-complete-place
-                class="w-100 pt-0"
-                placeholder="Ketik untuk cari..."
-                @hit="addPlace($event, 'origin')"
-                @onkeyup="input.travel_origin = null"
-                readonly
-            ></auto-complete-place>
+
             <div class="w-100 text-center">
                 <h4 class="text-primary">
                     atau
@@ -24,30 +27,33 @@
                     Pilih lokasi di peta
                 </p>
             </div>
-            <b-col cols="12" class="mb-3 px-0">
+            <b-col cols="12" class=" px-0">
                 <google-map ref="travelmap" class="travel-map shadow-sm" />
             </b-col>
             <b-button
                 v-if="input.travel_origin"
                 type="submit"
                 variant="success"
-                class="mx-auto px-5"
+                class="mx-auto px-5 mt-3"
                 @click="handleNextStep(2)"
             >
                 Lanjut
             </b-button>
         </b-row>
-        <b-row class="px-3" v-if="step == 2">
+        <b-row v-if="step == 2">
             <question-slot>
                 <template slot="above">Pilih Alamat Tujuan Perjalanan</template>
+                <template slot="bottom">
+                    <auto-complete-place
+                        class="w-100 pt-0"
+                        placeholder="Ketik untuk cari..."
+                        @hit="addPlace($event, 'destination')"
+                        @onkeyup="input.travel_destination = null"
+                        readonly
+                    ></auto-complete-place>
+                </template>
             </question-slot>
-            <auto-complete-place
-                class="w-100 pt-0"
-                placeholder="Ketik untuk cari "
-                @hit="addPlace($event, 'destination')"
-                @onkeyup="input.travel_destination = null"
-                readonly
-            ></auto-complete-place>
+
             <div class="w-100 text-center">
                 <h4 class="text-primary">
                     atau
@@ -56,73 +62,75 @@
                     Pilih lokasi di peta
                 </p>
             </div>
-
-            <b-col cols="12" class="mb-3 px-0">
+            <b-col cols="12" class=" px-0">
                 <google-map ref="travelmap" class="travel-map shadow-sm" />
             </b-col>
             <b-button
                 v-if="input.travel_destination"
                 type="submit"
                 variant="success"
-                class="mx-auto px-5"
+                class="mx-auto px-5 mt-3"
                 @click="step = 3"
-                >Lanjut</b-button
-            >
-        </b-row>
-        <div class="w-100  " v-if="step == 3">
-            <b-card class="mb-3 shadow-sm ">
-                <h5 class="mb-0 font-weight-bold text-primary">
-                    Maksud Anda dalam melakukan perjalanan
-                </h5>
-            </b-card>
-            <b-form-radio-group
-                id="travel_purpose"
-                stacked
-                v-model="input.travel_purpose"
-                :options="options.travel_purposes"
-                button-variant="outline-primary"
-                buttons
-                name="travel_purpose"
-                class="btn-block"
-            ></b-form-radio-group>
-            <b-btn
-                variant="success"
-                class="shadow-sm"
-                block
-                @click="step = 4"
-                v-if="input.travel_purpose"
             >
                 Lanjut
-            </b-btn>
-        </div>
-        <div class="" v-if="step == 4">
-            <b-card class="mb-3 shadow-sm ">
-                <h5 class="mb-0 font-weight-bold text-primary">
-                    Dari perjalanan tersebut,jenis moda transportasi apa yang
-                    anda gunakan?
-                </h5>
-            </b-card>
-            <b-form-radio-group
-                slot="bottom"
-                id="travel_model"
-                stacked
-                button-variant="outline-primary"
-                v-model="input.travel_model"
-                :options="options.travel_model"
-                buttons
-                name="travel_model"
-                class="btn-block"
-            ></b-form-radio-group>
-            <b-button
-                block
-                type="submit"
-                variant="success"
-                class="mx-auto px-5"
-                @click="step = 5"
-                v-if="input.travel_model !== null"
-                >Lanjut</b-button
-            >
-        </div>
+            </b-button>
+        </b-row>
+
+        <question-slot class="w-100  " v-if="step == 3">
+            <template slot="above">
+                Maksud Anda dalam melakukan perjalanan
+            </template>
+            <template slot="bottom">
+                <b-form-radio-group
+                    id="travel_purpose"
+                    stacked
+                    v-model="input.travel_purpose"
+                    :options="options.travel_purposes"
+                    button-variant="outline-primary"
+                    buttons
+                    name="travel_purpose"
+                    class="btn-block"
+                ></b-form-radio-group>
+                <b-btn
+                    variant="success"
+                    class="shadow-sm"
+                    block
+                    @click="step = 4"
+                    v-if="input.travel_purpose"
+                >
+                    Lanjut
+                </b-btn>
+            </template>
+        </question-slot>
+
+        <question-slot class="w-100  " v-if="step == 4">
+            <template slot="above">
+                Dari perjalanan tersebut,jenis moda transportasi apa yang anda
+                gunakan?
+            </template>
+            <template slot="bottom">
+                <b-form-radio-group
+                    slot="bottom"
+                    id="travel_model"
+                    stacked
+                    button-variant="outline-primary"
+                    v-model="input.travel_model"
+                    :options="options.travel_model"
+                    buttons
+                    name="travel_model"
+                    class="btn-block"
+                ></b-form-radio-group>
+                <b-button
+                    block
+                    type="submit"
+                    variant="success"
+                    class="mx-auto px-5"
+                    @click="step = 5"
+                    v-if="input.travel_model !== null"
+                    >Lanjut</b-button
+                >
+            </template>
+        </question-slot>
         <div v-if="step == 5">
             <question-slot>
                 <template slot="above">
@@ -240,42 +248,36 @@
                 :key="i"
                 v-show="!isLoading && input.travel_detail.length == i + 1"
             >
-                <b-card class="mb-3 shadow-sm ">
-                    <h5 class="mb-0 font-weight-bold text-primary">
-                        Mohon detailkan setiap moda transportasi yang digunakan
-                        dalam melakukan perjalanan dari tempat asal ke tempat
-                        tujuan
-                        <div class="text-left py-2">
-                            <small>
-                                <em
-                                    >nb : jalan kaki merupakan moda
-                                    transportasi.</em
-                                >
-                            </small>
-                        </div>
-                    </h5>
-                </b-card>
+                <h5 class="mb-0 font-weight-bold text-primary">
+                    Mohon detailkan setiap moda transportasi yang digunakan
+                    dalam melakukan perjalanan dari tempat asal ke tempat tujuan
+                </h5>
+                <div class="text-left py-2">
+                    <small>
+                        <em>nb : jalan kaki merupakan moda transportasi.</em>
+                    </small>
+                </div>
                 <div class="mb-3  py-1 w-100">
-                    <h5 class="mb-0 font-weight-bold text-primary">
+                    <h6 class="mb-0 text-primary">
                         <strong v-if="i == 0">
                             Tempat asal
                             <span class="text-primary">--</span>
-                            pemberhentian ke 1
+                            pemberhentian ke-1
                         </strong>
                         <strong v-if="i > 0">
                             Pemberhentian ke {{ i }}
                             <span class="text-primary">--</span>
-                            pemberhentian ke
+                            pemberhentian ke-
                             {{ i + 1 }}
                         </strong>
-                    </h5>
+                    </h6>
                     <hr />
                 </div>
-                <b-card class="mb-3 shadow-sm py-1 w-100" no-body>
-                    <h5 class="mb-0 font-weight-bold text-primary">
-                        Moda transportasi yang digunakan
-                    </h5>
-                </b-card>
+
+                <h5 class="font-weight-bold text-primary">
+                    Moda transportasi yang digunakan
+                </h5>
+
                 <b-form-select
                     plain
                     id="transportation_mode"
@@ -303,11 +305,10 @@
                             ) == -1
                         "
                     >
-                        <b-card class="mb-3 shadow-sm py-1" no-body>
-                            <h5 class="mb-0 font-weight-bold text-primary">
-                                Durasi waktu tunggu
-                            </h5>
-                        </b-card>
+                        <h5 class="font-weight-bold text-primary">
+                            Durasi waktu tunggu
+                        </h5>
+
                         <b-badge variant="primary" class="mb-3">
                             <h6 class="mb-0 p-1">
                                 {{ v.waiting_duration }} menit
@@ -325,11 +326,11 @@
                     </div>
                     <div>
                         <hr />
-                        <b-card class="mb-3 shadow-sm py-1" no-body>
-                            <h5 class="mb-0 font-weight-bold text-primary">
-                                Durasi waktu perjalanan selama
-                            </h5>
-                        </b-card>
+
+                        <h5 class="font-weight-bold text-primary">
+                            Durasi waktu perjalanan selama
+                        </h5>
+
                         <b-badge variant="primary" class="mb-3">
                             <h6 class="mb-0 p-1">
                                 {{ v.travel_duration }} menit
@@ -351,11 +352,10 @@
                             notRequiredCost.indexOf(v.transportation_mode) == -1
                         "
                     >
-                        <b-card class="mb-3 shadow-sm py-1" no-body>
-                            <h5 class="mb-0 font-weight-bold text-primary">
-                                Biaya perjalanan
-                            </h5>
-                        </b-card>
+                        <h5 class="font-weight-bold text-primary">
+                            Biaya perjalanan
+                        </h5>
+
                         <b-badge variant="primary" class="mb-3">
                             <h6 class="mb-0 p-1">
                                 Rp. {{ v.travel_cost | currency }}
@@ -448,6 +448,74 @@
                 </div>
             </b-row>
         </div>
+        <b-modal
+            v-model="modalWelcome"
+            :no-close-on-esc="true"
+            :hide-header-close="true"
+            :no-close-on-backdrop="true"
+            :hide-header="false"
+            ok-only
+            hide-footer
+        >
+            <template v-slot:modal-header>
+                <div
+                    class="d-flex justify-content-start align-items-center w-100"
+                >
+                    <span>
+                        <lottie
+                            :options="defaultOptions"
+                            v-on:animCreated="handleAnimation"
+                            :height="30"
+                            :width="30"
+                        />
+                    </span>
+
+                    <h5 class="mb-0 ml-3">
+                        Petunjuk Pengisian Kuesioner
+                    </h5>
+                </div>
+            </template>
+
+            <p class="mb-3 text-justify">
+                Terimakasih sebelumnya karena teman MRTJ sudah mengisi data
+                sosial ekonomi dan akan melanjutkan survei berikutnya.
+            </p>
+            <p class="mb-3 text-justify">
+                Pada survei bagian ini diharapkan teman MRTJ untuk mengisi
+                informasi tentang perjalanan yang dilakukan disalah satu hari
+                <strong>
+                    diantara hari selasa/rabu/kamis yang terdekat dengan waktu
+                    mengisi kuesioner.
+                </strong>
+            </p>
+            <p class="mb-3 text-justify">
+                Contoh: bila teman MRTJ mengisi di hari Kamis, maka informasi
+                perjalanan yang diisikan adalah perjalanan di hari sebelumnya
+                (Rabu) atau bisa juga Selasa, dengan catatan hari tersebut
+                <strong>
+                    bukan hari libur (tanggal merah).
+                </strong>
+            </p>
+            <p class="mb-3 text-justify">
+                Perjalanan yang dimaksud adalah perjalanan yang
+                <strong
+                    >berawal dari rumah (tempat tinggal/homebase trip berbasis
+                    tempat tinggal)
+                </strong>
+                menuju
+                <strong>
+                    tempat kegiatan beraktifitas yang biasa dilakukan
+                    sehari-hari (rutinitas).
+                </strong>
+            </p>
+
+            <b-btn
+                variant="primary"
+                class="float-right"
+                @click="modalWelcome = false"
+                >Saya Mengerti</b-btn
+            >
+        </b-modal>
     </div>
 </template>
 <script>
@@ -456,10 +524,13 @@ import AutoCompletePlace from "@/survey/components/AutoCompletePlace.vue";
 import GoogleMap from "@/survey/components/google/GoogleMaps.vue";
 import { EventBus } from "@/survey/event.js";
 import { AuthRespondent } from "@/survey/components/mixins/AuthRespondent";
+import animationData from "@/survey/assets/exclamation-horizontal.js";
 
 export default {
     name: "TravelData",
     mixins: [AuthRespondent],
+
+    props: ["routerData"],
     components: {
         AutoCompletePlace,
         GoogleMap,
@@ -467,10 +538,15 @@ export default {
     },
     data: function() {
         return {
+            defaultOptions: {
+                animationData: animationData,
+                loop: true
+            },
+            animationSpeed: 1,
             step: 1,
             notRequiredWaitingTime: [1, 2, 3, 5],
             notRequiredCost: [1, 2],
-
+            modalWelcome: true,
             isLoading: false,
             submitting: false,
             input: {
@@ -518,6 +594,7 @@ export default {
     },
     created() {
         this.getData();
+        this.$emit("childinit", this.routerData);
     },
     mounted() {
         EventBus.$on("addAreaDropMarker", data => {
@@ -528,6 +605,9 @@ export default {
     },
     computed: {},
     methods: {
+        handleAnimation: function(anim) {
+            this.anim = anim;
+        },
         handleNext(token, routeName) {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
             this.$router.replace({
@@ -553,7 +633,7 @@ export default {
                     console.log(response.data);
                     this.$store.dispatch("storeToken", response.data);
                     this.$store.dispatch("isLoading", false);
-                    this.handleNext(response.data.token, 'SurveyPreference');
+                    this.handleNext(response.data.token, "SurveyPreference");
                 })
                 .catch(error => {
                     console.log(error);

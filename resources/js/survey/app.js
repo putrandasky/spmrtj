@@ -14,6 +14,7 @@ import {
 import 'vue-loading-overlay/dist/vue-loading.css';
 import './filter/filter';
 import './scss/custom.scss';
+import Lottie from 'vue-lottie'
 import VueBootstrapTypeahead from '@/survey/components/packages/VueBootstrapTypeahead.vue'
 import RangeSlider from 'vue-range-slider'
 // import Lottie from 'vue-lottie'
@@ -24,6 +25,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 Vue.use(BootstrapVue)
+Vue.component('lottie', Lottie);
 Vue.use(VueClockPickerPlugin)
 Vue.component('loading', Loading);
 // Vue.component('lottie', Lottie);

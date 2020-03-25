@@ -1,12 +1,14 @@
 <template>
     <div>
-        <div class="w-100 text-center">
+        <!-- <div class="w-100 text-center">
             <b-card class="w-100 text-center mb-3" no-body>
                 <h5 class="mb-0 font-weight-bold py-1 text-primary">
                     Kebijakan Layanan Feeder Reguler
                 </h5>
             </b-card>
-        </div>
+        </div> -->
+        <opening  v-if="intro" @onClick ="intro = $event" :title="spTitle"></opening>
+        <div v-if="!intro">
         <div
             class="w-100 text-primary text-left"
             v-show="stateQuestion == 'primary'"
@@ -28,48 +30,52 @@
             apakah Anda akan menggunakan layanan pengumpan tersebut untuk
             melakukan perjalanan rutinitas Anda?
             <div class="btn-group w-100 mt-5" role="group">
-                <b-btn variant="outline-secondary" @click="submit(0)">
-                    Tidak
-                </b-btn>
-                <b-btn variant="outline-primary" @click="submit(1)">
-                    Ya
-                </b-btn>
+            <b-btn variant="outline-danger" @click="submit(0)">
+                Tidak
+            </b-btn>
+            <b-btn variant="outline-success" @click="submit(1)">
+                Ya
+            </b-btn>
             </div>
         </div>
-        <div v-show="stateQuestion == 'secondary'">
-            <b-row class="form-group">
-                <b-col
-                    sm="12"
-                    style="text-align: justify; text-justify: inter-word;"
-                >
-                    <b-card class="shadow-sm text-primary">
+        <question-slot  class="w-100" v-show="stateQuestion == 'secondary'">
+
+            <template slot="above">
                         Apa yang membuat kamu tidak ingin beralih menggunakan
                         Feeder?
-                    </b-card>
-                </b-col>
-            </b-row>
-            <b-button
+            </template>
+            <template slot="bottom">
+
+              <b-button
                 block
-                variant="secondary"
+                variant="primary"
                 @click="submitSecondary('time')"
             >
                 Cuma menghemat sedikit waktu
             </b-button>
             <b-button
                 block
-                variant="secondary"
+                variant="primary"
                 @click="submitSecondary('cost')"
             >
                 Tarifnya kemahalan
             </b-button>
-        </div>
+            </template>
+
+        </question-slot>
+    </div>
     </div>
 </template>
 <script>
+import Opening from './SurveyPreferenceOpening'
+import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 export default {
     name: "SurveyPreferenceCarParking",
+    props:['spTitle'],
+    components: { QuestionSlot,Opening },
     data: function() {
         return {
+            intro: true,
             costIndex: null,
             timeIndex: null,
             concern: "",

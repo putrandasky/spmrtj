@@ -22,7 +22,7 @@
     </strong>
       </div>
       <div>
-      <small class="text-white">Ket: masukan alamat secara detail agar muncul usulan lokasi yang lebih tepat</small>
+      <small>Ket: masukan alamat secara detail agar muncul usulan lokasi yang lebih tepat</small>
       </div>
   </div>
 </template>

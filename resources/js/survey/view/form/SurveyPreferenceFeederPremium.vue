@@ -1,12 +1,14 @@
 <template>
     <div>
-        <div class="w-100 text-center">
+        <!-- <div class="w-100 text-center">
             <b-card class="w-100 text-center mb-3" no-body>
                 <h5 class="mb-0 font-weight-bold py-1 text-primary">
                     Kebijakan Layanan Feeder Premium
                 </h5>
             </b-card>
-        </div>
+        </div> -->
+        <opening  v-if="intro" @onClick ="intro = $event" :title="spTitle"></opening>
+        <div v-if="!intro">
         <div class="w-100 text-primary text-left">
             Jika Anda diharuskan membayar tambahan biaya sebesar
             <b-badge variant="primary">
@@ -20,20 +22,25 @@
             Apakah Anda akan menggunakan layanan pengumpan premium?
         </div>
         <div class="btn-group w-100 mt-5" role="group">
-            <b-btn variant="outline-secondary" @click="submit(0)">
+            <b-btn variant="outline-danger" @click="submit(0)">
                 Tidak
             </b-btn>
-            <b-btn variant="outline-primary" @click="submit(1)">
+            <b-btn variant="outline-success" @click="submit(1)">
                 Ya
             </b-btn>
+        </div>
         </div>
     </div>
 </template>
 <script>
+import Opening from './SurveyPreferenceOpening'
 export default {
     name: "SurveyPreferenceCarParking",
+    props:['spTitle'],
+    components:{Opening},
     data: function() {
         return {
+            intro: true,
             costIndex: null,
             currentData: {
                 costState: {}

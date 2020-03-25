@@ -17,4 +17,8 @@ class SpPedestrian extends Model
     {
         return $this->belongsTo('App\TimePreference');
     }
+    public function sp_pedestrian_other()
+    {
+        return $this->hasOne('App\SpPedestrianOther');
+    }
 }

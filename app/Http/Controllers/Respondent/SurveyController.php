@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class SurveyController extends Controller
 {
+    public function getPersonalData(Request $request)
+    {
+
+        $respondent = App\Respondent::where([
+            'token' => $request->token,
+        ])->first();
+        return $respondent;
+    }
     public function getSocialData()
     {
         $data['gender'] = App\Gender::all();
@@ -44,7 +52,6 @@ class SurveyController extends Controller
         ], 200);
 
     }
-
     public function getTravelData()
     {
         $data['travel_purposes'] = App\TravelPurpose::all();
@@ -111,7 +118,6 @@ class SurveyController extends Controller
         ], 200);
 
     }
-
     public function getAdditionalData()
     {
         $data['reason_using_transportation_choices'] = App\ReasonUsingTransportationChoice::all();
@@ -166,5 +172,41 @@ class SurveyController extends Controller
         if (!$respondent) {
             return response()->json(['message' => 'Responden tidak ditemukan'], 500);
         }
+    }
+    public function storePersonalData(Request $request)
+    {
+        $rules = [
+            'name' => 'required|string|min:3',
+            'phone' => 'required|numeric|min:6',
+            'email' => 'required|email',
+            'comment' => 'required|min:20',
+            'address' => 'required|min:10',
+        ];
+        $messages = [
+            'name.required' => 'Nama anda diperlukan',
+            'name.min' => 'Masukan minimum 3 huruf',
+            'email.required' => 'Email anda diperlukan',
+            'email.email' => 'Mohon masukan email anda dengan benar',
+            'phone.required' => 'Telepon anda diperlukan',
+            'phone.numeric' => 'Telepon anda harus berupa angka',
+            'phone.min' => 'Masukan minimum 6 angka',
+            'comment.required' => 'Harapan / pendapat anda diperlukan',
+            'comment.min' => 'Masukan minimum 20 huruf',
+            'address.required' => 'Harap masukan alamat lengkap rumah anda',
+            'address.min' => 'Masukan minimum 10 huruf',
+        ];
+        $this->validate($request, $rules, $messages);
+
+        $respondent = App\Respondent::where([
+            'token' => $request->token,
+        ])->first();
+
+        $respondent->phone = $request->phone;
+        $respondent->comment = $request->comment;
+        $respondent->email = $request->email;
+        $respondent->name = $request->name;
+        $respondent->address = $request->address;
+        $respondent->save();
+        return response()->json(['token' => $request->token, 'respondent_id' => $respondent->id, 'message' => 'Data personal berhasil tersimpan', 'status' => 'success'], 200);
     }
 }

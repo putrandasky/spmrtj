@@ -1,10 +1,10 @@
 <template>
     <div>
-        <b-card class="w-100 mb-3" no-body>
+        <!-- <b-card class="w-100 mb-3" no-body>
             <h5 class="mb-0 font-weight-bold py-1 text-primary">
                 Preferensi Layanan Park & Ride Pengguna Mobil Pribadi
             </h5>
-        </b-card>
+        </b-card> -->
         <question-slot>
             <template slot="above">
                 <div class="w-100 text-primary text-left">
@@ -26,10 +26,10 @@
             </template>
             <template slot="bottom">
                 <div class="btn-group w-100" role="group">
-                    <b-btn variant="outline-primary" @click="submit(0)">
+                    <b-btn variant="outline-danger" @click="submit(0)">
                         Tidak, saya tidak akan menggunakan fasilitas Park & Ride
                     </b-btn>
-                    <b-btn variant="outline-primary" @click="submit(1)">
+                    <b-btn variant="outline-success" @click="submit(1)">
                         Ya, saya akan menggunakan fasilitas Park & RIde
                     </b-btn>
                 </div>

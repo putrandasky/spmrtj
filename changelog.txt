@@ -1,3 +1,13 @@
+
+
+26 Mar 2020
+### ADDED
+- All new Design
+- Add lottie animation
+
+### PENDING
+- add algorithm for routing SP
+
 24 Mar 2020
 ### FIXED
 - Lat Lng number value

@@ -319,6 +319,18 @@ class PreferenceController extends Controller
             $question_1->question_id = 1;
             $question_1->sp_pedestrian_choice_id = $v;
             $question_1->save();
+            if ($v == 7) {
+                if ($v == 7) {
+                    $question_1_other = new App\SpPedestrianOther();
+                    $question_1_other->sp_pedestrian_id = $question_1->id;
+                    $question_1_other->description = $request->question_1_other;
+                    $question_1_other->save();
+                    // $question_1_other = new App\SpCycleOther([
+                    //     'description'=>$request->question_1_other
+                    // ]);
+                    // $question_1->sp_cycle_other()->save($question_1_other);
+                }
+            }
         }
         foreach ($request->question_2 as $v) {
             $question_2 = new App\SpPedestrian();
@@ -356,6 +368,16 @@ class PreferenceController extends Controller
             $question_1->question_id = 1;
             $question_1->sp_cycle_choice_id = $v;
             $question_1->save();
+            if ($v == 7) {
+                $question_1_other = new App\SpCycleOther();
+                $question_1_other->sp_cycle_id = $question_1->id;
+                $question_1_other->description = $request->question_1_other;
+                $question_1_other->save();
+                // $question_1_other = new App\SpCycleOther([
+                //     'description'=>$request->question_1_other
+                // ]);
+                // $question_1->sp_cycle_other()->save($question_1_other);
+            }
         }
         foreach ($request->question_2 as $v) {
             $question_2 = new App\SpCycle();

@@ -61,6 +61,15 @@
  * https://github.com/ktsn/vue-range-slider/blob/master/LICENSE
  */
 
+/*!
+ Transformation Matrix v2.0
+ (c) Epistemex 2014-2015
+ www.epistemex.com
+ By Ken Fyrstenberg
+ Contributions by leeoniya.
+ License: MIT, header required.
+ */
+
 /*! 
   * portal-vue © Thorsten Lünborg, 2019 
   * 
