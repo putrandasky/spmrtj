@@ -332,9 +332,9 @@
                 v-on:animCreated="handleAnimation"
                 :height="300"
             />
-            <h4 class="mb-3">
-                Semua pertanyaan survey sudah berhasil kamu jawab.
-            </h4>
+            <h5 class="mb-3 text-primary">
+                Selamat! Semua pertanyaan survei sudah selesai dijawab dengan baik.
+            </h5>
             <b-btn
                 variant="primary"
                 class="float-right"

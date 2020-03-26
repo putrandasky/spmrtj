@@ -9,19 +9,29 @@
         </div> -->
         <opening  v-if="intro" @onClick ="intro = $event" :title="spTitle"></opening>
         <div v-if="!intro">
-        <div class="w-100 text-primary text-left">
+        <div class="w-100 text-primary  text-justify">
+            <p>
+
             Jika Anda diharuskan membayar tambahan biaya sebesar
             <b-badge variant="primary">
-                <h6 class="mb-0 font-weight-bold">
-                    Rp {{ currentData.costState.amount }}
-                </h6>
+                   <h6 class="mb-0 font-weight-bold">
+                        Rp
+                        <transition name="slide-shrink-fade" mode="out-in">
+                            <span :key="currentData.costState.amount">
+                                {{ currentData.costState.amount | currency }}
+                            </span>
+                        </transition>
+                    </h6>
             </b-badge>
             dari tarif sebelumnya untuk menikmati fasilitas layanan feeder
             premium Royal Trans.
-            <br />
+            </p>
+    <p>
+
             Apakah Anda akan menggunakan layanan pengumpan premium?
+    </p>
         </div>
-        <div class="btn-group w-100 mt-5" role="group">
+        <div class="btn-group w-100 " role="group">
             <b-btn variant="outline-danger" @click="submit(0)">
                 Tidak
             </b-btn>

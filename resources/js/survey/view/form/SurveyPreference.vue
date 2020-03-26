@@ -15,6 +15,7 @@
             :hide-header="false"
             ok-only
             hide-footer
+            centered
         >
             <template v-slot:modal-header>
                 <div
@@ -107,7 +108,7 @@ export default {
         };
     },
     mounted() {
-        this.step = 1;
+        this.step =1;
         // console.log(this.$route.name);
 
         this.$emit("childinit", this.routerData);

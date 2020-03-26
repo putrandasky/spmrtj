@@ -143,7 +143,7 @@
                 v-on:animCreated="handleAnimation"
                 :height="300"
             />
-            <h4 class="mb-3">Data diri anda sudah berhasil tersimpan.</h4>
+            <h5 class="mb-3 text-primary">Data diri anda sudah berhasil tersimpan.</h5>
             <b-btn
                 variant="primary"
                 class="float-right"
@@ -298,7 +298,5 @@ export default {
 };
 </script>
 <style scoped>
-.text-shadow {
-    text-shadow: 0px 4px 10px #000000;
-}
+
 </style>

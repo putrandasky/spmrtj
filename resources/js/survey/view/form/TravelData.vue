@@ -456,6 +456,7 @@
             :hide-header="false"
             ok-only
             hide-footer
+            centered
         >
             <template v-slot:modal-header>
                 <div
@@ -644,7 +645,7 @@ export default {
             this.boxTwo = "";
             this.$bvModal
                 .msgBoxConfirm(
-                    `Klik "Ya" untuk meneruskan survey, Klik "Tidak" untuk mengulang survei `,
+                    `Klik "Ya" untuk meneruskan survei, Klik "Tidak" untuk mengulang survei `,
                     {
                         title: "Apakah anda yakin dengan semua jawaban anda?",
                         okVariant: "primary",

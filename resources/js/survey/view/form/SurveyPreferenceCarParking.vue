@@ -8,28 +8,47 @@
             </b-card>
         </div> -->
 
-        <opening  v-if="intro" @onClick ="intro = $event" :title="spTitle"></opening>
+        <opening
+            v-if="intro"
+            @onClick="intro = $event"
+            :title="spTitle"
+        ></opening>
         <div v-if="!intro">
-            <div class="w-100 text-primary text-left">
-                Jika tarif parkir yang harus Anda bayarkan untuk menggunakan
-                fasilitas parkir menjadi
-                <b-badge variant="primary">
-                    <h6 class="mb-0 font-weight-bold">
-                        Rp {{ currentData.costState.amount }}
-                    </h6>
-                </b-badge>
-                untuk setiap jam namun memperoleh penghematan waktu perjalanan
-                sebesar
-                <b-badge variant="primary">
-                    <h6 class="mb-0 font-weight-bold">
-                        {{ currentData.timeState.amount }} menit
-                    </h6></b-badge
-                >
-                <br />
-                Apakah Anda akan tetap menggunakan mobil untuk melakukan
-                perjalanan rutinitas Anda?
+            <div class="w-100 text-primary text-justify">
+                <p>
+                    Jika tarif parkir yang harus Anda bayarkan untuk menggunakan
+                    fasilitas parkir menjadi
+                    <b-badge variant="primary">
+                        <h6 class="mb-0 font-weight-bold">
+                            Rp
+                            <transition name="slide-shrink-fade" mode="out-in">
+                                <span :key="currentData.costState.amount">
+                                    {{
+                                        currentData.costState.amount | currency
+                                    }}
+                                </span>
+                            </transition>
+                        </h6>
+                    </b-badge>
+                    untuk setiap jam namun memperoleh penghematan waktu
+                    perjalanan sebesar
+                    <b-badge variant="primary">
+                        <h6 class="mb-0 font-weight-bold">
+                            <transition name="slide-shrink-fade" mode="out-in">
+                                <span :key="currentData.timeState.amount">
+                                    {{ currentData.timeState.amount }}
+                                </span>
+                            </transition>
+                            menit
+                        </h6>
+                    </b-badge>
+                </p>
+                <p>
+                    Apakah Anda akan tetap menggunakan mobil untuk melakukan
+                    perjalanan rutinitas Anda?
+                </p>
             </div>
-            <div class="btn-group w-100 mt-5" role="group">
+            <div class="btn-group w-100" role="group">
                 <b-btn variant="outline-danger" @click="submit(0)">
                     Tidak
                 </b-btn>
@@ -41,11 +60,11 @@
     </div>
 </template>
 <script>
-import Opening from './SurveyPreferenceOpening'
+import Opening from "./SurveyPreferenceOpening";
 export default {
     name: "SurveyPreferenceCarParking",
-    props:['spTitle'],
-    components:{Opening},
+    props: ["spTitle"],
+    components: { Opening },
     data: function() {
         return {
             intro: true,
@@ -76,9 +95,7 @@ export default {
     created() {
         this.getData();
     },
-    mounted(){
-
-    },
+    mounted() {},
     watch: {
         timeIndex(newVal, oldVal) {
             let self = this;
@@ -98,9 +115,7 @@ export default {
             }
         }
     },
-    computed: {
-
-    },
+    computed: {},
     methods: {
         submitStateCollection() {
             this.$store.dispatch("isLoading", true);

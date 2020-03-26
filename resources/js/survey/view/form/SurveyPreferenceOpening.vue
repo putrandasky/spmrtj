@@ -1,5 +1,5 @@
 <template>
-        <b-row no-gutters >
+        <b-row no-gutters class="text-justify">
             <b-img
                 fluid
                 :src="selectedData.img"
@@ -29,12 +29,12 @@
                     {
                         title:"Kebijakan Layanan Parkir Mobil",
                         img:"./img/sp-car-park-2.jpg",
-                        content:"Kebijakan tarif parkir di DKI Jakarta saat ini sebesar Rp 2000 per jam. Jika Anda menggunakan fasilitas parkir rata -rata 8 jam sehari untuk beraktivitas maka tarif yang Anda bayar untuk kebutuhan parkir sekitar Rp 16.000 per hari."
+                        content:"Kebijakan tarif parkir di DKI Jakarta saat ini sebesar Rp 4000 per jam. Jika Anda menggunakan fasilitas parkir rata-rata 8 jam sehari untuk beraktivitas maka tarif yang Anda bayar untuk kebutuhan parkir sekitar Rp 32.000 per hari."
                     },
                     {
                         title:"Kebijakan Layanan Parkir Motor",
                         img:"./img/sp-car-park-2.jpg",
-                        content:"Kebijakan tarif parkir di DKI Jakarta saat ini sebesar Rp 2000 per jam. Jika Anda menggunakan fasilitas parkir rata -rata 8 jam sehari untuk beraktivitas maka tarif yang Anda bayar untuk kebutuhan parkir sekitar Rp 16.000 per hari."
+                        content:"Kebijakan tarif parkir di DKI Jakarta saat ini sebesar Rp 2000 per jam. Jika Anda menggunakan fasilitas parkir rata-rata 8 jam sehari untuk beraktivitas maka tarif yang Anda bayar untuk kebutuhan parkir sekitar Rp 16.000 per hari."
                     },
                     {
                         title:"Kebijakan Layanan Jalur Sepeda",
@@ -48,7 +48,7 @@
                     },
                     {
                         title:"Kebijakan Layanan Feeder Reguler",
-                        img:"./img/Preferensi-Feeder-Reguler.png",
+                        img:"./img/sp-feeder-reguler.png",
                         content:"MRT Jakarta saat ini sedang mempersiapkan layanan feeder / pengumpan yang bisa dimanfaatkan baik oleh pengguna MRT maupun pengguna moda lainnya. Layanan feeder ini akan memiliki armada dan layanan seperti layanan Transjakarta. Layanan feeder akan beroperasi dari satu jam sebelum perjalanan MRT pertama di pagi hari hingga satu jam setelah perjalanan MRT terakhir di malam hari."
                     },
                     {

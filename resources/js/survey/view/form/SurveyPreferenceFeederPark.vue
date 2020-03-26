@@ -7,22 +7,31 @@
                 </h5>
             </b-card>
         </div> -->
-        <div class="w-100 text-primary text-left">
+        <div class="w-100 text-primary  text-justify">
+            <p>
+
             Jika terdapat kebijakan tarif parkir sebesar
             <b>Rp. {{ spParking.maxCost | currency }}</b> , dan terdapat layanan
             pengumpan dengan memperoleh penghematan waktu sebesar
             <b>{{ spFeederReguler.maxTime }} menit</b>
             dengan tarif
             <b-badge variant="primary">
-                <h6 class="mb-0 font-weight-bold">
-                    Rp {{ currentData.costState.amount }}
-                </h6>
+                   <h6 class="mb-0 font-weight-bold">
+                        Rp
+                        <transition name="slide-shrink-fade" mode="out-in">
+                            <span :key="currentData.costState.amount">
+                                {{ currentData.costState.amount | currency }}
+                            </span>
+                        </transition>
+                    </h6>
             </b-badge>
-            <br />
+            </p>
+            <p>
             apakah Anda akan menggunakan layanan pengumpan tersebut untuk
             melakukan perjalanan rutinitas Anda?
+            </p>
         </div>
-        <div class="btn-group w-100 mt-5" role="group">
+        <div class="btn-group w-100" role="group">
             <b-btn variant="outline-danger" @click="submit(0)">
                 Saya akan beralih menggunakan moda saya yang sekarang
             </b-btn>

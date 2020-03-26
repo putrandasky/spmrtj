@@ -273,6 +273,7 @@
             :hide-header="false"
             ok-only
             hide-footer
+            centered
         >
             <template v-slot:modal-header>
                 <div class="d-flex justify-content-start align-items-center w-100">

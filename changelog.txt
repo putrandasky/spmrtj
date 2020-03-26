@@ -1,4 +1,12 @@
+27 Mar 2020
+### ADDED
+- Transition on change data state in SP
+### CHANGED
+- Foto in Feeder
 
+### FIXED
+- Welcome page
+- Centered opening welcome
 
 26 Mar 2020
 ### ADDED

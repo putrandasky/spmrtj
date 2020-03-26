@@ -6,16 +6,26 @@
                 (Hypotethical)
             </h5>
         </!-->
-        <question-slot>
-            <template slot="above">
-                <div class="w-100 text-primary text-left">
+                <div class="w-100 text-primary text-justify">
                     <p>
                         Jika Anda adalah pengguna MRT setiap hari dan terdapat
                         lokasi park & ride dengan fasilitas sesuai yang Anda
                         inginkan dan berjarak sejauh dari
                         <b-badge variant="primary">
                             <h6 class="mb-0 font-weight-bold">
-                                {{ currentData.questionState.distance }} km
+                                <transition
+                                    name="slide-shrink-fade"
+                                    mode="out-in"
+                                >
+                                    <span
+                                        :key="
+                                            currentData.questionState.distance
+                                        "
+                                    >
+                                        {{ currentData.questionState.distance }}
+                                    </span>
+                                </transition>
+                                    km
                             </h6>
                         </b-badge>
                         dari stasiun MRT, dengan tarif parkir sebesar Rp 5.000,-
@@ -24,15 +34,42 @@
                             dan layanan feeder untuk mengantar anda ke stasiun
                             dengan perjalanan selama
                             <b-badge variant="primary">
-                                <h6 class="mb-0 font-weight-bold">
-                                    {{ currentData.questionState.time }} menit
+                           <h6 class="mb-0 font-weight-bold">
+                                    <transition
+                                        name="slide-shrink-fade"
+                                        mode="out-in"
+                                    >
+                                        <span
+                                            :key="
+                                                currentData.questionState.time
+                                            "
+                                        >
+                                            {{ currentData.questionState.time }}
+                                        </span>
+                                    </transition>
+                                        menit
                                 </h6>
                             </b-badge>
                             dengan tarif
                             <b-badge variant="primary">
                                 <h6 class="mb-0 font-weight-bold">
                                     Rp
-                                    {{ currentData.questionState.feeder_cost }}
+                                    <transition
+                                        name="slide-shrink-fade"
+                                        mode="out-in"
+                                    >
+                                        <span
+                                            :key="
+                                                currentData.questionState
+                                                    .feeder_cost
+                                            "
+                                        >
+                                            {{
+                                                currentData.questionState
+                                                    .feeder_cost | currency
+                                            }}
+                                        </span>
+                                    </transition>
                                 </h6>
                             </b-badge>
                         </span>
@@ -41,8 +78,6 @@
                         Apakah Anda akan menggunakan fasilitas park & ride?
                     </p>
                 </div>
-            </template>
-            <template slot="bottom">
                 <div class="btn-group w-100" role="group">
                     <b-btn variant="outline-danger" @click="submit(0)">
                         Tidak, saya tidak akan menggunakan fasilitas Park & Ride
@@ -51,8 +86,6 @@
                         Ya, saya akan menggunakan fasilitas Park & RIde
                     </b-btn>
                 </div>
-            </template>
-        </question-slot>
     </div>
 </template>
 <script>

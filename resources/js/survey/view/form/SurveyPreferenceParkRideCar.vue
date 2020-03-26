@@ -5,16 +5,26 @@
                 Preferensi Layanan Park & Ride Pengguna Mobil Pribadi
             </h5>
         </b-card> -->
-        <question-slot>
-            <template slot="above">
-                <div class="w-100 text-primary text-left">
+
+                <div class="w-100 text-primary  text-justify">
                     <p>
                         Jika terdapat lokasi park & ride di stasiun MRT terdekat
                         dengan fasilitas sesuai yang Anda inginkan, dengan tarif
                         parkir sebesar
                         <b-badge variant="primary">
                             <h6 class="mb-0 font-weight-bold">
-                                Rp {{ currentData.costState.amount }}
+                                Rp
+                                <transition
+                                    name="slide-shrink-fade"
+                                    mode="out-in"
+                                >
+                                    <span :key="currentData.costState.amount">
+                                        {{
+                                            currentData.costState.amount
+                                                | currency
+                                        }}
+                                    </span>
+                                </transition>
                             </h6>
                         </b-badge>
                         , Flat.
@@ -23,8 +33,7 @@
                         Apakah Anda akan menggunakan fasilitas park & ride?
                     </p>
                 </div>
-            </template>
-            <template slot="bottom">
+
                 <div class="btn-group w-100" role="group">
                     <b-btn variant="outline-danger" @click="submit(0)">
                         Tidak, saya tidak akan menggunakan fasilitas Park & Ride
@@ -33,8 +42,6 @@
                         Ya, saya akan menggunakan fasilitas Park & RIde
                     </b-btn>
                 </div>
-            </template>
-        </question-slot>
     </div>
 </template>
 <script>

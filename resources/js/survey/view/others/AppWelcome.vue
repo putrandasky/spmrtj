@@ -4,11 +4,11 @@
             <b-row class="h-100">
                 <b-col lg="5" class="pb-3 pb-lg-0">
                     <b-card class="opacity-90 shadow">
-                        <div class="d-flex justify-content-around py-2">
+                        <div class="d-flex justify-content-around pb-2">
                             <b-img src="/img/jaklingko-icon.png"></b-img>
                             <b-img src="/img/logo-mrtj.png"></b-img>
                         </div>
-                        <div>
+                        <div class="text-justify">
                             <p class="font-weight-bold text-primary">
                                 Halo Teman MRT !
                             </p>
@@ -35,22 +35,23 @@
                                     berpartisipasi mengisi kuesioner dengan
                                     benar dan jujur. Hasil pengolahan data
                                     survei akan menjadi pertimbangan dan saran
-                                    untuk MRT Jakarta. Seluruh data dan
+                                    untuk MRT Jakarta.
+                                   <!--  Seluruh data dan
                                     informasi yang diberikan akan dijaga
                                     kerahasiaannya dan akan digunakan sepenuhnya
                                     untuk keperluan analisa teknis dalam
                                     perencanaan dan pengembangan kebijakan MRT
-                                    Jakarta.
+                                    Jakarta. -->
                                 </small>
                             </p>
                             <p class="font-weight-bold text-primary">
                                 Kesempatan emas gak dateng 2x loh!
                             </p>
-                            <p>
+                            <p class="mb-0">
                                 <small>
                                     Yuk langsung isi surveinya dan menangkan
                                     e-wallet senilai Rp. 100.000 untuk 100 orang
-                                    beruntung dan hadiah utama hadiah utama
+                                    beruntung dan hadiah utama
                                     voucher MAP Rp. 2,5 juta untuk 2 orang! Semoga
                                     beruntung Teman MRT !
                                 </small>
@@ -60,7 +61,7 @@
                 </b-col>
                 <b-col lg="3"></b-col>
                 <b-col lg="4" class="d-flex align-items-end pb-3 pb-lg-0">
-                    <b-card class="opacity-90 shadow " >
+                    <b-card class="opacity-90 shadow text-justify" >
                         <small>
                             Seluruh data dan informasi yang Responden berikan
                             akan dijaga kerahasiaannya dan akan digunakan
@@ -72,7 +73,7 @@
                 </b-col>
             </b-row>
         </b-container>
-        <div class="w-100 footer-welcome bg-primary text-white text-center py-1">
+        <div class="w-100 footer-welcome bg-primary text-white text-center py-2">
             <b-container fluid>
                 <b-row class="d-flex align-items-center">
                     <b-col md="4">

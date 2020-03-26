@@ -154,7 +154,7 @@
             </template>
         </question-slot>
         <question-slot class="w-100  " v-if="step == 3">
-            <template slot="above">
+            <template slot="above" class="text-justify">
                 Jika jalur sepeda yang menjadi akses menuju stasiun MRT
                 memiliki fasilitas yang sesuai Anda harapkan, apakah Anda akan
                 menggunakan sepeda dari dan menuju stasiun untuk menggunakan layanan

@@ -51,6 +51,21 @@ export default {
     z-index: 4;
     float: right;
 }
+.slide-shrink-fade-enter-active {
+    transition: all 0.1s ease;
+}
+.slide-shrink-fade-leave-active {
+    transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-shrink-fade-enter,
+.slide-shrink-fade-leave-to {
+    /* transform: translateX(10px); */
+    opacity: 0;
+    font-size: 50%;
+}
+.text-shadow {
+    text-shadow: 0px 4px 10px #000000;
+}
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,

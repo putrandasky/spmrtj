@@ -55,7 +55,22 @@
                             <h3 class="text-success sub-title-form font-weight-bold">
                                 Survei Preferensi Kebijakan MRT Jakarta
                             </h3>
-                             <div><b-progress :value="progress_new" :max="100" height="10px" class="mb-1"></b-progress></div>
+                             <div>
+                                 <b-progress :max="100" height="10px" class="mb-1">
+                                     <b-progress-bar :value="progress_new" class="d-flex justify-content-end">
+
+   <!-- <lottie
+
+                            :options="defaultOptions"
+                            v-on:animCreated="handleAnimation"
+                            :height="100"
+                            :width="100"
+                            class="align-self-end m-0 position-absolute"
+                            style="overflow:visible"
+                        /> -->
+                                     </b-progress-bar>
+                                     </b-progress>
+                                     </div>
                             <h4 class="mb-0 text-primary  sub-title-form font-weight-bold py-3">
                                 <!-- Bagian I : Data Sosial Ekonomi -->
                                 {{title}}
@@ -73,6 +88,7 @@
                 </b-row>
             </b-container>
         </div>
+
         <loading
             class="text-center"
             :active.sync="$store.state.isLoading"
@@ -97,6 +113,7 @@
 </template>
 
 <script>
+// import animationData from "@/survey/assets/exclamation-horizontal.js";
 // import CarParking from '@'
 import countTo from "vue-count-to";
 export default {
@@ -104,6 +121,11 @@ export default {
     components: { countTo },
     data() {
         return {
+            //             defaultOptions: {
+            //     animationData: animationData,
+            //     loop: true
+            // },
+            // animationSpeed: 1,
             // isChecking: false,
             title: "",
             progress: 0,
@@ -119,6 +141,9 @@ progress_new:0,
         // this.$store.dispatch('checkExist')
     },
     methods: {
+               handleAnimation: function(anim) {
+            this.anim = anim;
+        },
         onSpInit(value){
             this.sp_title = value.sp_title
             // console.log(value);
