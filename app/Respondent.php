@@ -30,4 +30,8 @@ class Respondent extends Model
     {
         return $this->hasMany('App\SpMotorParking');
     }
+    public function survey_preference_respondents()
+    {
+        return $this->hasMany('App\SurveyPreferenceRespondent');
+    }
 }

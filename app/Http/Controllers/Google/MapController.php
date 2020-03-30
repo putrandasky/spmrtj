@@ -8,15 +8,58 @@ use App\Traits\GoogleHelper;
 use App\Traits\RouteHelper;
 use Carbon;
 use Illuminate\Http\Request;
+use Taniko\Dijkstra\Graph;
 
 class MapController extends Controller
 {
     use GoogleHelper;
-    use RouteHelper;
+    // use RouteHelper;
     private $apiKey;
     private $base_uri = ['base_uri' => 'https://maps.googleapis.com/maps/api/'];
     private $mrtVelocity = 35;
     private $feederVelocity = 28;
+
+    public function dijkstra($origin, $destination,$class)
+    {
+        if ($class == 'WayPoint') {
+         $nodes = App\WayPoint::with('source', 'after')->get();
+        }
+        if ($class == 'WayPointFeeder') {
+         $nodes = App\WayPointFeeder::with('source', 'after')->get();
+        }
+
+
+        $network = Graph::create();
+        foreach ($nodes as $v) {
+            $network->add($v->source->name, $v->after->name, $this->distance($v->source->lat, $v->source->lng, $v->after->lat, $v->after->lng, "K"));
+        }
+
+        $data['route'] = $network->search($origin, $destination);
+        $data['distance'] = $network->cost($data['route']);
+        return $data;
+
+    }
+    public function distance($lat1, $lon1, $lat2, $lon2, $unit)
+    {
+        if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+            return 0;
+        } else {
+            $theta = $lon1 - $lon2;
+            $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+            $dist = acos($dist);
+            $dist = rad2deg($dist);
+            $miles = $dist * 60 * 1.1515;
+            $unit = strtoupper($unit);
+
+            if ($unit == "K") {
+                return ($miles * 1.609344);
+            } else if ($unit == "N") {
+                return ($miles * 0.8684);
+            } else {
+                return $miles;
+            }
+        }
+    }
 
     public function mapData()
     {
@@ -407,6 +450,7 @@ class MapController extends Controller
         $path = $this->dijkstra($origin_name, $destination_name, $class);
         $lines = $lines_data;
         $distance = round($path['distance'], 2);
+        $data['distance_value'] = round($path['distance'] * 1000, 0);
         $data['distance'] = $distance . " km";
         $i = 0;
         foreach ($path['route'] as $name) {

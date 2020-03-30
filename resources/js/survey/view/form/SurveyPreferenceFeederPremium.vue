@@ -45,8 +45,8 @@
 <script>
 import Opening from './SurveyPreferenceOpening'
 export default {
-    name: "SurveyPreferenceCarParking",
-    props:['spTitle'],
+    name: "SurveyPreferenceFeederPremium",
+    props: ["spTitle","spId"],
     components:{Opening},
     data: function() {
         return {
@@ -56,7 +56,7 @@ export default {
                 costState: {}
             },
             stateDataCollection: {
-                respondent_id: null,
+                sp_id: this.spId,
                 data: []
             },
             costs: [
@@ -110,12 +110,12 @@ export default {
                     console.log(response.data);
                     // this.$store.dispatch('storeToken', response.data)
                     this.$store.dispatch("isLoading", false);
-                    this.$bvToast.toast(response.data.message, {
-                        title: `SUCCESS`,
-                        variant: "success",
-                        autoHideDelay: 1000,
-                        solid: true
-                    });
+                    // this.$bvToast.toast(response.data.message, {
+                    //     title: `SUCCESS`,
+                    //     variant: "success",
+                    //     autoHideDelay: 1000,
+                    //     solid: true
+                    // });
                     this.$emit("finish", 1);
                 })
                 .catch(error => {

@@ -1,6 +1,16 @@
+30 Mar 2020
+### ADDED
+- logic for SP
+- Trait for route helper
+- Trait for area helper
+- Record google data
+- DB SurveyPreference
+- DB Area Respondent
+
 27 Mar 2020
 ### ADDED
 - Transition on change data state in SP
+- Opening Page on each sp
 ### CHANGED
 - Foto in Feeder
 

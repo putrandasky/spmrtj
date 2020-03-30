@@ -6,86 +6,71 @@
                 (Hypotethical)
             </h5>
         </b-card> -->
-                <div class="w-100 text-primary text-justify">
-                    <p>
-                        Jika Anda adalah pengguna MRT setiap hari dan terdapat
-                        lokasi park & ride dengan fasilitas sesuai yang Anda
-                        inginkan dan berjarak sejauh dari
-                        <b-badge variant="primary">
-                            <h6 class="mb-0 font-weight-bold">
-                                <transition
-                                    name="slide-shrink-fade"
-                                    mode="out-in"
+        <div class="w-100 text-primary text-justify">
+            <p>
+                Jika Anda adalah pengguna MRT setiap hari dan terdapat lokasi
+                park & ride dengan fasilitas sesuai yang Anda inginkan dan
+                berjarak sejauh dari
+                <b-badge variant="primary">
+                    <h6 class="mb-0 font-weight-bold">
+                        <transition name="slide-shrink-fade" mode="out-in">
+                            <span :key="currentData.questionState.distance">
+                                {{ currentData.questionState.distance }}
+                            </span>
+                        </transition>
+                        km
+                    </h6>
+                </b-badge>
+                dari stasiun MRT, dengan tarif parkir sebesar
+                <b-badge variant="primary">
+                    <h6 class="mb-0 font-weight-bold">
+                      Rp 10.000
+                    </h6>
+                </b-badge>
+                - flat  / hari
+                <span v-show="currentData.questionState.time">
+                    dan layanan feeder untuk mengantar anda ke stasiun dengan
+                    perjalanan selama
+                    <b-badge variant="primary">
+                        <h6 class="mb-0 font-weight-bold">
+                            <transition name="slide-shrink-fade" mode="out-in">
+                                <span :key="currentData.questionState.time">
+                                    {{ currentData.questionState.time }}
+                                </span>
+                            </transition>
+                            menit
+                        </h6>
+                    </b-badge>
+                    dengan tarif
+                    <b-badge variant="primary">
+                        <h6 class="mb-0 font-weight-bold">
+                            Rp
+                            <transition name="slide-shrink-fade" mode="out-in">
+                                <span
+                                    :key="currentData.questionState.feeder_cost"
                                 >
-                                    <span
-                                        :key="
-                                            currentData.questionState.distance
-                                        "
-                                    >
-                                        {{ currentData.questionState.distance }}
-                                    </span>
-                                </transition>
-                                    km
-                            </h6>
-                        </b-badge>
-                        dari stasiun MRT, dengan tarif parkir sebesar Rp
-                        10.000,- flat
-                        <span v-show="currentData.questionState.time">
-                            dan layanan feeder untuk mengantar anda ke stasiun
-                            dengan perjalanan selama
-                            <b-badge variant="primary">
-                                <h6 class="mb-0 font-weight-bold">
-                                    <transition
-                                        name="slide-shrink-fade"
-                                        mode="out-in"
-                                    >
-                                        <span
-                                            :key="
-                                                currentData.questionState.time
-                                            "
-                                        >
-                                            {{ currentData.questionState.time }}
-                                        </span>
-                                    </transition>
-                                        menit
-                                </h6>
-                            </b-badge>
-                            dengan tarif
-                            <b-badge variant="primary">
-                                <h6 class="mb-0 font-weight-bold">
-                                    Rp
-                                    <transition
-                                        name="slide-shrink-fade"
-                                        mode="out-in"
-                                    >
-                                        <span
-                                            :key="
-                                                currentData.questionState
-                                                    .feeder_cost
-                                            "
-                                        >
-                                            {{
-                                                currentData.questionState
-                                                    .feeder_cost | currency
-                                            }}
-                                        </span>
-                                    </transition>
-                                </h6>
-                            </b-badge>
-                        </span>
-                    </p>
-                    <p>
-                        Apakah Anda akan menggunakan fasilitas park & ride?
-                    </p>
-                </div>
-                <div class="btn-group w-100" role="group">
-                    <b-btn variant="outline-danger" @click="submit(0)">
-                        Tidak, saya tidak akan menggunakan fasilitas Park & Ride
-                    </b-btn>
-                    <b-btn variant="outline-success" @click="submit(1)">
-                        Ya, saya akan menggunakan fasilitas Park & RIde
-                    </b-btn>
-                </div>
+                                    {{
+                                        currentData.questionState.feeder_cost
+                                            | currency
+                                    }}
+                                </span>
+                            </transition>
+                        </h6>
+                    </b-badge>
+                </span>
+            </p>
+            <p>
+                Apakah Anda akan menggunakan fasilitas park & ride?
+            </p>
+        </div>
+        <div class="btn-group w-100" role="group">
+            <b-btn variant="outline-danger" @click="submit(0)">
+                Tidak, saya tidak akan menggunakan fasilitas Park & Ride
+            </b-btn>
+            <b-btn variant="outline-success" @click="submit(1)">
+                Ya, saya akan menggunakan fasilitas Park & RIde
+            </b-btn>
+        </div>
     </div>
 </template>
 <script>
@@ -93,6 +78,7 @@ import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 
 export default {
     name: "SurveyPreferenceParkRideHypoCar",
+    props: ["spTitle", "spId"],
     components: {
         QuestionSlot
     },
@@ -103,7 +89,7 @@ export default {
                 questionState: {}
             },
             stateDataCollection: {
-                respondent_id: null,
+                sp_id: this.spId,
                 data: []
             },
             questions: [
@@ -196,12 +182,12 @@ export default {
                     console.log(response.data);
                     // this.$store.dispatch('storeToken', response.data)
                     this.$store.dispatch("isLoading", false);
-                    this.$bvToast.toast(response.data.message, {
-                        title: `SUCCESS`,
-                        variant: "success",
-                        autoHideDelay: 1000,
-                        solid: true
-                    });
+                    // this.$bvToast.toast(response.data.message, {
+                    //     title: `SUCCESS`,
+                    //     variant: "success",
+                    //     autoHideDelay: 1000,
+                    //     solid: true
+                    // });
                     this.$emit("finish", 1);
                 })
                 .catch(error => {

@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Respondent;
 
 use App;
 use App\Http\Controllers\Controller;
+use App\Traits\RouteHelper;
+use App\Traits\AreaHelper;
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller
 {
+    use RouteHelper;
+    use AreaHelper;
+
     public function getPersonalData(Request $request)
     {
 
@@ -75,6 +80,26 @@ class SurveyController extends Controller
             return response()->json(['message' => 'Responden tidak ditemukan'], 500);
         }
 
+        $place_origin['lat'] = $request->input('travel_origin.geometry.location.lat');
+        $place_origin['lng'] = $request->input('travel_origin.geometry.location.lng');
+        $place_destination['lat'] = $request->input('travel_destination.geometry.location.lat');
+        $place_destination['lng'] = $request->input('travel_destination.geometry.location.lng');
+
+
+        $getSurveyPreference = $this->AreaFinder(
+            $request->area_origin,
+            $request->area_destination,
+            collect($request->travel_detail)->pluck('transportation_mode'),
+            $request->travel_model,
+            $request->parking_guarantor
+        );
+
+        $routeData = $this->routeData(
+            $place_origin,
+            $place_destination,
+            $request->area_origin,
+            $request->area_destination
+        );
         $respondent->travel_purpose_id = $request->travel_purpose;
         $respondent->travel_model = $request->travel_model;
         $respondent->travel_frequency = $request->trip_frequency;
@@ -84,9 +109,24 @@ class SurveyController extends Controller
         $respondent->origin = $request->input('travel_origin.formatted_address');
         $respondent->origin_lat = $request->input('travel_origin.geometry.location.lat');
         $respondent->origin_lng = $request->input('travel_origin.geometry.location.lng');
+        $respondent->origin_station_lat = $routeData['origin_station']['position']['lat'] ?? null;
+        $respondent->origin_station_lng = $routeData['origin_station']['position']['lng'] ?? null;
+        $respondent->origin_station_distance = $routeData['origin_station']['distance_value'] ?? null;
+        $respondent->origin_station_duration = $routeData['origin_station']['duration_seconds'] ?? null;
         $respondent->destination = $request->input('travel_destination.formatted_address');
         $respondent->destination_lat = $request->input('travel_destination.geometry.location.lat');
         $respondent->destination_lng = $request->input('travel_destination.geometry.location.lng');
+        $respondent->destination_station_lat = $routeData['destination_station']['position']['lat'] ?? null;
+        $respondent->destination_station_lng = $routeData['destination_station']['position']['lng'] ?? null;
+        $respondent->destination_station_distance = $routeData['destination_station']['distance_value'] ?? null;
+        $respondent->destination_station_duration = $routeData['destination_station']['duration_seconds'] ?? null;
+        $respondent->feeder_distance = $routeData['feeder']['distance_value'] ?? null;
+        $respondent->feeder_duration = $routeData['feeder']['duration_seconds'] ?? null;
+        $respondent->mrt_distance = $routeData['mrt']['distance_value'] ?? null;
+        $respondent->mrt_duration = $routeData['mrt']['duration_seconds'] ?? null;
+        $respondent->google_distance = $routeData['google']['distance_value'] ?? null;
+        $respondent->google_duration = $routeData['google']['duration_seconds'] ?? null;
+        $respondent->simulation_id = $routeData['simulation'];
         $respondent->save();
         foreach ($request->area_origin as $v) {
             $area_origin = new App\AreaOrigin();
@@ -109,6 +149,15 @@ class SurveyController extends Controller
             $travel_detail->travel_duration = $v['travel_duration'];
             $travel_detail->travel_cost = $v['travel_cost'];
             $travel_detail->save();
+        }
+
+        foreach ($getSurveyPreference as $v) {
+            $survey_preference_respondent = new App\SurveyPreferenceRespondent();
+            $survey_preference_respondent->survey_preference_id = $v;
+            $survey_preference_respondent->respondent_id = $respondent->id;
+            $survey_preference_respondent->status = 0;
+            $survey_preference_respondent->save();
+
         }
         $respondent->step_id = 3;
         $respondent->save();
@@ -142,25 +191,25 @@ class SurveyController extends Controller
         $respondent->work_place_parking_system_id = $request->work_place_parking_system;
         $respondent->mrt_cost = $request->mrt_cost;
         $respondent->reason_is_using_mrt = $request->reason_is_using_mrt;
-        $respondent->willingness_public_transport_trip_id = $request->willingness_public_transport_tri;
+        $respondent->willingness_public_transport_trip_id = $request->willingness_public_transport_trip;
         for ($i = 0; $i < count($request['reason_using_transport']); $i++) {
             $reason_using_transport = new App\ReasonUsingTransportation();
             $reason_using_transport->respondent_id = $respondent->id;
             $reason_using_transport->reason_using_transportation_choice_id = $request['reason_using_transport'][$i];
-            $reason_using_transport->priority = $i+1;
+            $reason_using_transport->priority = $i + 1;
             $reason_using_transport->save();
         }
         for ($i = 0; $i < count($request['mrt_improvement']); $i++) {
             $mrt_improvement = new App\MrtImprovement();
             $mrt_improvement->respondent_id = $respondent->id;
             $mrt_improvement->mrt_improvement_choice_id = $request['mrt_improvement'][$i];
-            $mrt_improvement->priority = $i+1;
+            $mrt_improvement->priority = $i + 1;
             $mrt_improvement->save();
         }
         $respondent->step_id = 5;
         $respondent->save();
 
-        return response()->json(['message' => 'Informasi tambahan berhasil disimpan','token' => $respondent->token,], 200);
+        return response()->json(['message' => 'Informasi tambahan berhasil disimpan', 'token' => $respondent->token], 200);
 
     }
     public function findRespondent($token)

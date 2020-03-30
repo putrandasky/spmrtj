@@ -38,22 +38,22 @@
                     },
                     {
                         title:"Kebijakan Layanan Jalur Sepeda",
-                        img:"./img/sp-cycle.png",
+                        img:"./img/sp-cycle.jpg",
                         content:"Pemprov DKI Jakarta saat ini sedang melakukan peningkatan jalur sepeda di berbagai wilayah di DKI Jakarta.  Peningkatan fasilitas pejalan kaki dilakukan dengan melakukan revitalisasi jalur sepeda serta pembangunan fasilitas – fasilitas terkait peningkatan kenyamanan pesepeda."
                     },
                     {
                         title:"Kebijakan Layanan Jalur Pejalan Kaki",
-                        img:"./img/sp-pedestrian.png",
+                        img:"./img/sp-pedestrian.jpg",
                         content:"Pemprov DKI Jakarta saat ini sedang melakukan peningkatan fasilitas pejalan kaki di berbagai wilayah di DKI Jakarta.  Peningkatan fasilitas pejalan kaki dilakukan dengan melakukan revitalisasi trotoar serta pembangunan fasilitas – fasilitas terkait peningkatan kenyamanan pejalan kaki."
                     },
                     {
                         title:"Kebijakan Layanan Feeder Reguler",
-                        img:"./img/sp-feeder-reguler.png",
-                        content:"MRT Jakarta saat ini sedang mempersiapkan layanan feeder / pengumpan yang bisa dimanfaatkan baik oleh pengguna MRT maupun pengguna moda lainnya. Layanan feeder ini akan memiliki armada dan layanan seperti layanan Transjakarta. Layanan feeder akan beroperasi dari satu jam sebelum perjalanan MRT pertama di pagi hari hingga satu jam setelah perjalanan MRT terakhir di malam hari."
+                        img:"./img/sp-feeder-reguler.jpg",
+                        content:"Salah satu cara untuk meningkatkan pelayanan MRT adalah dengan memberikan fasilitas layanan  feeder yang dapat dimanfaatkan baik oleh pengguna MRT maupun pengguna moda lainnya. Layanan feeder ini sebaiknya memiliki armada dan tingkat layanan seperti Tranjakarta. Layanan feeder akan beroperasi dari satu jam sebelum perjalanan MRT pertama di pagi hari hingga satu jam setelah perjalanan MRT terakhir di malam hari."
                     },
                     {
                         title:"Kebijakan Layanan Feeder Premium",
-                        img:"./img/Preferensi-Feeder-Premium.png",
+                        img:"./img/Preferensi-Feeder-Premium.jpg",
                         content:"Selain layanan pengumpan reguler, MRT Jakarta juga bersiap untuk menyiapkan layanan pengumpan premium seperti layanan Royal Trans. Perbedaan layanan Royal Trans dengan layanan reguler meliputi beberapa hal seperti berikut : Kepastian tempat duduk, Tersedia tempat duduk yang nyaman untuk seluruh penumpang, Tidak berhenti di seluruh halte, Hanya berhenti di titik tertentu dengan layanan ekspres menuju Stasiun MRT, Memiliki waktu tempuh lebih singkat, Terdapat fasilitas WIFI"
                     },
                     {

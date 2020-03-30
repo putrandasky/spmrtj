@@ -27,7 +27,7 @@
                                 </transition>
                             </h6>
                         </b-badge>
-                        , Flat.
+                        , Flat / hari.
                     </p>
                     <p>
                         Apakah Anda akan menggunakan fasilitas park & ride?
@@ -49,6 +49,7 @@ import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 
 export default {
     name: "SurveyPreferenceParkRideCar",
+    props: ["spTitle","spId"],
     components: {
         QuestionSlot
     },
@@ -59,7 +60,7 @@ export default {
                 costState: {}
             },
             stateDataCollection: {
-                respondent_id: null,
+                sp_id: this.spId,
                 data: []
             },
             costs: [
@@ -113,12 +114,12 @@ export default {
                     console.log(response.data);
                     // this.$store.dispatch('storeToken', response.data)
                     this.$store.dispatch("isLoading", false);
-                    this.$bvToast.toast(response.data.message, {
-                        title: `SUCCESS`,
-                        variant: "success",
-                        autoHideDelay: 1000,
-                        solid: true
-                    });
+                    // this.$bvToast.toast(response.data.message, {
+                    //     title: `SUCCESS`,
+                    //     variant: "success",
+                    //     autoHideDelay: 1000,
+                    //     solid: true
+                    // });
                     this.$emit("finish", 1);
                 })
                 .catch(error => {

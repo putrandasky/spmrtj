@@ -199,13 +199,14 @@ import Opening from "./SurveyPreferenceOpening";
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 export default {
     name: "SurveyPreferencePedestrian",
-    props: ["spTitle"],
+    props: ["spTitle","spId"],
     components: { QuestionSlot, Opening },
     data() {
         return {
             intro: true,
             step: 1,
             options: {
+                sp_id: this.spId,
                 question_1: [],
                 question_2: [],
                 question_3: []
@@ -240,12 +241,12 @@ export default {
                     console.log(response.data);
                     // this.$store.dispatch('storeToken', response.data)
                     this.$store.dispatch("isLoading", false);
-                    this.$bvToast.toast(response.data.message, {
-                        title: `SUCCESS`,
-                        variant: "success",
-                        autoHideDelay: 1000,
-                        solid: true
-                    });
+                    // this.$bvToast.toast(response.data.message, {
+                    //     title: `SUCCESS`,
+                    //     variant: "success",
+                    //     autoHideDelay: 1000,
+                    //     solid: true
+                    // });
                     this.$emit("finish", 1);
                 })
                 .catch(error => {

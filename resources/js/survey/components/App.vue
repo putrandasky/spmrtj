@@ -61,7 +61,8 @@ export default {
 .slide-shrink-fade-leave-to {
     /* transform: translateX(10px); */
     opacity: 0;
-    font-size: 50%;
+    /* height: 0%; */
+    font-size: 99%;
 }
 .text-shadow {
     text-shadow: 0px 4px 10px #000000;

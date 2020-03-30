@@ -87,8 +87,8 @@
 import Opening from "./SurveyPreferenceOpening";
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 export default {
-    name: "SurveyPreferenceCarParking",
-    props: ["spTitle"],
+    name: "SurveyPreferenceFeeder",
+    props: ["spTitle","spId"],
     components: { QuestionSlot, Opening },
     data: function() {
         return {
@@ -103,7 +103,7 @@ export default {
                 costState: {}
             },
             stateDataCollection: {
-                respondent_id: null,
+                sp_id: this.spId,
                 preferedConcern: "",
                 data: []
             },
@@ -235,12 +235,12 @@ export default {
                     console.log(response.data);
                     // this.$store.dispatch('storeToken', response.data)
                     this.$store.dispatch("isLoading", false);
-                    this.$bvToast.toast(response.data.message, {
-                        title: `SUCCESS`,
-                        variant: "success",
-                        autoHideDelay: 1000,
-                        solid: true
-                    });
+                    // this.$bvToast.toast(response.data.message, {
+                    //     title: `SUCCESS`,
+                    //     variant: "success",
+                    //     autoHideDelay: 1000,
+                    //     solid: true
+                    // });
                     this.$emit("finish", 1);
                 })
                 .catch(error => {

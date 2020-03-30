@@ -22,6 +22,7 @@ export const store = new Vuex.Store({
       area_destinations:[],
       saving_time:null,
       travel_model:null,
+      survey_preferences:[],
       transportation_modes:[],
       step:{
         id:null,
@@ -38,6 +39,7 @@ export const store = new Vuex.Store({
       state.respondent.area_destinations = n.area_destinations;
       state.respondent.travel_model = n.travel_model;
       state.respondent.transportation_modes = n.transportation_modes;
+      state.respondent.survey_preferences = n.survey_preferences;
       state.respondent.saving_time = n.saving_time;
       state.respondent.step = n.step;
       state.respondent.transportation_mode_id = n.transportation_mode_id;
@@ -78,6 +80,7 @@ export const store = new Vuex.Store({
         area_origins: creds.area_origins,
         area_destinations: creds.area_destinations,
         transportation_modes: creds.transportation_modes,
+        survey_preferences: creds.survey_preferences,
         travel_model: creds.travel_model,
         step: creds.step,
         // transportation_mode_id: creds.transportation_mode_id,

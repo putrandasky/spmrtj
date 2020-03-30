@@ -184,13 +184,14 @@ import Opening from './SurveyPreferenceOpening'
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 export default {
     name: "SurveyPreferenceParkRideCommon",
-    props:['spTitle'],
+    props: ["spTitle","spId"],
     components: { QuestionSlot ,Opening},
     data: function() {
         return {
             intro:true,
             step: 1,
             input: {
+                sp_id: this.spId,
                 location: null,
                 park_type: 3,
                 facility: [],
@@ -253,12 +254,12 @@ export default {
                     console.log(response.data);
                     // this.$store.dispatch('storeToken', response.data)
                     this.$store.dispatch("isLoading", false);
-                    this.$bvToast.toast(response.data.message, {
-                        title: `SUCCESS`,
-                        variant: "success",
-                        autoHideDelay: 1000,
-                        solid: true
-                    });
+                    // this.$bvToast.toast(response.data.message, {
+                    //     title: `SUCCESS`,
+                    //     variant: "success",
+                    //     autoHideDelay: 1000,
+                    //     solid: true
+                    // });
                     this.$emit("finish", 1);
                 })
                 .catch(error => {

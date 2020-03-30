@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Respondent;
 use App;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PreferenceController extends Controller
 {
@@ -31,6 +30,8 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan parkir mobil',
             'token' => $request->token,
@@ -58,6 +59,7 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan parkir motor',
             'token' => $request->token,
@@ -76,34 +78,33 @@ class PreferenceController extends Controller
             // 'id' => $request->respondent_id,
             'token' => $request->token,
         ])->first();
-        $has_sp_car_park = App\Respondent::whereHas('sp_car_parkings')->find($respondent->id)->exists();
-        $has_sp_motor_park = App\Respondent::whereHas('sp_motor_parkings')->find($respondent->id)->exists();
+        $has_sp_car_park = App\Respondent::whereHas('sp_car_parkings')->where('id',$respondent->id)->first();
+        $has_sp_motor_park = App\Respondent::whereHas('sp_motor_parkings')->where('id',$respondent->id)->first();
 
         $data['sp_feeder_reguler'] = App\SpFeederReguler::where([
             'respondent_id' => $respondent->id,
         ])
-        ->orderBy('cost_preference_id')
-        ->with('cost_preference','time_preference')
-        ->first();
+            ->orderBy('cost_preference_id')
+            ->with('cost_preference', 'time_preference')
+            ->first();
 
-        $data['cost_preference'] = App\CostPreference::where('sp_type','feeder_park')->orderBy('id','desc')->get();
+        $data['cost_preference'] = App\CostPreference::where('sp_type', 'feeder_park')->orderBy('id', 'desc')->get();
         if ($has_sp_car_park) {
             $data['sp_parking'] = App\SpCarParking::where([
                 'respondent_id' => $respondent->id,
-            ])->orderBy('cost_preference_id','desc')
-            ->with('cost_preference','time_preference')
-            ->first();
+            ])->orderBy('cost_preference_id', 'desc')
+                ->with('cost_preference', 'time_preference')
+                ->first();
             return $data;
         }
         if ($has_sp_motor_park) {
             $data['sp_parking'] = App\SpMotorParking::where([
                 'respondent_id' => $respondent->id,
-            ])->orderBy('cost_preference_id','desc')
-            ->with('cost_preference','time_preference')
-            ->first();
+            ])->orderBy('cost_preference_id', 'desc')
+                ->with('cost_preference', 'time_preference')
+                ->first();
             return $data;
         }
-
 
         // print_r($has_sp_car_park);
     }
@@ -122,6 +123,7 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan feeder dan parkir',
             'token' => $request->token,
@@ -143,6 +145,7 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan feeder reguler',
             'token' => $request->token,
@@ -168,6 +171,7 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan feeder premium',
             'token' => $request->token,
@@ -193,6 +197,7 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan Park and Ride pengguna mobil pribadi',
             'token' => $request->token,
@@ -212,6 +217,7 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan Park and Ride pengguna mobil pribadi',
             'token' => $request->token,
@@ -231,8 +237,8 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
-        $respondent->step_id = 4;
-        $respondent->save();
+
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan Park and Ride (Hypothetical) pengguna mobil pribadi',
             'token' => $request->token,
@@ -252,6 +258,7 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan Park and Ride (Hypothetical) pengguna mobil pribadi',
             'token' => $request->token,
@@ -290,6 +297,8 @@ class PreferenceController extends Controller
         $park_ride_common->respond = $request->park_duration;
         $park_ride_common->save();
 
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
+
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan park and ride',
             'token' => $request->token,
@@ -320,16 +329,14 @@ class PreferenceController extends Controller
             $question_1->sp_pedestrian_choice_id = $v;
             $question_1->save();
             if ($v == 7) {
-                if ($v == 7) {
-                    $question_1_other = new App\SpPedestrianOther();
-                    $question_1_other->sp_pedestrian_id = $question_1->id;
-                    $question_1_other->description = $request->question_1_other;
-                    $question_1_other->save();
-                    // $question_1_other = new App\SpCycleOther([
-                    //     'description'=>$request->question_1_other
-                    // ]);
-                    // $question_1->sp_cycle_other()->save($question_1_other);
-                }
+                $question_1_other = new App\SpPedestrianOther();
+                $question_1_other->sp_pedestrian_id = $question_1->id;
+                $question_1_other->description = $request->question_1_other;
+                $question_1_other->save();
+                // $question_1_other = new App\SpCycleOther([
+                //     'description'=>$request->question_1_other
+                // ]);
+                // $question_1->sp_cycle_other()->save($question_1_other);
             }
         }
         foreach ($request->question_2 as $v) {
@@ -344,6 +351,8 @@ class PreferenceController extends Controller
         $question_3->question_id = 3;
         $question_3->sp_pedestrian_choice_id = $request->question_3;
         $question_3->save();
+
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
 
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan jalur pedestrian',
@@ -392,11 +401,38 @@ class PreferenceController extends Controller
         $question_3->sp_cycle_choice_id = $request->question_3;
         $question_3->save();
 
+        $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
+
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan jalur sepeda',
             'token' => $request->token,
             'status' => 'success',
         ], 200);
+    }
+    public function completedSurveyPreference(Request $request)
+    {
+        $respondent = App\Respondent::where([
+            // 'id' => $request->respondent_id,
+            'token' => $request->token,
+        ])->first();
+        $respondent->step_id = 4;
+        $respondent->save();
+        return response()->json([
+            'message' => 'Berhasil menyelesaikan survey preferensi',
+            'token' => $request->token,
+            'status' => 'success',
+        ], 200);
+
+    }
+    public function updateSurveyPreferenceRespondent($respondent_id, $sp_id)
+    {
+
+        // $survei_preference_responden = App\SurveyPreferenceRespondent::where([
+        //     'respondent_id' => $respondent_id,
+        //     'survey_preference_id' => $sp_id,
+        // ])->first();
+        // $survei_preference_responden->status = 1;
+        // $survei_preference_responden->save();
     }
 
 }

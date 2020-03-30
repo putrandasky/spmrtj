@@ -63,7 +63,7 @@
 import Opening from "./SurveyPreferenceOpening";
 export default {
     name: "SurveyPreferenceCarParking",
-    props: ["spTitle"],
+    props: ["spTitle","spId"],
     components: { Opening },
     data: function() {
         return {
@@ -75,7 +75,7 @@ export default {
                 costState: {}
             },
             stateDataCollection: {
-                respondent_id: null,
+                sp_id: this.spId,
                 data: []
             },
             times: [
@@ -136,14 +136,14 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     // this.$store.dispatch('storeToken', response.data)
-                    this.$store.dispatch("isLoading", false);
-                    this.$bvToast.toast(response.data.message, {
-                        title: `SUCCESS`,
-                        variant: "success",
-                        autoHideDelay: 1000,
-                        solid: true
-                    });
-                    this.$emit("finish", 1);
+                    self.$store.dispatch("isLoading", false);
+                        self.$emit("finish", 1);
+                    // this.$bvToast.toast(response.data.message, {
+                    //     title: `SUCCESS`,
+                    //     variant: "success",
+                    //     autoHideDelay: 1000,
+                    //     solid: true
+                    // });
                 })
                 .catch(error => {
                     console.log(error);
@@ -162,7 +162,6 @@ export default {
             console.table(this.stateDataCollection.data);
         },
         getData() {
-            this.isLoading = true;
             let self = this;
             axios
                 .get(`respondent/survey/preference/park-car`)

@@ -5,6 +5,7 @@
                 @finish="onFinish"
                 v-bind:is="component"
                 :spTitle="sp_title"
+                :spId="sp_id"
             ></component>
         </transition>
         <b-modal
@@ -101,41 +102,58 @@ export default {
                 loop: true
             },
             animationSpeed: 1,
+            remaining_sp: [],
+            current_sp: 0,
             modalWelcome: true,
-            step: 0,
+            step: 1,
             component: "",
-            sp_title: ""
+            sp_title: "",
+            sp_id: null
         };
     },
     mounted() {
-        this.step =1;
-        // console.log(this.$route.name);
+        // this.step = 4;
+        console.log(
+            "Survey Preferences",
+            this.$store.state.respondent.survey_preferences
+        );
 
         this.$emit("childinit", this.routerData);
     },
     computed: {},
     watch: {
-        step(newVal, oldVal) {
+        "$store.state.respondent.survey_preferences": "checkPreference",
+        current_sp(newVal, oldVal) {
+            this.sp_id = newVal;
+            console.log("step", this.step);
+            console.log("remaining_sp", this.remaining_sp.length);
+
+            if (this.step > this.remaining_sp.length) {
+                console.log("next");
+                this.handleNext();
+            }
+
             if (newVal == 1) {
-                this.component = "CarParking";
-                this.sp_title = "Kebijakan Layanan Parkir Mobil";
-                this.$emit("spInit", { sp_title: this.sp_title });
-            }
-            if (newVal == 2) {
-                this.component = "MotorParking";
-                this.sp_title = "Kebijakan Layanan Parkir Motor";
-                this.$emit("spInit", { sp_title: this.sp_title });
-            }
-            if (newVal == 3) {
-                this.component = "Cycle";
-                this.sp_title = "Kebijakan Layanan Jalur Sepeda";
-                this.$emit("spInit", { sp_title: this.sp_title });
-            }
-            if (newVal == 4) {
                 this.component = "Pedestrian";
                 this.sp_title = "Kebijakan Layanan Jalur Pejalan Kaki";
                 this.$emit("spInit", { sp_title: this.sp_title });
             }
+            if (newVal == 2) {
+                this.component = "Cycle";
+                this.sp_title = "Kebijakan Layanan Jalur Sepeda";
+                this.$emit("spInit", { sp_title: this.sp_title });
+            }
+            if (newVal == 3) {
+                this.component = "CarParking";
+                this.sp_title = "Kebijakan Layanan Parkir Mobil";
+                this.$emit("spInit", { sp_title: this.sp_title });
+            }
+            if (newVal == 4) {
+                this.component = "MotorParking";
+                this.sp_title = "Kebijakan Layanan Parkir Motor";
+                this.$emit("spInit", { sp_title: this.sp_title });
+            }
+
             if (newVal == 5) {
                 this.component = "Feeder";
                 this.sp_title = "Kebijakan Layanan Feeder Reguler";
@@ -191,18 +209,42 @@ export default {
         handleAnimation: function(anim) {
             this.anim = anim;
         },
+        checkPreference(e) {
+            //check sp status is not yet completed
+            // let filteredData = e.filter(item => item.status == 0);
+            // this.remaining_sp = filteredData.map(
+            //     item => item.survey_preference_id
+            // );
+            // below to be commented if production
+            this.remaining_sp = [1,2,3,4,5,6,7,8,9,10,11,12]
+            this.current_sp = this.remaining_sp[this.step - 1];
+        },
         onFinish(e) {
             this.step += e;
-            console.log(this.step);
+                console.log('onFinish',e);
+
+                this.current_sp = this.remaining_sp[this.step - 1];
         },
         handleNext() {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
-            this.$router.replace({
-                name: "AdditionalData",
-                query: {
-                    token: this.$route.query.token
-                }
-            });
+            axios
+                .post(
+                    `respondent/survey/preference/survey-completed?token=${this.$route.query.token}`
+                )
+                .then(response => {
+                    console.log(response.data);
+                    this.sp_title = "";
+                    this.$emit("spInit", { sp_title: this.sp_title });
+                    this.$router.replace({
+                        name: "AdditionalData",
+                        query: {
+                            token: this.$route.query.token
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 };

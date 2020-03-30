@@ -276,7 +276,9 @@
             centered
         >
             <template v-slot:modal-header>
-                <div class="d-flex justify-content-start align-items-center w-100">
+                <div
+                    class="d-flex justify-content-start align-items-center w-100"
+                >
                     <span>
                         <lottie
                             :options="defaultOptions"
@@ -421,6 +423,7 @@ export default {
         },
         getData() {
             // this.isLoading = true;
+            this.$store.dispatch("isLoading", true);
             let self = this;
             axios
                 .get(`respondent/survey/social-data`)
@@ -448,6 +451,7 @@ export default {
                         response.data.vehicle
                     );
                     // this.isLoading = false;
+                    this.$store.dispatch("isLoading", false);
                 })
                 .catch(error => {
                     console.log(error);

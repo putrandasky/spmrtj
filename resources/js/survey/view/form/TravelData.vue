@@ -361,12 +361,19 @@
                                 Rp. {{ v.travel_cost | currency }}
                             </h6>
                         </b-badge>
+                        <div class="text-left py-2">
+                            <small>
+                                <em>
+                                    Contoh : Masukan biaya taksi jika moda yang dipilih taksi, biaya bensin jika memilih kendaraan pribadi.
+                                </em>
+                            </small>
+                        </div>
                         <range-slider
                             id="parking_cost"
                             class="p-0"
                             v-model.number="v.travel_cost"
                             min="0"
-                            max="100000"
+                            max="300000"
                             :disabled="submitting"
                             step="500"
                         ></range-slider>
@@ -423,11 +430,11 @@
                         variant="secondary"
                         @click="back(i)"
                         :disabled="submitting"
-                        v-if="i > 0 || input.travel_model > 0"
+                        v-if="i > 0 "
                         >Kembali</b-button
                     >
                     <b-button
-                        variant="light"
+                        variant="info"
                         @click="addTravelDetail"
                         :disabled="submitting"
                         v-if="input.travel_model > 0"
@@ -726,6 +733,8 @@ export default {
             );
         },
         getData() {
+            this.$store.dispatch("isLoading", true);
+
             axios
                 .get(`respondent/survey/travel-data`)
                 .then(response => {
@@ -745,6 +754,7 @@ export default {
                         "addCoverageArea",
                         response.data.coverages
                     );
+                    this.$store.dispatch("isLoading", false);
                 })
                 .catch(error => {
                     console.log(error);

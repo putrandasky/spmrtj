@@ -39,6 +39,7 @@ Route::get('respondent/survey/preference/park-ride-motor', 'Respondent\Preferenc
 Route::post('respondent/survey/preference/park-ride-motor', 'Respondent\PreferenceController@storeParkRideMotor');
 Route::post('respondent/survey/preference/park-ride-hypo-motor', 'Respondent\PreferenceController@storeParkRideHypoMotor');
 Route::post('respondent/survey/preference/park-ride-hypo-car', 'Respondent\PreferenceController@storeParkRideHypoCar');
+Route::post('respondent/survey/preference/survey-completed', 'Respondent\PreferenceController@completedSurveyPreference');
 Route::get('respondent/survey/social-data', 'Respondent\SurveyController@getSocialData');
 Route::post('respondent/survey/social-data', 'Respondent\SurveyController@storeSocialData');
 Route::post('respondent/survey/travel-data', 'Respondent\SurveyController@storeTravelData');
