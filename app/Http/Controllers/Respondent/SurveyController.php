@@ -151,14 +151,14 @@ class SurveyController extends Controller
             $travel_detail->save();
         }
 
-        foreach ($getSurveyPreference as $v) {
-            $survey_preference_respondent = new App\SurveyPreferenceRespondent();
-            $survey_preference_respondent->survey_preference_id = $v;
-            $survey_preference_respondent->respondent_id = $respondent->id;
-            $survey_preference_respondent->status = 0;
-            $survey_preference_respondent->save();
+        // foreach ($getSurveyPreference as $v) {
+        //     $survey_preference_respondent = new App\SurveyPreferenceRespondent();
+        //     $survey_preference_respondent->survey_preference_id = $v;
+        //     $survey_preference_respondent->respondent_id = $respondent->id;
+        //     $survey_preference_respondent->status = 0;
+        //     $survey_preference_respondent->save();
 
-        }
+        // }
         $respondent->step_id = 3;
         $respondent->save();
         return response()->json([
