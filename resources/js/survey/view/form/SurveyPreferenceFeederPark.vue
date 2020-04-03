@@ -9,14 +9,20 @@
         </div> -->
         <div class="w-100 text-primary  text-justify">
             <p>
+                Bedasarkan preferensi anda sebelumnya, anda akan beralih
+                menggunakan angkutan umum jika terdapat kebijakan tarif parkir
+                sebesar
+                <b>Rp. {{ spParking.maxCost | currency }}</b> / Jam.
+                <br>
+                Jika kebijakan tarif parkir sebesar
+                <b>Rp. {{ spParking.maxCost | currency }}</b> / Jam
+                diterapkan dan terdapat layanan pengumpan dengan memperoleh
+                penghematan waktu sebesar
 
-            Jika terdapat kebijakan tarif parkir sebesar
-            <b>Rp. {{ spParking.maxCost | currency }}</b> , dan terdapat layanan
-            pengumpan dengan memperoleh penghematan waktu sebesar
-            <b>{{ spFeederReguler.maxTime }} menit</b>
-            dengan tarif
-            <b-badge variant="primary">
-                   <h6 class="mb-0 font-weight-bold">
+                <b>{{ spFeederReguler.maxTime }} menit</b>
+                dengan tarif
+                <b-badge variant="primary">
+                    <h6 class="mb-0 font-weight-bold">
                         Rp
                         <transition name="slide-shrink-fade" mode="out-in">
                             <span :key="currentData.costState.amount">
@@ -24,11 +30,11 @@
                             </span>
                         </transition>
                     </h6>
-            </b-badge>
+                </b-badge>
             </p>
             <p>
-            apakah Anda akan menggunakan layanan pengumpan tersebut untuk
-            melakukan perjalanan rutinitas Anda?
+                apakah Anda akan menggunakan layanan pengumpan tersebut untuk
+                melakukan perjalanan rutinitas Anda?
             </p>
         </div>
         <div class="btn-group w-100" role="group">
@@ -44,7 +50,7 @@
 <script>
 export default {
     name: "SurveyPreferenceFeederPark",
-    props: ["spTitle","spId"],
+    props: ["spTitle", "spId"],
     data: function() {
         return {
             spFeederReguler: {
@@ -92,7 +98,7 @@ export default {
                 cost_id: costId,
                 respond: respond
             });
-            respond ?  self.costIndex++:this.submitStateCollection() ;
+            respond ? self.costIndex++ : this.submitStateCollection();
             console.table(this.stateDataCollection.data);
         },
         submitStateCollection() {
@@ -147,7 +153,7 @@ export default {
                     self.spFeederReguler.maxTime =
                         response.data.sp_feeder_reguler.time_preference.amount;
                     self.costs = response.data.cost_preference;
-                    self.costIndex = getIndex+1;
+                    self.costIndex = getIndex + 1;
                 })
                 .catch(error => {
                     console.log(error);

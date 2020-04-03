@@ -145,6 +145,8 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $respondent->is_using_feeder_reguler = $request->isUsingFeederReguler;
+        $respondent->save();
         $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan feeder reguler',
@@ -171,6 +173,8 @@ class PreferenceController extends Controller
             $state->respond = $request['data'][$i]['respond'];
             $state->save();
         }
+        $respondent->is_using_feeder_premium = $request->isUsingFeederPremium;
+        $respondent->save();
         $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
         return response()->json([
             'message' => 'Berhasil menyimpan data preferensi kebijakan feeder premium',
@@ -322,35 +326,41 @@ class PreferenceController extends Controller
             // 'id' => $request->respondent_id,
             'token' => $request->token,
         ])->first();
-        foreach ($request->question_1 as $v) {
-            $question_1 = new App\SpPedestrian();
-            $question_1->respondent_id = $respondent->id;
-            $question_1->question_id = 1;
-            $question_1->sp_pedestrian_choice_id = $v;
-            $question_1->save();
-            if ($v == 7) {
-                $question_1_other = new App\SpPedestrianOther();
-                $question_1_other->sp_pedestrian_id = $question_1->id;
-                $question_1_other->description = $request->question_1_other;
-                $question_1_other->save();
-                // $question_1_other = new App\SpCycleOther([
-                //     'description'=>$request->question_1_other
-                // ]);
-                // $question_1->sp_cycle_other()->save($question_1_other);
-            }
-        }
+        $question_1 = new App\SpPedestrian();
+        $question_1->respondent_id = $respondent->id;
+        $question_1->question_id = 1;
+        $question_1->sp_pedestrian_choice_id = $request->question_1;
+        $question_1->save();
+
         foreach ($request->question_2 as $v) {
             $question_2 = new App\SpPedestrian();
             $question_2->respondent_id = $respondent->id;
             $question_2->question_id = 2;
             $question_2->sp_pedestrian_choice_id = $v;
             $question_2->save();
+            if ($v == 9) {
+                $question_2_other = new App\SpPedestrianOther();
+                $question_2_other->sp_pedestrian_id = $question_2->id;
+                $question_2_other->description = $request->question_2_other;
+                $question_2_other->save();
+                // $question_2_other = new App\SpCycleOther([
+                //     'description'=>$request->question_2_other
+                // ]);
+                // $question_2->sp_cycle_other()->save($question_2_other);
+            }
         }
-        $question_3 = new App\SpPedestrian();
-        $question_3->respondent_id = $respondent->id;
-        $question_3->question_id = 3;
-        $question_3->sp_pedestrian_choice_id = $request->question_3;
-        $question_3->save();
+        foreach ($request->question_3 as $v) {
+            $question_3 = new App\SpPedestrian();
+            $question_3->respondent_id = $respondent->id;
+            $question_3->question_id = 3;
+            $question_3->sp_pedestrian_choice_id = $v;
+            $question_3->save();
+        }
+        $question_4 = new App\SpPedestrian();
+        $question_4->respondent_id = $respondent->id;
+        $question_4->question_id = 4;
+        $question_4->sp_pedestrian_choice_id = $request->question_4;
+        $question_4->save();
 
         $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
 
@@ -371,35 +381,41 @@ class PreferenceController extends Controller
             // 'id' => $request->respondent_id,
             'token' => $request->token,
         ])->first();
-        foreach ($request->question_1 as $v) {
-            $question_1 = new App\SpCycle();
-            $question_1->respondent_id = $respondent->id;
-            $question_1->question_id = 1;
-            $question_1->sp_cycle_choice_id = $v;
-            $question_1->save();
-            if ($v == 7) {
-                $question_1_other = new App\SpCycleOther();
-                $question_1_other->sp_cycle_id = $question_1->id;
-                $question_1_other->description = $request->question_1_other;
-                $question_1_other->save();
-                // $question_1_other = new App\SpCycleOther([
-                //     'description'=>$request->question_1_other
-                // ]);
-                // $question_1->sp_cycle_other()->save($question_1_other);
-            }
-        }
+        $question_1 = new App\SpCycle();
+        $question_1->respondent_id = $respondent->id;
+        $question_1->question_id = 1;
+        $question_1->sp_cycle_choice_id = $request->question_1;
+        $question_1->save();
+
         foreach ($request->question_2 as $v) {
             $question_2 = new App\SpCycle();
             $question_2->respondent_id = $respondent->id;
             $question_2->question_id = 2;
             $question_2->sp_cycle_choice_id = $v;
             $question_2->save();
+            if ($v == 9) {
+                $question_2_other = new App\SpCycleOther();
+                $question_2_other->sp_cycle_id = $question_2->id;
+                $question_2_other->description = $request->question_2_other;
+                $question_2_other->save();
+                // $question_2_other = new App\SpCycleOther([
+                //     'description'=>$request->question_2_other
+                // ]);
+                // $question_2->sp_cycle_other()->save($question_2_other);
+            }
         }
-        $question_3 = new App\SpCycle();
-        $question_3->respondent_id = $respondent->id;
-        $question_3->question_id = 3;
-        $question_3->sp_cycle_choice_id = $request->question_3;
-        $question_3->save();
+        foreach ($request->question_3 as $v) {
+            $question_3 = new App\SpCycle();
+            $question_3->respondent_id = $respondent->id;
+            $question_3->question_id = 3;
+            $question_3->sp_cycle_choice_id = $v;
+            $question_3->save();
+        }
+        $question_4 = new App\SpCycle();
+        $question_4->respondent_id = $respondent->id;
+        $question_4->question_id = 4;
+        $question_4->sp_cycle_choice_id = $request->question_4;
+        $question_4->save();
 
         $this->updateSurveyPreferenceRespondent($respondent->id, $request->sp_id);
 

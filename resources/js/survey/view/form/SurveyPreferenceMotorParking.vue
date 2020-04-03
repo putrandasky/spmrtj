@@ -7,12 +7,18 @@
                 </h5>
             </b-card>
         </div> -->
-        <opening
-            v-if="intro"
-            @onClick="intro = $event"
+         <opening
+            v-if="content == 'intro1'"
+            @onClick="content = 'intro2'"
             :title="spTitle"
         ></opening>
-        <div v-if="!intro">
+        <opening-second
+            v-if="content == 'intro2'"
+            @onClick="content = 'main'"
+            :title="spTitle"
+        ></opening-second>
+
+        <div v-if="content == 'main'">
             <div class="w-100 text-primary  text-justify">
                 <p>
                 Jika tarif parkir yang harus Anda bayarkan untuk menggunakan
@@ -59,14 +65,15 @@
 </template>
 <script>
 import Opening from "./SurveyPreferenceOpening";
+import OpeningSecond from "./SurveyPreferenceOpeningSecond";
 
 export default {
     name: "SurveyPreferenceMotorParking",
     props: ["spTitle","spId"],
-    components: { Opening },
+    components: { Opening,OpeningSecond },
     data: function() {
         return {
-            intro: true,
+            content: 'intro1',
             costIndex: null,
             timeIndex: null,
             currentData: {

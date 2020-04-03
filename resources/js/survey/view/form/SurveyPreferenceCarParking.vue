@@ -9,11 +9,17 @@
         </div> -->
 
         <opening
-            v-if="intro"
-            @onClick="intro = $event"
+            v-if="content == 'intro1'"
+            @onClick="content = 'intro2'"
             :title="spTitle"
         ></opening>
-        <div v-if="!intro">
+        <opening-second
+            v-if="content == 'intro2'"
+            @onClick="content = 'main'"
+            :title="spTitle"
+        ></opening-second>
+
+        <div v-if="content == 'main'">
             <div class="w-100 text-primary text-justify">
                 <p>
                     Jika tarif parkir yang harus Anda bayarkan untuk menggunakan
@@ -61,13 +67,14 @@
 </template>
 <script>
 import Opening from "./SurveyPreferenceOpening";
+import OpeningSecond from "./SurveyPreferenceOpeningSecond";
 export default {
     name: "SurveyPreferenceCarParking",
-    props: ["spTitle","spId"],
-    components: { Opening },
+    props: ["spTitle", "spId"],
+    components: { Opening,OpeningSecond },
     data: function() {
         return {
-            intro: true,
+            content: 'intro1',
             costIndex: null,
             timeIndex: null,
             currentData: {
@@ -137,7 +144,7 @@ export default {
                     console.log(response.data);
                     // this.$store.dispatch('storeToken', response.data)
                     self.$store.dispatch("isLoading", false);
-                        self.$emit("finish", 1);
+                    self.$emit("finish", 1);
                     // this.$bvToast.toast(response.data.message, {
                     //     title: `SUCCESS`,
                     //     variant: "success",

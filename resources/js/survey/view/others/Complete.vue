@@ -1,8 +1,8 @@
 <template>
     <b-col lg="9" md="10" sm="12">
         <div class="d-flex justify-content-around mb-3">
-            <b-img src="./img/mrt-logo-stroke.png"></b-img>
-            <b-img src="./img/jaklingko-logo-stroke.png"></b-img>
+            <b-img  src="./img/Mrt-Jkt-White-small.png"></b-img>
+            <b-img   src="./img/Logo-Jaklingko-white-small.png"></b-img>
         </div>
         <div class="text-center mb-5">
             <p

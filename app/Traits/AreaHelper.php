@@ -58,6 +58,7 @@ trait AreaHelper
             if (collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) {
                 return array(8, 11);
             }
+            return array();
 
         } else {
             if (collect($area_origin)->contains(3) || collect($area_destination)->contains(3)) {
@@ -85,6 +86,7 @@ trait AreaHelper
                     return array(8, 11);
                 }
             }
+            return array();
         }
 
         /*

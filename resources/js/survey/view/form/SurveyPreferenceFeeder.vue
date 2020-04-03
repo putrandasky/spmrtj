@@ -8,11 +8,16 @@
             </b-card>
         </div> -->
         <opening
-            v-if="intro"
-            @onClick="intro = $event"
+            v-if="content == 'intro1'"
+            @onClick="content = 'intro2'"
             :title="spTitle"
         ></opening>
-        <div v-if="!intro">
+        <opening-second
+            v-if="content == 'intro2'"
+            @onClick="content = 'main'"
+            :title="spTitle"
+        ></opening-second>
+        <div v-if="content == 'main'">
             <div
                 class="w-100 text-primary  text-justify"
                 v-show="stateQuestion == 'primary'"
@@ -81,18 +86,45 @@
                 </template>
             </question-slot>
         </div>
+        <div  v-if="content == 'main2'">
+            <question-slot>
+                        <template slot="above" class="text-justify">
+                    Jika Anda menggunakan layanan pengumpan, apakah Anda akan menggunakan layanan MRT untuk melanjutkan perjalanan Anda?
+                </template>
+                <template slot="bottom">
+                    <b-form-radio-group
+                        id="travel_purpose"
+                        stacked
+                        v-model="stateDataCollection.isUsingFeederReguler"
+                        :options="options.isUsingFeederReguler"
+                        button-variant="outline-primary"
+                        buttons
+                        name="is_using_feeder_reguler"
+                        class="btn-block"
+                    ></b-form-radio-group>
+                    <b-btn
+                        variant="success"
+                        @click="submitStateCollection()"
+                        block
+                        v-if="stateDataCollection.isUsingFeederReguler !== null"
+                        >Kirim</b-btn
+                    >
+                </template>
+            </question-slot>
+        </div>
     </div>
 </template>
 <script>
 import Opening from "./SurveyPreferenceOpening";
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
+import OpeningSecond from "./SurveyPreferenceOpeningSecond";
 export default {
     name: "SurveyPreferenceFeeder",
     props: ["spTitle","spId"],
-    components: { QuestionSlot, Opening },
+    components: { QuestionSlot, Opening,OpeningSecond },
     data: function() {
         return {
-            intro: true,
+            content: 'intro1',
             costIndex: null,
             timeIndex: null,
             concern: "",
@@ -102,9 +134,22 @@ export default {
                 timeState: {},
                 costState: {}
             },
+            options:{
+                isUsingFeederReguler:[
+                    {
+                        text: "Ya, saya akan menggunakan layanan MRT.",
+                        value: 1
+                    },
+                    {
+                        text: "Tidak, saya akan menggunakan moda lain",
+                        value: 0
+                    }
+                ]
+            },
             stateDataCollection: {
                 sp_id: this.spId,
                 preferedConcern: "",
+                isUsingFeederReguler: null,
                 data: []
             },
             times: [
@@ -135,7 +180,7 @@ export default {
                 this.timeIndex < 4
             ) {
                 console.log("A");
-                this.submitStateCollection();
+                this.content = 'main2';
             } else {
                 if (this.timeIndex > 0) {
                     console.log("D");
@@ -143,7 +188,7 @@ export default {
                 } else {
                     console.log("E");
                     // console.log(this.stateDataCollection);
-                    this.submitStateCollection();
+                    this.content = 'main2';
                 }
             }
         },
@@ -153,7 +198,7 @@ export default {
                 self.currentData.costState = self.costs[newVal - 1];
             } else {
                 // console.log(this.stateDataCollection);
-                this.submitStateCollection();
+                this.content = 'main2';
             }
         }
     },

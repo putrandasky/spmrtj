@@ -202,7 +202,7 @@
         </div>
         <question-slot v-if="step == 5">
             <template slot="above">
-                Bagaimana sistem parkir di lokasi gedung tempat Anda bekerja ?
+               Bagaimana sistem parkir di kantor atau sekolah anda ?
             </template>
             <template slot="bottom">
                 <b-form-radio-group

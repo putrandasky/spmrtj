@@ -8,7 +8,7 @@
 
         </div>
         <div class="w-100">
-        <small class="pt-3">
+        <small>
             <slot name="text"></slot>
         </small>
         </div>

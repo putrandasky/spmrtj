@@ -43,7 +43,7 @@
             </p>
             <p class="mb-3 text-justify">
                 Pada survei preferensi ini, teman MRTJ akan diberikan beberapa
-                pertanyaan terkait rencana kebijakan pelayanan yang sesuai dengan data
+                pertanyaan terkait kebijakan pelayanan yang sesuai dengan data
                 perjalanan yang biasa dilakukan oleh teman MRTJ.
             </p>
             <p class="mb-3 text-justify">
@@ -80,7 +80,7 @@ import animationData from "@/survey/assets/exclamation-horizontal.js";
 export default {
     name: "SurveyPreference",
     props: ["routerData"],
-    mixins: [AuthRespondent],
+    // mixins: [AuthRespondent],
     components: {
         CarParking,
         Pedestrian,
@@ -117,12 +117,14 @@ export default {
             "Survey Preferences",
             this.$store.state.respondent.survey_preferences
         );
+console.log(this.$route.params.component);
 
         this.$emit("childinit", this.routerData);
+        this.checkPreference(this.$route.params.component);
     },
     computed: {},
     watch: {
-        "$store.state.respondent.survey_preferences": "checkPreference",
+        // "$store.state.respondent.survey_preferences": "checkPreference",
         current_sp(newVal, oldVal) {
             this.sp_id = newVal;
             console.log("step", this.step);
@@ -132,7 +134,13 @@ export default {
                 console.log("next");
                 this.handleNext();
             }
-
+        }
+    },
+    methods: {
+        handleAnimation: function(anim) {
+            this.anim = anim;
+        },
+        checkPreference(newVal) {
             if (newVal == 1) {
                 this.component = "Pedestrian";
                 this.sp_title = "Kebijakan Layanan Jalur Pejalan Kaki";
@@ -203,28 +211,12 @@ export default {
                 this.sp_title = "";
                 this.$emit("spInit", { sp_title: this.sp_title });
             }
-        }
-    },
-    methods: {
-        handleAnimation: function(anim) {
-            this.anim = anim;
-        },
-        checkPreference(e) {
-            // check sp status is not yet completed
-            // let filteredData = e.filter(item => item.status == 0);
-            // this.remaining_sp = filteredData.map(
-            //     item => item.survey_preference_id
-            // );
-            // below to be commented if production
-            this.remaining_sp = [1,2,3,4,5,6,7,8,9,10,11,12]
-
-            this.current_sp = this.remaining_sp[this.step - 1];
         },
         onFinish(e) {
             this.step += e;
-                console.log('onFinish',e);
+            console.log("onFinish", e);
 
-                this.current_sp = this.remaining_sp[this.step - 1];
+            this.current_sp = this.remaining_sp[this.step - 1];
         },
         handleNext() {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'

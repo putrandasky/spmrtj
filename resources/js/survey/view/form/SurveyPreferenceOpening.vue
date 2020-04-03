@@ -5,8 +5,7 @@
                 :src="selectedData.img"
                 class="rounded-0 mb-3"
             ></b-img>
-            <p class="text-primary">
-                {{selectedData.content}}
+            <p class="text-primary" v-html="selectedData.content">
             </p>
             <b-button block variant="success" @click="handleClick">
                 Lanjut
@@ -29,12 +28,12 @@
                     {
                         title:"Kebijakan Layanan Parkir Mobil",
                         img:"./img/sp-car-park-2.jpg",
-                        content:"Kebijakan tarif parkir di DKI Jakarta saat ini sebesar Rp 4000 per jam. Jika Anda menggunakan fasilitas parkir rata-rata 8 jam sehari untuk beraktivitas maka tarif yang Anda bayar untuk kebutuhan parkir sekitar Rp 32.000 per hari."
+                        content:"Saat ini Pemprov DKI sedang mempersiapkan kebijakan baru terkait dengan tarif parkir di kawasan DKI Jakarta. Kebijakan tarif parkir ini bertujuan untuk salah satunya adalah mengurangi penggunaan kendaraan pribadi di kawasan DKI Jakarta.</br>Kebijakan tarif parkir di DKI Jakarta saat ini sebesar Rp 4000 per jam. Jika Anda menggunakan fasilitas parkir rata-rata 8 jam sehari untuk beraktivitas maka tarif yang Anda bayar untuk kebutuhan parkir sekitar Rp 32.000 per hari."
                     },
                     {
                         title:"Kebijakan Layanan Parkir Motor",
                         img:"./img/sp-car-park-2.jpg",
-                        content:"Kebijakan tarif parkir di DKI Jakarta saat ini sebesar Rp 2000 per jam. Jika Anda menggunakan fasilitas parkir rata-rata 8 jam sehari untuk beraktivitas maka tarif yang Anda bayar untuk kebutuhan parkir sekitar Rp 16.000 per hari."
+                        content:"Saat ini Pemprov DKI sedang mempersiapkan kebijakan baru terkait dengan tarif parkir di kawasan DKI Jakarta. Kebijakan tarif parkir ini bertujuan untuk salah satunya adalah mengurangi penggunaan kendaraan pribadi di kawasan DKI Jakarta. </br>Kebijakan tarif parkir di DKI Jakarta saat ini sebesar Rp 2000 per jam. Jika Anda menggunakan fasilitas parkir rata-rata 8 jam sehari untuk beraktivitas maka tarif yang Anda bayar untuk kebutuhan parkir sekitar Rp 16.000 per hari."
                     },
                     {
                         title:"Kebijakan Layanan Jalur Sepeda",
@@ -54,7 +53,7 @@
                     {
                         title:"Kebijakan Layanan Feeder Premium",
                         img:"./img/Preferensi-Feeder-Premium.jpg",
-                        content:"Selain layanan pengumpan reguler, MRT Jakarta juga bersiap untuk menyiapkan layanan pengumpan premium seperti layanan Royal Trans. Perbedaan layanan Royal Trans dengan layanan reguler meliputi beberapa hal seperti berikut : Kepastian tempat duduk, Tersedia tempat duduk yang nyaman untuk seluruh penumpang, Tidak berhenti di seluruh halte, Hanya berhenti di titik tertentu dengan layanan ekspres menuju Stasiun MRT, Memiliki waktu tempuh lebih singkat, Terdapat fasilitas WIFI"
+                        content:"Selain rencana kebijakan layanan pengumpan reguler, dapat juga disiapkan layanan pengumpan premium seperti layanan Royal Trans / DAMRI. Perbedaan layanan premium seperti Royal Trans dengan layanan reguler meliputi beberapa hal seperti berikut:<ul><li>Kepastian tempat duduk </li><li>Tempat duduk yang lebih nyaman </li><li>Layanan ekspres menuju Stasiun MRT</li><li>Memiliki waktu tempuh lebih singkat </li><li>Terdapat fasilitas Internet WiFi </li></ul>"
                     },
                     {
                         title:"Kebijakan Layanan Feeder & Parkir",
@@ -64,7 +63,7 @@
                     {
                         title:"Preferensi Layanan Park & Ride",
                         img:"./img/sp-park-ride.jpg",
-                        content:"MRT Jakarta saat ini sedang mempersiapkan pengembangan kawasan Park & Ride di sekitar wilayah Jabodetabek. Lokasi park & ride akan memberikan fasilitas parkir untuk kendaraan pribadi Anda dan layanan untuk Anda melanjutkan perjalanan. "
+                        content:"Salah satu cara Untuk meningkatkan pelayanan terhadap pengguna adalah dengan menyiapkan lahan parkir bagi kendaraan pribadi yang ingin transit dan menggunakan layanan MRT atau yang biasa kita sebut sebagai park & ride. Lokasi park & ride akan memberikan fasilitas parkir untuk kendaraan pribadi Anda dan layanan untuk Anda melanjutkan perjalanan. "
                     },
                     {
                         title:"Preferensi Layanan Park & Ride Pengguna Mobil Pribadi",

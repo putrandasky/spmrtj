@@ -352,7 +352,7 @@ export default {
                 loop: true
             },
             animationSpeed: 1,
-            modalWelcome: true,
+            modalWelcome: false,
             step: 1,
             options: {
                 gender: [],
@@ -451,7 +451,11 @@ export default {
                         response.data.vehicle
                     );
                     // this.isLoading = false;
-                    this.$store.dispatch("isLoading", false);
+                    setTimeout(() => {
+
+                        this.$store.dispatch("isLoading", false);
+                    this.modalWelcome = true
+                    }, 100);
                 })
                 .catch(error => {
                     console.log(error);

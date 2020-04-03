@@ -8,6 +8,7 @@
         <b-row v-if="step == 1">
             <question-slot>
                 <template slot="above">Pilih Alamat Asal Perjalanan</template>
+                <template slot="text">* Asal perjalanan, biasanya rumah / tempat tinggal atau homebase trip berbasis tempat tinggal</template>
                 <template slot="bottom">
                     <auto-complete-place
                         class="w-100 pt-0"
@@ -43,7 +44,7 @@
         <b-row v-if="step == 2">
             <question-slot>
                 <template slot="above">Pilih Alamat Tujuan Perjalanan</template>
-                <template slot="bottom">
+                <template slot="text">*Perjalanan rutin untuk beraktivitas sehari- hari dalam kondisi normal : bekerja, sekolah, berdagang, dll</template>                <template slot="bottom">
                     <auto-complete-place
                         class="w-100 pt-0"
                         placeholder="Ketik untuk cari..."
@@ -364,16 +365,16 @@
                         <div class="text-left py-2">
                             <small>
                                 <em>
-                                    Contoh : Masukan biaya taksi jika moda yang dipilih taksi, biaya bensin jika memilih kendaraan pribadi.
+                                    Contoh: tarif angkutan umum bila menggunakan angkutan umum, biaya bensin bila menggunakan kendaraan pribadi ataupun diantar.
                                 </em>
                             </small>
                         </div>
                         <range-slider
-                            id="parking_cost"
+                            id="travel_cost"
                             class="p-0"
                             v-model.number="v.travel_cost"
                             min="0"
-                            max="300000"
+                            :max="hasMoreMaxCost.includes(v.transportation_mode)?'300000':'100000'"
                             :disabled="submitting"
                             step="500"
                         ></range-slider>
@@ -430,7 +431,7 @@
                         variant="secondary"
                         @click="back(i)"
                         :disabled="submitting"
-                        v-if="i > 0 "
+                        v-if="i > 0"
                         >Kembali</b-button
                     >
                     <b-button
@@ -490,19 +491,15 @@
             </p>
             <p class="mb-3 text-justify">
                 Pada survei bagian ini diharapkan teman MRTJ untuk mengisi
-                informasi tentang perjalanan yang dilakukan disalah satu hari
+                informasi tentang perjalanan rutin pada waktu kondisi normal
+                sebelum adanya kebijakan social distancing dan work from home.
+                Informasi perjalanan yang diisi merupakan perjalanan rutin yang
+                biasa dilakukan pada hari
                 <strong>
-                    diantara hari selasa/rabu/kamis yang terdekat dengan waktu
-                    mengisi kuesioner.
+                Selasa/rabu/kamis
                 </strong>
-            </p>
-            <p class="mb-3 text-justify">
-                Contoh: bila teman MRTJ mengisi di hari Kamis, maka informasi
-                perjalanan yang diisikan adalah perjalanan di hari sebelumnya
-                (Rabu) atau bisa juga Selasa, dengan catatan hari tersebut
-                <strong>
-                    bukan hari libur (tanggal merah).
-                </strong>
+                 untuk melakukan
+                aktivitas dalam keadaan kondisi normal.
             </p>
             <p class="mb-3 text-justify">
                 Perjalanan yang dimaksud adalah perjalanan yang
@@ -554,6 +551,7 @@ export default {
             step: 1,
             notRequiredWaitingTime: [1, 2, 3, 5],
             notRequiredCost: [1, 2],
+            hasMoreMaxCost:[5,6,8,9],
             modalWelcome: true,
             isLoading: false,
             submitting: false,

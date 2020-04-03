@@ -67,6 +67,12 @@ export default {
 .text-shadow {
     text-shadow: 0px 4px 10px #000000;
 }
+  .travel-map-mymap {
+    min-height: 350px;
+    height: 100%;
+    width: 100%;
+    /* padding: .5rem; */
+  }
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,

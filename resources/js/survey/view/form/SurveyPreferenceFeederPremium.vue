@@ -7,56 +7,106 @@
                 </h5>
             </b-card>
         </div> -->
-        <opening  v-if="intro" @onClick ="intro = $event" :title="spTitle"></opening>
-        <div v-if="!intro">
-        <div class="w-100 text-primary  text-justify">
-            <p>
-
-            Jika Anda diharuskan membayar tambahan biaya sebesar
-            <b-badge variant="primary">
-                   <h6 class="mb-0 font-weight-bold">
-                        Rp
-                        <transition name="slide-shrink-fade" mode="out-in">
-                            <span :key="currentData.costState.amount">
-                                {{ currentData.costState.amount | currency }}
-                            </span>
-                        </transition>
-                    </h6>
-            </b-badge>
-            dari tarif sebelumnya untuk menikmati fasilitas layanan feeder
-            premium Royal Trans.
-            </p>
-    <p>
-
-            Apakah Anda akan menggunakan layanan pengumpan premium?
-    </p>
+        <opening
+            v-if="content == 'intro1'"
+            @onClick="content = 'main'"
+            :title="spTitle"
+        ></opening>
+        <div v-if="content == 'main'">
+            <div class="w-100 text-primary  text-justify">
+                <p>
+                    Jika Anda diharuskan membayar
+                    <strong>
+                        tambahan
+                    </strong>
+                    biaya sebesar
+                    <b-badge variant="primary">
+                        <h6 class="mb-0 font-weight-bold">
+                            Rp
+                            <transition name="slide-shrink-fade" mode="out-in">
+                                <span :key="currentData.costState.amount">
+                                    {{
+                                        currentData.costState.amount | currency
+                                    }}
+                                </span>
+                            </transition>
+                        </h6>
+                    </b-badge>
+                    dari tarif sebelumnya untuk menikmati fasilitas layanan
+                    feeder premium Royal Trans / DAMRI.
+                </p>
+                <p>
+                    Apakah Anda akan menggunakan layanan pengumpan premium?
+                </p>
+            </div>
+            <div class="btn-group w-100 " role="group">
+                <b-btn variant="outline-danger" @click="submit(0)">
+                    Tidak
+                </b-btn>
+                <b-btn variant="outline-success" @click="submit(1)">
+                    Ya
+                </b-btn>
+            </div>
         </div>
-        <div class="btn-group w-100 " role="group">
-            <b-btn variant="outline-danger" @click="submit(0)">
-                Tidak
-            </b-btn>
-            <b-btn variant="outline-success" @click="submit(1)">
-                Ya
-            </b-btn>
-        </div>
+        <div v-if="content == 'main2'">
+            <question-slot>
+                <template slot="above" class="text-justify">
+                    Jika Anda menggunakan layanan pengumpan premium, apakah Anda
+                    akan menggunakan MRT untuk melanjutkan perjalanan Anda?
+                </template>
+                <template slot="bottom">
+                    <b-form-radio-group
+                        id="travel_purpose"
+                        stacked
+                        v-model="stateDataCollection.isUsingFeederPremium"
+                        :options="options.isUsingFeederPremium"
+                        button-variant="outline-primary"
+                        buttons
+                        name="is_using_feeder_premium"
+                        class="btn-block"
+                    ></b-form-radio-group>
+                    <b-btn
+                        variant="success"
+                        @click="submitStateCollection()"
+                        block
+                        v-if="stateDataCollection.isUsingFeederPremium !== null"
+                        >Kirim</b-btn
+                    >
+                </template>
+            </question-slot>
         </div>
     </div>
 </template>
 <script>
-import Opening from './SurveyPreferenceOpening'
+import Opening from "./SurveyPreferenceOpening";
+import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 export default {
     name: "SurveyPreferenceFeederPremium",
-    props: ["spTitle","spId"],
-    components:{Opening},
+    props: ["spTitle", "spId"],
+    components: { Opening, QuestionSlot },
     data: function() {
         return {
             intro: true,
+            content: "intro1",
             costIndex: null,
             currentData: {
                 costState: {}
             },
+            options: {
+                isUsingFeederPremium: [
+                    {
+                        text: "Ya, saya akan menggunakan layanan MRT.",
+                        value: 1
+                    },
+                    {
+                        text: "Tidak, saya akan menggunakan moda lain",
+                        value: 0
+                    }
+                ]
+            },
             stateDataCollection: {
                 sp_id: this.spId,
+                isUsingFeederPremium: null,
                 data: []
             },
             costs: [
@@ -75,7 +125,7 @@ export default {
             let self = this;
 
             if (this.costIndex > 5) {
-                this.submitStateCollection();
+                this.content = "main2";
             } else {
                 self.currentData.costState = self.costs[newVal - 1];
             }
@@ -90,11 +140,11 @@ export default {
                 cost_id: costId,
                 respond: respond
             });
-            respond ? this.submitStateCollection() : self.costIndex++;
+            respond ? (this.content = "main2") : self.costIndex++;
             console.table(this.stateDataCollection.data);
         },
         submitStateCollection() {
-            let self = this
+            let self = this;
             this.$store.dispatch("isLoading", true);
             // setTimeout(() => {
             //     this.$store.dispatch("isLoading", false);
