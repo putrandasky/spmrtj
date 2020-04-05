@@ -10,7 +10,8 @@
     <meta name="description"
         content="Survei Preferensi Kebijakan Parkir, Layanan Feeder, Jalur Sepeda, dan Jalur Pejalan Kaki terhadap Layanan MRT di DKI Jakarta">
     <meta name="keywords" content="Survei Preferensi Kebijakan Parkir,Survei Preferensi Layanan Feeder,Survei Preferensi Jalur Sepeda,Survei Preferensi Jalur Pejalan Kaki,Survei PT MRT Jakarta">
-    <meta property="og:image" content="https://www.jakartamrt.co.id/wp-content/uploads/2019/03/favicon.png">
+    <meta property="og:image" content="{{ asset('img/logo-mrtj.png') }}">
+
     <meta property="og:title" content="Survei Preferensi - PT MRT Jakarta" />
     <meta property="og:url" content="https:/spmrtj.alterfingers.com" />
     <meta property="og:description"
