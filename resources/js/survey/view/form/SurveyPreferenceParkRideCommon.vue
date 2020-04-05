@@ -97,16 +97,23 @@
                             >Parkir tertutup <br />
                             sudah cukup</b-badge
                         >
-                    </div>
+
+                     </div>
+                     <div>
+                    <small>
+                        Nb : Geser untuk memilih
+                    </small>
+                     </div>
                     <b-btn
                         variant="success"
-                        class="shadow-sm mt-3"
+                        class="shadow-sm "
                         block
                         @click="step = 3"
                         v-if="input.park_type"
                     >
                         Lanjut
                     </b-btn>
+
                 </template>
             </question-slot>
             <question-slot v-if="step == 3">
@@ -222,7 +229,7 @@ export default {
             input: {
                 sp_id: this.spId,
                 location: null,
-                park_type: null,
+                park_type: 0,
                 facility: [],
                 park_duration: 0
             },

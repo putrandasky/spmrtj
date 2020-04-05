@@ -639,7 +639,11 @@ export default {
                     console.log(response.data);
                     this.$store.dispatch("storeToken", response.data);
                     this.$store.dispatch("isLoading", false);
-                    this.handleNext(response.data.token, "SurveyPreference");
+                    if (response.data.spData.length > 0) {
+                        this.handleNext(response.data.token, "SurveyPreference");
+                    } else {
+                        this.handleNext(response.data.token, "Done");
+                    }
                 })
                 .catch(error => {
                     console.log(error);

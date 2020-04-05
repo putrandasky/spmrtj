@@ -1,10 +1,8 @@
 <template>
     <div class="app py-5">
         <b-container fluid class="h-100">
-            <b-row
-                class=" d-flex justify-content-center  h-100"
-            >
-        <router-view></router-view>
+            <b-row class=" d-flex justify-content-center  h-100">
+                <router-view></router-view>
             </b-row>
         </b-container>
     </div>
@@ -19,7 +17,6 @@ export default {
     methods: {}
 };
 </script>
-ß
 <style scoped>
 .app {
     background-position: bottom;
@@ -29,5 +26,5 @@ export default {
     background-image: url(/img/footer-monumen.png);
     min-height: 100vh;
     height: auto;
-}</style
->ß
+}
+</style>

@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('apps.survey');
 });
+// Route::group(['prefix' => ''], function () {
+//     Route::get('/{vue_capture?}', function () {
+//         return View::make('apps.survey');
+//     })->where('vue_capture', '[\/\w\.-]*');
+// });
 Route::get('/map', function () {
     return view('apps.gmap');
 });
@@ -55,5 +60,9 @@ Route::get('station', 'Google\MapController@station');
 Route::get('map-data', 'Google\MapController@mapData');
 
 Route::post('route', 'Google\MapController@routePathWithFeeder');
+
+Route::any( '{any}', function( ){
+    return redirect('/');
+});
 
 

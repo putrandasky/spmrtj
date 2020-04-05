@@ -111,34 +111,34 @@ export default new Router({
             ]
         },
         {
-            path: "/completed",
+            path: '/completed',
             component: AppGeneral,
             children: [
                 {
-                    path: "",
-                    name: "Completed",
+                    path: '',
+                    name: 'Completed',
                     component: Completed,
                     meta: {
                         checkStep: true
                     }
+                },
+                {
+                  path: 'done',
+                  name: 'Done',
+                  component: Done,
+                  meta: {
+                    checkStep: true
+                  }
                 }
-                // {
-                //   path: '/done',
-                //   name: 'Done',
-                //   component: Done,
-                //   meta: {
-                //     checkStep: true
-                //   },
-                // }
             ]
         },
         {
-            path: "/welcome",
+            path: '/welcome',
             component: AppWelcome,
             children: [
                 {
-                    path: "",
-                    name: "Welcome",
+                    path: '',
+                    name: 'Welcome',
                     component: Welcome,
                     meta: {
                         checkStep: true
@@ -148,7 +148,7 @@ export default new Router({
         },
         // {
         //     path: "*",
-        //     redirect: "/errors"
+        //     redirect: "/welcome"
         // },
         {
             path: "/errors",

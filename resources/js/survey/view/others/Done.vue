@@ -1,16 +1,20 @@
 <template>
-  <b-col lg="6" md="8" class="align-items-center d-flex justify-content-center"   v-show="!isChecking">
+    <b-col lg="9" md="10" sm="12">
+        <div class="d-flex justify-content-around mb-3">
+            <b-img  src="./img/Mrt-Jkt-White-small.png"></b-img>
+            <b-img   src="./img/Logo-Jaklingko-white-small.png"></b-img>
+        </div>
+        <div class="text-center mb-5">
+            <p
+                class="display-2 font-weight-bold text-white text-shadow title-form"
+            >
+                TERIMA KASIH
+            </p>
+            <p class="font-weight-bold text-white text-shadow">
+               Survey anda sudah selesai, Terimakasih banyak atas waktu dan jawaban anda.
+            </p>
+        </div>
 
-    <b-card no-body class="shadow-lg" img-src="/img/thankyou.png" img-top style="max-width:30rem">
-      <div class="card-body p-4" autocomplete="off"
-        style="text-align: justify; text-justify: inter-word;overflow-x:auto;max-height:300px">
-        <h3>Terimakasih !</h3>
-        <b-card-text>
-          Survey anda sudah selesai, Terimakasih banyak atas waktu dan jawaban anda
-        </b-card-text>
-      </div>
-
-    </b-card>
   </b-col>
 </template>
 <script>
@@ -18,7 +22,7 @@
     AuthRespondent
   } from "@/survey/components/mixins/AuthRespondent";
   export default {
-    name: 'CompleteSurvey',
+    name: 'Done',
     mixins: [AuthRespondent],
     data: function () {
       return {

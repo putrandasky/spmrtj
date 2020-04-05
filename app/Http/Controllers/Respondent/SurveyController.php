@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Respondent;
 
 use App;
 use App\Http\Controllers\Controller;
-use App\Traits\RouteHelper;
 use App\Traits\AreaHelper;
+use App\Traits\RouteHelper;
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller
@@ -85,7 +85,6 @@ class SurveyController extends Controller
         $place_destination['lat'] = $request->input('travel_destination.geometry.location.lat');
         $place_destination['lng'] = $request->input('travel_destination.geometry.location.lng');
 
-
         $getSurveyPreference = $this->AreaFinder(
             $request->area_origin,
             $request->area_destination,
@@ -151,18 +150,20 @@ class SurveyController extends Controller
             $travel_detail->save();
         }
 
-        // foreach ($getSurveyPreference as $v) {
-        //     $survey_preference_respondent = new App\SurveyPreferenceRespondent();
-        //     $survey_preference_respondent->survey_preference_id = $v;
-        //     $survey_preference_respondent->respondent_id = $respondent->id;
-        //     $survey_preference_respondent->status = 0;
-        //     $survey_preference_respondent->save();
-
-        // }
-        $respondent->step_id = 3;
+        if (!empty($getSurveyPreference)) {
+        foreach ($getSurveyPreference as $v) {
+            $survey_preference_respondent = new App\SurveyPreferenceRespondent();
+            $survey_preference_respondent->survey_preference_id = $v;
+            $survey_preference_respondent->respondent_id = $respondent->id;
+            $survey_preference_respondent->status = 0;
+            $survey_preference_respondent->save();
+        }
+        }
+        $respondent->step_id = !empty($getSurveyPreference)? 3:0;
         $respondent->save();
         return response()->json([
             'message' => 'Data perjalanan responden berhasil disimpan',
+            'spData' => $getSurveyPreference,
             'token' => $respondent->token,
         ], 200);
 
@@ -257,5 +258,17 @@ class SurveyController extends Controller
         $respondent->address = $request->address;
         $respondent->save();
         return response()->json(['token' => $request->token, 'respondent_id' => $respondent->id, 'message' => 'Data personal berhasil tersimpan', 'status' => 'success'], 200);
+    }
+    public function areaCoverage(Request $request)
+    {
+        $getSurveyPreference = $this->AreaFinder(
+            $request->area_origin,
+            $request->area_destination,
+            collect($request->travel_detail)->pluck('transportation_mode'),
+            $request->travel_model,
+            $request->parking_guarantor
+        );
+        $test = !empty($getSurveyPreference);
+        return $getSurveyPreference;
     }
 }

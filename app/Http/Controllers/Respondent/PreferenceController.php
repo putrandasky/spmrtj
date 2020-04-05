@@ -393,6 +393,7 @@ class PreferenceController extends Controller
             $question_2->question_id = 2;
             $question_2->sp_cycle_choice_id = $v;
             $question_2->save();
+            //mesti di cek id pilihan ganda nya kalau ada penambahan pilihan jawaban
             if ($v == 9) {
                 $question_2_other = new App\SpCycleOther();
                 $question_2_other->sp_cycle_id = $question_2->id;
@@ -443,12 +444,12 @@ class PreferenceController extends Controller
     public function updateSurveyPreferenceRespondent($respondent_id, $sp_id)
     {
 
-        // $survei_preference_responden = App\SurveyPreferenceRespondent::where([
-        //     'respondent_id' => $respondent_id,
-        //     'survey_preference_id' => $sp_id,
-        // ])->first();
-        // $survei_preference_responden->status = 1;
-        // $survei_preference_responden->save();
+        $survei_preference_responden = App\SurveyPreferenceRespondent::where([
+            'respondent_id' => $respondent_id,
+            'survey_preference_id' => $sp_id,
+        ])->first();
+        $survei_preference_responden->status = 1;
+        $survei_preference_responden->save();
     }
 
 }

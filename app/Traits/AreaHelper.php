@@ -8,42 +8,48 @@ trait AreaHelper
 
     public function AreaFinder($area_origin, $area_destination, $transportation_mode, $travel_model, $parking_guarantor)
     {
-
+    // dd(collect($area_destination)->contains(1));
         if ($travel_model == 0) {
+            //JIka origin atau destination terlayani jalur pedestrian
 
             if (collect($area_origin)->contains(3) || collect($area_destination)->contains(3)) {
                 return array(1);
             }
+            //JIka origin atau destination terlayani jalur sepeda
             if (collect($area_origin)->contains(2) || collect($area_destination)->contains(2)) {
                 return array(2);
             }
+            //JIka destination masuk jalur parkir dan penanggung parkir adalah pribadi
             if (collect($area_destination)->contains(1) && $parking_guarantor == 1) {
-
+                //Jika Origin Terlayani Feeder
                 if ((collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4)) && collect($area_origin)->contains(5)) {
                     return array(4, 5, 6, 7);
                 }
                 if ((collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) && collect($area_origin)->contains(5)) {
                     return array(3, 5, 6, 7);
                 }
+                //Jika Origin tidak Terlayani Feeder tapi Park Ride terlayani
                 if (collect($area_origin)->contains(4)) {
-                    if (collect($transportation_mode)->contains(3) && collect($transportation_mode)->contains(4)) {
-                        return array(8, 10);
+                    if (collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4)) {
+                        return array(4, 8, 10);
                     }
-                    if (collect($transportation_mode)->contains(5) && collect($transportation_mode)->contains(6)) {
-                        return array(8, 9);
+                    if (collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) {
+                        return array(3, 8, 9);
                     }
                 }
-                if (collect($transportation_mode)->contains(3) && collect($transportation_mode)->contains(4)) {
-                    return array(8, 12);
+                 //Jika Origin tidak Terlayani Feeder dan Park Ride tidak terlayani
+                if (collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4)) {
+                    return array(4, 8, 12);
                 }
-                if (collect($transportation_mode)->contains(5) && collect($transportation_mode)->contains(6)) {
-                    return array(8, 11);
+                if (collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) {
+                    return array(3, 8, 11);
                 }
             }
+            //JIka destination tidak  masuk jalur parkir penanggung parkir bukan pribadi serta origin masuk feeder
             if (collect($area_origin)->contains(5)) {
                 return array(5, 6);
             }
-
+            //JIka destination tidak  masuk jalur parkir penanggung parkir bukan pribadi serta origin tidak masuk feeder tetapi tercakur park
             if (collect($area_origin)->contains(4)) {
                 if (collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4)) {
                     return array(8, 10);
@@ -52,6 +58,7 @@ trait AreaHelper
                     return array(8, 9);
                 }
             }
+            //Jika tidak tercakup park ride
             if (collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4)) {
                 return array(8, 12);
             }
@@ -69,6 +76,13 @@ trait AreaHelper
             }
             if (collect($area_origin)->contains(5)) {
                 return array(5, 6);
+            }
+            if ($travel_model == 1) {
+                //jika pengguna MRT
+                if (collect($transportation_mode)->contains(17)) {
+                    return array(8, 12);
+                }
+                return array();
             }
             if ($travel_model == 2) {
                 if (collect($area_origin)->contains(4)) {

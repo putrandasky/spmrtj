@@ -1,10 +1,13 @@
 <template>
         <b-row no-gutters class="text-justify">
+            <b-col cols="12">
             <b-img
                 fluid
                 :src="selectedData.img"
                 class="rounded-0 mb-3"
             ></b-img>
+            </b-col>
+
             <p class="text-primary" v-html="selectedData.content">
             </p>
             <b-button block variant="success" @click="handleClick">

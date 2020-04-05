@@ -211,12 +211,12 @@ export default {
         },
         checkPreference(e) {
             // check sp status is not yet completed
-            // let filteredData = e.filter(item => item.status == 0);
-            // this.remaining_sp = filteredData.map(
-            //     item => item.survey_preference_id
-            // );
+            let filteredData = e.filter(item => item.status == 0);
+            this.remaining_sp = filteredData.map(
+                item => item.survey_preference_id
+            );
             // below to be commented if production
-            this.remaining_sp = [1,2,3,4,5,6,7,8,9,10,11,12]
+            // this.remaining_sp = [1,2,3,4,5,6,7,8,9,10,11,12]
 
             this.current_sp = this.remaining_sp[this.step - 1];
         },

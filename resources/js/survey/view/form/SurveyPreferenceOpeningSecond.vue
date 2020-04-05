@@ -76,7 +76,7 @@ export default {
                     src:
                         "https://www.google.com/maps/d/embed?mid=1nJJl7Ku_aG-S0qojmepmG_PkqO7klaEN&ll=-6.312834673189734%2C106.78349533416349&z=11",
                     content:
-                        "Bedasarkan hasil kondisi perjalanan saat ini, diperoleh beberapa titik potensi lokasi park & ride. Pada titik potensi tersebut nantinya akan tersedia lahan parkir baik untuk pengguna mobil maupun motor. Untuk lokasi yang dekat dengan stasiun, pengguna dapat berjalan kaki menuju stasiun  untuk menggunakan layanan MRT sedangkan untuk lokasi yang tidak berdekatan degnan statiun akan disediakan shuttle yang langsung menuju stasiun MRT."
+                        "Bedasarkan hasil kondisi perjalanan saat ini, diperoleh beberapa titik potensi lokasi park & ride. Pada titik potensi tersebut nantinya akan tersedia lahan parkir baik untuk pengguna mobil maupun motor. Untuk lokasi yang dekat dengan stasiun, pengguna dapat berjalan kaki menuju stasiun  untuk menggunakan layanan MRT sedangkan untuk lokasi yang tidak berdekatan dengan stasiun akan disediakan shuttle yang langsung menuju stasiun MRT."
                 },
                 {
                     title:
