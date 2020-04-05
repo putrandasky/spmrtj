@@ -234,7 +234,7 @@
                     [0, 2].includes(input.travel_model)
                         ? input.trip_frequency > 0 &&
                           input.parking_cost > 0 &&
-                          parking_guarantors !== null &&
+                          input.parking_guarantor !== null &&
                           input.parking_type !== null
                         : input.trip_frequency > 0
                 "

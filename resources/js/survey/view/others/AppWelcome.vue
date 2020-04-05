@@ -13,7 +13,6 @@
                                 Halo Teman MRT !
                             </p>
                             <p>
-                                <small>
                                     Tidak terasa ya sudah hampir satu tahun Mass
                                     Rapid Transit (MRT) Jakarta beroperasi
                                     melayani kita semua. Apakah kalian pengguna
@@ -27,10 +26,8 @@
                                     rangka meningkatkan kualitas fasilitas dan
                                     pelayanan yang diharapkan temen – temen MRT
                                     semua.
-                                </small>
                             </p>
                             <p>
-                                <small>
                                     Kami berharap temen – temen MRT dapat
                                     berpartisipasi mengisi kuesioner dengan
                                     benar dan jujur. Hasil pengolahan data
@@ -42,19 +39,16 @@
                                     untuk keperluan analisa teknis dalam
                                     perencanaan dan pengembangan kebijakan MRT
                                     Jakarta. -->
-                                </small>
                             </p>
                             <p class="font-weight-bold text-primary">
                                 Kesempatan emas gak dateng 2x loh!
                             </p>
                             <p class="mb-0">
-                                <small>
                                     Yuk langsung isi surveinya dan menangkan
                                     e-wallet senilai Rp. 100.000 untuk 100 orang
                                     beruntung dan hadiah utama
                                     voucher MAP Rp. 2,5 juta untuk 2 orang! Semoga
                                     beruntung Teman MRT !
-                                </small>
                             </p>
                         </div>
                     </b-card>

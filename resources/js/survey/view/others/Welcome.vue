@@ -11,14 +11,14 @@
                 aktif MRT Jakarta ? atau bahkan kalian belum pernah menggunakan
                 moda transportasi publik yang hits ini? kalau belum, yuk buruan
                 cobain naik MRT Jakarta dan rasakan jadi warga ibu kota yang
-                bebas dari kemacetan! Selain itu yuk ikutan juga survey seru
+                bebas dari kemacetan! Selain itu yuk ikutan juga survei seru
                 terkait kualitas pelayanan MRT Jakarta dalam rangka meningkatkan
-                kualitas fasilitas dan pelayanan yang diharapkan temen – temen
+                kualitas fasilitas dan pelayanan yang diharapkan teman – teman
                 MRT semua.
             </p>
             <p>
-                Kami berharap temen – temen MRT dapat berpartisipasi mengisi
-                kuesioner dengan benar dan jujur. Hasil pengolahan data survey
+                Kami berharap teman – teman MRT dapat berpartisipasi mengisi
+                kuesioner dengan benar dan jujur. Hasil pengolahan data survei
                 akan menjadi pertimbangan dan saran untuk MRT Jakarta. Seluruh
                 data dan informasi yang diberikan akan dijaga kerahasiaannya dan
                 akan digunakan sepenuhnya untuk keperluan analisa teknis dalam
@@ -28,7 +28,7 @@
                 Kesempatan emas gak dateng 2x loh!
             </p>
             <p>
-                Yuk langsung isi surveynya dan menangkan e-wallet senilai Rp.
+                Yuk langsung isi surveinya dan menangkan e-wallet senilai Rp.
                 50.000 untuk 100 orang beruntung dan hadiah utama logam mulia
                 senilai 5 gram! Semoga beruntung Teman MRT !
             </p>

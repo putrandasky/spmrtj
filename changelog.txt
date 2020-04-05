@@ -1,3 +1,9 @@
+6 Apr 2020
+# FIXED
+- Image in intro SP has Width issue on high resolution display
+- width col on main card
+- width col on multiple choice input with number
+
 5 Apr 2020
 ### ADDED
 - Page Done for void user whom doesnt meet requirement

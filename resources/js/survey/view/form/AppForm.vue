@@ -49,7 +49,7 @@
                             alt=""
                         />
                     </b-col>
-                    <b-col order-lg="3" lg="5" md="8" sm="10" cols="12">
+                    <b-col order-lg="3" lg="6" md="8" sm="10" cols="12">
                         <div class="w-100 text-center">
 
                             <h3 class="text-success sub-title-form font-weight-bold">

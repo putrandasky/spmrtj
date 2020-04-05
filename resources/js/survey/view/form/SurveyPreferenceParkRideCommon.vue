@@ -150,7 +150,7 @@
                             "
                         >
                             <b-row>
-                                <b-col cols="2" class="text-center px-0">
+                                <b-col cols="2" xl="1" class="text-center px-0">
                                     <span
                                         class="rounded px-2 bg-light border border-light text-primary font-weight-bold"
                                         v-if="
@@ -162,7 +162,7 @@
                                         }}
                                     </span>
                                 </b-col>
-                                <b-col cols="10" class="pl-0 text-left">{{
+                                <b-col cols="10" xl="11" class="pl-0 text-left">{{
                                     v.text
                                 }}</b-col>
                             </b-row>

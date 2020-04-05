@@ -267,8 +267,16 @@ $slider-width: 100%;
 $rail-height: 12px;
 $rail-fill-color: $primary;
 
+
+
 // @import url(https://fonts.googleapis.com/css?family=Titillium+Web:700&display=swap);
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web:700&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web:700&display=swap");
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~bootstrap-vue/src/index.scss";
 @import "~vue-range-slider/dist/vue-range-slider.scss";
+
+// @include media-breakpoint-up(xl) {
+//     body, .btn, h1, h2, h3, h4, h5, h6, p {
+//       font-size: larger;
+//     }
+//   }

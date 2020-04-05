@@ -4,7 +4,7 @@
             <b-img
                 fluid
                 :src="selectedData.img"
-                class="rounded-0 mb-3"
+                class="rounded-0 mb-3 w-100"
             ></b-img>
             </b-col>
 
