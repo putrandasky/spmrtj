@@ -13,42 +13,16 @@
                                 Halo Teman MRT !
                             </p>
                             <p>
-                                    Tidak terasa ya sudah hampir satu tahun Mass
-                                    Rapid Transit (MRT) Jakarta beroperasi
-                                    melayani kita semua. Apakah kalian pengguna
-                                    aktif MRT Jakarta ? atau bahkan kalian belum
-                                    pernah menggunakan moda transportasi publik
-                                    yang hits ini? kalau belum, yuk buruan
-                                    cobain naik MRT Jakarta dan rasakan jadi
-                                    warga ibu kota yang bebas dari kemacetan!
-                                    Selain itu yuk ikutan juga survei seru
-                                    terkait kualitas pelayanan MRT Jakarta dalam
-                                    rangka meningkatkan kualitas fasilitas dan
-                                    pelayanan yang diharapkan temen – temen MRT
-                                    semua.
+                                    Gimana kabar kalian semua? Semoga selalu sehat yaa dan terlindung dari paparan virus corona atau COVID-19. Yuk sambil mengisi aktivitas work from home nya, bantu kami mengisi survei seru berhadiah terkait kualitas pelayanan MRT Jakarta dalam rangka meningkatkan kualitas fasilitas dan pelayanan yang diharapkan teman – teman MRT semua. Sudah pernah naik MRT Jakarta belum? Atau bahkan kalian pengguna aktif MRT Jakarta? Bagi kalian yang belum pernah, yuk buruan cobain naik MRT Jakarta dan rasakan jadi warga ibu kota yang bebas dari kemacetan!
                             </p>
                             <p>
-                                    Kami berharap temen – temen MRT dapat
-                                    berpartisipasi mengisi kuesioner dengan
-                                    benar dan jujur. Hasil pengolahan data
-                                    survei akan menjadi pertimbangan dan saran
-                                    untuk MRT Jakarta.
-                                   <!--  Seluruh data dan
-                                    informasi yang diberikan akan dijaga
-                                    kerahasiaannya dan akan digunakan sepenuhnya
-                                    untuk keperluan analisa teknis dalam
-                                    perencanaan dan pengembangan kebijakan MRT
-                                    Jakarta. -->
+                                    Yuk Teman, isi survei dengan benar dan jujur yaa. Hasil pengolahan data survei akan menjadi pertimbangan dan saran untuk MRT Jakarta.
                             </p>
                             <p class="font-weight-bold text-primary">
                                 Kesempatan emas gak dateng 2x loh!
                             </p>
                             <p class="mb-0">
-                                    Yuk langsung isi surveinya dan menangkan
-                                    e-wallet senilai Rp. 100.000 untuk 100 orang
-                                    beruntung dan hadiah utama
-                                    voucher MAP Rp. 2,5 juta untuk 2 orang! Semoga
-                                    beruntung Teman MRT !
+                                    Kapan lagi bisa isi survei dan berkesempatan memenangkan e-wallet senilai Rp. 100.000 untuk 100 orang beruntung dan hadiah utama voucher MAP dengan total Rp  5 Juta rupiah untuk 2 orang masing – masing @ Rp. 2,5 juta untuk 2 orang! Semoga beruntung Teman MRT !
                             </p>
                         </div>
                     </b-card>
@@ -57,11 +31,7 @@
                 <b-col lg="4" class="d-flex align-items-end pb-3 pb-lg-0">
                     <b-card class="opacity-90 shadow text-justify" >
                         <small>
-                            Seluruh data dan informasi yang Responden berikan
-                            akan dijaga kerahasiaannya dan akan digunakan
-                            sepenuhnya untuk keperluan analisa teknis dalam
-                            perencanaan dan pengembangan kebijakan transportasi
-                            di masa mendatang.
+                            Seluruh data dan informasi yang diberikan akan dijaga kerahasiaannya dan akan digunakan sepenuhnya untuk keperluan analisa teknis dalam perencanaan dan pengembangan kebijakan MRT Jakarta.
                         </small>
                     </b-card>
                 </b-col>
@@ -71,9 +41,9 @@
             <b-container fluid>
                 <b-row class="d-flex align-items-center">
                     <b-col md="4">
-                        <div>
-                            <h4>
-                                SURVEI KEBIJAKAN
+                        <div  class="text-lg-right">
+                            <h4 class="mb-0">
+                                SURVEI PREFERENSI KEBIJAKAN
                             </h4>
                         </div>
                         <div class="text-lg-right">

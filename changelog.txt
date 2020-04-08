@@ -1,5 +1,10 @@
 6 Apr 2020
 # FIXED
+- redactional opening text
+- LOGIC AREA HELPER
+
+6 Apr 2020
+# FIXED
 - Image in intro SP has Width issue on high resolution display
 - width col on main card
 - width col on multiple choice input with number

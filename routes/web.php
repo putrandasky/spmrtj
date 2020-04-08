@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/map', function () {
     return view('apps.gmap');
 });
+Route::get('/admin', function () {
+    return view('apps.admin');
+});
 Route::get('respondent/survey/auth-respondent', 'Respondent\AuthController@checkExist');
 Route::get('respondent/survey/preference/park-car', 'Respondent\PreferenceController@getParkCar');
 Route::post('respondent/survey/preference/park-car', 'Respondent\PreferenceController@storeParkCar');

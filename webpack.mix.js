@@ -25,8 +25,8 @@ const mix = require('laravel-mix');
   });
   mix
   .js('resources/js/survey/app.js', 'public/js/survey/app.js')
-//   .js('resources/js/admin2/main.js', 'public/js/admin-area2.js')
-  .js('resources/js/gmaps/app.js', 'public/js/gmaps/app.js')
+//   .js('resources/js/admin/main.js', 'public/js/admin/app.js')
+//   .js('resources/js/gmaps/app.js', 'public/js/gmaps/app.js')
 
 
 
