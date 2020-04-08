@@ -29,14 +29,14 @@
             </b-col>
         </b-row>
         <b-row>
-            <b-col md="4">
+            <b-col md="3">
                 <div v-show="!markerOrigin.position.lat">
                     <b-alert show variant="info"
                         >1. Klik Pada Peta Untuk Memilih Asal Perjalanan
                     </b-alert>
                 </div>
             </b-col>
-            <b-col md="4">
+            <b-col md="3">
                 <div
                     v-show="
                         markerOrigin.position.lat &&
@@ -48,13 +48,27 @@
                     </b-alert>
                 </div>
             </b-col>
-            <b-col md="4">
+            <b-col md="3">
+                <div
+                    v-show="
+                        markerDestination.position.lat &&
+                            markerOrigin.position.lat &&
+                            (input.parking_guarantor==null ||
+                            input.travel_model==null ||
+                            input.transportation_mode==null)
+
+                    "
+                >
+                    <b-alert show variant="info">
+                        3. Input Data Pendukung
+                    </b-alert>
+                </div>
+            </b-col>
+            <b-col md="3">
                 <div
                     class="mb-3"
                     v-if="
-                        markerDestination.position.lat &&
-                            markerOrigin.position.lat &&
-                            !routes
+                        input.parking_guarantor!==null && input.travel_model!==null && input.transportation_mode!==null && !routes
                     "
                 >
                     <b-button
@@ -80,7 +94,12 @@
                                 :markerDestination="markerDestination"
                                 :areaOrigin="origin.area"
                                 :areaDestination="destination.area"
+                                :input="input"
                                 @routes="routes = $event"
+                                @transportationModes="
+                                    options.transportation_modes = $event
+                                "
+                                @getSp="surveyPreference = $event"
                             />
                         </b-card>
                     </b-col>
@@ -151,18 +170,79 @@
                 </b-row>
             </b-col>
             <b-col md="6">
+                <b-card class="shadow mb-3" v-show="markerDestination.position.lat &&
+                            markerOrigin.position.lat">
+
+                <div>
+                    <label for="parking_guarantor">
+                        Penanggung Biaya Parkir
+                    </label>
+                    <b-form-radio-group
+                        slot="bottom"
+                        id="parking_guarantor"
+                        button-variant="outline-primary"
+                        v-model="input.parking_guarantor"
+                        :options="options.parking_guarantors"
+                        buttons
+                        name="parking_guarantor"
+                        class="btn-block"
+                    ></b-form-radio-group>
+                </div>
+                <div>
+                    <label for="parking_guarantor">
+                        Model Transportasi
+                    </label>
+                    <b-form-radio-group
+                        slot="bottom"
+                        id="travel_model"
+                        button-variant="outline-primary"
+                        v-model="input.travel_model"
+                        :options="options.travel_models"
+                        buttons
+                        stacked
+                        name="travel_model"
+                        class="btn-block"
+                    ></b-form-radio-group>
+                </div>
+                <div>
+                          <label for="transportation_mode">
+                        Moda Transportasi
+                    </label>
+                    <b-form-select
+                        plain
+                        id="transportation_mode"
+                        class="form-control-lg shadow-sm"
+                        :options="
+                            [0].includes(input.travel_model)
+                                ? options.transportation_modes.slice(2, 6)
+                                : options.transportation_modes
+                        "
+                        v-model="input.transportation_mode"
+                        :disabled="input.travel_model==null"
+                    >
+                        <template slot="first">
+                            <option :value="null" disabled
+                                >-- Pilih Moda Transportasi --</option
+                            >
+                        </template>
+                    </b-form-select>
+                </div>
+
+                </b-card>
                 <div
                     class="pb-3"
-                    v-show="
-                        markerDestination.position.lat &&
-                            markerOrigin.position.lat
+                    v-show="surveyPreference.length >0
                     "
                 >
                     <b-card
-                        title="Potensi Pertanyaan Preferensi"
+                        title="Pertanyaan Preferensi"
                         class="shadow"
                     >
-                        <hr />
+
+                    <ul v-for="(v,i) in surveyPreference" :key="i">
+                        <li class="mb-0">{{i+1}}. {{v}}</li>
+                    </ul>
+                        <!-- <hr />
                         <div v-show="hasParking">
                             Preferensi Kebijakan Tarif Parkir
                         </div>
@@ -186,7 +266,7 @@
                         </div>
                         <div v-show="hasCycle">
                             Preferensi Kebijakan Jalur Sepeda
-                        </div>
+                        </div> -->
                     </b-card>
                 </div>
                 <div v-if="routes" class="pb-3">
@@ -291,6 +371,9 @@ export default {
         return {
             isLoading: false,
             input: {
+                parking_guarantor: null,
+                travel_model: null,
+                transportation_mode: null,
                 travel_origin: null
             },
             markerDestination: {
@@ -315,9 +398,42 @@ export default {
                 address: "",
                 area: []
             },
+            options: {
+                transportation_modes: [],
+                travel_models: [
+                    {
+                        text: "Mobil/Motor (pengemudi/penumpang)",
+                        value: 0
+                    },
+                    {
+                        text: "Angkutan Umum",
+                        value: 1
+                    },
+                    {
+                        text:
+                            "Mobil/Motor dan Angkutan Umum (kombinasi keduanya)",
+                        value: 2
+                    }
+                ],
+                parking_guarantors: [
+                    {
+                        text: "Pribadi",
+                        value: 1
+                    },
+                    {
+                        text: "Perusahaan",
+                        value: 2
+                    },
+                    {
+                        text: "Lain-lain",
+                        value: 3
+                    }
+                ]
+            },
             routes: null,
             selectedOrigin: "",
             selectedDestination: "",
+            surveyPreference:[],
             isOriginFetching: false,
             isDestinationFetching: false,
             apiKey: process.env.MIX_GMAPS_CLIENT_API_KEY
@@ -328,6 +444,7 @@ export default {
         EventBus.$on("addMarker", data => {
             this.addMarker(data);
         });
+        this.getData();
     },
     computed: {
         // checkSp() {
@@ -450,6 +567,16 @@ export default {
                 this.destination.area = data.area;
                 return;
             }
+        },
+        getData() {
+            axios
+                .get(``)
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         },
 
         submit() {

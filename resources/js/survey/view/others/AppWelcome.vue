@@ -13,7 +13,7 @@
                                 Halo Teman MRT !
                             </p>
                             <p>
-                                    Gimana kabar kalian semua? Semoga selalu sehat yaa dan terlindung dari paparan virus corona atau COVID-19. Yuk sambil mengisi aktivitas work from home nya, bantu kami mengisi survei seru berhadiah terkait kualitas pelayanan MRT Jakarta dalam rangka meningkatkan kualitas fasilitas dan pelayanan yang diharapkan teman – teman MRT semua. Sudah pernah naik MRT Jakarta belum? Atau bahkan kalian pengguna aktif MRT Jakarta? Bagi kalian yang belum pernah, yuk buruan cobain naik MRT Jakarta dan rasakan jadi warga ibu kota yang bebas dari kemacetan!
+                                    Gimana kabar kalian semua? Semoga selalu sehat yaa dan terlindung dari paparan virus corona atau COVID-19. Yuk sambil mengisi aktivitas <em>work from home</em>  nya, bantu kami mengisi survei seru berhadiah terkait kualitas pelayanan MRT Jakarta dalam rangka meningkatkan kualitas fasilitas dan pelayanan yang diharapkan teman – teman MRT semua. Sudah pernah naik MRT Jakarta belum? Atau bahkan kalian pengguna aktif MRT Jakarta? Bagi kalian yang belum pernah, yuk buruan cobain naik MRT Jakarta dan rasakan jadi warga ibu kota yang bebas dari kemacetan!
                             </p>
                             <p>
                                     Yuk Teman, isi survei dengan benar dan jujur yaa. Hasil pengolahan data survei akan menjadi pertimbangan dan saran untuk MRT Jakarta.
@@ -22,7 +22,7 @@
                                 Kesempatan emas gak dateng 2x loh!
                             </p>
                             <p class="mb-0">
-                                    Kapan lagi bisa isi survei dan berkesempatan memenangkan e-wallet senilai Rp. 100.000 untuk 100 orang beruntung dan hadiah utama voucher MAP dengan total Rp  5 Juta rupiah untuk 2 orang masing – masing @ Rp. 2,5 juta untuk 2 orang! Semoga beruntung Teman MRT !
+                                    Kapan lagi bisa isi survei dan berkesempatan memenangkan <em>e-wallet</em>  senilai Rp. 100.000 untuk 100 orang beruntung dan hadiah utama voucher MAP dengan total Rp  5 Juta rupiah untuk 2 orang masing – masing @ Rp. 2,5 juta untuk 2 orang! Semoga beruntung Teman MRT !
                             </p>
                         </div>
                     </b-card>

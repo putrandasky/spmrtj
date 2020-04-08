@@ -198,6 +198,10 @@ export default {
             type: Object,
             required: true
         },
+        input: {
+            type: Object,
+            required: true
+        },
         areaDestination: {
             type: Array,
             required: true
@@ -243,8 +247,8 @@ export default {
         // this.getLines();
         // console.log(Object.keys(this.routes).length == 0);
         // this.getRoutes()
-         this.$store.dispatch("isLoading", true);
-        this.getMapData()
+        this.$store.dispatch("isLoading", true);
+        this.getMapData();
     },
     computed: {
         mapConfig() {
@@ -256,7 +260,7 @@ export default {
 
         mapCenter() {
             return {
-                lat: -6.266660,
+                lat: -6.26666,
                 lng: 106.797331
             };
         }
@@ -267,11 +271,21 @@ export default {
                 .get(`map-data`)
                 .then(response => {
                     // console.log(response.data);
-                         this.outterDataArea1 = this.parseFloatLatLng(response.data.area[0].coverages);
-                    this.outterDataArea2 = this.parseFloatLatLng(response.data.area[1].coverages);
-                    this.outterDataArea3 = this.parseFloatLatLng(response.data.area[2].coverages);
-                    this.outterDataArea4 = this.parseFloatLatLng(response.data.area[3].coverages);
-                    this.outterDataArea5 = this.parseFloatLatLng(response.data.area[4].coverages);
+                    this.outterDataArea1 = this.parseFloatLatLng(
+                        response.data.area[0].coverages
+                    );
+                    this.outterDataArea2 = this.parseFloatLatLng(
+                        response.data.area[1].coverages
+                    );
+                    this.outterDataArea3 = this.parseFloatLatLng(
+                        response.data.area[2].coverages
+                    );
+                    this.outterDataArea4 = this.parseFloatLatLng(
+                        response.data.area[3].coverages
+                    );
+                    this.outterDataArea5 = this.parseFloatLatLng(
+                        response.data.area[4].coverages
+                    );
 
                     let coverage = {
                         parkir: this.outterDataArea1,
@@ -296,10 +310,16 @@ export default {
                     this.markerFeeders = editData(response.data.feeder);
                     this.lines = response.data.line_station;
                     this.lineFeeders = response.data.line_feeder;
-                    console.log(this.lines);
+                    // console.log(this.mutateKey(
+                    //     response.data.transportation_modes));
+                    this.$emit(
+                        "transportationModes",
+                        this.mutateKey(
+                        response.data.transportation_modes)
+                    );
 
                     this.isLoading = false;
-                     this.$store.dispatch("isLoading", false);
+                    this.$store.dispatch("isLoading", false);
                 })
                 .catch(error => {
                     console.log(error);
@@ -310,11 +330,21 @@ export default {
             axios
                 .get(`area`)
                 .then(response => {
-                    this.outterDataArea1 = this.parseFloatLatLng(response.data[0].coverages);
-                    this.outterDataArea2 = this.parseFloatLatLng(response.data[1].coverages);
-                    this.outterDataArea3 = this.parseFloatLatLng(response.data[2].coverages);
-                    this.outterDataArea4 = this.parseFloatLatLng(response.data[3].coverages);
-                    this.outterDataArea5 = this.parseFloatLatLng(response.data[4].coverages);
+                    this.outterDataArea1 = this.parseFloatLatLng(
+                        response.data[0].coverages
+                    );
+                    this.outterDataArea2 = this.parseFloatLatLng(
+                        response.data[1].coverages
+                    );
+                    this.outterDataArea3 = this.parseFloatLatLng(
+                        response.data[2].coverages
+                    );
+                    this.outterDataArea4 = this.parseFloatLatLng(
+                        response.data[3].coverages
+                    );
+                    this.outterDataArea5 = this.parseFloatLatLng(
+                        response.data[4].coverages
+                    );
                     // self.$store.dispatch(
                     //     "addCoverageArea",
                     //     response.data[0].coverages
@@ -393,8 +423,9 @@ export default {
                     lat: this.markerDestination.position.lat,
                     lng: this.markerDestination.position.lng
                 },
-                area_destination:this.areaDestination,
-                area_origin:this.areaOrigin,
+                area_destination: this.areaDestination,
+                area_origin: this.areaOrigin,
+                input: this.input,
             };
             axios
                 .post(`route`, data)
@@ -406,13 +437,24 @@ export default {
                     // this.$emit("isLoading", false);
                     // this.$emit("isSuccess");
                     // this.origin['title'] =
-                     self.$store.dispatch("isLoading", false);
+                    this.$emit('getSp',response.data.sp)
+                    self.$store.dispatch("isLoading", false);
                 })
                 .catch(error => {
                     console.log(error);
                     this.$emit("isLoading", false);
                     this.$emit("isFailed");
                 });
+        },
+        mutateKey(data) {
+            let mutateData = data.map(function(item) {
+                return {
+                    value: item.id,
+                    text: item.range || item.name || item.description,
+                    state: false
+                };
+            });
+            return mutateData;
         }
     }
 };

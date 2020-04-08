@@ -1,4 +1,10 @@
 6 Apr 2020
+### ADDED
+- information other data in gmaps app
+# FIXED
+- Redactional in modal travel data
+
+6 Apr 2020
 # FIXED
 - redactional opening text
 - LOGIC AREA HELPER

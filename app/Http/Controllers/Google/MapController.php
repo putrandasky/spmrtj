@@ -9,10 +9,13 @@ use App\Traits\RouteHelper;
 use Carbon;
 use Illuminate\Http\Request;
 use Taniko\Dijkstra\Graph;
+use App\Traits\AreaHelper;
 
 class MapController extends Controller
 {
     use GoogleHelper;
+    use AreaHelper;
+
     // use RouteHelper;
     private $apiKey;
     private $base_uri = ['base_uri' => 'https://maps.googleapis.com/maps/api/'];
@@ -69,6 +72,7 @@ class MapController extends Controller
         $data['line_feeder'] = $this->waypointFeeder();
         $data['line_station'] = $this->waypoint();
         $data['area'] = $this->area();
+        $data['transportation_modes'] = App\TransportationMode::get();
 
         return $data;
     }
@@ -146,6 +150,20 @@ class MapController extends Controller
 
     public function routePathWithFeeder(Request $request)
     {
+        $getSurveyPreferenceId = $this->AreaFinder(
+            $request->area_origin,
+            $request->area_destination,
+            $request->input('input.transportation_mode'),
+            $request->input('input.travel_model'),
+            $request->input('input.parking_guarantor')
+        );
+        $data['sp'] = array();
+        if (!empty($getSurveyPreferenceId)) {
+            foreach ($getSurveyPreferenceId as $key => $value) {
+                $data['sp'][$key] = App\SurveyPreference::where('id',$value)->first()->description;
+            }
+        }
+        // return $data['sp'];
         $googleData = $this->distanceInGoogle($request->place_origin['lat'], $request->place_origin['lng'], $request->place_destination['lat'], $request->place_destination['lng']);
         $data['google'] = $this->googleDistanceDurationData($googleData);
         $station_origin = $this->shortestStation($request->place_origin['lat'], $request->place_origin['lng']);

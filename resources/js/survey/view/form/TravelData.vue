@@ -34,6 +34,7 @@
             <b-button
                 v-if="input.travel_origin"
                 type="submit"
+                block
                 variant="success"
                 class="mx-auto px-5 mt-3"
                 @click="handleNextStep(2)"
@@ -69,6 +70,7 @@
             <b-button
                 v-if="input.travel_destination"
                 type="submit"
+                block
                 variant="success"
                 class="mx-auto px-5 mt-3"
                 @click="step = 3"
@@ -491,8 +493,11 @@
             </p>
             <p class="mb-3 text-justify">
                 Pada survei bagian ini diharapkan teman MRTJ untuk mengisi
-                informasi tentang perjalanan rutin pada waktu kondisi normal
-                sebelum adanya kebijakan social distancing dan work from home.
+                informasi tentang
+                <strong>
+                perjalanan rutin pada waktu kondisi normal
+                sebelum adanya kebijakan <em>Social Distancing</em>  dan <em>Work from Home</em>.
+                </strong>
                 Informasi perjalanan yang diisi merupakan perjalanan rutin yang
                 biasa dilakukan pada hari
                 <strong>
