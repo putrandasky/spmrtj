@@ -86,10 +86,11 @@
                 </template>
             </question-slot>
         </div>
-        <div  v-if="content == 'main2'">
+        <div v-if="content == 'main2'">
             <question-slot>
-                        <template slot="above" class="text-justify">
-                    Jika Anda menggunakan layanan pengumpan, apakah Anda akan menggunakan layanan MRT untuk melanjutkan perjalanan Anda?
+                <template slot="above" class="text-justify">
+                    Jika Anda menggunakan layanan pengumpan, apakah Anda akan
+                    menggunakan layanan MRT untuk melanjutkan perjalanan Anda?
                 </template>
                 <template slot="bottom">
                     <b-form-radio-group
@@ -120,11 +121,11 @@ import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
 import OpeningSecond from "./SurveyPreferenceOpeningSecond";
 export default {
     name: "SurveyPreferenceFeeder",
-    props: ["spTitle","spId"],
-    components: { QuestionSlot, Opening,OpeningSecond },
+    props: ["spTitle", "spId"],
+    components: { QuestionSlot, Opening, OpeningSecond },
     data: function() {
         return {
-            content: 'intro1',
+            content: "intro1",
             costIndex: null,
             timeIndex: null,
             concern: "",
@@ -134,8 +135,8 @@ export default {
                 timeState: {},
                 costState: {}
             },
-            options:{
-                isUsingFeederReguler:[
+            options: {
+                isUsingFeederReguler: [
                     {
                         text: "Ya, saya akan menggunakan layanan MRT.",
                         value: 1
@@ -180,7 +181,7 @@ export default {
                 this.timeIndex < 4
             ) {
                 console.log("A");
-                this.content = 'main2';
+                this.handleAfterSubmit();
             } else {
                 if (this.timeIndex > 0) {
                     console.log("D");
@@ -188,7 +189,7 @@ export default {
                 } else {
                     console.log("E");
                     // console.log(this.stateDataCollection);
-                    this.content = 'main2';
+                    this.handleAfterSubmit();
                 }
             }
         },
@@ -198,7 +199,7 @@ export default {
                 self.currentData.costState = self.costs[newVal - 1];
             } else {
                 // console.log(this.stateDataCollection);
-                this.content = 'main2';
+                this.handleAfterSubmit();
             }
         }
     },
@@ -213,6 +214,16 @@ export default {
             //         this.$store.getters.saving_time
             //     );
             // }
+        },
+        handleAfterSubmit() {
+            if (
+                //check if respondent has using MRT
+                this.$store.state.respondent.transportation_modes.includes(17)
+            ) {
+                this.content = "main2";
+            } else {
+                this.submitStateCollection();
+            }
         },
         submit(respond) {
             let self = this;

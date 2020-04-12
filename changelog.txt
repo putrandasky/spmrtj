@@ -8,6 +8,13 @@
 - Flow SP Finder (public trans mode and combination mode has same flow)
 - Respondent not in P&R area with vehicle availablity only to access SP P&R Hypo
 - Opening second for P&R exclude for Hypotetical
+- Skip Question willingness public transport trip for travel model with public only
+- Skip last question in SP Feeder reguler & premium for respondent not using MRT
+- redactional in sp P&R
+
+### FIXED
+- Layout in SP Cycle (choices)
+- condition SP with vehicle availablity not correct
 
 
 10 Mar 2020

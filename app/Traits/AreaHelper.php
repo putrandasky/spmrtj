@@ -124,11 +124,11 @@ trait AreaHelper
                         return $data;
                     }
                 } else {
-                    if ($vehicle_availability == 1) {
+                    if ($vehicle_availability == 2) {
                         array_push($data, 8, 11);
                         return $data;
                     }
-                    if ($vehicle_availability == 2 || $vehicle_availability == 3) {
+                    if ($vehicle_availability == 1 || $vehicle_availability == 3) {
                         array_push($data, 8, 12);
                         return $data;
                     }

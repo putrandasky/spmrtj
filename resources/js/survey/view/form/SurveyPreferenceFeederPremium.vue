@@ -140,8 +140,16 @@ export default {
                 cost_id: costId,
                 respond: respond
             });
-            respond ? (this.content = "main2") : self.costIndex++;
+            respond ? this.handleAfterSubmit() : self.costIndex++;
             console.table(this.stateDataCollection.data);
+        },
+        handleAfterSubmit(){
+                //check if respondent has using MRT
+            if (this.$store.state.respondent.transportation_modes.includes(17)) {
+                this.content = "main2"
+            }else{
+                this.submitStateCollection()
+            }
         },
         submitStateCollection() {
             let self = this;

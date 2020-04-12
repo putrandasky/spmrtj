@@ -24,7 +24,7 @@ class AuthController extends Controller
                 'area_origins' => $respondent->area_origins->pluck('area_id'),
                 'area_destinations' => $respondent->area_destinations->pluck('area_id'),
                 'transportation_modes' => $respondent->travel_details->pluck('transportation_mode_id'),
-                'trip_combination' => $respondent->trip_combination,
+                'travel_model' => $respondent->travel_model,
                 'survey_preferences' => $respondent->survey_preference_respondents,
                 'step' => $respondent->step->description,
                 'status' => 'exist'], 200);

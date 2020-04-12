@@ -83,7 +83,7 @@
                                         }}
                                     </span>
                                 </b-col>
-                                <b-col cols="10" xl="2" class="pl-0 text-left">{{
+                                <b-col cols="10" xl="11" class="pl-0 text-left">{{
                                     v.text
                                 }}</b-col>
                             </b-row>
@@ -167,7 +167,7 @@
                                         }}
                                     </span>
                                 </b-col>
-                                <b-col cols="10" xl="2" class="pl-0 text-left">{{
+                                <b-col cols="10" xl="11" class="pl-0 text-left">{{
                                     v.text
                                 }}</b-col>
                             </b-row>

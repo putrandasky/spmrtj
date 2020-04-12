@@ -218,7 +218,7 @@
                     variant="success"
                     class="shadow-sm"
                     block
-                    @click="step = 6"
+                    @click="handleStep(6)"
                     v-if="input.work_place_parking_system"
                 >
                     Lanjut
@@ -396,6 +396,11 @@ export default {
     methods: {
         handleAnimation: function(anim) {
             this.anim = anim;
+        },
+        handleStep(step){
+            if (step == 6) {
+                this.$store.state.respondent.travel_model == 1? this.submit() : this.step = 6
+            }
         },
         handleNext(token, routeName) {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'

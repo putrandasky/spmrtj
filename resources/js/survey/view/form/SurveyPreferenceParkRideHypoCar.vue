@@ -8,7 +8,7 @@
         </b-card> -->
         <div class="w-100 text-primary text-justify">
             <p>
-                Jika Anda adalah pengguna MRT setiap hari dan terdapat lokasi
+                Jika dijalur perjalanan Anda ada layanan MRT yang bisa digunakan setiap hari dan terdapat lokasi
                 park & ride dengan fasilitas sesuai yang Anda inginkan dan
                 berjarak sejauh dari
                 <b-badge variant="primary">
