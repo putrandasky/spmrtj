@@ -12,4 +12,8 @@ class SurveyPreferenceRespondent extends Model
     {
         return $this->belongsTo('App\Respondent');
     }
+    public function survey_preference()
+    {
+        return $this->belongsTo('App\SurveyPreference');
+    }
 }

@@ -1,3 +1,20 @@
+12 Apr 2020
+### ADDED
+- Admin Panel Dashboard
+- Park Ride Data (collect nearest data from origin for respondent with SP P&R)
+- Collect data for origin & destination for Feeder & MRT
+
+### REVISED
+- Flow SP Finder (public trans mode and combination mode has same flow)
+- Respondent not in P&R area with vehicle availablity only to access SP P&R Hypo
+- Opening second for P&R exclude for Hypotetical
+
+
+10 Mar 2020
+### ADDED
+- Function record nearest park ride point
+
+
 6 Apr 2020
 ### ADDED
 - information other data in gmaps app

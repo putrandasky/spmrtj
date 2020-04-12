@@ -8,7 +8,10 @@
         <b-row v-if="step == 1">
             <question-slot>
                 <template slot="above">Pilih Alamat Asal Perjalanan</template>
-                <template slot="text">* Asal perjalanan, biasanya rumah / tempat tinggal atau homebase trip berbasis tempat tinggal</template>
+                <template slot="text"
+                    >* Asal perjalanan, biasanya rumah / tempat tinggal atau
+                    homebase trip berbasis tempat tinggal</template
+                >
                 <template slot="bottom">
                     <auto-complete-place
                         class="w-100 pt-0"
@@ -45,7 +48,11 @@
         <b-row v-if="step == 2">
             <question-slot>
                 <template slot="above">Pilih Alamat Tujuan Perjalanan</template>
-                <template slot="text">*Perjalanan rutin untuk beraktivitas sehari- hari dalam kondisi normal : bekerja, sekolah, berdagang, dll</template>                <template slot="bottom">
+                <template slot="text"
+                    >*Perjalanan rutin untuk beraktivitas sehari- hari dalam
+                    kondisi normal : bekerja, sekolah, berdagang, dll</template
+                >
+                <template slot="bottom">
                     <auto-complete-place
                         class="w-100 pt-0"
                         placeholder="Ketik untuk cari..."
@@ -286,9 +293,7 @@
                     id="transportation_mode"
                     class="form-control-lg shadow-sm"
                     :options="
-                        [0].includes(input.travel_model)
-                            ? options.transportation_modes.slice(2, 6)
-                            : options.transportation_modes
+                        getTransportationModeByTravelModel
                     "
                     v-model="v.transportation_mode"
                     :disabled="submitting"
@@ -331,7 +336,7 @@
                         <hr />
 
                         <h5 class="font-weight-bold text-primary">
-                            Durasi waktu perjalanan selama
+                            Durasi waktu perjalanan
                         </h5>
 
                         <b-badge variant="primary" class="mb-3">
@@ -367,7 +372,9 @@
                         <div class="text-left py-2">
                             <small>
                                 <em>
-                                    Contoh: tarif angkutan umum bila menggunakan angkutan umum, biaya bensin bila menggunakan kendaraan pribadi ataupun diantar.
+                                    Contoh: tarif angkutan umum bila menggunakan
+                                    angkutan umum, biaya bensin bila menggunakan
+                                    kendaraan pribadi ataupun diantar.
                                 </em>
                             </small>
                         </div>
@@ -376,7 +383,11 @@
                             class="p-0"
                             v-model.number="v.travel_cost"
                             min="0"
-                            :max="hasMoreMaxCost.includes(v.transportation_mode)?'300000':'100000'"
+                            :max="
+                                hasMoreMaxCost.includes(v.transportation_mode)
+                                    ? '300000'
+                                    : '100000'
+                            "
                             :disabled="submitting"
                             step="500"
                         ></range-slider>
@@ -495,16 +506,16 @@
                 Pada survei bagian ini diharapkan teman MRTJ untuk mengisi
                 informasi tentang
                 <strong>
-                perjalanan rutin pada waktu kondisi normal
-                sebelum adanya kebijakan <em>Social Distancing</em>  dan <em>Work from Home</em>.
+                    perjalanan rutin pada waktu kondisi normal sebelum adanya
+                    kebijakan <em>Social Distancing</em> dan
+                    <em>Work from Home</em>.
                 </strong>
                 Informasi perjalanan yang diisi merupakan perjalanan rutin yang
                 biasa dilakukan pada hari
                 <strong>
-                Selasa/rabu/kamis
+                    Selasa/rabu/kamis
                 </strong>
-                 untuk melakukan
-                aktivitas dalam keadaan kondisi normal.
+                untuk melakukan aktivitas dalam keadaan kondisi normal.
             </p>
             <p class="mb-3 text-justify">
                 Perjalanan yang dimaksud adalah perjalanan yang
@@ -556,7 +567,7 @@ export default {
             step: 1,
             notRequiredWaitingTime: [1, 2, 3, 5],
             notRequiredCost: [1, 2],
-            hasMoreMaxCost:[5,6,8,9],
+            hasMoreMaxCost: [5, 6, 8, 9],
             modalWelcome: true,
             isLoading: false,
             submitting: false,
@@ -582,7 +593,7 @@ export default {
             },
             options: {
                 travel_purposes: {},
-                transportation_modes: {},
+                transportation_modes: [],
                 parking_guarantors: {},
                 parking_types: {},
                 travel_model: [
@@ -614,11 +625,24 @@ export default {
                 : (this.input.area_destination = data.area);
         });
     },
-    computed: {},
+    computed: {
+                getTransportationModeByTravelModel(){
+
+            if (this.input.travel_model == 0) {
+                return this.options.transportation_modes.slice(2, 6)
+            }
+            if (this.input.travel_model == 1) {
+                this.options.transportation_modes.splice(2, 5)
+                return this.options.transportation_modes
+            }
+            return this.options.transportation_modes
+        },
+    },
     methods: {
         handleAnimation: function(anim) {
             this.anim = anim;
         },
+
         handleNext(token, routeName) {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
             this.$router.replace({
@@ -645,7 +669,10 @@ export default {
                     this.$store.dispatch("storeToken", response.data);
                     this.$store.dispatch("isLoading", false);
                     if (response.data.spData.length > 0) {
-                        this.handleNext(response.data.token, "SurveyPreference");
+                        this.handleNext(
+                            response.data.token,
+                            "SurveyPreference"
+                        );
                     } else {
                         this.handleNext(response.data.token, "Done");
                     }

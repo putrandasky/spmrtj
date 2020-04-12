@@ -7,14 +7,10 @@
         </b-card> -->
          <opening
             v-if="content == 'intro1'"
-            @onClick="content = 'intro2'"
-            :title="spTitle"
-        ></opening>
-        <opening-second
-            v-if="content == 'intro2'"
             @onClick="content = 'main'"
             :title="spTitle"
-        ></opening-second>
+        ></opening>
+
 
         <div v-if="content == 'main'">
             <question-slot v-if="step == 1">
@@ -217,11 +213,10 @@
 <script>
 import Opening from "./SurveyPreferenceOpening";
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
-import OpeningSecond from "./SurveyPreferenceOpeningSecond";
 export default {
     name: "SurveyPreferenceParkRideCommon",
     props: ["spTitle", "spId"],
-    components: { QuestionSlot, Opening, OpeningSecond },
+    components: { QuestionSlot, Opening },
     data: function() {
         return {
             content: "intro1",

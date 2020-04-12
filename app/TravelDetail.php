@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class TravelDetail extends Model
 {
     public $timestamps = false;
+    public function transportation_mode()
+    {
+        return $this->belongsTo('App\TransportationMode');
+    }
 }

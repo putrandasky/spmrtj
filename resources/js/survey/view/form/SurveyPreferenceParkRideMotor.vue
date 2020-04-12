@@ -5,55 +5,59 @@
                 Preferensi Layanan Park & Ride Pengguna Motor Pribadi
             </h5>
         </b-card> -->
-
-                <div class="w-100 text-primary text-justify">
-                    <p>
-                        Jika terdapat lokasi park & ride di stasiun MRT terdekat
-                        dengan fasilitas sesuai yang Anda inginkan, dengan tarif
-                        parkir sebesar
-                        <b-badge variant="primary">
-                            <h6 class="mb-0 font-weight-bold">
-                                Rp
-                                <transition
-                                    name="slide-shrink-fade"
-                                    mode="out-in"
-                                >
-                                    <span :key="currentData.costState.amount">
-                                        {{
-                                            currentData.costState.amount
-                                                | currency
-                                        }}
-                                    </span>
-                                </transition>
-                            </h6>
-                        </b-badge>
-                        , Flat / hari.
-                    </p>
-                    <p>
-                        Apakah Anda akan menggunakan fasilitas park & ride?
-                    </p>
-                </div>
-                <div class="btn-group w-100" role="group">
-                    <b-btn variant="outline-danger" @click="submit(0)">
-                        Tidak, saya tidak akan menggunakan fasilitas Park & Ride
-                    </b-btn>
-                    <b-btn variant="outline-success" @click="submit(1)">
-                        Ya, saya akan menggunakan fasilitas Park & RIde
-                    </b-btn>
-                </div>
+        <opening-second
+            v-if="content == 'intro1'"
+            @onClick="content = 'main'"
+            :title="spTitle"
+        ></opening-second>
+        <div v-if="content == 'main'">
+            <div class="w-100 text-primary text-justify">
+                <p>
+                    Jika terdapat lokasi park & ride di stasiun MRT terdekat
+                    dengan fasilitas sesuai yang Anda inginkan, dengan tarif
+                    parkir sebesar
+                    <b-badge variant="primary">
+                        <h6 class="mb-0 font-weight-bold">
+                            Rp
+                            <transition name="slide-shrink-fade" mode="out-in">
+                                <span :key="currentData.costState.amount">
+                                    {{
+                                        currentData.costState.amount | currency
+                                    }}
+                                </span>
+                            </transition>
+                        </h6>
+                    </b-badge>
+                    , Flat / hari.
+                </p>
+                <p>
+                    Apakah Anda akan menggunakan fasilitas park & ride?
+                </p>
+            </div>
+            <div class="btn-group w-100" role="group">
+                <b-btn variant="outline-danger" @click="submit(0)">
+                    Tidak, saya tidak akan menggunakan fasilitas Park & Ride
+                </b-btn>
+                <b-btn variant="outline-success" @click="submit(1)">
+                    Ya, saya akan menggunakan fasilitas Park & RIde
+                </b-btn>
+            </div>
+        </div>
     </div>
 </template>
 <script>
 import QuestionSlot from "@/survey/components/slot/QuestionSlot.vue";
+import OpeningSecond from "./SurveyPreferenceOpeningSecond";
 
 export default {
     name: "SurveyPreferenceParkRideMotor",
-    props: ["spTitle","spId"],
+    props: ["spTitle", "spId"],
     components: {
-        QuestionSlot
+        QuestionSlot,OpeningSecond
     },
     data: function() {
         return {
+            content:"intro1",
             costIndex: null,
             currentData: {
                 costState: {}

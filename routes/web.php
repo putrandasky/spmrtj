@@ -61,6 +61,7 @@ Route::get('area', 'Google\GoogleController@area');
 Route::get('line', 'Google\MapController@waypoint');
 Route::get('station', 'Google\MapController@station');
 Route::get('map-data', 'Google\MapController@mapData');
+Route::get('dashboard', 'Admin\DashboardController@index');
 
 Route::post('route', 'Google\MapController@routePathWithFeeder');
 

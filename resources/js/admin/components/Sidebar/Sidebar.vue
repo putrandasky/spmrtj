@@ -6,7 +6,12 @@
         @mouseleave="sidebarMouseLeave"
     >
       <header class="logo">
-        <router-link to="/app"><span class="primary-word">Sing</span> App</router-link>
+        <router-link to="/app/dashboard">
+        <span class="primary-word">
+            <b-img style="max-height:40px" fluid src="./img/Mrt-Jkt-White-icon-small.png"></b-img>
+            </span>
+            <b-img fluid src="./img/Mrt-Jkt-White-font-small.png"></b-img>
+            </router-link>
       </header>
       <ul class="nav">
         <NavLink
@@ -17,7 +22,7 @@
             index="dashboard"
             isHeader
         />
-        <NavLink
+        <!-- <NavLink
             :activeItem="activeItem"
             header="Typography"
             link="/app/typography"
@@ -40,8 +45,8 @@
             iconName="flaticon-star"
             index="notifications"
             isHeader
-        />
-        <NavLink
+        /> -->
+        <!-- <NavLink
             :activeItem="activeItem"
             header="Components"
             link="/app/components"
@@ -52,10 +57,9 @@
               { header: 'Icons', link: '/app/components/icons' },
               { header: 'Maps', link: '/app/components/maps' },
             ]"
-        />
+        /> -->
       </ul>
-      <p>
-      <h5 class="navTitle">
+      <!-- <h5 class="navTitle">
         LABELS
         <a class="actionLink">
           <i class="la la-plus float-right"/>
@@ -96,7 +100,7 @@
                       :variant="alert.color" :value="alert.value" :max="100"/>
           <small>{{alert.footer}}</small>
         </b-alert>
-      </div>
+      </div> -->
     </nav>
   </div>
 </template>

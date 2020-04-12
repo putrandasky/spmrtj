@@ -1,0 +1,62 @@
+[
+    {
+      "id": "1",
+      "lng": "106.74706",
+      "lat": "-6.3136422",
+      "description": "Ciputat"
+    },
+    {
+      "id": "2",
+      "lng": "106.7247441",
+      "lat": "-6.3427321",
+      "description": "Pamulang"
+    },
+    {
+      "id": "3",
+      "lng": "106.7495609",
+      "lat": "-6.3471882",
+      "description": "Pondok Cabe"
+    },
+    {
+      "id": "4",
+      "lng": "106.819158",
+      "lat": "-6.3179277",
+      "description": "Ragunan"
+    },
+    {
+      "id": "5",
+      "lng": "106.8015197",
+      "lat": "-6.3526902",
+      "description": "Ciganjur"
+    },
+    {
+      "id": "6",
+      "lng": "106.7279697",
+      "lat": "-6.2856262",
+      "description": "Bintaro"
+    },
+    {
+      "id": "7",
+      "lng": "106.7751785",
+      "lat": "-6.2889369",
+      "description": "Lebak Bulus"
+    },
+    {
+      "id": "8",
+      "lng": "106.7930955",
+      "lat": "-6.2927508",
+      "description": "Fatmawati"
+    },
+    {
+      "id": "9",
+      "lng": "106.794523",
+      "lat": "-6.313706",
+      "description": "Pondok Labu"
+    },
+    {
+      "id": "10",
+      "lng": "106.7839387",
+      "lat": "-6.3163426",
+      "description": "Cinere"
+    }
+  ]

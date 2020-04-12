@@ -3,7 +3,7 @@
         :class="[{ root: true, sidebarClose, sidebarStatic }, 'sing-dashboard']"
     >
         <Sidebar />
-        <Helper />
+        <!-- <Helper /> -->
         <div class="wrap">
             <Header />
             <v-touch
@@ -16,12 +16,12 @@
                     <router-view />
                 </transition>
                 <footer class="contentFooter">
-                    Sing App Vue Dashboard Free Template - Made by
+                    Developed by
                     <a
-                        href="https://flatlogic.com"
+                        href="https://alterfingers.com"
                         rel="nofollow noopener noreferrer"
                         target="_blank"
-                        >Flatlogic</a
+                        >Alterfingers</a
                     >
                 </footer>
             </v-touch>
@@ -74,7 +74,7 @@ export default {
             setTimeout(() => {
                 this.switchSidebar(true);
                 this.changeSidebarActive(null);
-            }, 2500);
+            }, 0);
         }
 
         this.handleWindowResize();

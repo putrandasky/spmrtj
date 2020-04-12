@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Traits\AreaHelper;
 use App\Traits\RouteHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class SurveyController extends Controller
 {
@@ -90,7 +91,8 @@ class SurveyController extends Controller
             $request->area_destination,
             collect($request->travel_detail)->pluck('transportation_mode'),
             $request->travel_model,
-            $request->parking_guarantor
+            $request->parking_guarantor,
+            $respondent->vehicle_id
         );
 
         $routeData = $this->routeData(
@@ -127,6 +129,34 @@ class SurveyController extends Controller
         $respondent->google_duration = $routeData['google']['duration_seconds'] ?? null;
         $respondent->simulation_id = $routeData['simulation'];
         $respondent->save();
+        if ($routeData['feeder']['path']) {
+            # code...
+            $feeder_origin = new App\FeederRespondent();
+            $feeder_origin->respondent_id = $respondent->id;
+            $feeder_origin->station_feeder_id = (Arr::first($routeData['feeder']['path']))['id'];
+            $feeder_origin->point = 'origin';
+            $feeder_origin->save();
+
+            $feeder_destination = new App\FeederRespondent();
+            $feeder_destination->respondent_id = $respondent->id;
+            $feeder_destination->station_feeder_id = (Arr::last($routeData['feeder']['path']))['id'];
+            $feeder_destination->point = 'destination';
+            $feeder_destination->save();
+        }
+        if ($routeData['mrt']['path']) {
+            $station_origin = new App\StationRespondent();
+            $station_origin->respondent_id = $respondent->id;
+            $station_origin->station_id = (Arr::first($routeData['mrt']['path']))['id'];
+            $station_origin->point = 'origin';
+            $station_origin->save();
+
+            $station_destination = new App\StationRespondent();
+            $station_destination->respondent_id = $respondent->id;
+            $station_destination->station_id = (Arr::last($routeData['mrt']['path']))['id'];
+            $station_destination->point = 'destination';
+            $station_destination->save();
+        }
+
         foreach ($request->area_origin as $v) {
             $area_origin = new App\AreaOrigin();
             $area_origin->respondent_id = $respondent->id;
@@ -151,15 +181,26 @@ class SurveyController extends Controller
         }
 
         if (!empty($getSurveyPreference)) {
-        foreach ($getSurveyPreference as $v) {
-            $survey_preference_respondent = new App\SurveyPreferenceRespondent();
-            $survey_preference_respondent->survey_preference_id = $v;
-            $survey_preference_respondent->respondent_id = $respondent->id;
-            $survey_preference_respondent->status = 0;
-            $survey_preference_respondent->save();
+            foreach ($getSurveyPreference as $v) {
+                $survey_preference_respondent = new App\SurveyPreferenceRespondent();
+                $survey_preference_respondent->survey_preference_id = $v;
+                $survey_preference_respondent->respondent_id = $respondent->id;
+                $survey_preference_respondent->status = 0;
+                $survey_preference_respondent->save();
+            }
+            if (collect($getSurveyPreference)->contains(9) || collect($getSurveyPreference)->contains(10)) {
+                $shortest_park_ride = $this->shortestParkRidePoint($respondent->origin_lat, $respondent->origin_lng);
+                $googledata = $this->distanceInGoogle($respondent->origin_lat, $respondent->origin_lng, $shortest_park_ride['lat'], $shortest_park_ride['lng']);
+                $store_park_ride_point_respondent = new App\ParkRidePointRespondent();
+                $store_park_ride_point_respondent->respondent_id = $respondent->id;
+                $store_park_ride_point_respondent->park_ride_point_id = $shortest_park_ride['id'];
+                $store_park_ride_point_respondent->distance = $googledata['rows'][0]['elements'][0]['distance']['value'];
+                $store_park_ride_point_respondent->save();
+
+            }
+
         }
-        }
-        $respondent->step_id = !empty($getSurveyPreference)? 3:0;
+        $respondent->step_id = !empty($getSurveyPreference) ? 3 : 0;
         $respondent->save();
         return response()->json([
             'message' => 'Data perjalanan responden berhasil disimpan',

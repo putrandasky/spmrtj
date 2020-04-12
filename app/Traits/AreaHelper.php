@@ -6,7 +6,7 @@ use App;
 trait AreaHelper
 {
 
-    public function AreaFinder($area_origin, $area_destination, $transportation_mode, $travel_model, $parking_guarantor)
+    public function AreaFinder($area_origin, $area_destination, $transportation_mode, $travel_model, $parking_guarantor, $vehicle_availability)
     {
         $data = array();
         // dd(collect($area_destination)->contains(1));
@@ -34,12 +34,12 @@ trait AreaHelper
                         //jika origin tidak masuk feeder
                         array_push($data, 8);
                         if (collect($area_origin)->contains(4)) {
-                        //jika origin masuk Park Ride
-                        array_push($data, 10);
+                            //jika origin masuk Park Ride
+                            array_push($data, 10);
                             return $data;
-                        }else{
-                        //jika origin tidak masuk Park Ride
-                        array_push($data, 12);
+                        } else {
+                            //jika origin tidak masuk Park Ride
+                            array_push($data, 12);
                             return $data;
                         }
 
@@ -52,16 +52,16 @@ trait AreaHelper
                         //jika origin masuk feeder
                         array_push($data, 5, 6, 7);
                         return $data;
-                    }else {
+                    } else {
                         //jika origin tidak masuk feeder
                         array_push($data, 8);
                         if (collect($area_origin)->contains(4)) {
-                        //jika origin masuk Park Ride
-                        array_push($data, 9);
+                            //jika origin masuk Park Ride
+                            array_push($data, 9);
                             return $data;
-                        }else{
-                        //jika origin tidak masuk Park Ride
-                        array_push($data, 11);
+                        } else {
+                            //jika origin tidak masuk Park Ride
+                            array_push($data, 11);
                             return $data;
                         }
 
@@ -73,80 +73,98 @@ trait AreaHelper
                     // Jika origin masuk area feeder
                     array_push($data, 5, 6);
                     return $data;
-                }else {
+                } else {
                     // Jika origin tidak masuk area feeder
                     array_push($data, 8);
-                        if (collect($area_origin)->contains(4)) {
-                            //Jika origin masuk area park ride
-                            if ((collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4))) {
-                                //jika motor pribadi
-                                array_push($data, 10);
-                                return $data;
-                            }
-                            if ((collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6))) {
-                                //jika mobil pribadi
-                                array_push($data, 9);
-                                return $data;
-                            }
-
-                        }else{
-                            //Jika origin tidak masuk area park ride
-                            if ((collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4))) {
-                                //jika motor pribadi
-                                array_push($data, 12);
-                                return $data;
-                            }
-                            if ((collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6))) {
-                                //jika mobil pribadi
-                                array_push($data, 11);
-                                return $data;
-                            }
-                        }
-                    }
-                }
-            }else{
-                if (collect($area_origin)->contains(3) || collect($area_destination)->contains(3)) {
-                    array_push($data,1);
-                }
-                if (collect($area_origin)->contains(2) || collect($area_destination)->contains(2)) {
-                    array_push($data,2);
-                }
-                if (collect($area_origin)->contains(5)) {
-                    array_push($data,5, 6);
-                    return $data;
-                }else{
-                    if ($travel_model == 1) {
-                        //jika pengguna MRT
-                        if (collect($transportation_mode)->contains(17)) {
-                            array_push($data, 8, 12);
-                            return $data;
-                        }else{
-
+                    if (collect($area_origin)->contains(4)) {
+                        //Jika origin masuk area park ride
+                        if ((collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4))) {
+                            //jika motor pribadi
+                            array_push($data, 10);
                             return $data;
                         }
-                    }
-                    if ($travel_model == 2) {
-                        if (collect($area_origin)->contains(4)) {
-                            if (collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) {
-                                array_push($data,8, 9);
-                                return $data;
-                            }else{
-                                array_push($data,8, 10);
-                                return $data;
-                            }
-                        }else{
-                            if (collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) {
-                                array_push($data,8, 11);
-                                return $data;
-                            }else{
-                                array_push($data,8, 12);
-                                return $data;
-                            }
+                        if ((collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6))) {
+                            //jika mobil pribadi
+                            array_push($data, 9);
+                            return $data;
+                        }
+
+                    } else {
+                        //Jika origin tidak masuk area park ride
+                        if ((collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4))) {
+                            //jika motor pribadi
+                            array_push($data, 12);
+                            return $data;
+                        }
+                        if ((collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6))) {
+                            //jika mobil pribadi
+                            array_push($data, 11);
+                            return $data;
                         }
                     }
                 }
             }
+        } else {
+            if (collect($area_origin)->contains(3) || collect($area_destination)->contains(3)) {
+                array_push($data, 1);
+            }
+            if (collect($area_origin)->contains(2) || collect($area_destination)->contains(2)) {
+                array_push($data, 2);
+            }
+            if (collect($area_origin)->contains(5)) {
+                array_push($data, 5, 6);
+                return $data;
+            } else {
+                if (collect($area_origin)->contains(4)) {
+                    if (collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) {
+                        array_push($data, 8, 9);
+                        return $data;
+                    } else {
+                        array_push($data, 8, 10);
+                        return $data;
+                    }
+                } else {
+                    if ($vehicle_availability == 1) {
+                        array_push($data, 8, 11);
+                        return $data;
+                    }
+                    if ($vehicle_availability == 2 || $vehicle_availability == 3) {
+                        array_push($data, 8, 12);
+                        return $data;
+                    }
+                    return $data;
+                }
+                // if ($travel_model == 1) {
+                //     //jika pengguna MRT
+                //     if (collect($transportation_mode)->contains(17)) {
+                //         array_push($data, 8, 12);
+                //         return $data;
+                //     } else {
 
+                //         return $data;
+                //     }
+                // }
+                // if ($travel_model == 2) {
+                //     if (collect($area_origin)->contains(4)) {
+                //         if (collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) {
+                //             array_push($data, 8, 9);
+                //             return $data;
+                //         } else {
+                //             array_push($data, 8, 10);
+                //             return $data;
+                //         }
+                //     } else {
+                //         if (collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6)) {
+                //             array_push($data, 8, 11);
+                //             return $data;
+                //         } else {
+                //             array_push($data, 8, 12);
+                //             return $data;
+                //         }
+                //     }
+                // }
+            }
+        }
 
         /*
     Area :

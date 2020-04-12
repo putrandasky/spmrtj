@@ -48,6 +48,21 @@ trait GoogleHelper
         $data = $collection->where('distance', $collection->min('distance'))->first();
         return $data;
     }
+    public function shortestParkRidePoint($lat, $lng)
+    {
+        $park_ride_point = App\ParkRidePoint::all();
+        for ($i = 0; $i < count($park_ride_point); $i++) {
+            $data[$i]['id'] = $park_ride_point[$i]['id'];
+            $data[$i]['description'] = $park_ride_point[$i]['description'];
+            $data[$i]['lng'] = $park_ride_point[$i]['lng'];
+            $data[$i]['lat'] = $park_ride_point[$i]['lat'];
+            $data[$i]['distance'] = $this->distance($lat, $lng, $park_ride_point[$i]['lat'], $park_ride_point[$i]['lng'], "K");
+            // $data[$i]['distance'] = $this->distanceInGoogle($lat,$lng,   $stations[$i]['lat'],$stations[$i]['lng']);
+        }
+        $collection = collect($data);
+        $data = $collection->where('distance', $collection->min('distance'))->first();
+        return $data;
+    }
     public function shortestFeeder($lat, $lng)
     {
         $stations = App\StationFeeder::all();

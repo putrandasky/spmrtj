@@ -59,6 +59,9 @@ class ClearDatabase extends Command
         App\SpCycleOther::truncate();
         App\TravelDetail::truncate();
         App\SurveyPreferenceRespondent::truncate();
+        App\FeederRespondent::truncate();
+        App\ParkRidePointRespondent::truncate();
+        App\StationRespondent::truncate();
 
         echo 'All Record Database Has Been Deleted'."\n";
 
