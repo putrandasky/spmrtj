@@ -1,3 +1,19 @@
+18 Apr 2020
+
+### ADDED
+- Add new question for asking is pay for parking in travel data which affect to parking_Cost and parking guarantor
+
+
+### REVISED
+- Hypotetical to Hipotesis on title SP
+- willingness trip revert back to all respondent travel model
+- is_reason_using_mrt is void
+- parking system only for private vehicle
+- change choice in parking location
+- bold in "setiap jam" in car/motor parking
+- catchment area park-ride
+
+
 12 Apr 2020
 ### ADDED
 - Admin Panel Dashboard

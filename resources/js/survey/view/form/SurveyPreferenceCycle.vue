@@ -38,8 +38,7 @@
             </question-slot>
             <question-slot class="w-100  " v-if="step == 2">
                 <template slot="above">
-                    Apa yang membuat Anda tidak menggunakan sepeda untuk
-                    beraktivitas saat ini
+                    Apa yang membuat anda tidak nyaman menggunakan sepeda untuk beraktivitas saat ini?
                 </template>
                 <template slot="bottom">
                     <div class="w-100 text-left">

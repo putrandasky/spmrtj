@@ -36,7 +36,7 @@
                             </transition>
                         </h6>
                     </b-badge>
-                    untuk setiap jam namun memperoleh penghematan waktu
+                    untuk <strong>setiap jam</strong> namun memperoleh penghematan waktu
                     perjalanan sebesar
                     <b-badge variant="primary">
                         <h6 class="mb-0 font-weight-bold">

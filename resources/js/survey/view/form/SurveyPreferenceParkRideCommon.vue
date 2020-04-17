@@ -64,7 +64,7 @@
                             :variant="
                                 input.park_type == 5 ? 'primary' : 'light'
                             "
-                            >Lebih baik <br />
+                            >Harus <br />
                             parkir tertutup</b-badge
                         >
                     </div>
@@ -90,8 +90,8 @@
                             :variant="
                                 input.park_type == 4 ? 'primary' : 'light'
                             "
-                            >Parkir tertutup <br />
-                            sudah cukup</b-badge
+                            >Lebih baik <br />
+                            parkir tertutup</b-badge
                         >
 
                      </div>

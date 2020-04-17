@@ -68,14 +68,14 @@
                     <b-btn
                         variant="success"
                         block
-                        @click="step = 2"
+                        @click="step = 3"
                         v-if="input.reason_using_transport.length > 0"
                         >Lanjut</b-btn
                     >
                 </template>
             </question-slot>
         </div>
-        <div class="w-100" v-if="step == 2">
+        <!-- <div class="w-100" v-if="step == 2">
             <question-slot>
                 <template slot="above">
                     Apa alasan Anda menggunakan / tidak menggunakan layanan MRT
@@ -99,7 +99,7 @@
                     >
                 </template>
             </question-slot>
-        </div>
+        </div> -->
         <div class="w-100  " v-if="step == 3">
             <question-slot>
                 <template slot="above">
@@ -193,7 +193,7 @@
                     <b-btn
                         variant="success"
                         block
-                        @click="step = 5"
+                    @click="handleStep(5)"
                         v-if="input.mrt_cost > 0"
                         >Lanjut</b-btn
                     >
@@ -398,8 +398,18 @@ export default {
             this.anim = anim;
         },
         handleStep(step){
+            if (step == 5) {
+                //check if has trans mode private motor and car
+                let checkTransModes = this.$store.state.respondent.transportation_modes.filter(function(item){
+                    return item == 3 || item == 4 || item == 5 || item == 6
+                })
+                checkTransModes != 0 ? this.step = 5 : this.step = 6
+
+
+            }
             if (step == 6) {
-                this.$store.state.respondent.travel_model == 1? this.submit() : this.step = 6
+                // this.$store.state.respondent.travel_model == 1? this.submit() : this.step = 6
+                this.step = 6
             }
         },
         handleNext(token, routeName) {

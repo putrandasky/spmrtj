@@ -79,12 +79,12 @@
                         content:""
                     },
                     {
-                        title:"Preferensi Layanan Park & Ride Pengguna Mobil Pribadi Hypotethical",
+                        title:"Preferensi Layanan Park & Ride Pengguna Mobil Pribadi (Hipotesis)",
                         img:"./img/sp-car-park-2.jpg",
                         content:""
                     },
                     {
-                        title:"Preferensi Layanan Park & Ride Pengguna Motor Pribadi Hypotethical",
+                        title:"Preferensi Layanan Park & Ride Pengguna Motor Pribadi (Hipotesis)",
                         img:"./img/sp-car-park-2.jpg",
                         content:""
                     },

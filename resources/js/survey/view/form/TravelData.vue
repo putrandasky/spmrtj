@@ -169,6 +169,29 @@
             >
                 <hr />
                 <template slot="above">
+                    Apakah Anda membayar parkir dalam melakukan perjalanan yang
+                    Anda pilih sebelumnya?
+                </template>
+                <template slot="bottom">
+                    <b-form-radio-group
+                        slot="bottom"
+                        id="is_pay_for_park"
+                        button-variant="outline-primary"
+                        v-model="input.is_pay_for_park"
+                        :options="options.is_pay_for_park"
+                        buttons
+                        name="is_pay_for_park"
+                        class="btn-block"
+                        @change="isChangePayForPark"
+                    ></b-form-radio-group>
+                </template>
+            </question-slot>
+            <question-slot
+                class="border-top pt-3 mt-3"
+                v-if="input.is_pay_for_park == 1"
+            >
+                <hr />
+                <template slot="above">
                     Biaya parkir yang Anda keluarkan dalam satu hari
                 </template>
                 <template slot="bottom">
@@ -190,7 +213,7 @@
             </question-slot>
             <question-slot
                 class="border-top pt-3 mt-3"
-                v-if="[0, 2].includes(input.travel_model)"
+                v-if="input.is_pay_for_park == 1"
             >
                 <hr />
                 <template slot="above">
@@ -242,8 +265,12 @@
                 v-if="
                     [0, 2].includes(input.travel_model)
                         ? input.trip_frequency > 0 &&
-                          input.parking_cost > 0 &&
-                          input.parking_guarantor !== null &&
+                          (input.is_pay_for_park
+                              ? input.parking_cost > 0
+                              : true) &&
+                          (input.is_pay_for_park
+                              ? input.parking_guarantor !== null
+                              : true) &&
                           input.parking_type !== null
                         : input.trip_frequency > 0
                 "
@@ -292,11 +319,10 @@
                     plain
                     id="transportation_mode"
                     class="form-control-lg shadow-sm"
-                    :options="
-                        getTransportationModeByTravelModel
-                    "
+                    :options="getTransportationModeByTravelModel"
                     v-model="v.transportation_mode"
                     :disabled="submitting"
+                    @change="handleInputTransportationMode($event, i)"
                 >
                     <template slot="first">
                         <option :value="null" disabled
@@ -349,8 +375,20 @@
                             class="p-0"
                             v-model.number="v.travel_duration"
                             min="0"
-                            max="180"
-                            step="5"
+                            :max="
+                                hasLessDuration.indexOf(
+                                    v.transportation_mode
+                                ) == -1
+                                    ? 180
+                                    : 90
+                            "
+                            :step="
+                                hasLessDuration.indexOf(
+                                    v.transportation_mode
+                                ) == -1
+                                    ? 5
+                                    : 1
+                            "
                             :disabled="submitting"
                         ></range-slider>
                     </div>
@@ -386,10 +424,14 @@
                             :max="
                                 hasMoreMaxCost.includes(v.transportation_mode)
                                     ? '300000'
+                                    : hasLessCost.indexOf(v.transportation_mode) > -1
+                                    ? '25000'
                                     : '100000'
                             "
                             :disabled="submitting"
-                            step="500"
+                            :step="hasLessCost.indexOf(v.transportation_mode) > -1
+                                    ? '500'
+                                    : '1000'"
                         ></range-slider>
                     </div>
                 </div>
@@ -568,6 +610,8 @@ export default {
             notRequiredWaitingTime: [1, 2, 3, 5],
             notRequiredCost: [1, 2],
             hasMoreMaxCost: [5, 6, 8, 9],
+            hasLessCost: [11,12,13,14,15,16,17,18],
+            hasLessDuration: [1, 2],
             modalWelcome: true,
             isLoading: false,
             submitting: false,
@@ -578,10 +622,11 @@ export default {
                 travel_model: null,
                 trip_frequency: 0,
                 parking_guarantor: null,
-                parking_cost: 0,
+                parking_cost: null,
                 parking_type: null,
                 area_origin: null,
                 area_destination: null,
+                is_pay_for_park: null,
                 travel_detail: [
                     {
                         transportation_mode: null,
@@ -596,6 +641,16 @@ export default {
                 transportation_modes: [],
                 parking_guarantors: {},
                 parking_types: {},
+                is_pay_for_park: [
+                    {
+                        text: "Tidak",
+                        value: 0
+                    },
+                    {
+                        text: "Ya",
+                        value: 1
+                    }
+                ],
                 travel_model: [
                     {
                         text: "Mobil/Motor (pengemudi/penumpang)",
@@ -626,19 +681,28 @@ export default {
         });
     },
     computed: {
-                getTransportationModeByTravelModel(){
-
+        getTransportationModeByTravelModel() {
             if (this.input.travel_model == 0) {
-                return this.options.transportation_modes.slice(2, 6)
+                return this.options.transportation_modes.slice(2, 6);
             }
             if (this.input.travel_model == 1) {
-                this.options.transportation_modes.splice(2, 5)
-                return this.options.transportation_modes
+                this.options.transportation_modes.splice(2, 5);
+                return this.options.transportation_modes;
             }
-            return this.options.transportation_modes
-        },
+            return this.options.transportation_modes;
+        }
     },
     methods: {
+        handleInputTransportationMode(e, i) {
+
+            this.input.travel_detail[i].waiting_duration = 0
+            this.input.travel_detail[i].travel_duration = 0
+            this.input.travel_detail[i].travel_cost = 0
+        },
+        isChangePayForPark() {
+            this.input.parking_cost = null;
+            this.input.parking_guarantor = null;
+        },
         handleAnimation: function(anim) {
             this.anim = anim;
         },

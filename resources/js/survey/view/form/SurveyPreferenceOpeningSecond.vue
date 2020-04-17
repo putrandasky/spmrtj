@@ -58,7 +58,7 @@ export default {
                     src:
                         "https://www.google.com/maps/d/embed?mid=1cQ1L4eAZwhJCMXErmT1nWNAjF3uttyPN&ll=-6.310937432662428%2C106.7594426311523&z=11",
                     content:
-                        "Bedasarkan pergerakan perjalanan orang saat ini, berikut terlampir potensi rencana layanan pengumpan menuju stasiun MRT. Layanan pengumpan ini akan memiliki pemberhentian terbatas dan memiliki jalur khusus sehingga memiliki waktu tempuh yang lebih singkat.</br>"
+                        "Bedasarkan pergerakan perjalanan orang saat ini, terlampir potensi rencana layanan pengumpan menuju stasiun MRT. Berbeda dengan layanan Transjakarta, layanan pengumpan ini akan memiliki pemberhentian terbatas sehiingga memiliki waktu tempuh yang lebih singkat."
                 },
                 {
                     title: "Kebijakan Layanan Feeder Premium",
@@ -92,13 +92,13 @@ export default {
                 },
                 {
                     title:
-                        "Preferensi Layanan Park & Ride Pengguna Mobil Pribadi Hypotethical",
+                        "Preferensi Layanan Park & Ride Pengguna Mobil Pribadi (Hipotesis)",
                     src: "./img/sp-car-park-2.jpg",
                     content: ""
                 },
                 {
                     title:
-                        "Preferensi Layanan Park & Ride Pengguna Motor Pribadi Hypotethical",
+                        "Preferensi Layanan Park & Ride Pengguna Motor Pribadi (Hipotesis)",
                     src: "./img/sp-car-park-2.jpg",
                     content: ""
                 },

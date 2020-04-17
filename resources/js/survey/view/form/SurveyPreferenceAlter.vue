@@ -197,13 +197,13 @@ console.log(this.$route.params.component);
             if (newVal == 11) {
                 this.component = "ParkRideHypoCar";
                 this.sp_title =
-                    "Preferensi Layanan Park & Ride Pengguna Mobil Pribadi Hypotethical";
+                    "Preferensi Layanan Park & Ride Pengguna Mobil Pribadi (Hipotesis)";
                 this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 12) {
                 this.component = "ParkRideHypoMotor";
                 this.sp_title =
-                    "Preferensi Layanan Park & Ride Pengguna Motor Pribadi Hypotethical";
+                    "Preferensi Layanan Park & Ride Pengguna Motor Pribadi (Hipotesis)";
                 this.$emit("spInit", { sp_title: this.sp_title });
             }
             if (newVal == 13) {
