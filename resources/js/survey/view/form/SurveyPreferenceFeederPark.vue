@@ -33,7 +33,7 @@
                 </b-badge>
             </p>
             <p>
-                apakah Anda akan menggunakan layanan pengumpan tersebut untuk
+                Apakah Anda akan menggunakan layanan pengumpan tersebut untuk
                 melakukan perjalanan rutinitas Anda?
             </p>
         </div>
@@ -144,14 +144,13 @@ export default {
                     let getIndex = response.data.cost_preference.findIndex(
                         item =>
                             item.amount ==
-                            response.data.sp_feeder_reguler.cost_preference
-                                .amount
+                            response.data.sp_feeder_reguler.max_cost
                     );
                     console.log(getIndex);
                     self.spParking.maxCost =
-                        response.data.sp_parking.cost_preference.amount;
+                        response.data.sp_parking.max_cost;
                     self.spFeederReguler.maxTime =
-                        response.data.sp_feeder_reguler.time_preference.amount;
+                        response.data.sp_feeder_reguler.max_time;
                     self.costs = response.data.cost_preference;
                     self.costIndex = getIndex + 1;
                 })

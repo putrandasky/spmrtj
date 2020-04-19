@@ -1,3 +1,8 @@
+19 Apr 2020
+
+### FIXED
+- max time feeder in sp feeder park not get max time
+
 18 Apr 2020
 
 ### ADDED

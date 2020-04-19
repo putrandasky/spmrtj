@@ -81,28 +81,30 @@ class PreferenceController extends Controller
         $has_sp_car_park = App\Respondent::whereHas('sp_car_parkings')->where('id',$respondent->id)->first();
         $has_sp_motor_park = App\Respondent::whereHas('sp_motor_parkings')->where('id',$respondent->id)->first();
 
-        $data['sp_feeder_reguler'] = App\SpFeederReguler::where([
+        $data['sp_feeder_reguler']['max_time'] = App\SpFeederReguler::where([
             'respondent_id' => $respondent->id,
         ])
-            ->orderBy('cost_preference_id')
-            ->with('cost_preference', 'time_preference')
-            ->first();
+            ->join('time_preferences','sp_feeder_regulers.time_preference_id','=','time_preferences.id')
+            ->max('amount');
+        $data['sp_feeder_reguler']['max_cost'] = App\SpFeederReguler::where([
+            'respondent_id' => $respondent->id,
+        ])
+            ->join('cost_preferences','sp_feeder_regulers.cost_preference_id','=','cost_preferences.id')
+            ->max('amount');
 
         $data['cost_preference'] = App\CostPreference::where('sp_type', 'feeder_park')->orderBy('id', 'desc')->get();
         if ($has_sp_car_park) {
-            $data['sp_parking'] = App\SpCarParking::where([
+            $data['sp_parking']['max_cost'] = App\SpCarParking::where([
                 'respondent_id' => $respondent->id,
-            ])->orderBy('cost_preference_id', 'desc')
-                ->with('cost_preference', 'time_preference')
-                ->first();
+            ])->join('cost_preferences','sp_car_parkings.cost_preference_id','=','cost_preferences.id')
+            ->max('amount');
             return $data;
         }
         if ($has_sp_motor_park) {
-            $data['sp_parking'] = App\SpMotorParking::where([
+            $data['sp_parking']['max_cost'] = App\SpMotorParking::where([
                 'respondent_id' => $respondent->id,
-            ])->orderBy('cost_preference_id', 'desc')
-                ->with('cost_preference', 'time_preference')
-                ->first();
+            ])->join('cost_preferences','sp_motor_parkings.cost_preference_id','=','cost_preferences.id')
+            ->max('amount');
             return $data;
         }
 

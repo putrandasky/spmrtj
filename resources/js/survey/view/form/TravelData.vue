@@ -501,7 +501,7 @@
                         @click="showConfirmDialog"
                         :disabled="submitting"
                     >
-                        Selesai
+                        Kirim
                         <b-spinner
                             small
                             type="grow"

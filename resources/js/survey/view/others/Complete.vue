@@ -1,5 +1,5 @@
 <template>
-    <b-col lg="9" md="10" sm="12">
+    <b-col lg="9" md="10" sm="12" >
         <div class="d-flex justify-content-around mb-3">
             <b-img  src="./img/Mrt-Jkt-White-small.png"></b-img>
             <b-img   src="./img/Logo-Jaklingko-white-small.png"></b-img>
@@ -15,7 +15,7 @@
                 transportasi publik yang semakin baik.
             </p>
         </div>
-        <b-row class="d-flex justify-content-center">
+        <b-row class="d-flex justify-content-center" v-if="!isLoading && !isSubmitted">
             <b-col lg="6">
                 <b-card class="shadow text-center font-weight-bold">
                     <b-card-text>
@@ -173,7 +173,7 @@ export default {
                 dateFormat: "d-M-y"
             },
             modalComplete: false,
-            isLoading: false,
+            isLoading: true,
             inputDataModal: false,
             isSubmitted: false,
             input: {
