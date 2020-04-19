@@ -233,6 +233,7 @@ class SurveyController extends Controller
         $respondent->work_place_parking_system_id = $request->work_place_parking_system;
         $respondent->mrt_cost = $request->mrt_cost;
         $respondent->reason_is_using_mrt = $request->reason_is_using_mrt;
+        $respondent->is_using_mrt = $request->is_using_mrt;
         $respondent->willingness_public_transport_trip_id = $request->willingness_public_transport_trip;
         for ($i = 0; $i < count($request['reason_using_transport']); $i++) {
             $reason_using_transport = new App\ReasonUsingTransportation();

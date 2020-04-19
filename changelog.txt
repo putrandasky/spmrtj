@@ -1,6 +1,12 @@
 18 Apr 2020
 
 ### ADDED
+- Question for is using MRT in additional information
+
+
+18 Apr 2020
+
+### ADDED
 - Add new question for asking is pay for parking in travel data which affect to parking_Cost and parking guarantor
 
 

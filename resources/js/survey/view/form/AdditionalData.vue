@@ -59,16 +59,19 @@
                                         }}
                                     </span>
                                 </b-col>
-                                <b-col cols="10" xl="11" class="pl-0 text-left">{{
-                                    v.text
-                                }}</b-col>
+                                <b-col
+                                    cols="10"
+                                    xl="11"
+                                    class="pl-0 text-left"
+                                    >{{ v.text }}</b-col
+                                >
                             </b-row>
                         </b-form-checkbox>
                     </b-form-checkbox-group>
                     <b-btn
                         variant="success"
                         block
-                        @click="step = 3"
+                        @click="step = 2"
                         v-if="input.reason_using_transport.length > 0"
                         >Lanjut</b-btn
                     >
@@ -100,6 +103,31 @@
                 </template>
             </question-slot>
         </div> -->
+        <div class="w-100" v-if="step == 2">
+            <question-slot>
+                <template slot="above">
+                    Apakah anda pernah menggunakan layanan MRT??
+                </template>
+                <template slot="bottom">
+                    <b-form-radio-group
+                        id="is_using_mrt"
+                        v-model="input.is_using_mrt"
+                        :options="options.is_using_mrt"
+                        button-variant="outline-primary"
+                        buttons
+                        name="is_using_mrt"
+                        class="btn-block"
+                    ></b-form-radio-group>
+                    <b-btn
+                        variant="success"
+                        block
+                        @click="step = 3"
+                        v-if="input.is_using_mrt != null"
+                        >Lanjut</b-btn
+                    >
+                </template>
+            </question-slot>
+        </div>
         <div class="w-100  " v-if="step == 3">
             <question-slot>
                 <template slot="above">
@@ -150,9 +178,12 @@
                                         }}
                                     </span>
                                 </b-col>
-                                <b-col cols="10" xl="11" class="pl-0 text-left">{{
-                                    v.text
-                                }}</b-col>
+                                <b-col
+                                    cols="10"
+                                    xl="11"
+                                    class="pl-0 text-left"
+                                    >{{ v.text }}</b-col
+                                >
                             </b-row>
                         </b-form-checkbox>
                     </b-form-checkbox-group>
@@ -193,7 +224,7 @@
                     <b-btn
                         variant="success"
                         block
-                    @click="handleStep(5)"
+                        @click="handleStep(5)"
                         v-if="input.mrt_cost > 0"
                         >Lanjut</b-btn
                     >
@@ -202,7 +233,7 @@
         </div>
         <question-slot v-if="step == 5">
             <template slot="above">
-               Bagaimana sistem parkir di kantor atau sekolah anda ?
+                Bagaimana sistem parkir di kantor atau sekolah anda ?
             </template>
             <template slot="bottom">
                 <b-form-radio-group
@@ -333,7 +364,8 @@
                 :height="300"
             />
             <h5 class="mb-3 text-primary">
-                Selamat! Semua pertanyaan survei sudah selesai dijawab dengan baik.
+                Selamat! Semua pertanyaan survei sudah selesai dijawab dengan
+                baik.
             </h5>
             <b-btn
                 variant="primary"
@@ -383,7 +415,17 @@ export default {
                 reason_using_transport: [],
                 mrt_improvement: [],
                 work_place_parking_system: [],
-                willingness_public_transport_trip: []
+                willingness_public_transport_trip: [],
+                is_using_mrt: [
+                    {
+                        text: "Tidak",
+                        value: 0
+                    },
+                    {
+                        text: "Ya",
+                        value: 1
+                    }
+                ]
             }
         };
     },
@@ -391,25 +433,24 @@ export default {
         this.getData();
         this.$emit("childinit", this.routerData);
         console.log(this.routerData);
-
     },
     methods: {
         handleAnimation: function(anim) {
             this.anim = anim;
         },
-        handleStep(step){
+        handleStep(step) {
             if (step == 5) {
                 //check if has trans mode private motor and car
-                let checkTransModes = this.$store.state.respondent.transportation_modes.filter(function(item){
-                    return item == 3 || item == 4 || item == 5 || item == 6
-                })
-                checkTransModes != 0 ? this.step = 5 : this.step = 6
-
-
+                let checkTransModes = this.$store.state.respondent.transportation_modes.filter(
+                    function(item) {
+                        return item == 3 || item == 4 || item == 5 || item == 6;
+                    }
+                );
+                checkTransModes != 0 ? (this.step = 5) : (this.step = 6);
             }
             if (step == 6) {
                 // this.$store.state.respondent.travel_model == 1? this.submit() : this.step = 6
-                this.step = 6
+                this.step = 6;
             }
         },
         handleNext(token, routeName) {
@@ -439,11 +480,11 @@ export default {
                     console.log(response.data);
                     this.modalComplete = true;
                     this.$store.dispatch("isLoading", false);
-                     this.$emit('childinit', {
-              progress: 100,
-              title: 'Informasi Tambahan'
-            });
-                                // this.handleNext(response.data.token, "Completed");
+                    this.$emit("childinit", {
+                        progress: 100,
+                        title: "Informasi Tambahan"
+                    });
+                    // this.handleNext(response.data.token, "Completed");
                 })
                 .catch(error => {
                     console.log(error);
