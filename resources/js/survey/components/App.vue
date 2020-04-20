@@ -9,13 +9,13 @@ export default {
     data: function() {
         return {};
     },
-    created() {},
+    created() {
+        fbq("track", "PageView");
+    },
     methods: {}
 };
 </script>
 <style>
-
-
 .btn-group-vertical.block,
 .btn-group.block {
     display: flex;
@@ -30,7 +30,7 @@ export default {
     box-shadow: none !important;
 }
 .btn {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 .spinner-border.inside-input {
     position: relative;
@@ -55,12 +55,12 @@ export default {
 .text-shadow {
     text-shadow: 0px 4px 10px #000000;
 }
-  .travel-map-mymap {
+.travel-map-mymap {
     min-height: 350px;
     height: 100%;
     width: 100%;
     /* padding: .5rem; */
-  }
+}
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -70,7 +70,7 @@ input[type="search"]::-webkit-search-results-decoration {
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .title-form {
-        font-size: 3.5rem!important;
+        font-size: 3.5rem !important;
     }
     /* .sub-title-form {
         font-size: 1.2rem!important;
@@ -79,19 +79,19 @@ input[type="search"]::-webkit-search-results-decoration {
 @media only screen and (max-width: 576px) {
     /* For mobile phones: */
     .title-form {
-        font-size: 3rem!important;
+        font-size: 3rem !important;
     }
     .sub-title-form {
-        font-size: 1.2rem!important;
+        font-size: 1.2rem !important;
     }
 }
 @media only screen and (max-width: 480px) {
     /* For mobile phones: */
     .title-form {
-        font-size: 2.5rem!important;
+        font-size: 2.5rem !important;
     }
     .sub-title-form {
-        font-size: 1rem!important;
+        font-size: 1rem !important;
     }
 }
 </style>
