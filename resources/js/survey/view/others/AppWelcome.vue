@@ -105,12 +105,7 @@ export default {
 </script>
 <style lang="css" scoped>
 .app {
-    /* min-height: 100vh;
-    height: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #0056bb; */
+
 
     min-height: 100vh;
     height: auto;
@@ -118,27 +113,12 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(/img/bg-front-cover.jpg);
-    /* background-image: radial-gradient(
-            circle,
-            rgba(14, 14, 15, 0.9) 50%,
-            rgba(14, 14, 15, 1) 100%
-        ),
-        url(/img/bg-front-cover.jpg); */
-    /* background-image: radial-gradient(
-            circle,
-            rgba(14, 14, 15, 0.9) 0%,
-            rgba(14, 14, 15, 1) 100%
-        ),
-        url(/img/bg-front-cover.jpg); */
+
 }
 .cover-title {
     max-height: 200px;
 }
-/* .ripped-top {
-    top: -70px;
-    left: -69px;
-    position: relative;
-} */
+
 .welcome-title {
     text-shadow: 1px 1px grey;
 }
@@ -147,11 +127,41 @@ export default {
     box-shadow: 0px -10px 13px -2px rgba(0, 0, 0, 0.75);
     z-index: 100;
 }
-/* .background-welcome { */
-/* height:100%;
-    background-position: right;
-    background-repeat: repeat-x;
-    background-size: auto 100%;
-    background-image: url(/img/welcome_banner.svg); */
-/* } */
+
+@media only screen  and (max-height: 800px)  and (orientation: landscape) {
+
+    .app {
+        font-size: 80%!important;
+    }
+}
+@media only screen  and (min-height: 1000px)  and (orientation: landscape){
+
+    .app {
+        font-size: 140%!important;
+    }
+}
+@media only screen  and (min-height: 1200px)  and (orientation: landscape){
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 120%!important;
+    }
+    .app {
+        font-size: 160%!important;
+    }
+}
+@media only screen  and (min-height: 1400px)  and (orientation: landscape){
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 140%!important;
+    }
+    .app {
+        font-size: 180%!important;
+    }
+}
+@media only screen  and (min-height: 1600px)  and (orientation: landscape){
+    h1,h2,h3,h4,h5,h6,.btn {
+        font-size: 160%!important;
+    }
+    .app {
+        font-size: 200%!important;
+    }
+}
 </style>

@@ -14,19 +14,7 @@ export default {
 };
 </script>
 <style>
-/* .app{ */
-/* display: flex; */
-/* min-height: 100%; */
-/* background-image:linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url(/img/lrt-jakarta.jpg); */
-/* background-image:url(/img/LRT_Survey_Background.png); */
-/* height: 100%; */
-/* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-/* } */
-/* .card{
-   filter:opacity(95%)
-} */
+
 
 .btn-group-vertical.block,
 .btn-group.block {
