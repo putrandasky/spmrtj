@@ -2,6 +2,7 @@
 
 ### FIXED
 - max time feeder in sp feeder park not get max time
+- in additional data, skip question no 2 if using MRT
 
 18 Apr 2020
 

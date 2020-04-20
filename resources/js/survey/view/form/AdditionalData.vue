@@ -71,7 +71,7 @@
                     <b-btn
                         variant="success"
                         block
-                        @click="step = 2"
+                        @click="handleStep(2)"
                         v-if="input.reason_using_transport.length > 0"
                         >Lanjut</b-btn
                     >
@@ -439,6 +439,22 @@ export default {
             this.anim = anim;
         },
         handleStep(step) {
+            if (step == 2) {
+                //check if has trans mode MRT
+                let checkTransModes = this.$store.state.respondent.transportation_modes.filter(
+                    function(item) {
+                        return item == 17;
+                    }
+                );
+                console.log(checkTransModes);
+                // Skip next question if has MRT as trans mode
+                if (checkTransModes != 0) {
+                    this.input.is_using_mrt = 1
+                    this.step = 3;
+                } else {
+                    this.step = 2;
+                }
+            }
             if (step == 5) {
                 //check if has trans mode private motor and car
                 let checkTransModes = this.$store.state.respondent.transportation_modes.filter(
@@ -446,6 +462,7 @@ export default {
                         return item == 3 || item == 4 || item == 5 || item == 6;
                     }
                 );
+                // Skip next question if doesnt have  private transport
                 checkTransModes != 0 ? (this.step = 5) : (this.step = 6);
             }
             if (step == 6) {
