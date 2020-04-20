@@ -1,3 +1,10 @@
+20 April 2020
+### ADDED
+- FB PIXEL
+### FIXED
+
+- authorization with local storage
+- layout in welcome page
 19 Apr 2020
 
 ### FIXED
@@ -5,6 +12,7 @@
 - in additional data, skip question no 2 if using MRT
 - authorization with local storage
 - layout in welcome page
+
 
 18 Apr 2020
 

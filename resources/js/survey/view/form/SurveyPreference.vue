@@ -43,8 +43,8 @@
             </p>
             <p class="mb-3 text-justify">
                 Pada survei preferensi ini, teman MRTJ akan diberikan beberapa
-                pertanyaan terkait rencana kebijakan pelayanan yang sesuai dengan data
-                perjalanan yang biasa dilakukan oleh teman MRTJ.
+                pertanyaan terkait rencana kebijakan pelayanan yang sesuai
+                dengan data perjalanan yang biasa dilakukan oleh teman MRTJ.
             </p>
             <p class="mb-3 text-justify">
                 Diharapkan teman MRTJ bisa memberikan jawaban yang sesuai dengan
@@ -222,9 +222,9 @@ export default {
         },
         onFinish(e) {
             this.step += e;
-                console.log('onFinish',e);
+            console.log("onFinish", e);
 
-                this.current_sp = this.remaining_sp[this.step - 1];
+            this.current_sp = this.remaining_sp[this.step - 1];
         },
         handleNext() {
             // let routeName = this.input.transport_guarantor_id == 1 ? 'TravelData' : 'Done'
@@ -235,6 +235,7 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     this.sp_title = "";
+                    fbq("track", "SubmitApplication");
                     this.$emit("spInit", { sp_title: this.sp_title });
                     this.$router.replace({
                         name: "AdditionalData",
