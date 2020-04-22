@@ -354,6 +354,201 @@
                     </b-card-body>
                 </b-card>
             </b-col>
+                        <b-col md="6" sm="12" class="mb-4">
+                <b-card class="shadow h-100" title="Summary SP Respond">
+                    <b-card-body class="h-100 pt-0 text-right">
+                        <b-button-group class="w-100">
+                            <b-button
+                                size="sm"
+                                :pressed="isSp == 1"
+                                variant="outline-secondary"
+                                @click="handleSpCard(1)"
+                                >Car</b-button
+                            >
+                            <b-button
+                                size="sm"
+                                :pressed="isSp == 2"
+                                variant="outline-secondary"
+                                @click="handleSpCard(2)"
+                                >Motor</b-button
+                            >
+                            <b-button
+                                size="sm"
+                                :pressed="isSp == 3"
+                                variant="outline-secondary"
+                                @click="handleSpCard(3)"
+                                >Feeder</b-button
+                            >
+                            <b-button
+                                size="sm"
+                                :pressed="isSp == 4"
+                                variant="outline-secondary"
+                                @click="handleSpCard(4)"
+                                >Premium</b-button
+                            >
+                            <b-button
+                                size="sm"
+                                :pressed="isSp == 5"
+                                variant="outline-secondary"
+                                @click="handleSpCard(5)"
+                                >P&R Car</b-button
+                            >
+                            <b-button
+                                size="sm"
+                                :pressed="isSp == 6"
+                                variant="outline-secondary"
+                                @click="handleSpCard(6)"
+                                >P&R Motor</b-button
+                            >
+                        </b-button-group>
+                        <multi-bar
+                            v-if="isSp == 1"
+                            :height="300"
+                            :chartLabel="data.sp_car.label.time"
+                            :chartDatasets="data.sp_car.data_set"
+                        />
+                        <multi-bar
+                            v-if="isSp == 2"
+                            :height="300"
+                            :chartLabel="data.sp_motor.label.time"
+                            :chartDatasets="data.sp_motor.data_set"
+                        />
+                        <multi-bar
+                            v-if="isSp == 3"
+                            :height="300"
+                            :chartLabel="data.sp_feeder.label.time"
+                            :chartDatasets="data.sp_feeder.data_set"
+                        />
+                        <vertical-bar
+                            v-if="isSp == 4"
+                            :height="300"
+                            bgColor="#24478c"
+                            borderColor="#24478c"
+                            scaleLabel="Cost Preference"
+                            :labelData="
+                                data.sp_feeder_premium.data_set.map(data => data.label)
+                            "
+                            :data="
+                                data.sp_feeder_premium.data_set.map(data => data.chartData)
+                            "
+                            label="Total Respond"
+                        />
+                        <vertical-bar
+                            v-if="isSp == 5"
+                            :height="300"
+                            bgColor="#24478c"
+                            borderColor="#24478c"
+                            scaleLabel="Cost Preference"
+                            :labelData="
+                                data.sp_park_ride_car.data_set.map(data => data.label)
+                            "
+                            :data="
+                                data.sp_park_ride_car.data_set.map(data => data.chartData)
+                            "
+                            label="Total Respond"
+                        />
+                        <vertical-bar
+                            v-if="isSp == 6"
+                            :height="300"
+                            bgColor="#24478c"
+                            borderColor="#24478c"
+                            scaleLabel="Cost Preference"
+                            :labelData="
+                                data.sp_park_ride_motor.data_set.map(data => data.label)
+                            "
+                            :data="
+                                data.sp_park_ride_motor.data_set.map(data => data.chartData)
+                            "
+                            label="Total Respond"
+                        />
+                    </b-card-body>
+                </b-card>
+            </b-col>
+            <b-col lg="3" sm="6" xs="12" class="mb-4">
+                <b-card class="shadow " title="Pedestrian User">
+                    <b-card-body class="h-100 pt-0 text-right">
+                        <pie-chart
+                            v-if="isPedestrian == 1"
+                            :height="180"
+                            :label="['Ya', 'Tidak']"
+                            :data="
+                                data.sp_pedestrian.is_using.map(
+                                    data => data.sp_pedestrian_count
+                                )
+                            "
+                        />
+                        <pie-chart
+                            v-if="isPedestrian == 2"
+                            :height="180"
+                            :label="['Ya', 'Tidak']"
+                            :data="
+                                data.sp_pedestrian.will_using.map(
+                                    data => data.sp_pedestrian_count
+                                )
+                            "
+                        />
+                    </b-card-body>
+                    <b-button-group class="w-100">
+                        <b-button
+                            size="sm"
+                            :pressed="isPedestrian == 1"
+                            variant="outline-secondary"
+                            @click="handlePedestrianCard(1)"
+                            >Current</b-button
+                        >
+                        <b-button
+                            size="sm"
+                            :pressed="isPedestrian == 2"
+                            variant="outline-secondary"
+                            @click="handlePedestrianCard(2)"
+                            >Potential</b-button
+                        >
+                    </b-button-group>
+                </b-card>
+            </b-col>
+            <b-col lg="3" sm="6" xs="12" class="mb-4">
+                <b-card class="shadow " title="Cycle User">
+                    <b-card-body class="h-100 pt-0 text-right">
+                        <pie-chart
+                            v-if="isCycle == 1"
+                            :height="180"
+                            :label="['Ya', 'Tidak']"
+                            :data="
+                                data.sp_cycle.is_using.map(
+                                    data => data.sp_cycle_count
+                                )
+                            "
+                        />
+                        <pie-chart
+                            v-if="isCycle == 2"
+                            :height="180"
+                            :label="['Ya', 'Tidak']"
+                            :data="
+                                data.sp_cycle.will_using.map(
+                                    data => data.sp_cycle_count
+                                )
+                            "
+                        />
+                    </b-card-body>
+                    <b-button-group class="w-100">
+                        <b-button
+                            size="sm"
+                            :pressed="isCycle == 1"
+                            variant="outline-secondary"
+                            @click="handleCycleCard(1)"
+                            >Current</b-button
+                        >
+                        <b-button
+                            size="sm"
+                            :pressed="isCycle == 2"
+                            variant="outline-secondary"
+                            @click="handleCycleCard(2)"
+                            >Potential</b-button
+                        >
+                    </b-button-group>
+                </b-card>
+            </b-col>
+
             <b-col lg="3" md="6" sm="12" class="mb-4">
                 <b-card title="Survey Preference" class="shadow">
                     <b-card-body class="p-0">
@@ -434,10 +629,12 @@
 </template>
 <script>
 import GenderPie from "@/admin/components/chart/GenderPie.vue";
+import PieChart from "@/admin/components/chart/PieChart.vue";
 import HorizontalBar from "@/admin/components/chart/HorizontalBar.vue";
 import VerticalBar from "@/admin/components/chart/VerticalBar.vue";
 import RespondentMixOverview from "@/admin/components/chart/RespondentMixOverview.vue";
 import GoogleHeatMap from "@/admin/components/google/HeatMap.vue";
+import MultiBar from "@/admin/components/chart/MultiBar.vue";
 
 export default {
     name: "Dashboard2",
@@ -446,7 +643,9 @@ export default {
         RespondentMixOverview,
         HorizontalBar,
         GoogleHeatMap,
-        VerticalBar
+        VerticalBar,
+        PieChart,
+        MultiBar
     },
     data: function() {
         return {
@@ -455,7 +654,10 @@ export default {
             isEconomics: 1,
             isSocial: 1,
             isTravel: 1,
-            isHeatmap: 1
+            isPedestrian: 1,
+            isCycle: 1,
+            isHeatmap: 1,
+            isSp: 1
         };
     },
     created() {
@@ -471,6 +673,15 @@ export default {
                 this.isHeatmap = i;
             }, 1);
         },
+        handleSpCard(i) {
+            if (i == this.isSp) {
+                return;
+            }
+            this.isSp = 0;
+            setTimeout(() => {
+                this.isSp = i;
+            }, 1);
+        },
         handleEconomicsCard(i) {
             if (i == this.isEconomics) {
                 return;
@@ -478,6 +689,24 @@ export default {
             this.isEconomics = 0;
             setTimeout(() => {
                 this.isEconomics = i;
+            }, 1);
+        },
+        handlePedestrianCard(i) {
+            if (i == this.isPedestrian) {
+                return;
+            }
+            this.isPedestrian = 0;
+            setTimeout(() => {
+                this.isPedestrian = i;
+            }, 1);
+        },
+        handleCycleCard(i) {
+            if (i == this.isCycle) {
+                return;
+            }
+            this.isCycle = 0;
+            setTimeout(() => {
+                this.isCycle = i;
             }, 1);
         },
         handleSocialCard(i) {

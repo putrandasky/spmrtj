@@ -13,9 +13,9 @@ class SpPedestrian extends Model
         return $this->belongsTo('App\Respondent');
     }
 
-    public function choice()
+    public function sp_pedestrian_choice()
     {
-        return $this->belongsTo('App\TimePreference');
+        return $this->belongsTo('App\SpPedestrianChoice');
     }
     public function sp_pedestrian_other()
     {

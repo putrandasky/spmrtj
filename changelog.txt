@@ -1,3 +1,10 @@
+22 April 2020
+### ADDED
+- SP Summary Data in Dashboard
+
+### FIXED
+- timezone to Asia/Jakarta
+
 20 April 2020
 ### ADDED
 - FB PIXEL
