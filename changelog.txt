@@ -1,3 +1,10 @@
+
+
+24 April 2020
+### REVISED
+- Color Knob slider to primary color instead of white
+
+
 22 April 2020
 ### ADDED
 - SP Summary Data in Dashboard
