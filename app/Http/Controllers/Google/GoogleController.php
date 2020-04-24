@@ -6,6 +6,7 @@ use App;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class GoogleController extends Controller
 {
@@ -23,13 +24,14 @@ class GoogleController extends Controller
     public function geocoding(Request $request)
     {
         $apiKey = \Config::get('app.gmapsApiKey');
-
         $keys = collect($request)->keys();
+        Log::debug("request geocode :  {$request->input($keys[0])}");
         // $keys = $collection->keys();
         $client = new Client($this->base_uri);
         $data = [];
         $request = $client->request('GET', "geocode/json?{$keys[0]}={$request->input($keys[0])}&language=id&key={$apiKey}");
         $response = json_decode($request->getBody()->getContents(), true);
+        // Log::debug($response['results'][0]);
         $data[0] = $response['results'][0];
         return $data;
 
