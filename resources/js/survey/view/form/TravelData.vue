@@ -14,7 +14,7 @@
                 >
                 <template slot="bottom">
                     <auto-complete-place
-                        class="w-100 pt-0"
+                        class="w-100 pt-0 d-none"
                         placeholder="Ketik untuk cari..."
                         @hit="addPlace($event, 'origin')"
                         @onkeyup="input.travel_origin = null"
@@ -23,13 +23,18 @@
                 </template>
             </question-slot>
 
-            <div class="w-100 text-center">
+            <!-- <div class="w-100 text-center">
                 <h4 class="text-primary">
                     atau
                 </h4>
                 <p>
                     Pilih lokasi di peta
                 </p>
+            </div> -->
+            <div class="w-100 text-center">
+                <small>
+                    Silahkan klik pada peta
+                </small>
             </div>
             <b-col cols="12" class=" px-0">
                 <google-map ref="travelmap" class="travel-map shadow-sm" />
@@ -54,7 +59,7 @@
                 >
                 <template slot="bottom">
                     <auto-complete-place
-                        class="w-100 pt-0"
+                        class="w-100 pt-0 d-none"
                         placeholder="Ketik untuk cari..."
                         @hit="addPlace($event, 'destination')"
                         @onkeyup="input.travel_destination = null"
@@ -64,13 +69,18 @@
             </question-slot>
 
             <div class="w-100 text-center">
+                <small>
+                    Silahkan klik pada peta
+                </small>
+            </div>
+            <!-- <div class="w-100 text-center">
                 <h4 class="text-primary">
                     atau
                 </h4>
                 <p>
                     Pilih lokasi di peta
                 </p>
-            </div>
+            </div> -->
             <b-col cols="12" class=" px-0">
                 <google-map ref="travelmap" class="travel-map shadow-sm" />
             </b-col>
@@ -424,14 +434,18 @@
                             :max="
                                 hasMoreMaxCost.includes(v.transportation_mode)
                                     ? '300000'
-                                    : hasLessCost.indexOf(v.transportation_mode) > -1
+                                    : hasLessCost.indexOf(
+                                          v.transportation_mode
+                                      ) > -1
                                     ? '25000'
                                     : '100000'
                             "
                             :disabled="submitting"
-                            :step="hasLessCost.indexOf(v.transportation_mode) > -1
+                            :step="
+                                hasLessCost.indexOf(v.transportation_mode) > -1
                                     ? '500'
-                                    : '1000'"
+                                    : '1000'
+                            "
                         ></range-slider>
                     </div>
                 </div>
@@ -610,7 +624,7 @@ export default {
             notRequiredWaitingTime: [1, 2, 3, 5],
             notRequiredCost: [1, 2],
             hasMoreMaxCost: [5, 6, 8, 9],
-            hasLessCost: [11,12,13,14,15,16,17,18],
+            hasLessCost: [11, 12, 13, 14, 15, 16, 17, 18],
             hasLessDuration: [1, 2],
             modalWelcome: true,
             isLoading: false,
@@ -694,10 +708,9 @@ export default {
     },
     methods: {
         handleInputTransportationMode(e, i) {
-
-            this.input.travel_detail[i].waiting_duration = 0
-            this.input.travel_detail[i].travel_duration = 0
-            this.input.travel_detail[i].travel_cost = 0
+            this.input.travel_detail[i].waiting_duration = 0;
+            this.input.travel_detail[i].travel_duration = 0;
+            this.input.travel_detail[i].travel_cost = 0;
         },
         isChangePayForPark() {
             this.input.parking_cost = null;
