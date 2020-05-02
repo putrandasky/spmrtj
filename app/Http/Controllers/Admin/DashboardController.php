@@ -256,7 +256,7 @@ class DashboardController extends Controller
             'cost',
             App\CostPreference::where('sp_type', 'park_car')->get()->pluck('amount'),
             'cost_preference_id',
-            App\CostPreference::where('sp_type', 'park_car')->get()->pluck('id'),
+            App\CostPreference::where('sp_type', 'park_car')->get()->pluck('id')
         );
 
         // $cost_preference_park_car_id = App\CostPreference::where('sp_type', 'park_car')->get()->pluck('id');
@@ -282,7 +282,7 @@ class DashboardController extends Controller
             'cost',
             App\CostPreference::where('sp_type', 'park_motor')->get()->pluck('amount'),
             'cost_preference_id',
-            App\CostPreference::where('sp_type', 'park_motor')->get()->pluck('id'),
+            App\CostPreference::where('sp_type', 'park_motor')->get()->pluck('id')
         );
         // $cost_preference_park_motor_id = App\CostPreference::where('sp_type', 'park_motor')->get()->pluck('id');
         // $data['sp_motor']['label']['cost'] = App\CostPreference::where('sp_type', 'park_motor')->get()->pluck('amount');
@@ -324,7 +324,7 @@ class DashboardController extends Controller
             'cost',
             App\CostPreference::where('sp_type', 'feeder')->get()->pluck('amount'),
             'cost_preference_id',
-            App\CostPreference::where('sp_type', 'feeder')->get()->pluck('id'),
+            App\CostPreference::where('sp_type', 'feeder')->get()->pluck('id')
         );
 
         // $cost_preference_feeder_id = App\CostPreference::where('sp_type', 'feeder')->get()->pluck('id');
@@ -454,7 +454,7 @@ class DashboardController extends Controller
             'distance',
             array("0,5 km", "1 km", "2 km", "3 km", "5 km", "8 km", "10 km"),
             'question_id',
-            array(1, 2, 3, 4, 5, 6, 7),
+            array(1, 2, 3, 4, 5, 6, 7)
         );
 
         // $cost_preference_park_ride_car_id = App\CostPreference::where('sp_type', 'park_ride_car')->get()->pluck('id');
@@ -496,7 +496,7 @@ class DashboardController extends Controller
             'distance',
             array("0,5 km", "1 km", "2 km", "3 km", "5 km", "8 km", "10 km"),
             'question_id',
-            array(1, 2, 3, 4, 5, 6, 7),
+            array(1, 2, 3, 4, 5, 6, 7)
         );
 
         // $cost_preference_park_ride_motor_id = App\CostPreference::where('sp_type', 'park_ride_motor')->get()->pluck('id');
@@ -683,7 +683,7 @@ class DashboardController extends Controller
             'income',
             App\Income::get()->pluck('description'),
             'income_id',
-            App\Income::get()->pluck('id'),
+            App\Income::get()->pluck('id')
         );
         $data['sp_pedestrian_by_mode']['label']['mode'] = array("Mobil", "Motor", "Umum", "Campuran");
         for ($i = 0; $i < count($data['sp_pedestrian_by_mode']['label']['mode']); $i++) {
@@ -719,7 +719,7 @@ class DashboardController extends Controller
             'income',
             App\Income::get()->pluck('description'),
             'income_id',
-            App\Income::get()->pluck('id'),
+            App\Income::get()->pluck('id')
         );
         $data['sp_cycle_by_mode']['label']['mode'] = array("Mobil", "Motor", "Umum", "Campuran");
         for ($i = 0; $i < count($data['sp_cycle_by_mode']['label']['mode']); $i++) {
