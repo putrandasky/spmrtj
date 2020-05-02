@@ -12,7 +12,7 @@ class CoverageSeeder extends Seeder
      */
     public function run()
     {
-        $files = File::get("database/data/geocode_area_3.json");
+        $files = File::get("database/data/geocode_area_4.json");
         $datas = json_decode($files);
         foreach ($datas as $data) {
             $coverage = new Coverage();

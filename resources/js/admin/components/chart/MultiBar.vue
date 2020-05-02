@@ -11,6 +11,14 @@ export default {
         chartLabel: {
             type: Array,
             default: null
+        },
+        xLabel: {
+            type: String,
+            default: null
+        },
+        yLabel: {
+            type: String,
+            default: null
         }
     },
     data: function() {
@@ -48,8 +56,8 @@ export default {
                                 fontSize: 10
                             },
                             scaleLabel: {
-                                display: true,
-                                labelString: "Minutes"
+                                display: this.xLabel?true:false,
+                                labelString: this.xLabel
                             }
                         }
                     ],
@@ -63,8 +71,8 @@ export default {
                                 display: true
                             },
                             scaleLabel: {
-                                display: true,
-                                labelString: "Respond"
+                                display: this.yLabel?true:false,
+                                labelString: this.yLabel
                             },
                             ticks: {
                                 fontSize: 10,

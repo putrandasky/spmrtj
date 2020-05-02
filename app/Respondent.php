@@ -22,6 +22,14 @@ class Respondent extends Model
     {
         return $this->hasMany('App\TravelDetail');
     }
+    public function sp_cycles()
+    {
+        return $this->hasMany('App\SpCycle');
+    }
+    public function sp_pedestrians()
+    {
+        return $this->hasMany('App\SpPedestrian');
+    }
     public function sp_car_parkings()
     {
         return $this->hasMany('App\SpCarParking');

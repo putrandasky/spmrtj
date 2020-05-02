@@ -51,6 +51,8 @@ trait AreaHelper
                     if (collect($area_origin)->contains(5)) {
                         //jika origin masuk feeder
                         array_push($data, 5, 6, 7);
+                        //diganti menjadi SP park ride mobil untuk menaikan survei kategori tsb
+                        // array_push($data, 8, 9);
                         return $data;
                     } else {
                         //jika origin tidak masuk feeder

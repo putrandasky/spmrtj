@@ -1,4 +1,14 @@
+2 Mei 2020
+### ADDED
+- clustering wtp by mode, income, duration
+- parking guarantor, travel guarantor, is paying, travel model
+- Add new sp chart for Feeder Park,  and clustering PR by using MRT or not
+- Add PR Hypo
+- Pedestrian by income and by mode
+- Cycle by income and by mode
 
+### REVISED
+- Refactoring code in dashboard
 
 24 April 2020
 ### REVISED

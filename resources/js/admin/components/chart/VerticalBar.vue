@@ -21,11 +21,11 @@ export default {
         },
         bgColor: {
             required: false,
-            default: "#49BFBF"
+            default: "#24478c"
         },
         borderColor: {
             required: false,
-            default: "#49BFBF"
+            default: "#24478c"
         },
         pointBgColor: {
             required: false,
