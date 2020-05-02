@@ -158,13 +158,11 @@ class DashboardController extends Controller
                 ->count();
             $data['is_pay_park']['data_set'][$i]['chartData'][1] = $selected_mode->count();
         }
-
         $wtp_respondent = App\Respondent::select('mrt_cost', DB::raw('count(mrt_cost) as total'))
             ->groupBy('mrt_cost')->orderBy('total', 'DESC')
             ->take(10)->get()
             ->pluck('mrt_cost');
         $wtp_respondent_sorted = array_values(Arr::sort($wtp_respondent));
-
         $data['wtp_by_mode']['label']['cost'] = $wtp_respondent_sorted;
         $data['wtp_by_mode']['label']['mode'] = array("Mobil", "Motor", "Umum", "Campuran");
         for ($i = 0; $i < count($data['wtp_by_mode']['label']['mode']); $i++) {
@@ -188,7 +186,6 @@ class DashboardController extends Controller
                     ->count();
             }
         }
-
         // $data['wtp_by_income']['label']['cost'] = $wtp_respondent_sorted;
         // $income_id = App\Income::get()->pluck('id');
         // $data['wtp_by_income']['label']['income'] = App\Income::get()->pluck('description');
@@ -221,7 +218,6 @@ class DashboardController extends Controller
             if ($i >= 6) {
                 $data['wtp_by_duration']['label']['duration'][$i] = " > {$init_minute} min ";
             }
-
         }
         for ($a = 0; $a < count($data['wtp_by_duration']['label']['duration']); $a++) {
             $data['wtp_by_duration']['data_set'][$a]['label'] = $data['wtp_by_duration']['label']['duration'][$a];
@@ -232,7 +228,7 @@ class DashboardController extends Controller
                         ->count();
                 }
                 if ($a >= (count($data['wtp_by_duration']['label']['duration'])-1)) {
-                    $data['wtp_by_duration']['data_set'][$a]['chartData'][$i] = App\Respondent::where('google_duration', )
+                    $data['wtp_by_duration']['data_set'][$a]['chartData'][$i] = App\Respondent::where('google_duration')
                         ->where('google_duration', '>', ($a * 30 * 60))
                         ->where('mrt_cost', $data['wtp_by_duration']['label']['cost'][$i])
                         ->count();
