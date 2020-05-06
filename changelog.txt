@@ -1,3 +1,9 @@
+6 Mei 2020
+### ADDED
+- In Dashboard, Summary SP for feeder car,motor, public, mix
+- In Dashboard, WTP By distance
+- In Dashboard, Heatmap destination
+
 2 Mei 2020
 ### ADDED
 - clustering wtp by mode, income, duration

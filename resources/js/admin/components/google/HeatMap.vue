@@ -7,7 +7,7 @@
                 v-if="type == 1"
                 :google="google"
                 :map="map"
-                :points="points.origin"
+                :points="points"
                 ref="origin"
                 :radius="20"
                 latName="lat"
@@ -39,7 +39,7 @@ export default {
             default: 1
         },
         points: {
-            type: Object,
+            type: Array,
             required: true
         },
         radius: {

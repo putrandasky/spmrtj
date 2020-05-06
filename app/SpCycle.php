@@ -11,6 +11,10 @@ class SpCycle extends Model
     {
         return $this->hasOne('App\SpCycleOther');
     }
+    public function sp_cycle_choice()
+    {
+        return $this->belongsTo('App\SpCycleChoice');
+    }
     public function respondent()
     {
         return $this->belongsTo('App\Respondent');

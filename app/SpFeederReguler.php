@@ -15,4 +15,8 @@ class SpFeederReguler extends Model
     {
         return $this->belongsTo('App\TimePreference');
     }
+    public function respondent()
+    {
+        return $this->belongsTo('App\Respondent');
+    }
 }

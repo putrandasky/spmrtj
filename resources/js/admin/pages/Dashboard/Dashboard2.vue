@@ -61,9 +61,10 @@
                   <b-button v-for="(v,i) in heatmap" :key="i" size="sm" :pressed="isHeatmap == v.id"
                     variant="outline-secondary" @click="handleHeatmapCard(v.id)">{{v.title}}</b-button>
                 </b-button-group>
-                <google-heat-map v-if="isHeatmap == 1" class="travel-map" :points="data.heatmap" />
-                <google-heat-map v-if="isHeatmap == 2" class="travel-map" :points="data.heatmap_feeder" />
-                <google-heat-map v-if="isHeatmap == 3" class="travel-map" :points="data.heatmap_mrt" />
+                <google-heat-map v-if="isHeatmap == 1" class="travel-map" :points="data.heatmap.origin" />
+                <google-heat-map v-if="isHeatmap == 2" class="travel-map" :points="data.heatmap.destination" />
+                <google-heat-map v-if="isHeatmap == 3" class="travel-map" :points="data.heatmap_feeder.origin" />
+                <google-heat-map v-if="isHeatmap == 4" class="travel-map" :points="data.heatmap_mrt.origin" />
               </b-card-body>
             </b-card>
           </b-col>
@@ -167,36 +168,43 @@
               :chartDatasets="data.wtp_by_income.data_set " label="Total Respondent" />
             <multi-bar v-if="isWtp == 3" xLabel="Top 10 Willingness to Pay" yLabel="Respondent"  :height="300" :chartLabel=" data.wtp_by_duration.label.cost "
               :chartDatasets="data.wtp_by_duration.data_set " label="Total Respondent" />
+            <multi-bar v-if="isWtp == 4" xLabel="Top 10 Willingness to Pay" yLabel="Respondent"  :height="300" :chartLabel=" data.wtp_by_distance.label.cost "
+              :chartDatasets="data.wtp_by_distance.data_set " label="Total Respondent" />
           </b-card-body>
         </b-card>
       </b-col>
       <b-col  lg="6"  class="mb-4">
         <b-card class="shadow h-100">
-          <h4 name="title">
+          <h5 name="title">
             Summary SP Respond
             <span v-for="(v,i) in sp" :key="i" v-show="isSp == v.id">{{v.title}}</span>
-          </h4>
+          </h5>
           <b-card-body class="h-100 pt-0 text-right">
             <b-button-group class="w-100 mb-2 overflow-auto">
               <b-button v-for="(v,i) in sp.slice(0,6)" :key="i" size="sm" :pressed="isSp == v.id"
-                variant="outline-secondary" @click="handleSpCard(v.id)">{{v.title}}
+                variant="outline-secondary" @click="handleSpCard(v.id)">{{v.btnName}}
               </b-button>
             </b-button-group>
-            <b-button-group class="w-100 mb-2">
-              <b-button v-for="(v,i) in sp.slice(6,9)" :key="i" size="sm" :pressed="isSp == v.id"
-                variant="outline-secondary" @click="handleSpCard(v.id)">{{v.title}}
+            <b-button-group class="w-100 mb-2 overflow-auto">
+              <b-button v-for="(v,i) in sp.slice(6,10)" :key="i" size="sm" :pressed="isSp == v.id"
+                variant="outline-secondary" @click="handleSpCard(v.id)">{{v.btnName}}
               </b-button>
             </b-button-group>
-            <b-button-group class="w-100">
-              <b-button v-for="(v,i) in sp.slice(9,12)" :key="i" size="sm" :pressed="isSp == v.id"
-                variant="outline-secondary" @click="handleSpCard(v.id)">{{v.title}}
+            <b-button-group class="w-100 mb-2 overflow-auto">
+              <b-button v-for="(v,i) in sp.slice(10,13)" :key="i" size="sm" :pressed="isSp == v.id"
+                variant="outline-secondary" @click="handleSpCard(v.id)">{{v.btnName}}
               </b-button>
             </b-button-group>
-            <multi-bar v-if="isSp == 1" :height="350" xLabel="Cost Preference" yLabel="Respondent" :chartLabel="data.sp_car.label.time"
+            <b-button-group class="w-100 overflow-auto">
+              <b-button v-for="(v,i) in sp.slice(13,16)" :key="i" size="sm" :pressed="isSp == v.id"
+                variant="outline-secondary" @click="handleSpCard(v.id)">{{v.btnName}}
+              </b-button>
+            </b-button-group>
+            <multi-bar v-if="isSp == 1" :height="350" xLabel="Time Preference" yLabel="Respondent" :chartLabel="data.sp_car.label.time"
               :chartDatasets="data.sp_car.data_set" />
-            <multi-bar v-if="isSp == 2" :height="350" xLabel="Cost Preference" yLabel="Respondent" :chartLabel="data.sp_motor.label.time"
+            <multi-bar v-if="isSp == 2" :height="350" xLabel="Time Preference" yLabel="Respondent" :chartLabel="data.sp_motor.label.time"
               :chartDatasets="data.sp_motor.data_set" />
-            <multi-bar v-if="isSp == 3" :height="350" xLabel="Cost Preference" yLabel="Respondent" :chartLabel="data.sp_feeder.label.time"
+            <multi-bar v-if="isSp == 3" :height="350" xLabel="Time Preference" yLabel="Respondent" :chartLabel="data.sp_feeder.label.time"
               :chartDatasets="data.sp_feeder.data_set" />
             <vertical-bar v-if="isSp == 4" :height="350" bgcolor="#24478c" bordercolor="#24478c"
               scaleLabel="Cost Preference" :labelData=" data.sp_feeder_premium.data_set.map( data => data.label ) "
@@ -207,29 +215,37 @@
             <vertical-bar v-if="isSp == 6" :height="350" bgcolor="#24478c" bordercolor="#24478c"
               scaleLabel="Cost Preference" :labelData=" data.sp_feeder_park_motor.data_set.map( data => data.label ) "
               :data="  data.sp_feeder_park_motor.data_set.map(   data => data.chartData  ) " label="Total Respond" />
-            <vertical-bar v-if="isSp == 7" :height="350" bgcolor="#24478c" bordercolor="#24478c"
+            <multi-bar v-if="isSp == 7" :height="350" xLabel="Time Preference" yLabel="Respondent" :chartLabel="data.sp_feeder_car.label.time"
+              :chartDatasets="data.sp_feeder_car.data_set" />
+            <multi-bar v-if="isSp == 8" :height="350" xLabel="Time Preference" yLabel="Respondent" :chartLabel="data.sp_feeder_motor.label.time"
+              :chartDatasets="data.sp_feeder_motor.data_set" />
+            <multi-bar v-if="isSp == 9" :height="350" xLabel="Time Preference" yLabel="Respondent" :chartLabel="data.sp_feeder_public.label.time"
+              :chartDatasets="data.sp_feeder_public.data_set" />
+            <multi-bar v-if="isSp == 10" :height="350" xLabel="Time Preference" yLabel="Respondent" :chartLabel="data.sp_feeder_mix.label.time"
+              :chartDatasets="data.sp_feeder_mix.data_set" />
+            <vertical-bar v-if="isSp == 11" :height="350" bgcolor="#24478c" bordercolor="#24478c"
               scaleLabel="Cost Preference"
               :labelData=" data.sp_park_ride_car_with_mrt.data_set.map(data => data.label  )"
               :data=" data.sp_park_ride_car_with_mrt.data_set.map(   data => data.chartData) " label="Total Respond" />
-            <vertical-bar v-if="isSp == 8" :height="350" bgcolor="#24478c" bordercolor="#24478c"
+            <vertical-bar v-if="isSp == 12" :height="350" bgcolor="#24478c" bordercolor="#24478c"
               scaleLabel="Cost Preference"
               :labelData=" data.sp_park_ride_car_without_mrt.data_set.map(data => data.label  )"
               :data=" data.sp_park_ride_car_without_mrt.data_set.map(   data => data.chartData) "
               label="Total Respond" />
-            <vertical-bar v-if="isSp == 9" :height="350" bgcolor="#24478c" bordercolor="#24478c" scaleLabel="Distance"
+            <vertical-bar v-if="isSp == 13" :height="350" bgcolor="#24478c" bordercolor="#24478c" scaleLabel="Distance"
               :labelData="data.sp_park_ride_car_hypo.data_set.map(data => data.label)"
               :data=" data.sp_park_ride_car_hypo.data_set.map(data => data.chartData) " label="Total Respond" />
-            <vertical-bar v-if="isSp == 10" :height="350" bgcolor="#24478c" bordercolor="#24478c"
+            <vertical-bar v-if="isSp == 14" :height="350" bgcolor="#24478c" bordercolor="#24478c"
               scaleLabel="Cost Preference"
               :labelData=" data.sp_park_ride_motor_with_mrt.data_set.map(data => data.label  )"
               :data=" data.sp_park_ride_motor_with_mrt.data_set.map(   data => data.chartData) "
               label="Total Respond" />
-            <vertical-bar v-if="isSp == 11" :height="350" bgcolor="#24478c" bordercolor="#24478c"
+            <vertical-bar v-if="isSp == 15" :height="350" bgcolor="#24478c" bordercolor="#24478c"
               scaleLabel="Cost Preference"
               :labelData=" data.sp_park_ride_motor_without_mrt.data_set.map(data => data.label  )"
               :data=" data.sp_park_ride_motor_without_mrt.data_set.map(   data => data.chartData) "
               label="Total Respond" />
-            <vertical-bar v-if="isSp == 12" :height="350" bgcolor="#24478c" bordercolor="#24478c" scaleLabel="Distance"
+            <vertical-bar v-if="isSp == 16" :height="350" bgcolor="#24478c" bordercolor="#24478c" scaleLabel="Distance"
               :labelData="data.sp_park_ride_motor_hypo.data_set.map(data => data.label)"
               :data=" data.sp_park_ride_motor_hypo.data_set.map(data => data.chartData) " label="Total Respond" />
 
@@ -357,9 +373,12 @@
         </b-card>
       </b-col>
     </b-row>
+
   </div>
 </template>
 <script>
+import Loading from 'vue-loading-overlay';
+
   import GenderPie from "@/admin/components/chart/GenderPie.vue";
   import PieChart from "@/admin/components/chart/PieChart.vue";
   import HorizontalBar from "@/admin/components/chart/HorizontalBar.vue";
@@ -371,6 +390,7 @@
   export default {
     name: "Dashboard2",
     components: {
+      Loading,
       GenderPie,
       RespondentMixOverview,
       HorizontalBar,
@@ -390,10 +410,14 @@
           },
           {
             id: 2,
-            title: 'Feeder'
+            title: 'Destination'
           },
           {
             id: 3,
+            title: 'Feeder'
+          },
+          {
+            id: 4,
             title: 'MRT'
           },
         ],
@@ -471,6 +495,10 @@
             id: 3,
             title: 'Duration'
           },
+          {
+            id: 4,
+            title: 'Distance'
+          },
         ],
         sp2: [{
             id: 1,
@@ -491,51 +519,84 @@
         ],
         sp: [{
             id: 1,
-            title: 'Car'
+            title:'Car Parking',
+            btnName: 'Car',
+
           },
           {
             id: 2,
-            title: 'Motor'
+            title:'Motor Parking',
+            btnName: 'Motor'
           },
           {
             id: 3,
-            title: 'Feeder'
+            title:'Feeder Reguler (Total)',
+            btnName: 'Feeder'
           },
           {
             id: 4,
-            title: 'Premium'
+            title:'Feeder Premium (Total)',
+            btnName: 'Premium'
           },
           {
             id: 5,
-            title: 'FP Car'
+            title:'Feeder & Park w/ Car Parking',
+            btnName: 'FP Car'
           },
           {
             id: 6,
-            title: 'FP Motor'
+            title:'Feeder & Park w/ Motor Parking',
+            btnName: 'FP Motor'
           },
           {
             id: 7,
-            title: 'PR MRT Car'
+            title:'Feeder Reguler (Car)',
+            btnName: 'Feeder Car'
           },
           {
             id: 8,
-            title: 'PR Car'
+            title:'Feeder Reguler (Motor)',
+            btnName: 'Feeder Motor'
           },
           {
             id: 9,
-            title: 'PR Car Hypo'
+            title:'Feeder Reguler (Public)',
+            btnName: 'Feeder Umum'
           },
           {
             id: 10,
-            title: 'PR MRT Motor'
+            title:'Feeder Reguler (Campuran)',
+            btnName: 'Feeder Campuran'
           },
           {
             id: 11,
-            title: 'PR Motor'
+            title:'Park & Ride w/ MRT & Car',
+            btnName: 'PR MRT Car'
           },
           {
             id: 12,
-            title: 'PR Motor Hypo'
+            title:'Park & Ride w/ Car',
+            btnName: 'PR Car'
+          },
+          {
+            id: 13,
+            title:'Park & Ride Hypotheis w/ Car',
+            btnName: 'PR Car Hypo'
+          },
+          {
+            id: 14,
+            title:'Park & Ride w/ MRT & Motor',
+            btnName: 'PR MRT Motor'
+          },
+          {
+            id: 15,
+            title:'Park & Ride w/ Motor',
+            btnName: 'PR Motor'
+          },
+          {
+            id: 16,
+            title:'Park & Ride Hypotheis w/ Motor',
+            btnName: 'PR Motor Hypo'
           },
         ],
         isSocial: 1,

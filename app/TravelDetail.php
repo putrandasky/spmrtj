@@ -11,4 +11,8 @@ class TravelDetail extends Model
     {
         return $this->belongsTo('App\TransportationMode');
     }
+    public function respondent()
+    {
+        return $this->belongsTo('App\Respondent');
+    }
 }

@@ -10,6 +10,7 @@ import router from './Routes';
 import App from './App';
 import layoutMixin from './mixins/layout';
 import Widget from './components/Widget/Widget';
+
 window.axios = require('axios');
 Vue.use(BootstrapVue);
 Vue.use(VueTouch);

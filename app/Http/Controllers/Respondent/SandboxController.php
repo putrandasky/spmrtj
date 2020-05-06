@@ -60,11 +60,11 @@ class SandboxController extends Controller
         // // ->where('cost_preference_id',28)
         // ->where('respond',1)
         // ->select('id', 'respondent_id','cost_preference_id')->count();
-        $data = App\Respondent::join('sp_cycles','respondents.id','=','sp_cycles.respondent_id')
-        ->where([
-            'question_id' => 1,
-            'sp_cycle_choice_id' => 1,
-        ])->count();
+        // $data = App\Respondent::join('sp_cycles','respondents.id','=','sp_cycles.respondent_id')
+        // ->where([
+        //     'question_id' => 1,
+        //     'sp_cycle_choice_id' => 1,
+        // ])->count();
         // $data = App\SpCycle::where([
         // 'question_id' => 1,
         // 'sp_cycle_choice_id' => 1
@@ -78,6 +78,24 @@ class SandboxController extends Controller
         // with('respondent')
         // ->get();
 
+        // $data = App\TravelDetail::whereHas('respondent', function ($query) {
+        //     $query->where('travel_model', 0);
+        // })
+        //     ->where('transportation_mode_id', 5)->
+        //     with(['respondent' => function ($query) {
+        //     // $query->where('travel_model', 0);
+        //     $query->select('id', 'travel_model', 'age_id', 'income_id', 'job_id', 'travel_purpose_id');
+        // }])
+        //     ->select('id','respondent_id')
+        //     ->get();
+
+            $data = App\SurveyPreferenceRespondent::where('survey_preference_id',3)->with(['respondent' => function ($query) {
+              // $query->where('travel_model', 0);
+              $query->select('id', 'travel_model', 'age_id', 'income_id', 'job_id', 'travel_purpose_id','origin','destination');
+              $query->with('age','income','job','travel_purpose');
+
+          }])
+          ->get();
         return $data;
     }
 }
