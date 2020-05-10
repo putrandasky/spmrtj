@@ -16,6 +16,7 @@ import ErrorPage from '@/admin/pages/Error/Error';
 // Main
 // import AnalyticsPage from '@/admin/pages/Dashboard/Dashboard';
 import Dashboard from '@/admin/pages/Dashboard/Dashboard2';
+import Thoughts from '@/admin/pages/Thoughts/Thoughts';
 
 // Charts
 // import ChartsPage from '@/admin/pages/Charts/Charts';
@@ -48,6 +49,11 @@ export default new Router({
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard,
+        },
+        {
+          path: 'thoughts',
+          name: 'Thoughts',
+          component: Thoughts,
         },
         // {
         //   path: 'typography',

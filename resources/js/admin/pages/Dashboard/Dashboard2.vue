@@ -140,7 +140,7 @@
               :data="data.parking_type.map(data => data.respondents_count   ) " label="Total Respondent" />
             <multi-bar v-if="isTravel == 4" :height="300" :chartLabel=" data.parking_guarantor.label.guarantor "
               :chartDatasets="data.parking_guarantor.data_set " label="Total Respondent" />
-            <multi-bar v-if="isTravel == 5" :height="300" :chartLabel=" data.travel_guarantor.label.guarantor "
+            <multi-bar v-if="isTravel == 5" :height="300" :chartLabel=" data.travel_guarantor.label.mode "
               :chartDatasets="data.travel_guarantor.data_set " label="Total Respondent" />
             <multi-bar v-if="isTravel == 6" :height="300" :chartLabel=" data.is_pay_park.label.respond "
               :chartDatasets="data.is_pay_park.data_set " label="Total Respondent" />
@@ -162,13 +162,13 @@
               <b-button v-for="(v,i) in wtp" :key="i" size="sm" :pressed="isWtp == v.id" variant="outline-secondary"
                 @click="handleWtpCard(v.id)">{{v.title}}</b-button>
             </b-button-group>
-            <multi-bar v-if="isWtp == 1" xLabel="Top 10 Willingness to Pay" yLabel="Respondent" :height="300" :chartLabel=" data.wtp_by_mode.label.cost "
+            <multi-bar v-if="isWtp == 1" xLabel="Top 10 Willingness to Pay" yLabel="Respondent" :height="300" :chartLabel=" data.wtp_by_mode.label.mode "
               :chartDatasets="data.wtp_by_mode.data_set " label="Total Respondent" />
-            <multi-bar v-if="isWtp == 2" xLabel="Top 10 Willingness to Pay" yLabel="Respondent"  :height="300" :chartLabel=" data.wtp_by_income.label.cost "
+            <multi-bar v-if="isWtp == 2" xLabel="Top 10 Willingness to Pay" yLabel="Respondent"  :height="300" :chartLabel=" data.wtp_by_income.label.income "
               :chartDatasets="data.wtp_by_income.data_set " label="Total Respondent" />
-            <multi-bar v-if="isWtp == 3" xLabel="Top 10 Willingness to Pay" yLabel="Respondent"  :height="300" :chartLabel=" data.wtp_by_duration.label.cost "
+            <multi-bar v-if="isWtp == 3" xLabel="Top 10 Willingness to Pay" yLabel="Respondent"  :height="300" :chartLabel=" data.wtp_by_duration.label.duration "
               :chartDatasets="data.wtp_by_duration.data_set " label="Total Respondent" />
-            <multi-bar v-if="isWtp == 4" xLabel="Top 10 Willingness to Pay" yLabel="Respondent"  :height="300" :chartLabel=" data.wtp_by_distance.label.cost "
+            <multi-bar v-if="isWtp == 4" xLabel="Top 10 Willingness to Pay" yLabel="Respondent"  :height="300" :chartLabel=" data.wtp_by_distance.label.distance "
               :chartDatasets="data.wtp_by_distance.data_set " label="Total Respondent" />
           </b-card-body>
         </b-card>

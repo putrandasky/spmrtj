@@ -22,15 +22,15 @@
             index="dashboard"
             isHeader
         />
-        <!-- <NavLink
+        <NavLink
             :activeItem="activeItem"
-            header="Typography"
-            link="/app/typography"
-            iconName="flaticon-list"
-            index="typography"
+            header="Thoughts"
+            link="/app/thoughts"
+            iconName="flaticon-star"
+            index="thoughts"
             isHeader
         />
-        <NavLink
+       <!--  <NavLink
             :activeItem="activeItem"
             header="Tables Basic"
             link="/app/tables"

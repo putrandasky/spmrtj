@@ -4,6 +4,7 @@ import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 var VueTouch = require('vue-touch');
 import Toasted from 'vue-toasted';
+import '@/admin/filter/filter';
 
 import store from './store';
 import router from './Routes';

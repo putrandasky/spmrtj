@@ -26,11 +26,15 @@ export default {
             userBgColor: [
                 "#24478c",
                 "#41B64C",
-                "#b3001b",
-                "#262626",
-                "#4d7c8a",
-                "#d9bbf9",
-                "#ef7674"
+                "#16a085",
+                "#f39c12",
+                "#d35400",
+                "#c0392b",
+                "#8e44ad",
+                "#34495e",
+                "#7f8c8d",
+                "#bdc3c7"
+
             ],
             chartdata: {
                 labels: this.chartLabel,

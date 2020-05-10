@@ -62,6 +62,7 @@ Route::get('line', 'Google\MapController@waypoint');
 Route::get('station', 'Google\MapController@station');
 Route::get('map-data', 'Google\MapController@mapData');
 Route::get('dashboard', 'Admin\DashboardController@index');
+Route::get('thoughts', 'Admin\ThoughtsController@index');
 Route::get('sandbox', 'Respondent\SandboxController@index');
 Route::get('export-data', 'Export\ExportController@export');
 

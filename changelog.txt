@@ -1,3 +1,11 @@
+10 Mei 2020
+### ADDED
+- Thoughts Page
+
+### CHANGE
+- switch cluster at axis WTP
+- switch cluster at axis Travel Guarantor
+
 6 Mei 2020
 ### ADDED
 - In Dashboard, Summary SP for feeder car,motor, public, mix

@@ -110,23 +110,24 @@ class DashboardController extends Controller
         $data['travel_guarantor']['label']['guarantor'] = App\TravelGuarantor::get()->pluck('description');
         $travel_guarantor_id = App\TravelGuarantor::get()->pluck('id');
         $data['travel_guarantor']['label']['mode'] = array("Mobil", "Motor", "Umum", "Campuran");
-        for ($i = 0; $i < count($data['travel_guarantor']['label']['mode']); $i++) {
-            $data['travel_guarantor']['data_set'][$i]['label'] = $data['travel_guarantor']['label']['mode'][$i];
-            if ($i <= 1) {
+        for ($i = 0; $i < count($data['travel_guarantor']['label']['guarantor']); $i++) {
+            $data['travel_guarantor']['data_set'][$i]['label'] = $data['travel_guarantor']['label']['guarantor'][$i];
+            for ($a = 0; $a < count($data['travel_guarantor']['label']['mode']); $a++) {
+
+            if ($a <= 1) {
                 $selected_mode = App\Respondent::where('step_id', '>', 3)->where('travel_model', 0)
-                    ->whereHas('travel_details', function ($query) use ($i) {
-                        $query->whereBetween('transportation_mode_id', $i == 0 ? [5, 6] : [3, 4]);
+                    ->whereHas('travel_details', function ($query) use ($a) {
+                        $query->whereBetween('transportation_mode_id', $a == 0 ? [5, 6] : [3, 4]);
                     })->get();
             }
-            if ($i == 2) {
+            if ($a == 2) {
                 $selected_mode = App\Respondent::where('step_id', '>', 3)->where('travel_model', 1)->get();
             }
-            if ($i == 3) {
+            if ($a == 3) {
                 $selected_mode = App\Respondent::where('step_id', '>', 3)->where('travel_model', 2)->get();
             }
-            for ($a = 0; $a < count($data['travel_guarantor']['label']['guarantor']); $a++) {
                 $data['travel_guarantor']['data_set'][$i]['chartData'][$a] = $selected_mode
-                    ->where('travel_guarantor_id', $travel_guarantor_id[$a])
+                    ->where('travel_guarantor_id', $travel_guarantor_id[$i])
                     ->count();
             }
         }
@@ -165,38 +166,39 @@ class DashboardController extends Controller
         $wtp_respondent_sorted = array_values(Arr::sort($wtp_respondent));
         $data['wtp_by_mode']['label']['cost'] = $wtp_respondent_sorted;
         $data['wtp_by_mode']['label']['mode'] = array("Mobil", "Motor", "Umum", "Campuran");
-        for ($i = 0; $i < count($data['wtp_by_mode']['label']['mode']); $i++) {
-            $data['wtp_by_mode']['data_set'][$i]['label'] = $data['wtp_by_mode']['label']['mode'][$i];
-            if ($i <= 1) {
+        for ($i = 0; $i < count($data['wtp_by_mode']['label']['cost']); $i++) {
+            $data['wtp_by_mode']['data_set'][$i]['label'] = $data['wtp_by_mode']['label']['cost'][$i];
+            for ($a = 0; $a < count($data['wtp_by_mode']['label']['mode']); $a++) {
+
+            if ($a <= 1) {
                 $selected_mode = App\Respondent::where('step_id', '>', 3)->where('travel_model', 0)
-                    ->whereHas('travel_details', function ($query) use ($a) {
-                        $query->whereBetween('transportation_mode_id', $a == 0 ? [5, 6] : [3, 4]);
+                    ->whereHas('travel_details', function ($query) use ($i) {
+                        $query->whereBetween('transportation_mode_id', $i == 0 ? [5, 6] : [3, 4]);
                     })->get();
             }
-            if ($i == 2) {
+            if ($a == 2) {
                 $selected_mode = App\Respondent::where('step_id', '>', 3)->where('travel_model', 1)->get();
             }
-            if ($i == 3) {
+            if ($a == 3) {
                 $selected_mode = App\Respondent::where('step_id', '>', 3)->where('travel_model', 2)->get();
             }
-            for ($a = 0; $a < count($data['wtp_by_mode']['label']['cost']); $a++) {
 
                 $data['wtp_by_mode']['data_set'][$i]['chartData'][$a] = $selected_mode
-                    ->where('mrt_cost', $wtp_respondent_sorted[$a])
+                    ->where('mrt_cost', $wtp_respondent_sorted[$i])
                     ->count();
             }
         }
 
         $data['wtp_by_income'] = $this->getMultiDataChart(
             App\Respondent::get(),
-            'cost',
-            $wtp_respondent_sorted,
-            'mrt_cost',
-            $wtp_respondent_sorted,
             'income',
             App\Income::get()->pluck('description'),
             'income_id',
-            App\Income::get()->pluck('id')
+            App\Income::get()->pluck('id'),
+            'cost',
+            $wtp_respondent_sorted,
+            'mrt_cost',
+            $wtp_respondent_sorted
         );
         $data['wtp_by_duration']['label']['cost'] = $wtp_respondent_sorted;
         for ($i = 0; $i < 7; $i++) {
@@ -209,17 +211,17 @@ class DashboardController extends Controller
                 $data['wtp_by_duration']['label']['duration'][$i] = " > {$init_minute} min ";
             }
         }
-        for ($a = 0; $a < count($data['wtp_by_duration']['label']['duration']); $a++) {
-            $data['wtp_by_duration']['data_set'][$a]['label'] = $data['wtp_by_duration']['label']['duration'][$a];
-            for ($i = 0; $i < count($data['wtp_by_duration']['label']['cost']); $i++) {
-                if ($a < (count($data['wtp_by_duration']['label']['duration']) - 1)) {
-                    $data['wtp_by_duration']['data_set'][$a]['chartData'][$i] = App\Respondent::whereBetween('google_duration', [($a * 30 * 60) + 1, ($a + 1) * 30 * 60])
-                        ->where('mrt_cost', $data['wtp_by_duration']['label']['cost'][$i])
+        for ($a = 0; $a < count($data['wtp_by_duration']['label']['cost']); $a++) {
+            $data['wtp_by_duration']['data_set'][$a]['label'] = $data['wtp_by_duration']['label']['cost'][$a];
+            for ($i = 0; $i < count($data['wtp_by_duration']['label']['duration']); $i++) {
+                if ($a < (count($data['wtp_by_duration']['label']['cost']) - 1)) {
+                    $data['wtp_by_duration']['data_set'][$a]['chartData'][$i] = App\Respondent::whereBetween('google_duration', [($i * 30 * 60) + 1, ($i + 1) * 30 * 60])
+                        ->where('mrt_cost', $data['wtp_by_duration']['label']['cost'][$a])
                         ->count();
                 }
-                if ($a >= (count($data['wtp_by_duration']['label']['duration']) - 1)) {
-                    $data['wtp_by_duration']['data_set'][$a]['chartData'][$i] = App\Respondent::where('google_duration', '>', ($a * 30 * 60))
-                        ->where('mrt_cost', $data['wtp_by_duration']['label']['cost'][$i])
+                if ($a >= (count($data['wtp_by_duration']['label']['cost']) - 1)) {
+                    $data['wtp_by_duration']['data_set'][$a]['chartData'][$i] = App\Respondent::where('google_duration', '>', ($i * 30 * 60))
+                        ->where('mrt_cost', $data['wtp_by_duration']['label']['cost'][$a])
                         ->count();
                 }
             }
@@ -236,17 +238,17 @@ class DashboardController extends Controller
                 $data['wtp_by_distance']['label']['distance'][$i] = " > {$init_distance} km ";
             }
         }
-        for ($a = 0; $a < count($data['wtp_by_distance']['label']['distance']); $a++) {
-            $data['wtp_by_distance']['data_set'][$a]['label'] = $data['wtp_by_distance']['label']['distance'][$a];
-            for ($i = 0; $i < count($data['wtp_by_distance']['label']['cost']); $i++) {
-                if ($a < (count($data['wtp_by_distance']['label']['distance']) - 1)) {
-                    $data['wtp_by_distance']['data_set'][$a]['chartData'][$i] = App\Respondent::whereBetween('google_distance', [($a * 4 * 1000), ($a + 1) * 4 * 1000])
-                        ->where('mrt_cost', $data['wtp_by_distance']['label']['cost'][$i])
+        for ($a = 0; $a < count($data['wtp_by_distance']['label']['cost']); $a++) {
+            $data['wtp_by_distance']['data_set'][$a]['label'] = $data['wtp_by_distance']['label']['cost'][$a];
+            for ($i = 0; $i < count($data['wtp_by_distance']['label']['distance']); $i++) {
+                if ($a < (count($data['wtp_by_distance']['label']['cost']) - 1)) {
+                    $data['wtp_by_distance']['data_set'][$a]['chartData'][$i] = App\Respondent::whereBetween('google_distance', [($i * 4 * 1000), ($i + 1) * 4 * 1000])
+                        ->where('mrt_cost', $data['wtp_by_distance']['label']['cost'][$a])
                         ->count();
                 }
-                if ($a >= (count($data['wtp_by_distance']['label']['distance']) - 1)) {
-                    $data['wtp_by_distance']['data_set'][$a]['chartData'][$i] = App\Respondent::where('google_distance', '>', ($a * 4 * 1000))
-                        ->where('mrt_cost', $data['wtp_by_distance']['label']['cost'][$i])
+                if ($a >= (count($data['wtp_by_distance']['label']['cost']) - 1)) {
+                    $data['wtp_by_distance']['data_set'][$a]['chartData'][$i] = App\Respondent::where('google_distance', '>', ($i * 4 * 1000))
+                        ->where('mrt_cost', $data['wtp_by_distance']['label']['cost'][$a])
                         ->count();
                 }
             }
