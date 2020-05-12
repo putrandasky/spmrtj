@@ -42,6 +42,8 @@
       <td>{{$respondent->sp_pedestrian_respond(3,14)? 1 : 0}}</td>
       <td>{{$respondent->sp_pedestrian_respond(3,15)? 1 : 0}}</td>
       <td>{{$respondent->sp_pedestrian_respond(3,16)? 1 : 0}}</td>
+      <td>{{$respondent->sp_pedestrian_respond(3,17)? 1 : 0}}</td>
+      <td>{{$respondent->sp_pedestrian_respond(3,18)? 1 : 0}}</td>
       <td>{{$respondent->sp_pedestrians()->where('question_id',4)->first()->sp_pedestrian_choice()->first()->description}}</td>
 
     </tr>

@@ -1,3 +1,11 @@
+12 Mei 2020
+### ADDED
+- WTP Original
+
+### FIXED
+- Chart WTP for duration and distance (wrong calculated)
+
+
 10 Mei 2020
 ### ADDED
 - Thoughts Page
