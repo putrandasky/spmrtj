@@ -44,7 +44,7 @@
       <td>{{$v->google_duration}}</td>
       <td>{{$v->travel_purpose->description}}</td>
       <td>
-        {{$v->travel_model == 0 ? "Pribadi" :  $v->travel_model == 1 ? "Umum" : $v->travel_model == 2 ? "Campuran" : null }}
+        {{$v->travel_model == 0 ? "Pribadi" :  ($v->travel_model == 1 ? "Umum" : ($v->travel_model == 2 ? "Campuran" : null)) }}
       </td>
       <td>{{$v->travel_frequency}}</td>
       <td>{{$v->parking_guarantor ? $v->parking_guarantor->description : null}}</td>

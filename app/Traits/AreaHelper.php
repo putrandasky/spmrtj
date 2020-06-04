@@ -10,6 +10,19 @@ trait AreaHelper
     {
         $data = array();
         // dd(collect($area_destination)->contains(1));
+
+        // instruksi untuk semua pengguna mobil pribadi akan dapat sp mobil, begitu juga dengan sepeda motor
+        if ($travel_model == 0 || $travel_model == 2) {
+            if ((collect($transportation_mode)->contains(3))) {
+                //Jika moda transportasi yang dipilih motor pribadi
+                array_push($data, 4);
+            }
+            if (collect($transportation_mode)->contains(5)) {
+                //Jika moda transportasi yang dipilih mobil pribadi
+                array_push($data, 3);
+            }
+        }
+
         if ($travel_model == 0) {
             //JIka origin dan destination terlayani jalur pedestrian
 
@@ -25,7 +38,7 @@ trait AreaHelper
                 //jika destinasi masuk area parkir dan penganggung jawab parkir pribadi
                 if ((collect($transportation_mode)->contains(3) || collect($transportation_mode)->contains(4))) {
                     //Jika moda transportasi yang dipilih motor pribadi
-                    array_push($data, 4);
+                    // array_push($data, 4);
                     if (collect($area_origin)->contains(5)) {
                         //jika origin masuk feeder
                         array_push($data, 5, 6, 7);
@@ -47,7 +60,7 @@ trait AreaHelper
                 }
                 if ((collect($transportation_mode)->contains(5) || collect($transportation_mode)->contains(6))) {
                     //Jika moda transportasi yang dipilih mobil pribadi
-                    array_push($data, 3);
+                    // array_push($data, 3);
                     if (collect($area_origin)->contains(5)) {
                         //jika origin masuk feeder
                         array_push($data, 5, 6, 7);

@@ -1,3 +1,16 @@
+4 Jun 2020
+
+### ADDED
+- "nb: geser untuk pilih" in TravelData on travel_frequence and parking_cost
+- New question for early and last question of park ride common
+
+### CHANGED
+- SP Car or Motor Parking to be assign to  Car and Motor user not limited by area
+### FIXED
+- Delete for (Skip last question in SP Feeder reguler & premium for respondent not using MRT )
+- initial parking_cost in travel data to 0 insteal null due to initial appearance of slider in the middle
+
+
 12 Mei 2020
 ### ADDED
 - WTP Original
