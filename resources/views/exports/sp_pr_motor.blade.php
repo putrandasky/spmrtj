@@ -2,11 +2,13 @@
   <thead>
     <tr>
       <th rowspan="2" style="text-align:center;font-weight:bold">Id</th>
+      <th rowspan="2" style="text-align:center;font-weight:bold">PR Eksisting</th>
       <th rowspan="2" style="text-align:center;font-weight:bold">Lokasi PR</th>
       <th colspan="5" style="text-align:center;font-weight:bold">Jenis Parkir </th>
       <th colspan="6" style="text-align:center;font-weight:bold">Fasilitas PR</th>
       <th rowspan="2" style="text-align:center;font-weight:bold">Durasi</th>
       <th colspan="4" style="text-align:center;font-weight:bold">Tarif PR Motor</th>
+      <th rowspan="2" style="text-align:center;font-weight:bold">Potensi PR</th>
     </tr>
     <tr>
       @for ($i = 0; $i < 5; $i++) <th style="text-align:center;font-weight:bold">{{$i + 1}}</th>
@@ -33,6 +35,7 @@
     @endphp
     <tr>
       <td>{{$respondent->id}}</td>
+      <td>{{$respondent->sp_park_ride_commons()->where('question_id',5)->first()->respond ?? null}}</td>
       <td>{{$respondent->sp_park_ride_commons()->where('question_id',1)->first()->respond}}</td>
       <td>{{$parking_type_respond == 1 ? 1 : ""}}</td>
       <td>{{$parking_type_respond == 2 ? 1 : ""}}</td>
@@ -51,6 +54,7 @@
       <td>{{$pr_motor_8000}}</td>
       <td>{{$pr_motor_5000}}</td>
       <td>{{$pr_motor_2000}}</td>
+      <td>{{$respondent->sp_park_ride_commons()->where('question_id',6)->first()->respond ?? null}}</td>
     </tr>
     @endforeach
   </tbody>

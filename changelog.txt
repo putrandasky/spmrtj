@@ -1,3 +1,8 @@
+13 Nov 20
+
+### ADDED
+- vehicle availability on maps simulation page
+
 4 Jun 2020
 
 ### ADDED

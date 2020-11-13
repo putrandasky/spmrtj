@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Respondent extends Model
 {
 
-
     public function step()
     {
         return $this->belongsTo('App\Step');
@@ -43,6 +42,10 @@ class Respondent extends Model
     public function survey_preference_respondents()
     {
         return $this->hasMany('App\SurveyPreferenceRespondent');
+    }
+    public function station_respondents()
+    {
+        return $this->hasMany('App\StationRespondent');
     }
     public function age()
     {
@@ -118,7 +121,7 @@ class Respondent extends Model
     }
     public function sp_feeder_reguler_respond($time_id, $cost_id)
     {
-        return $this->sp_feeder_regulers()->where(['time_preference_id' => $time_id+8, 'cost_preference_id' => $cost_id+10])->first();
+        return $this->sp_feeder_regulers()->where(['time_preference_id' => $time_id + 8, 'cost_preference_id' => $cost_id + 10])->first();
     }
     public function sp_feeder_premia()
     {
@@ -126,7 +129,7 @@ class Respondent extends Model
     }
     public function sp_feeder_premium_respond($cost_id)
     {
-        return $this->sp_feeder_premia()->where([ 'cost_preference_id' => $cost_id+16])->first();
+        return $this->sp_feeder_premia()->where(['cost_preference_id' => $cost_id + 16])->first();
     }
     public function sp_feeder_parks()
     {
@@ -134,15 +137,15 @@ class Respondent extends Model
     }
     public function sp_feeder_park_respond($cost_id)
     {
-        return $this->sp_feeder_parks()->where([ 'cost_preference_id' => $cost_id+21])->first();
+        return $this->sp_feeder_parks()->where(['cost_preference_id' => $cost_id + 21])->first();
     }
     public function sp_park_ride_commons()
     {
         return $this->hasMany('App\SpParkRideCommon');
     }
-    public function sp_park_ride_common_respond($question_id,$respond)
+    public function sp_park_ride_common_respond($question_id, $respond)
     {
-        return $this->sp_park_ride_commons()->where(['question_id' => $question_id,'respond'=>$respond])->first();
+        return $this->sp_park_ride_commons()->where(['question_id' => $question_id, 'respond' => $respond])->first();
     }
     public function sp_park_ride_primary_cars()
     {
@@ -151,7 +154,7 @@ class Respondent extends Model
 
     public function sp_park_ride_primary_car_respond($cost_id)
     {
-        return $this->sp_park_ride_primary_cars()->where(['cost_preference_id' => $cost_id+27])->first();
+        return $this->sp_park_ride_primary_cars()->where(['cost_preference_id' => $cost_id + 27])->first();
     }
     public function sp_park_ride_primary_motors()
     {
@@ -160,7 +163,7 @@ class Respondent extends Model
 
     public function sp_park_ride_primary_motor_respond($cost_id)
     {
-        return $this->sp_park_ride_primary_motors()->where(['cost_preference_id' => $cost_id+34])->first();
+        return $this->sp_park_ride_primary_motors()->where(['cost_preference_id' => $cost_id + 34])->first();
     }
     public function sp_park_ride_hypo_cars()
     {

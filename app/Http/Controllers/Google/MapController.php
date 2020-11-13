@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Google;
 
 use App;
 use App\Http\Controllers\Controller;
+use App\Traits\AreaHelper;
 use App\Traits\GoogleHelper;
-use App\Traits\RouteHelper;
 use Carbon;
 use Illuminate\Http\Request;
 use Taniko\Dijkstra\Graph;
-use App\Traits\AreaHelper;
 
 class MapController extends Controller
 {
@@ -22,15 +21,14 @@ class MapController extends Controller
     private $mrtVelocity = 35;
     private $feederVelocity = 28;
 
-    public function dijkstra($origin, $destination,$class)
+    public function dijkstra($origin, $destination, $class)
     {
         if ($class == 'WayPoint') {
-         $nodes = App\WayPoint::with('source', 'after')->get();
+            $nodes = App\WayPoint::with('source', 'after')->get();
         }
         if ($class == 'WayPointFeeder') {
-         $nodes = App\WayPointFeeder::with('source', 'after')->get();
+            $nodes = App\WayPointFeeder::with('source', 'after')->get();
         }
-
 
         $network = Graph::create();
         foreach ($nodes as $v) {
@@ -155,12 +153,13 @@ class MapController extends Controller
             $request->area_destination,
             $request->input('input.transportation_mode'),
             $request->input('input.travel_model'),
-            $request->input('input.parking_guarantor')
+            $request->input('input.parking_guarantor'),
+            $request->input('input.vahicle_availability')
         );
         $data['sp'] = array();
         if (!empty($getSurveyPreferenceId)) {
             foreach ($getSurveyPreferenceId as $key => $value) {
-                $data['sp'][$key] = App\SurveyPreference::where('id',$value)->first()->description;
+                $data['sp'][$key] = App\SurveyPreference::where('id', $value)->first()->description;
             }
         }
         // return $data['sp'];
@@ -173,7 +172,6 @@ class MapController extends Controller
         $data['destination'] = $this->position("Destination", "Tujuan Anda", $request->place_destination['lat'], $request->place_destination['lng']);
         $data['mrt']['path'] = array();
         $data['feeder']['path'] = array();
-
 
         if (collect($request->area_origin)->contains(5)) {
             //check if O in Feeder Area
@@ -191,7 +189,6 @@ class MapController extends Controller
 
                 $duration_with_feeder = $data['origin_station']['duration_seconds'] + $data['destination_station']['duration_seconds'] + $data['feeder']['duration_seconds'];
                 $duration_difference = Carbon\CarbonInterval::seconds(abs($duration_with_feeder - $data['google']['duration_seconds']))->cascade()->locale('id')->forHumans();
-
 
                 $data['summary']['duration_with_feeder'] = Carbon\CarbonInterval::seconds($duration_with_feeder)->cascade()->locale('id')->forHumans();
                 $data['summary']['duration_with_feeder_seconds'] = $duration_with_feeder;
@@ -275,7 +272,6 @@ class MapController extends Controller
                 $duration_with_mrt = $data['origin_station']['duration_seconds'] + $data['destination_station']['duration_seconds'] + $data['mrt']['duration_seconds'];
                 $duration_difference = Carbon\CarbonInterval::seconds(abs($duration_with_mrt - $data['google']['duration_seconds']))->cascade()->locale('id')->forHumans();
 
-
                 $data['summary']['duration_with_mrt'] = Carbon\CarbonInterval::seconds($duration_with_mrt)->cascade()->locale('id')->forHumans();
                 $data['summary']['duration_with_mrt_seconds'] = $duration_with_mrt;
                 $data['summary']['the_better'] =
@@ -339,7 +335,6 @@ class MapController extends Controller
             "mrt lebih cepat {$duration_difference}";
 
             if ($data['google']['distance_value'] < $data['destination_station']['distance_value'] || $data['google']['distance_value'] < $data['origin_station']['distance_value']) {
-
 
                 unset($data['origin_station']);
                 unset($data['destination_station']);

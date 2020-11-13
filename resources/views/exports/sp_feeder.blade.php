@@ -3,8 +3,9 @@
     <tr>
       <th rowspan="2" style="text-align:center;font-weight:bold">Id</th>
       <th colspan="20" style="text-align:center;font-weight:bold">Feeder Reguler</th>
+      <th rowspan="2" style="text-align:center;font-weight:bold">Potensi MRT</th>
       <th colspan="6" style="text-align:center;font-weight:bold">Feeder Premium</th>
-
+      <th rowspan="2" style="text-align:center;font-weight:bold">Potensi MRT</th>
     </tr>
     <tr>
       <th style="text-align:center;font-weight:bold">$X4Y4</th>
@@ -89,12 +90,14 @@
       <td>{{$X1Y1}}</td>
       <td>{{$X1Y5}}</td>
       <td>{{$X1Y6}}</td>
+      <td>{{$respondent->is_using_feeder_reguler}}</td>
       <td>{{$premium20000}}</td>
       <td>{{$premium18000}}</td>
       <td>{{$premium15000}}</td>
       <td>{{$premium12000}}</td>
       <td>{{$premium8000}}</td>
       <td>{{$premium5000}}</td>
+      <td>{{$respondent->is_using_feeder_premium}}</td>
     </tr>
     @endforeach
   </tbody>
