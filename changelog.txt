@@ -1,3 +1,7 @@
+23 Nov 20
+
+### FIXED
+- typo data name on vehicle availability
 13 Nov 20
 
 ### ADDED

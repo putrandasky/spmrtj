@@ -343,7 +343,7 @@
               value: 3
             }
           ],
-          vahicle_availabilities: [{
+          vehicle_availabilities: [{
               text: "Motor",
               value: 1
             },
