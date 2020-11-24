@@ -24,7 +24,8 @@ trait GoogleHelper
         $destination = $lat2 . "," . $lng2;
         $client = new Client($this->base_uri);
 
-        $request = $client->request('GET', "distancematrix/json?avoid=tolls&departure_time=1595289600&traffic_model=pessimistic&origins={$origins}&destinations={$destination}&language=id&key={$this->apiKey}");
+        // $request = $client->request('GET', "distancematrix/json?avoid=tolls&departure_time=1595289600&traffic_model=pessimistic&origins={$origins}&destinations={$destination}&language=id&key={$this->apiKey}");
+        $request = $client->request('GET', "distancematrix/json?avoid=tolls&origins={$origins}&destinations={$destination}&language=id&key={$this->apiKey}");
         $response = json_decode($request->getBody()->getContents(), true);
         return $response;
 
